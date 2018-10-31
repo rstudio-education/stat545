@@ -1,5 +1,19 @@
 language: r
-cache: packages
+cache:
+  packages: true
+  directories:
+  - _bookdown_files
+  - $HOME/.npm
+  
+pandoc_version: 1.19.2.1
+  
+before_install:
+  - npm install netlify-cli -g
 
 script:
   - Rscript -e 'bookdown::render_book("index.rmd")'
+  
+deploy:
+  provider: script
+  script: netlify deploy -t $NETLIFY_AUTH_TOKEN
+  skip_cleanup: true
