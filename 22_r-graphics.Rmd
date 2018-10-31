@@ -1,0 +1,5 @@
+# (PART) All the graph things {-} 
+
+# R graphics landscape {#r-graphics}
+
+note currently a placehold with slides only

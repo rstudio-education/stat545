@@ -1,0 +1,7 @@
+# (PART) Version Control {-} 
+
+# Happy Git with R
+
+Some _significant_ applications are demonstrated in this chapter.
+
+

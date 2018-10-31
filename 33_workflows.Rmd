@@ -1,0 +1,7 @@
+# (PART) All the automation things {-} 
+
+# Workflows {#workflow}
+
+http://stat545.com/automation00_index.html
+
+All this section of website is specific to make- want to skip in favor of more WTF style workflows?

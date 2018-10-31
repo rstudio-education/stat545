@@ -1,0 +1,5 @@
+# (PART) Data Analysis 1 {-} 
+
+# Basic care and feeding of data in R {#data-care}
+
+We have finished a nice book.

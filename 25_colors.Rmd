@@ -1,0 +1,3 @@
+# Using colors in R {#colors}
+
+Note that I SKIPPED THE R GRAPH CATALOG LINK

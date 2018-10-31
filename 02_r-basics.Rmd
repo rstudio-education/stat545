@@ -1,0 +1,4 @@
+# R basics and workflows {#r-basics}
+
+
+R basics, workspace and working directory, RStudio projects

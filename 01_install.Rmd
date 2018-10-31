@@ -1,0 +1,4 @@
+# (PART) Get your R act together {-} 
+
+# Install R and RStudio {#install}
+

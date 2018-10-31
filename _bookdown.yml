@@ -1,0 +1,5 @@
+book_filename: "stat545-reboot"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
