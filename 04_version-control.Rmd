@@ -4,11 +4,11 @@
 
 Content now here: http://happygitwithr.com. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
 
-# Claim your private STAT 545 repository
+## Claim your private STAT 545 repository
 
 [Link to original content](http://stat545.com/git08_claim-stat545-repo.html)
 
-## Prerequisites
+### Prerequisites
 
 We assume the following: 
 
@@ -24,7 +24,7 @@ Instructions for all of this are here:
 
 <http://happygitwithr.com>
 
-## Outline
+### Outline
 
 This will be brief. You've done all of this before, in the set-up and test drives above.
 
