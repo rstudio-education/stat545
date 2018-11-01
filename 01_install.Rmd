@@ -2,3 +2,4 @@
 
 # Install R and RStudio {#install}
 
+some random notes here
