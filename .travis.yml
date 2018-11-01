@@ -6,6 +6,13 @@ cache:
   packages: true
   directories:
   - _bookdown_files
+  - $HOME/.npm
+
+before_install:
+- npm install netlify-cli -g
 
 script:
 - Rscript -e 'bookdown::render_book("index.Rmd")'
+
+after_success:
+- netlify deploy
