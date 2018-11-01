@@ -1,5 +1,7 @@
 # R basics and workflows {#r-basics}
 
+[Link to original content](http://stat545.com/block002_hello-r-workspace-wd-project.html)
+
 ## Basics of working with R at the command line and RStudio goodies
 
 Launch RStudio/R.
