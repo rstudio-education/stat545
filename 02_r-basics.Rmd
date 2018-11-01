@@ -1,4 +1,124 @@
 # R basics and workflows {#r-basics}
 
+## Basics of working with R at the command line and RStudio goodies
 
-R basics, workspace and working directory, RStudio projects
+Launch RStudio/R.
+
+Notice the default panes:
+
+  * Console (entire left)
+  * Environment/History (tabbed in upper right)
+  * Files/Plots/Packages/Help (tabbed in lower right)
+
+FYI: you can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
+
+Go into the Console, where we interact with the live R process.
+
+Make an assignment and then inspect the object you just created.
+
+```{r}
+x <- 3 * 4
+x
+```
+
+All R statements where you create objects -- "assignments" -- have this form:
+```{r eval = FALSE}
+objectName <- value
+```
+and in my head I hear, e.g., "x gets 12".
+
+You will make lots of assignments and the operator `<-` is a pain to type. Don't be lazy and use `=`, although it would work, because it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: Alt + - (the minus sign).
+
+Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
+
+RStudio offers many handy [keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts). Also, Alt+Shift+K brings up a keyboard shortcut reference card.
+
+Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words](http://en.wikipedia.org/wiki/Snake_case) in names.
+
+```
+i_use_snake_case
+other.people.use.periods
+evenOthersUseCamelCase
+```
+
+Make another assignment
+```{r}
+this_is_a_really_long_name <- 2.5
+```
+
+To inspect this, try out RStudio's completion facility: type the first few characters, press TAB, add characters until you disambiguate, then press return.
+
+Make another assignment
+```{r}
+jenny_rocks <- 2 ^ 3
+```
+
+Let's try to inspect:
+```{r error=TRUE}
+jennyrocks
+jeny_rocks
+```
+
+Implicit contract with the computer / scripting language: Computer will do tedious computation for you. In return, you will be completely precise in your instructions. Typos matter. Case matters. Get better at typing.
+
+R has a mind-blowing collection of built-in functions that are accessed like so
+
+```{r eval = FALSE, tidy = FALSE}
+functionName(arg1 = val1, arg2 = val2, and so on)
+```
+
+Let's try using `seq()` which makes regular sequences of numbers and, while we're at it, demo more helpful features of RStudio.
+
+Type `se` and hit TAB. A pop up shows you possible completions. Specify `seq()` by typing more to disambiguate or using the up/down arrows to select. Notice the floating tool-tip-type help that pops up, reminding you of a function's arguments. If you want even more help, press F1 as directed to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle.  Type the arguments `1, 10` and hit return. RStudio also exits the parenthetical expression for you.  IDEs are great.
+
+```{r}
+seq(1, 10)
+```
+
+The above also demonstrates something about how R resolves function arguments. You can always specify in `name = value` form. But if you do not, R attempts to resolve by position. So above, it is assumed that we want a sequence `from = 1` that goes `to = 10`. Since we didn't specify step size, the default value of `by` in the function definition is used, which ends up being 1 in this case. For functions I call often, I might use this resolve by position for the first
+argument or maybe the first two. After that, I always use `name = value`.
+
+
+Make this assignment and notice similar help with quotation marks.
+```{r}
+yo <- "hello world"
+```
+
+If you just make an assignment, you don't get to see the value, so then you're tempted to immediately inspect.
+
+```{r}
+y <- seq(1, 10)
+y
+```
+
+This common action can be shortened by surrounding the assignment with parentheses, which causes assignment and "print to screen" to happen.
+
+```{r}
+(y <- seq(1, 10))
+```
+
+Not all functions have (or require) arguments:
+```{r}
+date()
+```
+
+Now look at your workspace -- in the upper right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:
+
+```{r}
+objects()
+ls()
+```
+
+If you want to remove the object named `y`, you can do this
+
+```{r}
+rm(y)
+```
+
+To remove everything:
+
+```{r}
+rm(list = ls())
+```
+
+or click the broom in RStudio's Environment pane.
