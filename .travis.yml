@@ -15,4 +15,4 @@ script:
 - Rscript -e 'bookdown::render_book("index.Rmd")'
 
 after_success:
-- netlify deploy --prod
+- netlify deploy --prod --dir _book
