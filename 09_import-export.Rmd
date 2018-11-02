@@ -1,1 +1,257 @@
 # Writing and reading files {#import-export}
+
+[Link to original content](http://stat545.com/block002_hello-r-workspace-wd-project.html)
+
+## File I/O overview
+
+We've been loading the Gapminder data as a data.frame from the `gapminder` data package. We haven't been explicitly writing any data or derived results to file. In real life, you'll bring rectangular data into and out of R all the time. Sometimes you'll need to do same for non-rectangular objects.
+
+How do you do this? What issues should you think about?
+
+### Data import mindset
+
+Data import generally feels one of two ways:
+
+  * "Surprise me!" This is the attitude you must adopt when you first get a dataset. You are just happy to import without an error. You start to explore. You discover flaws in the data and/or the import. You address them. Lather, rinse, repeat.
+  * "Another day in paradise." This is the attitude when you bring in a tidy dataset you have maniacally cleaned in one or more cleaning scripts. There should be no surprises. You should express your expectations about the data in formal assertions at the very start of these downstream scripts.
+  
+In the second case, and as the first cases progresses, you actually know a lot about how the data is / should be. My main import advice: **use the arguments of your import function to get as far as you can, as fast as possible**. Novice code often has a great deal of unnecessary post import fussing around. Read the docs for the import functions and take maximum advantage of the arguments to control the import.
+
+### Data export mindset
+
+There will be many occasions when you need to write data from R. Two main examples:
+
+  * a tidy ready-to-analyze dataset that you heroically created from messy data
+  * a numerical result from data aggregation or modelling or statistical inference 
+
+First tip: __today's outputs are tomorrow's inputs__. Think back on all the pain you have suffered importing data and don't inflict such pain on yourself!
+
+Second tip: don't be too cute or clever. A plain text file that is readable by a human being in a text editor should be your default until you have __actual proof__ that this will not work. Reading and writing to exotic or proprietary formats will be the first thing to break in the future or on a different computer. It also creates barriers for anyone who has a different toolkit than you do. Be software-agnostic. Aim for future-proof and moron-proof.
+
+How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with `knitr` and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make](http://kbroman.github.io/minimal_make/).
+
+## Load the tidyverse and forcats
+
+The main function we will be using is readr, which provides drop-in substitutes for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will also load and use the forcats package.
+
+```{r}
+library(tidyverse)
+library(forcats)
+```
+
+## Locate the Gapminder data
+
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package](https://fs.r-lib.org/index.html).
+
+```{r}
+library(fs)
+(gap_tsv <- path_package("gapminder", "extdata", "gapminder.tsv"))
+```
+
+## Bring rectangular data in
+
+The workhorse data import function of readr is `read_delim()`. Here we'll use a variant, `read_tsv()`, that anticipates tab-delimited data:
+
+```{r}
+gapminder <- read_tsv(gap_tsv)
+str(gapminder, give.attr = FALSE)
+```
+
+For full flexibility re: specifying the delimiter, you can always use `readr::read_delim()`.
+
+There's a similar convenience wrapper for comma-separated values, `read_csv()`.
+
+The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use readr.
+
+```{r}
+gapminder <- gapminder %>%
+  mutate(country = factor(country),
+         continent = factor(continent))
+str(gapminder)
+```
+
+### Bring rectangular data in -- summary
+
+Default to `readr::read_delim()` and friends. Use the arguments!
+
+The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the vignette on [column types](https://cran.r-project.org/web/packages/readr/vignettes/column-types.html). There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
+
+## Compute something worthy of export
+
+We need compute something worth writing to file. Let's create a country-level summary of maximum life expectancy.
+
+```{r}
+gap_life_exp <- gapminder %>%
+  group_by(country, continent) %>% 
+  summarise(life_exp = max(lifeExp)) %>% 
+  ungroup()
+gap_life_exp
+```
+
+The `gap_life_exp` data frame is an example of an intermediate result that we want to store for the future and for downstream analyses or visualizations.
+
+## Write rectangular data out
+
+The workhorse export function for rectangular data in readr is `write_delim()` and friends. Let's use `write_csv()` to get a comma-delimited file.
+
+```{r}
+write_csv(gap_life_exp, "gap_life_exp.csv")
+```
+
+Let's look at the first few lines of `gap_life_exp.csv`. If you're following along, you should be able to open this file or, in a shell, use `head` on it.
+
+```{r echo = FALSE, comment = NA}
+"gap_life_exp.csv" %>%
+  readLines(n = 6) %>% 
+  cat(sep = "\n")
+```
+
+This is pretty decent looking, though there is no visible alignment or separation into columns. Had we used the base function `read.csv()`, we would be seeing rownames and lots of quotes, unless we had explicitly shut that down. Nicer default behavior is the main reason we are using `readr::write_csv()` over `write.csv()`.
+
+  * It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"](https://twitter.com/vsbuffalo/statuses/358699162679787521). If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
+
+## Invertibility
+
+It turns out these self-imposed rules are often in conflict with one another
+
+  * Write to plain text files
+  * Break analysis into pieces: the output of script `i` is an input for script `i + 1`
+  * Be the boss of factors: order the levels in a meaningful, usually non-alphabetical way
+  * Avoid duplication of code and data
+
+Example: after performing the country-level summarization, we reorder the levels of the country factor, based on life expectancy. This reordering operation is conceptually important and must be embodied in R commands stored in a script. However, as soon as we write `gap_life_exp` to a plain text file, that meta-information about the countries is lost. Upon re-import with `read_delim()` and friends, we are back to alphabetically ordered factor levels. Any measure we take to avoid this loss immediately breaks another one of our rules.
+
+So what do I do? I must admit I save (and re-load) R-specific binary files. Right after I save the plain text file. [Belt and suspenders](http://www.wisegeek.com/what-does-it-mean-to-wear-belt-and-suspenders.htm).
+
+I have toyed with the idea of writing import helper functions for a specific project, that would re-order factor levels in principled ways. They could be defined in one file and called from many. This would also have a very natural implementation within [a workflow where each analytical project is an R package](http://carlboettiger.info/2012/05/06/research-workflow.html). But so far it has seemed too much like [yak shaving](http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html). I'm intrigued by a recent discussion of putting such information in YAML frontmatter (see Martin Fenner blog post [Using YAML frontmatter with CSV](http://blog.datacite.org/using-yaml-frontmatter-with-csv/)).
+
+## Reordering the levels of the country factor
+
+The topic of [factor level reordering is covered elsewhere](block029_factors.html), so let's Just. Do. It. I reorder the country factor levels according to the life expectancy summary we've already computed.
+
+```{r}
+head(levels(gap_life_exp$country)) # alphabetical order
+gap_life_exp <- gap_life_exp %>% 
+  mutate(country = fct_reorder(country, life_exp))
+head(levels(gap_life_exp$country)) # in increasing order of maximum life expectancy
+head(gap_life_exp)
+```
+
+Note that the __row order of `gap_life_exp` has not changed__. I could choose to reorder the rows of the data frame if, for example, I was about to prepare a table to present to people. But I'm not, so I won't.
+
+## `saveRDS()` and `readRDS()`
+
+If you have a data frame AND you have exerted yourself to rationalize the factor levels, you have my blessing to save it to file in a way that will preserve this hard work upon re-import. Use `saveRDS()`.
+
+```{r}
+saveRDS(gap_life_exp, "gap_life_exp.rds")
+```
+
+`saveRDS()` serializes an R object to a binary file. It's not a file you will able to open in an editor, diff nicely with Git(Hub), or share with non-R friends. It's a special purpose, limited use function that I use in specific situations.
+
+The opposite of `saveRDS()` is `readRDS()`. You must assign the return value to an object. I highly recommend you assign back to the same name as before. Why confuse yourself?!?
+
+```{r error = TRUE}
+rm(gap_life_exp)
+gap_life_exp
+gap_life_exp <- readRDS("gap_life_exp.rds")
+gap_life_exp
+```
+
+`saveRDS()` has more arguments, in particular `compress` for controlling compression, so read the help for more advanced usage. It is also very handy for saving non-rectangular objects, like a fitted regression model, that took a nontrivial amount of time to compute.
+
+You will eventually hear about `save()` + `load()` and even `save.image()`. You may even see them in documentation and tutorials, but don't be tempted. Just say no. These functions encourage unsafe practices, like storing multiple objects together and even entire workspaces. There are legitimate uses of these functions, but not in your typical data analysis.
+
+## Retaining factor levels upon re-import
+
+Concrete demonstration of how non-alphabetical factor level order is lost with `write_delim()` / `read_delim()` workflows but maintained with `saveRDS()` / `readRDS()`.
+
+```{r error = TRUE}
+(country_levels <- tibble(original = head(levels(gap_life_exp$country))))
+write_csv(gap_life_exp, "gap_life_exp.csv")
+saveRDS(gap_life_exp, "gap_life_exp.rds")
+rm(gap_life_exp)
+head(gap_life_exp) # will cause error! proving gap_life_exp is really gone 
+gap_via_csv <- read_csv("gap_life_exp.csv") %>% 
+  mutate(country = factor(country))
+gap_via_rds <- readRDS("gap_life_exp.rds")
+country_levels <- country_levels %>% 
+  mutate(via_csv = head(levels(gap_via_csv$country)),
+         via_rds = head(levels(gap_via_rds$country)))
+country_levels
+```
+
+Note how the original, post-reordering country factor levels are restored using the `saveRDS()` / `readRDS()` strategy but revert to alphabetical ordering using `write_csv()` / `read_csv()`.
+
+## `dput()` and `dget()`
+
+One last method of saving and restoring data deserves a mention: `dput()` and `dget()`. `dput()` offers this odd combination of features: it creates a plain text representation of an R object which still manages to be quite opaque. If you use the `file =` argument, `dput()` can write this representation to file but you won't be tempted to actually read that thing. `dput()` creates an R-specific-but-not-binary representation. Let's try it out.
+
+```{r}
+## first restore gap_life_exp with our desired country factor level order
+gap_life_exp <- readRDS("gap_life_exp.rds")
+dput(gap_life_exp, "gap_life_exp-dput.txt")
+```
+
+Now let's look at the first few lines of the file `gap_life_exp-dput.txt`.
+
+```{r echo = FALSE, comment = NA}
+"gap_life_exp-dput.txt" %>% 
+  readLines(n = 6) %>% 
+  cat(sep = "\n")
+```
+
+Huh? Don't worry about it. Remember we are ["writing data for computers"](https://twitter.com/vsbuffalo/statuses/358699162679787521). The partner function `dget()` reads this representation back in.
+
+```{r}
+gap_life_exp_dget <- dget("gap_life_exp-dput.txt")
+country_levels <- country_levels %>% 
+  mutate(via_dput = head(levels(gap_life_exp_dget$country)))
+country_levels
+```
+
+Note how the original, post-reordering country factor levels are restored using the `dput()` / `dget()` strategy.
+
+But why on earth would you ever do this?
+
+The main application of this is [the creation of highly portable, self-contained minimal examples](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example). For example, if you want to pose a question on a forum or directly to an expert, it might be required or just plain courteous to NOT attach any data files. You will need a monolithic, plain text blob that defines any necessary objects and has the necessary code. `dput()` can be helpful for producing the piece of code that defines the object. If you `dput()` without specifying a file, you can copy the return value from Console and paste into a script. Or you can write to file and copy from there or add R commands below.
+
+## Other types of objects to use `dput()` or `saveRDS()` on
+
+My special dispensation to abandon human-readable, plain text files is even broader than I've let on. Above, I give my blessing to store data.frames via `dput()` and/or `saveRDS()`, when you've done some rational factor level re-ordering. The same advice and mechanics apply a bit more broadly: you're also allowed to use R-specific file formats to save vital non-rectangular objects, such as a fitted nonlinear mixed effects model or a classification and regression tree.
+
+## Clean up
+
+We've written several files in this tutorial. Some of them are not of lasting value or have confusing filenames. I choose to delete them, while demonstrating some of the many functions R offers for interacting with the filesystem. It's up to you whether you want to submit this command or not.
+
+```{r}
+file.remove(list.files(pattern = "^gap_life_exp"))
+```
+
+## Pitfalls of delimited files <a id="pitfalls"></a>
+
+If a delimited file contains fields where a human being has typed, be crazy paranoid because people do really nutty things. Especially people who aren't in the business of programming and have never had to compute on text. Claim: a person's regular expression skill is inversely proportional to the skill required to handle the files they create. Implication: if someone has never heard of regular expressions, prepare for lots of pain working with their files.
+
+When the header fields (often, but not always, the variable names) or actual data contain the delimiter, it can lead to parsing and import failures. Two popular delimiters are the comma `,` and the TAB `\t` and humans tend to use these when typing. If you can design this problem away during data capture, such as by using a drop down menu on an input form, by all means do so. Sometimes this is impossible or undesirable and you must deal with fairly free form text. That's a good time to allow/force text to be protected with quotes, because it will make parsing the delimited file go more smoothly.
+
+Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter. That is, in fact, the default for both `read.table()` and `write.table()`. Assuming you will write/read variable names from the first line (a.k.a. the `header` in `write.table()` and `read.table()`), they must be valid R variable names ... or they will be coerced into something valid. So, for these two reasons, it is good practice to use "one word" variable names whenever possible. If you need to evoke multiple words, use `snake_case` or `camelCase` to cope. Example: the header entry for the field holding the subject's last name should be `last_name` or `lastName` NOT `last name`. With the `readr` package, "column names are left as is, not munged into valid R identifiers (i.e. there is no `check.names = TRUE`)". So you can get away with whitespace in variable names and yet I recommend that you do not.
+
+## References
+
+[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science](http://r4ds.had.co.nz) by Hadley Wickahm and Garrett Grolemund.
+
+Nine simple ways to make it easier to (re)use your data by Ethan P White, Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, Sarah R. Supp.
+
+  * First appeared here: PeerJ PrePrints 1:e7v2 <http://dx.doi.org/10.7287/peerj.preprints.7v2>
+  * Published here: Ideas in Ecology and Evolution 6(2): 1?10, 2013. doi:10.4033/iee.2013.6b.6.f <http://library.queensu.ca/ojs/index.php/IEE/article/view/4608>
+  * Section 4 "Use Standard Data Formats" is especially good reading.
+  
+Tidy data by Hadley Wickham.
+
+  * In the Journal of Statistical Software Vol 59 (2014), Issue 10, 10.18637/jss.v059.i10: <http://www.jstatsoft.org/article/view/v059i10>
+  * PDF also available here: <http://vita.had.co.nz/papers/tidy-data.pdf>
+
+Data Manipulation with R [available via SpringerLink](http://ezproxy.library.ubc.ca/login?url=http://link.springer.com.ezproxy.library.ubc.ca/book/10.1007/978-0-387-74731-6/page/1) by Phil Spector, Springer (2008) &#124; [author webpage](http://www.stat.berkeley.edu/%7Espector/) &#124; [GoogleBooks search](http://books.google.com/books?id=grfuq1twFe4C&lpg=PP1&dq=data%2520manipulation%2520spector&pg=PP1#v=onepage&q=&f=false)
+
+  * See Chapter 2 ("Reading and Writing Data")
+
