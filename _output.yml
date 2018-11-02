@@ -1,12 +1,19 @@
 bookdown::gitbook:
   css: style.css
+  split_by: section
   config:
     toc:
+      collapse: subsection
       before: |
         <li><a href="./">Just the beginning</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
+    edit: https://github.com/apreshill/stat545-reboot/edit/master/%s
+    sharing:
+      github: yes
+      facebook: no
+      twitter: yes
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
