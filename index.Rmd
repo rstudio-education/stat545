@@ -20,6 +20,8 @@ description: "This is beginning..."
 
 ## General advice for getting unstuck
 
+*Also see Jenny's [slide deck on {reprex}](https://speakerdeck.com/jennybc/reprex-reproducible-examples-with-r)*
+
 What to do when you are stuck ...
 
 Help yourself or, __maybe__, ~~drag others into your hell~~ ask for help. The links below contain excellent self-help advice.
