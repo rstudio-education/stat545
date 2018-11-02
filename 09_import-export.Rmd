@@ -30,13 +30,12 @@ Second tip: don't be too cute or clever. A plain text file that is readable by a
 
 How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with `knitr` and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make](http://kbroman.github.io/minimal_make/).
 
-## Load the tidyverse and forcats
+## Load the tidyverse
 
-The main function we will be using is readr, which provides drop-in substitutes for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will also load and use the forcats package.
+The main package we will be using is readr, which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
 
 ```{r}
 library(tidyverse)
-library(forcats)
 ```
 
 ## Locate the Gapminder data
@@ -228,7 +227,7 @@ We've written several files in this tutorial. Some of them are not of lasting va
 file.remove(list.files(pattern = "^gap_life_exp"))
 ```
 
-## Pitfalls of delimited files <a id="pitfalls"></a>
+## Pitfalls of delimited files
 
 If a delimited file contains fields where a human being has typed, be crazy paranoid because people do really nutty things. Especially people who aren't in the business of programming and have never had to compute on text. Claim: a person's regular expression skill is inversely proportional to the skill required to handle the files they create. Implication: if someone has never heard of regular expressions, prepare for lots of pain working with their files.
 
