@@ -1,1 +1,3 @@
 # Tidy data {#tidy-data}
+
+[Tidy data using Lord of the Rings](https://github.com/jennybc/lotr-tidy#readme): tidy data, tidyr.
