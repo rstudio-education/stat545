@@ -170,7 +170,7 @@ I encourage you to install `viridis` and read [the vignette](https://cran.r-proj
 
 Here's are two examples that show the viridis palettes.
 
-```{r}
+```{r eval = FALSE}
 library(ggplot2)
 library(viridis)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
@@ -283,14 +283,14 @@ Here is an article that uses compelling examples to advocate for perceptually ba
 
 The `dichromat` package ([on CRAN](http://cran.r-project.org/web/packages/dichromat/)) will help you select a color scheme that will be effective for color blind readers.
 
-```{r}
+```{r eval = FALSE}
 # install.packages("dichromat")
 library(dichromat)
 ```
 
-This `colorschemes` list contains `r length(colorschemes)` color schemes "suitable for people with deficient or anomalous red-green vision".
+This `colorschemes` list contains `length(colorschemes)` color schemes "suitable for people with deficient or anomalous red-green vision".
 
-```{r dichromat-colorschemes, echo = FALSE}
+```{r dichromat-colorschemes, echo = FALSE, eval = FALSE}
 library(ggplot2)
 x_boundaries <-
   lapply(colorschemes,
