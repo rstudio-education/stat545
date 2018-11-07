@@ -1,6 +1,6 @@
 # (PART) Version Control {-} 
 
-# Git, GitHub, and RStudio
+# Git, GitHub, and RStudio {#version-control}
 
 Content now here: http://happygitwithr.com. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
 
