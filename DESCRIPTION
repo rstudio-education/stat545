@@ -7,5 +7,7 @@ Imports:
   gapminder,
   tidyverse,
   fs,
-  testthat
+  testthat,
+  dichromat,
+  hexbin
 Remotes: rstudio/bookdown
