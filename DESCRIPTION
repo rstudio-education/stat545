@@ -9,5 +9,6 @@ Imports:
   fs,
   testthat,
   dichromat,
-  hexbin
+  hexbin,
+  gridExtra
 Remotes: rstudio/bookdown
