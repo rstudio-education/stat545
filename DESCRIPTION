@@ -6,5 +6,6 @@ Imports:
   bookdown,
   gapminder,
   tidyverse,
-  fs
+  fs,
+  testthat
 Remotes: rstudio/bookdown
