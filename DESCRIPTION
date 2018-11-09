@@ -10,5 +10,6 @@ Imports:
   testthat,
   dichromat,
   hexbin,
-  gridExtra
+  gridExtra,
+  xtable
 Remotes: rstudio/bookdown
