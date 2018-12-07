@@ -239,7 +239,7 @@ levels(df1$country)
 levels(df2$country)
 ```
 
-Can you just catenate them?
+Can you just combine them?
 
 ```{r}
 c(df1$country, df2$country)
