@@ -28,7 +28,7 @@ I start with this because we cannot possibly do this topic justice in a short am
   * Base functions: `nchar()`, `strsplit()`, `substr()`, `paste()`, `paste0()`.
   * The [glue package](http://glue.tidyverse.org) is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out glue.
 
-### Regular expressions
+### Regular expressions resources
 
 A God-awful and powerful language for expressing patterns to match in text or for search-and-replace. Frequently described as "write only", because regular expressions are easier to write than to read/understand. And they are not particularly easy to write.
 
@@ -47,7 +47,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
   * [rex R package](https://github.com/kevinushey/rex): make regular expression from human readable expressions
   * Base functions: `grep()` and friends.
 
-### Character encoding
+### Character encoding resources
 
   * [Strings subsection of data import chapter](http://r4ds.had.co.nz/data-import.html#readr-strings) in R for Data Science
   * Screeds on the Minimum Everyone Needs to Know about encoding
