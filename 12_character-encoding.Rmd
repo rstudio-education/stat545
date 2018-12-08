@@ -33,7 +33,7 @@ irb(main):001:0> "hello!".bytes
  
 The base function `charToRaw()` "converts a length-one character string to raw bytes. It does so without taking into account any declared encoding". It displays bytes in hexadecimal. Use `as.integer()` to convert to decimal, which is more intuitive and allows us to compare against the Ruby results.
 
-```{r}
+```{r start_char_enc}
 charToRaw("hello!")
 as.integer(charToRaw("hello!"))
 ```
@@ -222,7 +222,7 @@ irb(main):006:0> "theyâ€™re".encode("Windows-1252").force_encoding("UTF-8")
 => "they’re"
 ```
 
-```{r}
+```{r end_char_enc}
 string_mis_encoded
 backwards_one <- iconv(string_mis_encoded, from = "UTF-8", to = "Windows-1252")
 backwards_one

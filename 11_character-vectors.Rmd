@@ -62,7 +62,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 
 ## Load the tidyverse, which includes stringr
 
-```{r}
+```{r start_char_vectors}
 library(tidyverse)
 ```
 
@@ -365,7 +365,7 @@ str_subset(countries, pattern = "\\.")
 
 A last example that matches an actual square bracket.
 
-```{r}
+```{r end_char_vectors}
 (x <- c("whatever", "X is distributed U[0,1]"))
 str_subset(x, pattern = "\\[")
 ```

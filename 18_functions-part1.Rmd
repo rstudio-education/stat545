@@ -12,7 +12,7 @@ Why are we covering this now, smack in the middle of data aggregation? Powerful 
 
 As usual, load the Gapminder data.
 
-```{r}
+```{r start_func1}
 library(gapminder)
 str(gapminder)
 ```
@@ -169,7 +169,7 @@ Another good use of this pattern is to leave checks behind in data analytical sc
 
 Here's the function we've written so far:
 
-```{r}
+```{r end_func1}
 mmm2
 ```
 

@@ -2,7 +2,7 @@
 
 # Basic care and feeding of data in R {#data-care}
 
-```{r echo = FALSE}
+```{r start_data_analysis, echo = FALSE}
 set.seed(4561)
 ```
 

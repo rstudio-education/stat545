@@ -6,7 +6,7 @@ I try to use [dplyr joins](bit001_dplyr-cheatsheet.html) for most tasks that com
 
 ## Load gapminder and the tidyverse
 
-```{r}
+```{r start_lookup}
 library(gapminder)
 library(tidyverse)
 ```
@@ -102,7 +102,7 @@ unclass(mini_gap$country)
 
 To get our desired result, we need to explicitly coerce `mini_gap$country` to character.
 
-```{r}
+```{r end_lookup}
 mini_gap %>% 
   mutate(food = food_vec[as.character(country)])
 ```

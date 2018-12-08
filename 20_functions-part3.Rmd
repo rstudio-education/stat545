@@ -12,7 +12,7 @@ In this part, we tackle `NA`s, the special argument `...` and formal testing.
 
 As usual, load the Gapminder data.
 
-```{r}
+```{r start_func3}
 library(gapminder)
 ```
 
@@ -131,7 +131,7 @@ test_that('NA handling works', {
 
 No news is good news! Let's see what test failure would look like. Let's revert to a version of our function that does no `NA` handling, then test for proper `NA` handling. We can watch it fail.
 
-```{r eval = FALSE}
+```{r end_func3, eval = FALSE}
 qdiff_no_NA <- function(x, probs = c(0, 1)) {
   the_quantiles <- quantile(x = x, probs = probs)
   return(max(the_quantiles) - min(the_quantiles))

@@ -12,7 +12,7 @@ In this part, we generalize this function, learn more technical details about R 
 
 As usual, load the Gapminder data.
 
-```{r}
+```{r start_func2}
 library(gapminder)
 ```
 
@@ -161,7 +161,7 @@ EXERCISE FOR THE READER: upgrade our argument validity checks in light of the ne
 
 Here's the function we've written so far:
 
-```{r}
+```{r end_func2}
 qdiff3
 ```
 

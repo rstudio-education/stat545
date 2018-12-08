@@ -12,7 +12,7 @@ Have no idea what I'm talking about? Not sure if you care? If you use these base
 
 I choose to load the `tidyverse`, which will load `dplyr`, among other packages we use incidentally below. Also load `gapminder`.
 
-```{r}
+```{r start_dplyr}
 library(gapminder)
 library(tidyverse)
 ```
@@ -149,7 +149,7 @@ gapminder %>%
 
 and what a typical base R call would look like:
 
-```{r}
+```{r end_dplyr}
 gapminder[gapminder$country == "Cambodia", c("year", "lifeExp")]
 ```
 

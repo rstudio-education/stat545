@@ -12,7 +12,7 @@
 
 Your garden variety R object is a vector. A single piece of info that you regard as a scalar is just a vector of length 1 and R will cheerfully let you add stuff to it. Square brackets are used for isolating elements of a vector for inspection, modification, etc. This is often called __indexing__. Go through the following code carefully, as it's really rather surprising. BTW, indexing begins at 1 in R, unlike many other languages that index from 0.
 
-```{r}
+```{r start_indexing}
 x <- 3 * 4
 x
 is.vector(x)
@@ -380,7 +380,7 @@ str(subset(jDat, select = c(w, v))) # using subset() function
 ```
 
 Demonstrating matrix-style indexing of a data.frame:
-```{r, tidy = FALSE}
+```{r end_indexing, tidy = FALSE}
 jDat[ , "v"]
 str(jDat[ , "v"])
 jDat[ , "v", drop = FALSE]

@@ -18,7 +18,7 @@ Go into the Console, where we interact with the live R process.
 
 Make an assignment and then inspect the object you just created.
 
-```{r}
+```{r start_rbasics}
 x <- 3 * 4
 x
 ```
@@ -270,7 +270,7 @@ Many long-time users never save the workspace, never save `.RData` files (I'm on
 
 For the record, when loading data into R and/or writing outputs to file, you can always specify the absolute path and thereby insulate yourself from the current working directory. This is rarely necessary when using RStudio Projects properly.
 
-```{r include = FALSE}
+```{r end_rbasics, include = FALSE}
 file.remove(c("avg_x.txt", "toy_line_plot.pdf"))
 ```
 

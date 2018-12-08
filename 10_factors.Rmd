@@ -27,7 +27,7 @@ Currently this lesson will be mostly code vs prose. See the previous lesson for 
 
 ## Load tidyverse, forcats, gapminder
 
-```{r}
+```{r start_factors}
 library(tidyverse)
 library(gapminder)
 ```
@@ -253,7 +253,7 @@ fct_c(df1$country, df2$country)
 
 Exercise: Explore how different forms of row binding work behave here, in terms of the `country` variable in the result.
 
-```{r}
+```{r end_factors}
 bind_rows(df1, df2)
 rbind(df1, df2)
 ```

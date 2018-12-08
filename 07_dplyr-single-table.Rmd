@@ -17,7 +17,7 @@ We also discussed dplyr's role inside the tidyverse and tibbles:
 
 I choose to load the tidyverse, which will load dplyr, among other packages we use incidentally below. Also load gapminder.
 
-```{r}
+```{r start_dplyr_single}
 library(gapminder)
 library(tidyverse)
 ```
@@ -333,7 +333,7 @@ So let's answer that "simple" question: which country experienced the sharpest 5
 
 At this point, that's just too easy, so let's do it by continent while we're at it.
 
-```{r}
+```{r end_dplyr_single}
 my_gap %>%
   select(country, year, continent, lifeExp) %>%
   group_by(continent, country) %>%

@@ -15,7 +15,7 @@ Other great places to read about joins:
 
 Working with two small data frames, `superheroes` and `publishers`.
 
-```{r, message = FALSE, warning = FALSE}
+```{r start_joins, message = FALSE, warning = FALSE}
 library(tidyverse) ## dplyr provides the join functions
 
 superheroes <- "
@@ -305,7 +305,7 @@ anti_join(x = publishers, y = superheroes)
 
 We get all rows of `x = superheroes` plus a new row from `y = publishers`, containing the publisher Image. We get all variables from `x = superheroes` AND all variables from `y = publishers`. Any row that derives solely from one table or the other carries `NA`s in the variables found only in the other table.
 
-```{r include = FALSE}
+```{r end_joins, include = FALSE}
 fjsp_kable <- knitr::kable(fjsp)
 ```
 

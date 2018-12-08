@@ -38,7 +38,7 @@ Let's explore each type of operation with a few examples.
 
 First, let's load the tidyverse (and expose version information).
 
-```{r}
+```{r start_multi_tibbles}
 library(tidyverse)
 ```
 
@@ -146,7 +146,7 @@ Visit the [dplyr join cheatsheet](bit001_dplyr-cheatsheet.html) to see concrete 
 
 The most recent release of gapminder includes a new data frame, `country_codes`, with country names and ISO codes. Therefore you can also use it to practice joins.
 
-```{r}
+```{r end_multi_tibbles}
 gapminder %>% 
   select(country, continent) %>% 
   group_by(country) %>% 

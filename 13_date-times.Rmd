@@ -24,7 +24,7 @@ Exercises to push you to learn [lubridate](https://cran.r-project.org/web/packag
 
 ## Load the tidyverse and lubridate
 
-```{r}
+```{r start_dates}
 library(tidyverse)
 library(lubridate)
 ```
@@ -57,7 +57,7 @@ now()
 
 They both give you something of class `POSIXct` in R jargon.
 
-```{r}
+```{r end_dates}
 str(Sys.time())
 class(Sys.time())
 str(now())

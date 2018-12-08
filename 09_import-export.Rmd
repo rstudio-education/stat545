@@ -34,7 +34,7 @@ How does this fit with our emphasis on dynamic reporting via R Markdown? There i
 
 The main package we will be using is readr, which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
 
-```{r}
+```{r start_import_export}
 library(tidyverse)
 ```
 
@@ -223,7 +223,7 @@ My special dispensation to abandon human-readable, plain text files is even broa
 
 We've written several files in this tutorial. Some of them are not of lasting value or have confusing filenames. I choose to delete them, while demonstrating some of the many functions R offers for interacting with the filesystem. It's up to you whether you want to submit this command or not.
 
-```{r}
+```{r end_import_export}
 file.remove(list.files(pattern = "^gap_life_exp"))
 ```
 
