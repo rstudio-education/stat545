@@ -18,25 +18,23 @@ Working with two small data frames, `superheroes` and `publishers`.
 ```{r start_joins, message = FALSE, warning = FALSE}
 library(tidyverse) ## dplyr provides the join functions
 
-superheroes <- "
-    name, alignment, gender,         publisher
- Magneto,       bad,   male,            Marvel
-   Storm,      good, female,            Marvel
-Mystique,       bad, female,            Marvel
-  Batman,      good,   male,                DC
-   Joker,       bad,   male,                DC
-Catwoman,       bad, female,                DC
- Hellboy,      good,   male, Dark Horse Comics
-"
-superheroes <- read_csv(superheroes, skip = 1)
+superheroes <- tibble::tribble(
+       ~name, ~alignment,  ~gender,          ~publisher,
+   "Magneto",      "bad",   "male",            "Marvel",
+     "Storm",     "good", "female",            "Marvel",
+  "Mystique",      "bad", "female",            "Marvel",
+    "Batman",     "good",   "male",                "DC",
+     "Joker",      "bad",   "male",                "DC",
+  "Catwoman",      "bad", "female",                "DC",
+   "Hellboy",     "good",   "male", "Dark Horse Comics"
+  )
 
-publishers <- "
-  publisher, yr_founded
-         DC,       1934
-     Marvel,       1939
-      Image,       1992
-"
-publishers <- read_csv(publishers, skip = 1)
+publishers <- tibble::tribble(
+  ~publisher, ~yr_founded,
+        "DC",       1934L,
+    "Marvel",       1939L,
+     "Image",       1992L
+  )
 ```
 
 Sorry, cheat sheet does not illustrate "multiple match" situations terribly well.
