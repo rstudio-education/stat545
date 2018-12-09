@@ -46,7 +46,7 @@ Sub-plot: watch the row and variable order of the join results for a healthy rem
 > inner_join(x, y): Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
 
 ```{r}
-(ijsp <- inner_join(superheroes, publishers))
+(ijsp <- inner_join(superheroes, publishers, by = c("publisher" = "publisher")))
 ```
 
 We lose Hellboy in the join because, although he appears in `x = superheroes`, his publisher Dark Horse Comics does not appear in `y = publishers`. The join result has all variables from `x = superheroes` plus `yr_founded`, from `y`.
