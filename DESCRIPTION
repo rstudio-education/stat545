@@ -1,6 +1,6 @@
-Package: placeholder
+Package: Stat545
 Type: Book
-Title: Does not matter.
+Title: Stat545
 Version: 0.0.1
 Imports:
   bookdown,
