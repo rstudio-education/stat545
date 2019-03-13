@@ -129,7 +129,7 @@ proj_set(foopath)
 
 ```{r set-proj-and-wd, include = debug, eval = create}
 # being kind to the vignette developer
-(owd <- here::here()) 
+(owd <- getwd()) 
 if (is.null(getOption("knitr.in.progress"))) {
   setwd(foopath)
   Sys.setenv(TESTTHAT = "true")
