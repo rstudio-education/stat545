@@ -11,5 +11,6 @@ Imports:
   dichromat,
   hexbin,
   gridExtra,
-  xtable
+  xtable,
+  usethis
 Remotes: rstudio/bookdown
