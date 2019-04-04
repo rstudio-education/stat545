@@ -3,14 +3,22 @@ Type: Book
 Title: Stat545
 Version: 0.0.1
 Imports:
-  bookdown,
-  gapminder,
-  tidyverse,
-  fs,
-  testthat,
-  dichromat,
-  hexbin,
-  gridExtra,
-  xtable,
-  usethis
-Remotes: rstudio/bookdown
+    bookdown,
+    gapminder,
+    tidyverse,
+    fs (>= 1.2.7.9001),
+    testthat,
+    dichromat,
+    hexbin,
+    gridExtra,
+    xtable,
+    usethis (>= 1.4.0.9000),
+    devtools (>= 2.0.1),
+    callr,
+    rmarkdown,
+    knitr,
+    git2r
+Remotes: 
+    rstudio/bookdown,
+    r-lib/fs,
+    r-lib/usethis
