@@ -13,12 +13,15 @@ Imports:
     gridExtra,
     xtable,
     usethis (>= 1.4.0.9000),
-    devtools (>= 2.0.1),
+    devtools (>= 2.0.1.9000),
     callr,
     rmarkdown,
     knitr,
-    git2r
-Remotes: 
+    git2r,
+    pkgbuild (>= 1.0.3)
+Remotes:  
     rstudio/bookdown,
     r-lib/fs,
-    r-lib/usethis
+    r-lib/usethis,
+    r-lib/pkgbuild,
+    r-lib/devtools
