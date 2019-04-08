@@ -16,8 +16,10 @@ Imports:
     devtools (>= 2.0.1.9000),
     rmarkdown,
     knitr,
-    git2r
+    git2r,
+    roxygen2 (>= 6.1.1.9000)
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
-    r-lib/devtools
+    r-lib/devtools,
+    klutometis/roxygen
