@@ -20,7 +20,6 @@ Imports:
     git2r,
     pkgbuild (>= 1.0.3)
 Remotes:  
-    rstudio/bookdown,
     r-lib/fs,
     r-lib/usethis,
     r-lib/pkgbuild,
