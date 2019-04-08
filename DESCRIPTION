@@ -14,13 +14,10 @@ Imports:
     xtable,
     usethis (>= 1.4.0.9000),
     devtools (>= 2.0.1.9000),
-    callr,
     rmarkdown,
     knitr,
-    git2r,
-    pkgbuild (>= 1.0.3)
+    git2r
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
-    r-lib/pkgbuild,
     r-lib/devtools
