@@ -1,5 +1,5 @@
 language: r
-sudo: false
+cran: https://cran.rstudio.com
 cache:
   packages: false
   directories:
