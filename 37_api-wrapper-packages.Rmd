@@ -1,0 +1,44 @@
+# Install-and-play {#api-wrappers}
+
+Many common web services and APIs have been "wrapped", i.e. R functions have been written around them which send your query to the server and format the response.
+
+Why do we want this?
+
+* provenance
+* reproducible
+* updating
+* ease
+* scaling
+
+
+## Searching the Public Library of Science using `rplos`
+
+**Planning to switch out this example for another**
+
+PLOS ONE is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. 
+
+```{r}
+# install.packages("rplos")
+library(rplos)
+```
+
+
+### Searching PLOS
+
+Let's do some searches:
+```{r}
+searchplos(q = "Helianthus", fl = "id", limit = 5)
+```
+
+```{r}
+searchplos("materials_and_methods:France", 
+           fl = "title, materials_and_methods")
+```
+
+
+### Plots over time
+
+```{r}
+plot_throughtime(terms = "phylogeny", limit = 200)
+```
+

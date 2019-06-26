@@ -1,7 +1,3 @@
-# Interact with an API {#api-interact}
-
-blah blah blah
-
 # Scrape data from the web {#web-scraping}
 
 blah blah blah

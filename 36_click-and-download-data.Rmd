@@ -1,0 +1,18 @@
+# Click-and-Download {#api-click}
+
+In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
+
+* use `read.csv` or `readr::read_csv` to read the data straight into R.
+
+* use the command line program `curl` to do that work, and place it in a Makefile or shell script (see the Make lesson for how to do that).
+
+The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, if the data you are interested in is available as Excel sheets, the safest option in this case is to download the `.xls` file and then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
+
+
+## Example
+
+```{r message = FALSE}
+library(dplyr)
+library(knitr)
+```
+
