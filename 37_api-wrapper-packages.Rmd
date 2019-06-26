@@ -19,7 +19,7 @@ PLOS ONE is an open-access journal. They allow access to an impressive range of 
 
 ```{r}
 # install.packages("rplos")
-library(rplos)
+#library(rplos)
 ```
 
 
@@ -27,18 +27,18 @@ library(rplos)
 
 Let's do some searches:
 ```{r}
-searchplos(q = "Helianthus", fl = "id", limit = 5)
+#searchplos(q = "Helianthus", fl = "id", limit = 5)
 ```
 
 ```{r}
-searchplos("materials_and_methods:France", 
-           fl = "title, materials_and_methods")
+#searchplos("materials_and_methods:France", 
+#           fl = "title, materials_and_methods")
 ```
 
 
 ### Plots over time
 
 ```{r}
-plot_throughtime(terms = "phylogeny", limit = 200)
+#plot_throughtime(terms = "phylogeny", limit = 200)
 ```
 
