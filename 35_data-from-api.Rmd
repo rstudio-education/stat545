@@ -1,4 +1,93 @@
 # (PART) Get data from the web {-} 
 
-# Use an API-wrapping package {#api}
+# Introduction {#api-intro} 
+
+Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
+
+## Four ways to get data
+
+There are many ways to obtain data from the Internet; let's consider four categories:
+
+1. **Click-and-download** on the internet as a "flat" file, such as .csv, .xls
+2. **Install-and-play** an API for which someone has written a handy R package (i.e. an API-wrapping package)
+3. **API-query** published with an unwrapped API
+4. **Scraping** implicit in an html website
+
+## What is an API?
+
+Many times, the data that you want is not already organized into one or a few tables that you can read directly into R. More frequently, you find this data is given in the form of an API. **A**pplication **P**rogramming **I**nterfaces (APIs) are descriptions of the kind of requests that can be made of a certain piece of software, and descriptions of the kind of answers that are returned. Many sources of data -- databases, websites, services -- have made all (or part) of their data available via APIs over the internet. Computer programs ("clients") can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
+
+## More tools from the ropensci web services page:
+
+All this and more is described at the [rOpenSci repository of R tools for interacting with the internet](https://github.com/ropensci/webservices).
+
+* `downloader::download()` for SSL
+* `curl::curl()` for SSL.
+* `httr::GET` data read this way needs to be parsed later with read.table
+* `rio::import()` can "read a number of common data formats directly from an https:// URL".  Isn't that very similar to the previous?
+
+
+# Click-and-Download {#api-click}
+
+In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
+
+* use `read.csv` or `readr::read_csv` to read the data straight into R.
+
+* use the command line program `curl` to do that work, and place it in a Makefile or shell script (see the Make lesson for how to do that).
+
+The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, if the data you are interested in is available as Excel sheets, the safest option in this case is to download the `.xls` file and then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
+
+
+## Example
+
+```{r message = FALSE}
+library(dplyr)
+library(knitr)
+```
+
+
+
+# Install-and-play {#api-wrappers}
+
+Many common web services and APIs have been "wrapped", i.e. R functions have been written around them which send your query to the server and format the response.
+
+Why do we want this?
+
+* provenance
+* reproducible
+* updating
+* ease
+* scaling
+
+
+## Searching the Public Library of Science using `rplos`
+
+**Planning to switch out this example for another**
+
+PLOS ONE is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. 
+
+```{r}
+# install.packages("rplos")
+library(rplos)
+```
+
+
+### Searching PLOS
+
+Let's do some searches:
+```{r}
+searchplos(q = "Helianthus", fl = "id", limit = 5)
+```
+
+```{r}
+searchplos("materials_and_methods:France", 
+           fl = "title, materials_and_methods")
+```
+
+
+### Plots over time
+
+```{r}
+plot_throughtime(terms = "phylogeny", limit = 200)
+```
 
