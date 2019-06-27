@@ -29,3 +29,8 @@ deploy:
     on:
       all_branches: true
       condition: $TRAVIS_BRANCH != "master"
+      
+addons:
+  apt:
+    packages:
+      - libudunits2-dev
