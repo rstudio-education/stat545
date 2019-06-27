@@ -77,16 +77,16 @@ stat545 examples no longer work :( this section needs to be updated
 
 ## Setting API keys
 
-Using the package [`tidycensus`](https://github.com/walkerke/tidycensus)
+Using the package `censusapi`
 ```{r warning = FALSE}
-# install.packages("tidycensus")
-library(tidycensus)
+# install.packages("censusapi")
+library(censusapi)
 ```
 
 
 Request a new API key [here](https://api.census.gov/data/key_signup.html). Check your email to activitate the key.
 
-`tidycensus` provides a utility function `census_api_key` that will put your API key into your .Renviron file but let's do this ourselves using `usethis`
+Now put your API key in your .Renviron file using `usethis`.
 
 ```r
 library(usethis)
@@ -101,8 +101,8 @@ Add "CENSUS_API_KEY=<your-api-key>" on a new line. Be sure to add a new line aft
 
 Save the file and restart your R session. If you are using Github be sure to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide. (or is this only the case if using a project + edit_r_environ("profile")?)
 
-Now you can access your key with `Sys.getenv("CENSUS_API_KEY")`
 
+Now you can access your key with `Sys.getenv("CENSUS_API_KEY")`
 
 Example
 ```{r}
@@ -114,12 +114,11 @@ my_secret <- function() {
   val
 }
 
-
 api_key <- my_secret()
 
-get_estimates(geography = "state", product = "components", key = api_key) %>% 
-  head() %>% 
-  kable()
+getCensus(name = "dec/sf1", vintage = 2010, vars = c("NAME","P001001"), region = "block:*", 
+          regionin = "state:36+county:027+tract:010000", key = api_key) %>% 
+  head()
 ```
 
 

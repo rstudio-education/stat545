@@ -19,7 +19,7 @@ Imports:
     git2r,
     roxygen2 (>= 6.1.1.9000),
     rplos,
-    tidycensus
+    censusapi
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
