@@ -1,6 +1,6 @@
 # (PART) Get data from the web {-} 
 
-# Introduction {#api-intro} 
+# Introduction {-#api-intro} 
 
 Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
 

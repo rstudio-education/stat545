@@ -1,4 +1,25 @@
-# Install-and-play {#api-wrappers}
+# Using an API to get data {#use-api}
+
+## Click-and-Download {#api-click}
+
+In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
+
+* use `read.csv` or `readr::read_csv` to read the data straight into R.
+
+* use the command line program `curl` to do that work, and place it in a Makefile or shell script (see the Make lesson for how to do that).
+
+The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, if the data you are interested in is available as Excel sheets, the safest option in this case is to download the `.xls` file and then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
+
+
+### Example
+
+```{r message = FALSE, warning = FALSE}
+library(dplyr)
+library(knitr)
+```
+
+
+## Install-and-play {#api-wrappers}
 
 Many common web services and APIs have been "wrapped", i.e. R functions have been written around them which send your query to the server and format the response.
 
@@ -11,7 +32,7 @@ Why do we want this?
 * scaling
 
 
-## Searching the Public Library of Science using `rplos`
+### Searching the Public Library of Science using `rplos`
 
 **Planning to switch out this example for another**
 
@@ -23,7 +44,7 @@ PLOS ONE is an open-access journal. They allow access to an impressive range of 
 ```
 
 
-### Searching PLOS
+#### Searching PLOS
 
 Let's do some searches:
 ```{r}
@@ -36,9 +57,21 @@ Let's do some searches:
 ```
 
 
-### Plots over time
+#### Plots over time
 
 ```{r}
 #plot_throughtime(terms = "phylogeny", limit = 200)
 ```
+
+
+## Interact with an API {#api-interact}
+
+In Chapter \@red(api-wrappers), we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. Now we're going to look at (part of) what these functions were doing.
+
+First we're going to examine the structure of API requests via the [Open Movie Database](https://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDB, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
+
+### Exploring movies using the OMDb API
+
+stat545 examples no longer work :( this section needs to be updated
+
 

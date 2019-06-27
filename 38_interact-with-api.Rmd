@@ -1,4 +1,3 @@
 # Interact with an API {#api-interact}
 
 blah blah blah
-

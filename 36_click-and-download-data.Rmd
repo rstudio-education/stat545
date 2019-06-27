@@ -11,7 +11,7 @@ The second case is most useful when the data you want has been provided in a for
 
 ## Example
 
-```{r message = FALSE}
+```{r message = FALSE, warning = FALSE}
 library(dplyr)
 library(knitr)
 ```
