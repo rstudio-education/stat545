@@ -13,7 +13,7 @@
     - I __highly recommend__ you run the [Preview version](https://www.rstudio.com/products/rstudio/download/preview/). I find these quite stable and you'll get the cool new features! Update to new Preview versions often.
     - Of course, there are also official releases available here: <https://www.rstudio.com/products/rstudio/#Desktop>
     - RStudio comes with a __text editor__, so there is no immediate need to install a separate stand-alone editor.
-    - RStudio can __interface with Git(Hub)__. However, you must do all the Git(Hub) set up [described elsewhere](git00_index.html) before you can take advantage of this.
+    - RStudio can __interface with Git(Hub)__. However, you must do all the Git(Hub) set up [described elsewhere](https://happygitwithr.com) before you can take advantage of this.
     
 If you have a pre-existing installation of R and/or RStudio, we __highly recommend__ that you reinstall both and get as current as possible. It can be considerably harder to run old software than new.
 
