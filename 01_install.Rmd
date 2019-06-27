@@ -2,6 +2,8 @@
 
 # Install R and RStudio {#install}
 
+*test to trigger a new travis build*
+
 [Link to original content](http://stat545.com/block000_r-rstudio-install.html)
 
 ## R and RStudio
