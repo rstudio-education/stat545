@@ -106,7 +106,7 @@ Now you can access your key with `Sys.getenv("CENSUS_API_KEY")`
 
 Example
 ```{r}
-get_estimates(geography = "state", product = "components") %>% 
+get_estimates(geography = "state", product = "components", key = Sys.getenv("CENSUS_API_KEY")) %>% 
   head() %>% 
   kable()
 ```
