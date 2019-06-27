@@ -75,3 +75,42 @@ First we're going to examine the structure of API requests via the [Open Movie D
 stat545 examples no longer work :( this section needs to be updated
 
 
+## Setting API keys
+
+Using the package [`tidycensus`](https://github.com/walkerke/tidycensus)
+```{r warning = FALSE}
+# install.packages("tidycensus")
+library(tidycensus)
+```
+
+
+Request a new API key [here](https://api.census.gov/data/key_signup.html). Check your email to activitate the key.
+
+`tidycensus` provides a utility function `census_api_key` that will put your API key into your .Renviron file but let's do this ourselves using `usethis`
+
+```r
+library(usethis)
+
+usethis::edit_r_environ() # edit your user level .Renviron
+# OR
+usethis::edit_r_environ("profile") # edit your project level .Renviron
+```
+
+Add "CENSUS_API_KEY=<your-api-key>" on a new line. Be sure to add a new line after this! <insert photo of RStudio default setting here> 
+
+
+Save the file and restart your R session. If you are using Github be sure to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide. (or is this only the case if using a project + edit_r_environ("profile")?)
+
+Now you can access your key with `Sys.getenv("CENSUS_API_KEY")`
+
+
+Example
+```{r}
+get_estimates(geography = "state", product = "components") %>% 
+  head() %>% 
+  kable()
+```
+
+
+
+
