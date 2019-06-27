@@ -17,7 +17,8 @@ Imports:
     rmarkdown,
     knitr,
     git2r,
-    roxygen2 (>= 6.1.1.9000)
+    roxygen2 (>= 6.1.1.9000),
+    rplos
 Remotes:  
     r-lib/fs,
     r-lib/usethis,

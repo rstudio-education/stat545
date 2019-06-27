@@ -1,6 +1,6 @@
 # Using an API to get data {#use-api}
 
-## Click-and-Download {#api-click}
+## Click-and-Download
 
 In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
 
@@ -40,7 +40,7 @@ PLOS ONE is an open-access journal. They allow access to an impressive range of 
 
 ```{r}
 # install.packages("rplos")
-#library(rplos)
+library(rplos)
 ```
 
 
@@ -48,25 +48,25 @@ PLOS ONE is an open-access journal. They allow access to an impressive range of 
 
 Let's do some searches:
 ```{r}
-#searchplos(q = "Helianthus", fl = "id", limit = 5)
+searchplos(q = "Helianthus", fl = "id", limit = 5)
 ```
 
 ```{r}
-#searchplos("materials_and_methods:France", 
-#           fl = "title, materials_and_methods")
+searchplos("materials_and_methods:France", 
+           fl = "title, materials_and_methods")
 ```
 
 
 #### Plots over time
 
 ```{r}
-#plot_throughtime(terms = "phylogeny", limit = 200)
+plot_throughtime(terms = "phylogeny", limit = 200)
 ```
 
 
-## Interact with an API {#api-interact}
+## Interact with an API
 
-In Chapter \@red(api-wrappers), we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. Now we're going to look at (part of) what these functions were doing.
+Earlier we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. Now we're going to look at (part of) what these functions were doing.
 
 First we're going to examine the structure of API requests via the [Open Movie Database](https://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDB, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
 
