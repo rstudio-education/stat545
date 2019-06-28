@@ -1,6 +1,6 @@
 # Test drive R Markdown {#r-markdown}
 
-[Link to original content](http://stat545.com/block007_first-use-rmarkdown.html)
+<!--[Link to original content](https://stat545.com/block007_first-use-rmarkdown.html)-->
 
 ## Overview
 
@@ -8,27 +8,27 @@ This describes a hands-on activity where the goal is to author an R Markdown doc
 
 For people also using Git and GitHub, we discuss how to keep the intermediate Markdown file, the figures, and what to commit to Git and push to GitHub. If GitHub is the primary venue, we render directly to GitHub-flavored markdown and never create HTML.
 
-Here is the official R Markdown documentation: <http://rmarkdown.rstudio.com>
+The official R Markdown documentation is [here][rmarkdown]
 
 ## Step 0: Software installation and configuration
 
 We assume the following
 
-  * You've already [installed Git](git01_git-install.html) and (probably) [a Git client](git02_git-clients.html).
-  * You've already [registered a free GitHub account](cm001_course-intro-sw-install-account-signup.html#register-a-github-account).
-  * You've already [installed R and RStudio](block000_r-rstudio-install.html).
-  * You've [tested your installation and configuration of Git, GitHub, and RStudio](git07_git-github-rstudio.html)
-  * ~~You've completed [Homework 01](hw01_edit-README.html) or an equivalent exercise to truly test all of the above and to introduce you to Markdown.~~
+  * You've already [installed Git][hg-install-git]and (probably) [a Git client][hg-git-client].
+  * You've already [registered a free GitHub account][hg-github-account].
+  * You've already [installed R and RStudio][hg-install-r-rstudio].
+  * You've [tested your installation and configuration of Git, GitHub, and RStudio][hg-connect-intro]
+  * ~~You've completed **Homework 01** or an equivalent exercise to truly test all of the above and to introduce you to Markdown.~~
 
 ## Step 1: Get ready to work
 
 Launch RStudio, probably in the Project that corresponds to the repository where you are keeping all STAT 545 coursework. Make sure the workspace is clean and you've launched a fresh R process. Make sure the working directory is sensible.
 
-Git people: we assume you are working inside a Git repo -- probably one that is already set up to push/pull with a GitHub remote. That is [covered elsewhere](git07_git-github-rstudio.html).
+Git people: we assume you are working inside a Git repo -- probably one that is already set up to push/pull with a GitHub remote. That is [covered elsewhere][hg-connect-intro].
 
 ## Step 2: Practice with RStudio's boilerplate R Markdown document
 
-I am modelling "walk before you run" here. It is best, especially for novices, to increase complexity in small increments. We will test our system's ability to render the ["hello world"](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program) of R Markdown documents before we muddy the waters with our own, probably buggy, documents.
+I am modelling "walk before you run" here. It is best, especially for novices, to increase complexity in small increments. We will test our system's ability to render the ["hello world"][wiki-hello-world] of R Markdown documents before we muddy the waters with our own, probably buggy, documents.
 
 Do this: *File > New File > R Markdown ...*
 
@@ -142,15 +142,15 @@ Here are two behaviors I find very frustrating:
   * "Here is my code. Behold." This is when someone only pushes their source, i.e. R Markdown or R code AND they want other people to look at their "product". The implicit assumption is that target audience will download code and run it. Sometimes the potential payoff simply does not justify this effort.
   * "Here is my HTML. Behold." This is when someone doesn't bother to edit the default output format and accepts HTML only. What am I supposed to do with HTML on GitHub?
   
-Creating, commiting, and pushing markdown is a very functional, lighweight publishing strategy. Use `output: github_document` or `keep_md: true` if output is `html_document`. In both cases, it is critical to also commit and push everything inside `foo_files`. Now people can visit and consume your work like any other webpage.
+Creating, committing, and pushing markdown is a very functional, lightweight publishing strategy. Use `output: github_document` or `keep_md: true` if output is `html_document`. In both cases, it is critical to also commit and push everything inside `foo_files`. Now people can visit and consume your work like any other webpage.
 
 This is (sort of) another example of keeping things machine- and human-readable, which is bliss. By making `foo.Rmd` available, others can see and run your __actual code__. By sharing `foo.md` and/or `foo.html`, others can casually browse your end product and decide if they even want to bother.
 
 ### HTML on GitHub
 
-HTML files, such as `foo.html`, are not immediately useful on GitHub (though your local versions are easily viewable). Visit one and you'll see the raw HTML. Yuck. But there are ways to get a preview: such as <https://rawgit.com> or <http://htmlpreview.github.io>. Expect some pain with HTML files inside private repos. When it becomes vital for the whole world to see proper HTML in its full glory, it's time to use a more sophisticated web publishing strategy.
+HTML files, such as `foo.html`, are not immediately useful on GitHub (though your local versions are easily viewable). Visit one and you'll see the raw HTML. Yuck. But there are ways to get a preview: such as [GitHub pages][gh-pages] or [htmlpreview][html-preview]. Expect some pain with HTML files inside private repos. When it becomes vital for the whole world to see proper HTML in its full glory, it's time to use a more sophisticated web publishing strategy.
 
-I have more [general ideas](bit006_github-browsability-wins.html) about how to make a GitHub repo function as a website.
+I have more [general ideas][hg-browsability] about how to make a GitHub repo function as a website.
 
 ## Troubleshooting
 
@@ -164,7 +164,7 @@ __Insert a chunk in your `.Rmd` document so that it renders even when there are 
     knitr::opts_chunk$set(error = TRUE)  
     ```
     
-near the top of your R Markdown document if you want to soldier on through errors, i.e. turn `foo.Rmd` into `foo.md` and/or `foo.html` no matter what. This is also helpful if you are writing a tutorial and want to demo code that throws an error. You might want to keep this as an [RStudio snippet](https://support.rstudio.com/hc/en-us/articles/204463668-Code-Snippets) for easy insertion.
+near the top of your R Markdown document if you want to soldier on through errors, i.e. turn `foo.Rmd` into `foo.md` and/or `foo.html` no matter what. This is also helpful if you are writing a tutorial and want to demo code that throws an error. You might want to keep this as an [RStudio snippet][rstudio-code-snippets] for easy insertion.
 
 __Tolerate errors in one specific chunk.__ If it's undesirable to globally accept errors, you can still do this for a specific chunk like so:
 
@@ -182,7 +182,10 @@ Drop these commands into R chunks to check the above:
   * `getwd()` will display working directory at __run time__. If you monkeyed around with working directory with, e.g., the mouse, maybe it's set to one place for your interactive development and another when "Knit HTML" takes over?
   * `list.files()` will list the files in working directory. Is the file you want even there?
 
-__Don't try to change working directory within an R Markdown document__. [Just don't](https://github.com/yihui/knitr/blob/master/FAQ.md). That is all.
+__Don't try to change working directory within an R Markdown document__. [Just don't][knitr-faq]. That is all.
 
 __Don't be in a hurry to create a complicated sub-directory structure.__ RStudio/`knitr`/`rmarkdown` (which bring you the "Knit HTML" button) are rather opinionated about the working directory being set to the `.Rmd` file's location and about all files living together in one big happy directory. This can all be worked around. But not today.
 
+
+```{r links, child="links.md"}
+```

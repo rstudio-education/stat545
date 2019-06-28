@@ -2,6 +2,8 @@
 
 # Basic care and feeding of data in R {#data-care}
 
+<!--[Link to original content](https://stat545.com/block006_care-feeding-data.html)-->
+
 ```{r start_data_analysis, echo = FALSE}
 set.seed(4561)
 ```
@@ -10,7 +12,7 @@ set.seed(4561)
 
 *Ignore if you don't need this bit of support.*
 
-Now is the time to make sure you are working in an appropriate directory on your computer, probably through the use of an [RStudio Project](block002_hello-r-workspace-wd-project.html). Enter `getwd()` in the Console to see current working directory or, in RStudio, this is displayed in the bar at the top of Console.
+Now is the time to make sure you are working in an appropriate directory on your computer, probably through the use of an [RStudio Project](#rprojs). Enter `getwd()` in the Console to see current working directory or, in RStudio, this is displayed in the bar at the top of Console.
 
 You should clean out your workspace. In RStudio, click on the "Clear" broom icon from the Environment tab or use *Session > Clear Workspace*. You can also enter `rm(list = ls())` in the Console to accomplish same.
 
@@ -20,7 +22,7 @@ Why do we do this? So that the code you write is complete and re-runnable. If yo
 
 Finally, open a new R script and develop and run your code from there. In RStudio, use *File > New File > R Script*. Save this script with a name ending in `.r` or `.R`, containing no spaces or other funny stuff, and that evokes whatever it is we're doing today. Example: `cm004_data-care-feeding.r`.
 
-Another great idea is to do this in an R Markdown document. See [Test drive R Markdown](block007_first-use-rmarkdown.html) for a refresher.
+Another great idea is to do this in an R Markdown document. See [Test drive R Markdown](#r-markdown) for a refresher.
 
 ## Data frames are awesome
 
@@ -30,13 +32,13 @@ Whenever you have rectangular, spreadsheet-y data, your default data receptacle 
     - keeping them in sync vis-a-vis row order
     - applying any filtering of observations uniformly.
   * Most functions for inference, modelling, and graphing are happy to be passed a data frame via a `data =` argument. This has been true in base R for a long time.
-  * The set of packages known as the [`tidyverse`](https://github.com/hadley/tidyverse) takes this one step further and explicitly prioritizes the processing of data frames. This includes popular packages like `dplyr` and `ggplot2`. In fact the tidyverse prioritizes a special flavor of data frame, called a "tibble."
+  * The set of packages known as the [`tidyverse`][tidyverse-main-page] takes this one step further and explicitly prioritizes the processing of data frames. This includes popular packages like `dplyr` and `ggplot2`. In fact the tidyverse prioritizes a special flavor of data frame, called a "tibble."
 
-Data frames -- unlike general arrays or, specifically, matrices in R -- can hold variables of different flavors, such as character data (subject ID or name), quantitative data (white blood cell count), and categorical information (treated vs. untreated). If you use homogenous structures, like matrices, for data analysis, you  are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can't put character data, such as subject name, into the numeric matrix that holds white blood cell count. This fragmentation is a Bad Idea.
+Data frames -- unlike general arrays or, specifically, matrices in R -- can hold variables of different flavors, such as character data (subject ID or name), quantitative data (white blood cell count), and categorical information (treated vs. untreated). If you use homogeneous structures, like matrices, for data analysis, you  are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can't put character data, such as subject name, into the numeric matrix that holds white blood cell count. This fragmentation is a Bad Idea.
 
 ## Get the Gapminder data
 
-We will work with some of the data from the [Gapminder project](http://www.gapminder.org). I've released this as an R package, so we can install it from CRAN like so:
+We will work with some of the data from the [Gapminder project][gapminder-web]. I've released this as an [R package][gapminder-cran], so we can install it from CRAN like so:
 
 ```{r eval = FALSE}
 install.packages("gapminder")
@@ -60,7 +62,7 @@ str(gapminder)
 
 We could print the `gapminder` object itself to screen. However, if you've used R before, you might be reluctant to do this, because large datasets just fill up your Console and provide very little insight.
 
-This is the first big win for **tibbles**. The [`tidyverse`](https://github.com/hadley/tidyverse) offers a special case of R's default data frame: the "tibble", which is a nod to the actual class of these objects, `tbl_df`.
+This is the first big win for **tibbles**. The [`tidyverse`][tidyverse-web] offers a special case of R's default data frame: the "tibble", which is a nod to the actual class of these objects, `tbl_df`.
 
 If you have not already done so, install the `tidyverse` meta-package now:
 
@@ -124,7 +126,7 @@ Let's go back to the result of `str()` to talk about what a data frame is.
 str(gapminder)
 ```
 
-A data frame is a special case of a *list*, which is used in R to hold just about anything. Data frames are a special case where the length of each list component is the same. Data frames are superior to matrices in R because they can hold vectors of different flavors, e.g. numeric, character, and categorical data can be stored together. This comes up alot!
+A data frame is a special case of a *list*, which is used in R to hold just about anything. Data frames are a special case where the length of each list component is the same. Data frames are superior to matrices in R because they can hold vectors of different flavors, e.g. numeric, character, and categorical data can be stored together. This comes up a lot!
 
 ## Look at the variables inside a data frame
 
@@ -158,7 +160,7 @@ The __levels__ of the factor `continent` are "Africa", "Americas", etc. and this
 str(gapminder$continent)
 ```
 
-This [Janus](http://en.wikipedia.org/wiki/Janus)-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you resolve to learn how to [properly care and feed for factors](block014_factors.html). The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
+This [Janus][wiki-janus]-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you resolve to learn how to [properly care and feed for factors](#factors). The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
 
 Here we count how many observations are associated with each continent and, as usual, try to portray that info visually. This makes it much easier to quickly see that African countries are well represented in this dataset.
 ```{r tabulate-continent}
@@ -215,7 +217,7 @@ plot(lifeExp ~ log(gdpPercap), gapminder, subset = year == 2007)
 
 Use data frames!!!
 
-Use the [`tidyverse`](https://github.com/hadley/tidyverse)!!! This will provide a special type of data frame called a "tibble" that has nice default printing behavior, among other benefits.
+Use the [`tidyverse`][tidyverse-web]!!! This will provide a special type of data frame called a "tibble" that has nice default printing behavior, among other benefits.
 
 When in doubt, `str()` something or print something.
 
@@ -228,3 +230,7 @@ Use factors!!! But with intention and care.
 Do basic statistical and visual sanity checking of each variable.
 
 Refer to variables by name, e.g., `gapminder$lifeExp`, not by column number. Your code will be more robust and readable.
+
+
+```{r links, child="links.md"}
+```

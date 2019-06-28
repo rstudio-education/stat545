@@ -1,12 +1,14 @@
 # Introduction to dplyr {#dplyr-intro}
 
+<!--[Link to original content](https://stat545.com/block009_dplyr-intro.html)-->
+
 ## Intro
 
-`dplyr` is a package for data manipulation, developed by Hadley Wickham and Romain Francois. It is built to be fast, highly expressive, and open-minded about how your data is stored. It is installed as part of the the [`tidyverse`](https://github.com/hadley/tidyverse) meta-package and, as a core package, it is among those loaded via `library(tidyverse)`.
+`dplyr` is a package for data manipulation, developed by Hadley Wickham and Romain Francois. It is built to be fast, highly expressive, and open-minded about how your data is stored. It is installed as part of the [`tidyverse`][tidyverse-web] meta-package and, as a core package, it is among those loaded via `library(tidyverse)`.
 
-`dplyr`'s roots are in an earlier package called [`plyr`](http://plyr.had.co.nz), which implements the ["split-apply-combine" strategy for data analysis](https://www.jstatsoft.org/article/view/v040i01) (PDF). Where `plyr` covers a diverse set of inputs and outputs (e.g., arrays, data frames, lists), `dplyr` has a laser-like focus on data frames or, in the `tidyverse`, "tibbles". `dplyr` is a package-level treament of the `ddply()` function from `plyr`, because "data frame in, data frame out" proved to be so incredibly important.
+`dplyr`'s roots are in an earlier package called [`plyr`][plyr-web], which implements the ["split-apply-combine" strategy for data analysis][split-apply-combine]. Where `plyr` covers a diverse set of inputs and outputs (e.g., arrays, data frames, lists), `dplyr` has a laser-like focus on data frames or, in the `tidyverse`, "tibbles". `dplyr` is a package-level treatment of the `ddply()` function from `plyr`, because "data frame in, data frame out" proved to be so incredibly important.
 
-Have no idea what I'm talking about? Not sure if you care? If you use these base R functions: `subset()`, `apply()`, `[sl]apply()`, `tapply()`, `aggregate()`, `split()`, `do.call()`, `with()`, `within()`, then you should keep reading. Also, if you use `for()` loops alot, you might enjoy learning other ways to iterate over rows or groups of rows or variables in a data frame.
+Have no idea what I'm talking about? Not sure if you care? If you use these base R functions: `subset()`, `apply()`, `[sl]apply()`, `tapply()`, `aggregate()`, `split()`, `do.call()`, `with()`, `within()`, then you should keep reading. Also, if you use `for()` loops a lot, you might enjoy learning other ways to iterate over rows or groups of rows or variables in a data frame.
 
 ### Load `dplyr` and `gapminder`
 
@@ -53,7 +55,7 @@ Stop and ask yourself ...
 
 > Do I want to create mini datasets for each level of some factor (or unique combination of several factors) ... in order to compute or graph something?  
 
-If YES, __use proper data aggregation techniques__ or facetting in `ggplot2` -- __don’t subset the data__. Or, more realistic, only subset the data as a temporary measure while you develop your elegant code for computing on or visualizing these data subsets.
+If YES, __use proper data aggregation techniques__ or faceting in `ggplot2` -- __don’t subset the data__. Or, more realistic, only subset the data as a temporary measure while you develop your elegant code for computing on or visualizing these data subsets.
 
 If NO, then maybe you really do need to store a copy of a subset of the data. But seriously consider whether you can achieve your goals by simply using the `subset =` argument of, e.g., the `lm()` function, to limit computation to your excerpt of choice. Lots of functions offer a `subset =` argument!
 
@@ -96,7 +98,7 @@ This call explains itself and is fairly robust.
 
 ## Meet the new pipe operator
 
-Before we go any further, we should exploit the new pipe operator that the tidyverse imports from the [`magrittr`](https://github.com/smbache/magrittr) package by Stefan Bache. This is going to change your data analytical life. You no longer need to enact multi-operation commands by nesting them inside each other, like so many [Russian nesting dolls](http://blogue.us/wp-content/uploads/2009/07/Unknown-21.jpeg). This new syntax leads to code that is much easier to write and to read.
+Before we go any further, we should exploit the new pipe operator that the tidyverse imports from the [`magrittr`][magrittr-web] package by Stefan Bache. This is going to change your data analytical life. You no longer need to enact multi-operation commands by nesting them inside each other, like so many [Russian nesting dolls][wiki-nesting-dolls]. This new syntax leads to code that is much easier to write and to read.
 
 Here's what it looks like: `%>%`. The RStudio keyboard shortcut: Ctrl + Shift + M (Windows), Cmd + Shift + M (Mac).
 
@@ -114,7 +116,7 @@ Never fear, you can still specify other arguments to this function! To see the f
 gapminder %>% head(3)
 ```
 
-I've advised you to think "gets" whenever you see the assignment operator, `<-`. Similary, you should think "then" whenever you see the pipe operator, `%>%`.
+I've advised you to think "gets" whenever you see the assignment operator, `<-`. Similarly, you should think "then" whenever you see the pipe operator, `%>%`.
 
 You are probably not impressed yet, but the magic will soon happen.
 
@@ -155,9 +157,9 @@ gapminder[gapminder$country == "Cambodia", c("year", "lifeExp")]
 
 ## Pure, predictable, pipeable
 
-We've barely scratched the surface of `dplyr` but I want to point out key principles you may start to appreciate. If you're new to R or "programming with data", feel free skip this section and [move on](block010_dplyr-end-single-table.html).
+We've barely scratched the surface of `dplyr` but I want to point out key principles you may start to appreciate. If you're new to R or "programming with data", feel free skip this section and [move on](#dplyr-single).
 
-`dplyr`'s verbs, such as `filter()` and `select()`, are what's called [pure functions](http://en.wikipedia.org/wiki/Pure_function). To quote from Wickham's [Advanced R Programming book](http://adv-r.had.co.nz/Functions.html):
+`dplyr`'s verbs, such as `filter()` and `select()`, are what's called [pure functions][wiki-pure-fxns]. To quote from Wickham's [Advanced R Programming book][adv-r-fxns]:
 
 > The functions that are the easiest to understand and reason about are pure functions: functions that always map the same input to the same output and have no other impact on the workspace. In other words, pure functions have no side effects: they don’t affect the state of the world in any way apart from the value they return.
 
@@ -165,25 +167,34 @@ In fact, these verbs are a special case of pure functions: they take the same fl
 
 And finally, the data is __always__ the very first argument of the verb functions.
 
-This set of deliberate design choices, together with the new pipe operator, produces a highly effective, low friction [domain-specific language](http://adv-r.had.co.nz/dsl.html) for data analysis.
+This set of deliberate design choices, together with the new pipe operator, produces a highly effective, low friction [domain-specific language][adv-r-dsl] for data analysis.
 
-Go to the next block, [`dplyr` functions for a single dataset](block010_dplyr-end-single-table.html), for more `dplyr`!
+Go to the next block, [`dplyr` functions for a single dataset](#dplyr-single), for more `dplyr`!
 
 ## Resources
 
 `dplyr` official stuff
 
-  * package home [on CRAN](http://cran.r-project.org/web/packages/dplyr/index.html)
-    - note there are several vignettes, with the [introduction](http://cran.r-project.org/web/packages/dplyr/vignettes/introduction.html) being the most relevant right now
-    - the [one on window functions](http://cran.rstudio.com/web/packages/dplyr/vignettes/window-functions.html) will also be interesting to you now
-  * development home [on GitHub](https://github.com/hadley/dplyr)
-  * [tutorial HW delivered](https://www.dropbox.com/sh/i8qnluwmuieicxc/AAAgt9tIKoIm7WZKIyK25lh6a) (note this links to a DropBox folder) at useR! 2014 conference
+  * package home [on CRAN][dplyr-cran]
+    - note there are several vignettes, with the [introduction][dplyr-vignette-intro] being the most relevant right now
+    - the [one on window functions][dplyr-vignette-window-fxns] will also be interesting to you now
+  * development home [on GitHub][dplyr-github]
+  * [tutorial HW delivered][useR-2014-dropbox] (note this links to a DropBox folder) at useR! 2014 conference
 
-[RStudio Data Wrangling cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf), covering `dplyr` and `tidyr`. Remember you can get to these via *Help > Cheatsheets.* 
+[RStudio Data Transformation Cheat Sheet][rstudio-dplyr-cheatsheet-download], covering `dplyr`. Remember you can get to these via *Help > Cheatsheets.* 
 
-[Excellent slides](https://github.com/tjmahr/MadR_Pipelines) on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
+[Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds]
 
-Blog post [Hands-on dplyr tutorial for faster data manipulation in R](http://www.dataschool.io/dplyr-tutorial-for-faster-data-manipulation-in-r/) by Data School, that includes a link to an R Markdown document and links to videos
 
-[Cheatsheet](bit001_dplyr-cheatsheet.html) I made for `dplyr` join functions (not relevant yet but soon)
+<!--This should probably be updated with something more recent-->
+[Excellent slides][tj-mahr-slides]on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
 
+<!--This should probably be updated with something more recent-->
+Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos
+
+<!--This might need to be updated also-->
+[Cheatsheet](https://stat545.com/bit001_dplyr-cheatsheet.html) I made for `dplyr` join functions (not relevant yet but soon)
+
+
+```{r links, child="links.md"}
+```

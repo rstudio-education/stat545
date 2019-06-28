@@ -2,11 +2,11 @@
 
 # Git, GitHub, and RStudio {#version-control}
 
-Content now here: http://happygitwithr.com. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
+Content now [here][happy-git]. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
 
 ## Claim your private STAT 545 repository
 
-[Link to original content](http://stat545.com/git08_claim-stat545-repo.html)
+<!--[Link to original content](https://stat545.com/git08_claim-stat545-repo.html)-->
 
 ### Prerequisites
 
@@ -20,9 +20,7 @@ We assume the following:
   * You've proven that you can push to / pull from GitHub from RStudio.
   * You are no longer being challenged for your GitHub username and password because your credentials have been cached or you've set up SSH keys.
   
-Instructions for all of this are here:
-
-<http://happygitwithr.com>
+Instructions for all of this are [here][happy-git].
 
 ### Outline
 
@@ -57,4 +55,8 @@ Pull from GitHub (I'm just trying to help you establish this habit).
 
 Push to GitHub.
 
-Repeat *ad nauseum* as you do your coursework.
+Repeat *ad nauseam* as you do your coursework.
+
+
+```{r links, child="links.md"}
+```

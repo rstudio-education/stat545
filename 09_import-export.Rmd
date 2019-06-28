@@ -1,6 +1,6 @@
 # Writing and reading files {#import-export}
 
-[Link to original content](http://stat545.com/block002_hello-r-workspace-wd-project.html)
+<!--[Link to original content](https://stat545.com/block002_hello-r-workspace-wd-project.html)-->
 
 ## File I/O overview
 
@@ -28,11 +28,11 @@ First tip: __today's outputs are tomorrow's inputs__. Think back on all the pain
 
 Second tip: don't be too cute or clever. A plain text file that is readable by a human being in a text editor should be your default until you have __actual proof__ that this will not work. Reading and writing to exotic or proprietary formats will be the first thing to break in the future or on a different computer. It also creates barriers for anyone who has a different toolkit than you do. Be software-agnostic. Aim for future-proof and moron-proof.
 
-How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with `knitr` and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make](http://kbroman.github.io/minimal_make/).
+How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with `knitr` and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make][minimal-make].
 
 ## Load the tidyverse
 
-The main package we will be using is readr, which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
+The main package we will be using is [`readr`][readr-webpage], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
 
 ```{r start_import_export}
 library(tidyverse)
@@ -40,7 +40,7 @@ library(tidyverse)
 
 ## Locate the Gapminder data
 
-We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package](https://fs.r-lib.org/index.html).
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package][fs-rlib].
 
 ```{r}
 library(fs)
@@ -73,7 +73,7 @@ str(gapminder)
 
 Default to `readr::read_delim()` and friends. Use the arguments!
 
-The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the vignette on [column types](https://cran.r-project.org/web/packages/readr/vignettes/column-types.html). There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
+The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the  part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
 
 ## Compute something worthy of export
 
@@ -107,7 +107,7 @@ Let's look at the first few lines of `gap_life_exp.csv`. If you're following alo
 
 This is pretty decent looking, though there is no visible alignment or separation into columns. Had we used the base function `read.csv()`, we would be seeing rownames and lots of quotes, unless we had explicitly shut that down. Nicer default behavior is the main reason we are using `readr::write_csv()` over `write.csv()`.
 
-  * It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"](https://twitter.com/vsbuffalo/statuses/358699162679787521). If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
+  * It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"][write-data-tweet]. If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
 
 ## Invertibility
 
@@ -120,13 +120,13 @@ It turns out these self-imposed rules are often in conflict with one another
 
 Example: after performing the country-level summarization, we reorder the levels of the country factor, based on life expectancy. This reordering operation is conceptually important and must be embodied in R commands stored in a script. However, as soon as we write `gap_life_exp` to a plain text file, that meta-information about the countries is lost. Upon re-import with `read_delim()` and friends, we are back to alphabetically ordered factor levels. Any measure we take to avoid this loss immediately breaks another one of our rules.
 
-So what do I do? I must admit I save (and re-load) R-specific binary files. Right after I save the plain text file. [Belt and suspenders](http://www.wisegeek.com/what-does-it-mean-to-wear-belt-and-suspenders.htm).
+So what do I do? I must admit I save (and re-load) R-specific binary files. Right after I save the plain text file. [Belt and suspenders][belt-and-suspenders].
 
-I have toyed with the idea of writing import helper functions for a specific project, that would re-order factor levels in principled ways. They could be defined in one file and called from many. This would also have a very natural implementation within [a workflow where each analytical project is an R package](http://carlboettiger.info/2012/05/06/research-workflow.html). But so far it has seemed too much like [yak shaving](http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html). I'm intrigued by a recent discussion of putting such information in YAML frontmatter (see Martin Fenner blog post [Using YAML frontmatter with CSV](http://blog.datacite.org/using-yaml-frontmatter-with-csv/)).
+I have toyed with the idea of writing import helper functions for a specific project, that would re-order factor levels in principled ways. They could be defined in one file and called from many. This would also have a very natural implementation within [a workflow where each analytical project is an R package][research-workflow]. But so far it has seemed too much like [yak shaving][yak-shaving]. I'm intrigued by a recent discussion of putting such information in YAML frontmatter (see Martin Fenner blog post [Using YAML frontmatter with CSV][yaml-with-csv]).
 
 ## Reordering the levels of the country factor
 
-The topic of [factor level reordering is covered elsewhere](block029_factors.html), so let's Just. Do. It. I reorder the country factor levels according to the life expectancy summary we've already computed.
+The topic of [factor level reordering is covered elsewhere](#factors), so let's Just. Do. It. I reorder the country factor levels according to the life expectancy summary we've already computed.
 
 ```{r}
 head(levels(gap_life_exp$country)) # alphabetical order
@@ -200,7 +200,7 @@ Now let's look at the first few lines of the file `gap_life_exp-dput.txt`.
   cat(sep = "\n")
 ```
 
-Huh? Don't worry about it. Remember we are ["writing data for computers"](https://twitter.com/vsbuffalo/statuses/358699162679787521). The partner function `dget()` reads this representation back in.
+Huh? Don't worry about it. Remember we are ["writing data for computers"][write-data-tweet]. The partner function `dget()` reads this representation back in.
 
 ```{r}
 gap_life_exp_dget <- dget("gap_life_exp-dput.txt")
@@ -213,7 +213,7 @@ Note how the original, post-reordering country factor levels are restored using 
 
 But why on earth would you ever do this?
 
-The main application of this is [the creation of highly portable, self-contained minimal examples](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example). For example, if you want to pose a question on a forum or directly to an expert, it might be required or just plain courteous to NOT attach any data files. You will need a monolithic, plain text blob that defines any necessary objects and has the necessary code. `dput()` can be helpful for producing the piece of code that defines the object. If you `dput()` without specifying a file, you can copy the return value from Console and paste into a script. Or you can write to file and copy from there or add R commands below.
+The main application of this is [the creation of highly portable, self-contained minimal examples][reproducible-examples]. For example, if you want to pose a question on a forum or directly to an expert, it might be required or just plain courteous to NOT attach any data files. You will need a monolithic, plain text blob that defines any necessary objects and has the necessary code. `dput()` can be helpful for producing the piece of code that defines the object. If you `dput()` without specifying a file, you can copy the return value from Console and paste into a script. Or you can write to file and copy from there or add R commands below.
 
 ## Other types of objects to use `dput()` or `saveRDS()` on
 
@@ -237,20 +237,26 @@ Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter.
 
 ## References
 
-[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science](http://r4ds.had.co.nz) by Hadley Wickahm and Garrett Grolemund.
+[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund.
 
 Nine simple ways to make it easier to (re)use your data by Ethan P White, Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, Sarah R. Supp.
 
-  * First appeared here: PeerJ PrePrints 1:e7v2 <http://dx.doi.org/10.7287/peerj.preprints.7v2>
-  * Published here: Ideas in Ecology and Evolution 6(2): 1?10, 2013. doi:10.4033/iee.2013.6b.6.f <http://library.queensu.ca/ojs/index.php/IEE/article/view/4608>
+  * First appeared here: PeerJ PrePrints 1:e7v2 <https://doi.org/10.7287/peerj.preprints.7v2>
+  * Published here: Ideas in Ecology and Evolution 6(2), 2013. <https://ojs.library.queensu.ca/index.php/IEE/article/view/4608>
   * Section 4 "Use Standard Data Formats" is especially good reading.
   
-Tidy data by Hadley Wickham.
+Tidy data by Hadley Wickham
 
-  * In the Journal of Statistical Software Vol 59 (2014), Issue 10, 10.18637/jss.v059.i10: <http://www.jstatsoft.org/article/view/v059i10>
+  * In the Journal of Statistical Software Vol 59 (2014), Issue 10, 10.18637/jss.v059.i10: <https://www.jstatsoft.org/article/view/v059i10>
   * PDF also available here: <http://vita.had.co.nz/papers/tidy-data.pdf>
 
-Data Manipulation with R [available via SpringerLink](http://ezproxy.library.ubc.ca/login?url=http://link.springer.com.ezproxy.library.ubc.ca/book/10.1007/978-0-387-74731-6/page/1) by Phil Spector, Springer (2008) &#124; [author webpage](http://www.stat.berkeley.edu/%7Espector/) &#124; [GoogleBooks search](http://books.google.com/books?id=grfuq1twFe4C&lpg=PP1&dq=data%2520manipulation%2520spector&pg=PP1#v=onepage&q=&f=false)
+Data Manipulation with R by Phil Spector, Springer (2008)
 
+  * Available via [SpringerLink](https://www.springer.com/gp/book/9780387747309)
+  * [Author's webpage](https://www.stat.berkeley.edu/%7Espector/)
+  * [GoogleBooks search](https://books.google.com/books?id=grfuq1twFe4C&lpg=PP1&dq=data%2520manipulation%2520spector&pg=PP1#v=onepage&q&f=false)
   * See Chapter 2 ("Reading and Writing Data")
 
+
+```{r links, child="links.md"}
+```
