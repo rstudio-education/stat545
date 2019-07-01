@@ -1,6 +1,6 @@
-# Taking control of qualitative colors in ggplot2 {#qualitative-colors}
+# Taking control of qualitative colors in `ggplot2` {#qualitative-colors}
 
-[Taking control of qualitative colors in `ggplot2`](block019_enforce-color-scheme.html)
+<!--[Link to original content](https://stat545.com/block019_enforce-color-scheme.html)-->
 
 ## Load packages and prepare the Gapminder data
 
@@ -106,3 +106,5 @@ jdat %>%
 ```
 
 
+```{r links, child="links.md"}
+``

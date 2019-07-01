@@ -2,7 +2,9 @@
 
 # R objects and indexing {#r-objects}
 
-[R objects (beyond data.frames) and indexing](block004_basic-r-objects.html)
+<!--[Link to original content](http://stat545.com/block004_basic-r-objects.html) -->
+
+R objects (beyond data.frames) and indexing
 
 > "Rigor and clarity are not synonymous" -- Larry Wasserman
 
@@ -432,4 +434,7 @@ Thinking about objects according to the flavors above will work fairly well for 
 > JB note to self. Possible TO ADD but probably belongs in separate tutorial on changing and adding to data.frames: cbind and rbind with data.frames, transform(). do.call() tricks for data.frames. adding/removing variables to/from data.frames. Does this belong in earlier tutorial on the care and feeding of a data.frame? Fits in well with subset(), after all.
 -->
 
+
+```{r links, child="links.md"}
+```
 

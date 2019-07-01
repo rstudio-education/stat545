@@ -1,10 +1,13 @@
 # Using colors in R {#colors}
 
+
+<!--[Link to original content](http://stat545.com/block018_colors.html)-->
+
+<!--The link below is broken. Found it listed [here](https://www.showmeshiny.com/r-graph-catalog/) which links this [repo](https://github.com/jennybc/r-graph-catalog) as the source code-->
+
 [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/), a visual, clickable index of 100+ figures + `ggplot2` code to make them
 
 Note that I SKIPPED THE R GRAPH CATALOG LINK
-
-[Using colors in R](block018_colors.html)
 
 ## Load the Gapminder data and `dplyr`
 
@@ -408,3 +411,8 @@ ggplot2: Elegant Graphics for Data Analysis [available via SpringerLink](http://
   * Section 6.4.3 Colour
 
 ["Why Should Engineers and Scientists Be Worried About Color?"](http://www.research.ibm.com/people/l/lloydt/color/color.HTM) by Bernice E. Rogowitz and Lloyd A. Treinish of IBM Research , h/t [\@EdwardTufte](https://twitter.com/EdwardTufte).
+
+
+
+```{r links, child="links.md"}
+```

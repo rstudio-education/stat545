@@ -1,8 +1,8 @@
 # Table lookup {#lookup}
 
-[Table look up](bit008_lookup.html)
+<!--[Link to original content](https://stat545.com/bit008_lookup.html) -->
 
-I try to use [dplyr joins](bit001_dplyr-cheatsheet.html) for most tasks that combine data from two tibbles. But sometimes you just need good old "table lookup". Party like it's Microsoft Excel `LOOKUP()` time!
+I try to use [dplyr joins](#join-cheatsheet) for most tasks that combine data from two tibbles. But sometimes you just need good old "table lookup". Party like it's Microsoft Excel `LOOKUP()` time!
 
 ## Load gapminder and the tidyverse
 
@@ -108,4 +108,8 @@ mini_gap %>%
 ```
 
 When your key variable is character (and not a factor), you can skip this step.
+
+
+```{r links, child="links.md"}
+```
 

@@ -1,8 +1,8 @@
 # Multiple plots on a page {#multiple-plots}
 
-Note add patchwork package here?
+<!--[Link to original content](http://stat545.com/block020_multiple-plots-on-a-page.html)-->
 
-[Multiple plots on a page](block020_multiple-plots-on-a-page.html)
+<!--Note add patchwork package here?-->
 
 ## Facetting is not a panacea
 
@@ -113,3 +113,6 @@ The `cowplot` package (on [CRAN](https://cran.r-project.org/web/packages/cowplot
 
 Check out [the vignette](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) to see it in action.
 
+
+```{r links, child="links.md"}
+``

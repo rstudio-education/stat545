@@ -1,10 +1,12 @@
 # Write your own R functions: Part 2 {#functions-part2}
 
-Writing your own R functions [Part 2](block011_write-your-own-function-02.html): generalize, set default argument values
+<!--[Link to original content](https://stat545.com/block011_write-your-own-function-02.html) -->
+
+Writing your own R functions Part 2: generalize, set default argument values
 
 ## Where were we? Where are we going?
 
-In [part 1](block011_write-your-own-function-01.html) we wrote our first R function to compute the difference between the max and min of a numeric vector. We checked the validity of the function's only argument and, informally, we verified that it worked pretty well.
+In [part 1](#functions-part1) we wrote our first R function to compute the difference between the max and min of a numeric vector. We checked the validity of the function's only argument and, informally, we verified that it worked pretty well.
 
 In this part, we generalize this function, learn more technical details about R functions, and set default values for some arguments.
 
@@ -180,3 +182,6 @@ Hadley Wickham's book [Advanced R](http://adv-r.had.co.nz)
   * Section on [return values](http://adv-r.had.co.nz/functions.html#return-values)
   
 
+
+```{r links, child="links.md"}
+```

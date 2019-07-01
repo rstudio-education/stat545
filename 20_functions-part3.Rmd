@@ -1,10 +1,12 @@
 # Write your own R functions: Part 3 {#functions-part3}
 
-Writing your own R functions [Part 3](block011_write-your-own-function-03.html):`NA` handling, `...`, unit test
+<!--[Link to original content](https://stat545.com/block011_write-your-own-function-03.html) -->
+
+Writing your own R functions Part 3:`NA` handling, `...`, unit test
 
 ## Where were we? Where are we going?
 
-In [part 2](block011_write-your-own-function-02.html) we generalized our first R function so it could take the difference between any two quantiles of a numeric vector. We also set default values for the underlying probabilities, so that, by default, we compute the max minus the min.
+In [part 2](#functions-part2) we generalized our first R function so it could take the difference between any two quantiles of a numeric vector. We also set default values for the underlying probabilities, so that, by default, we compute the max minus the min.
 
 In this part, we tackle `NA`s, the special argument `...` and formal testing.
 
@@ -169,4 +171,8 @@ Hadley Wickham's [R packages](http://r-pkgs.had.co.nz) book
   * [Testing chapter](http://r-pkgs.had.co.nz/tests.html)
   
 Article [testthat: Get Started with Testing](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf) in The R Journal Vol. 3/1, June 2011. Maybe this is completely superceded by the newer chapter above? Be aware that parts could be out of date, but I recall it was a helpful read.
+
+
+```{r links, child="links.md"}
+```
 

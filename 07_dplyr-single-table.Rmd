@@ -372,14 +372,11 @@ In later tutorials, we'll explore more of dplyr, such as operations based on two
 
 <!--This should probably be updated with something more recent-->
 [Excellent slides][tj-mahr-slides]on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
-<!--This should probably be updated with something more recent-->
 
+<!--This should probably be updated with something more recent-->
 Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos
 
-<!--This might need to be updated also-->
-[Cheatsheet](https://stat545.com/bit001_dplyr-cheatsheet.html) I made for `dplyr` join functions (not relevant yet but soon)
-
-
+[Cheatsheet](#join-cheatsheet) I made for `dplyr` join functions (not relevant yet but soon)
 
 
 ```{r links, child="links.md"}

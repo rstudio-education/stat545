@@ -2,7 +2,8 @@
 
 # Overview {#package-overview}
 
-[All the package things](packages00_index.html)
+<!--[Link to original content](https://stat545.com/packages00_index.html)-->
+<!--Have a table of contents type landing page for "All the package things" here?-->
 
 ## Setting the stage
 
@@ -75,3 +76,6 @@ Some blog posts accompanying `devtools` releases highlight useful helper functio
 
 [How R Searches and Finds Stuff](http://obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/) is a fairly technical blog post for understanding the R search path, but also gives some great explanations on some differences between `Imports` vs `Depends` and why `Imports` is safer.
 
+
+```{r links, child="links.md"}
+``

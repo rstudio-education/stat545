@@ -1,6 +1,8 @@
-# Join two tables {#join}
+# Join two tables {#join-cheatsheet}
 
-Join (a.k.a. merge) two tables: [dplyr join cheatsheet](bit001_dplyr-cheatsheet.html) with comic characters and publishers.
+<!--[Link to original content](https://stat545.com/bit001_dplyr-cheatsheet.html--> 
+
+Join (a.k.a. merge) two tables: dplyr join cheatsheet with comic characters and publishers.
 
 ## Why the cheatsheet
 
@@ -323,3 +325,7 @@ fjsp_kable <- knitr::kable(fjsp)
 </td>
 </tr>
 </table>
+
+
+```{r links, child="links.md"}
+```

@@ -1,5 +1,7 @@
 # System preparation for package development {#system-prep}
 
+<!--[Link to original content](https://stat545.com/packages01_system-prep.html)-->
+
 Although we'll build a very simple package, we'll use the most modern and powerful tools for R package development. In theory, this could eventually involve compiling C/C++ code, which means you need what's called a *build environment*.
 
 back to [All the package things](packages00_index.html)
@@ -147,3 +149,7 @@ devtools::install_github("r-lib/devtools")
 For Windows instructions, see the [`devtools` README](https://github.com/hadley/devtools).
 
 back to [All the package things](packages00_index.html)
+
+```{r links, child="links.md"}
+```
+

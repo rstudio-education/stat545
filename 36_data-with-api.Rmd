@@ -1,5 +1,8 @@
 # Using an API to get data {#use-api}
 
+<!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
+<!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
+
 ## Click-and-Download
 
 In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
@@ -121,6 +124,8 @@ getCensus(name = "dec/sf1", vintage = 2010, vars = c("NAME","P001001"), region =
   head()
 ```
 
+```{r links, child="links.md"}
+```
 
 
 

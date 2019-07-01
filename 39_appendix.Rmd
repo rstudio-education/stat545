@@ -4,4 +4,17 @@
 
 # Deprecated {#oldies}
 
+## Regular Expression in R {#regex1}
+
+[Link to original content](https://stat545.com/block022_regular-expression.html)
+
+## Regular Expression and Character Data {#regex2}
+
+[Link to original content](https://stat545.com/block027_regular-expressions.html)
+
+## Vectors versus tibbles {#vectors-tibbles}
+
+[Link to original content](https://stat545.com/block031_vector-tibble-relations.html)
+
+
 # Short random things {#random}

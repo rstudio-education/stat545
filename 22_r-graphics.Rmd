@@ -2,6 +2,14 @@
 
 # R graphics landscape {#r-graphics}
 
+<!--[Link to original content](https://stat545.com/graph00_index.html)-->
+<!--Have this be a landing page similar to stat545's "All the graph things"?-->
+
 note currently a placeholder with slides only
 
 R graphics landscape *[slides](https://speakerdeck.com/jennybc/ggplot2-tutorial)*
+
+
+```{r links, child="links.md"}
+```
+

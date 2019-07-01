@@ -2,6 +2,8 @@
 
 *under development ... not clear where this is going*
 
+<!--[Link to original content](https://stat545.com/block032_character-encoding.html)-->
+
 ## Resources
 
   * [Strings subsection of data import chapter](http://r4ds.had.co.nz/data-import.html#readr-strings) in R for Data Science
@@ -231,3 +233,6 @@ as.integer(charToRaw(backwards_one))
 as.integer(charToRaw(string_curly))
 ```
 
+
+```{r links, child="links.md"}
+```

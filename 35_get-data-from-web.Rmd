@@ -2,8 +2,9 @@
 
 # Introduction {-#api-intro} 
 
-Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
+<!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
 
+Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
 
 There are many ways to obtain data from the Internet; let's consider four categories:
 
@@ -27,3 +28,5 @@ All this and more is described at the [rOpenSci repository of R tools for intera
 * `httr::GET` data read this way needs to be parsed later with read.table
 * `rio::import()` can "read a number of common data formats directly from an https:// URL".  Isn't that very similar to the previous?
 
+```{r links, child="links.md"}
+```

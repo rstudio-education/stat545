@@ -1,6 +1,8 @@
 # Write your own R functions: Part 1 {#functions-part1}
 
-Writing your own R functions [Part 1](block011_write-your-own-function-01.html): get something that works, check arguments
+<!--[Link to original content](https://stat545.com/block011_write-your-own-function-01.html) -->
+
+Writing your own R functions Part 1: get something that works, check arguments
 
 ## What and why?
 
@@ -193,3 +195,7 @@ Packages for runtime assertions (the last 3 seem to be under more active develop
 Hadley Wickham's book [Advanced R](http://adv-r.had.co.nz)
 
   * Section on [defensive programming](http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming)
+
+
+```{r links, child="links.md"}
+```

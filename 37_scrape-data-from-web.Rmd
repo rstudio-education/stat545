@@ -1,5 +1,10 @@
 # Scrape data from the web {#web-scraping}
 
+<!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
+
+
 What if data is present on a website, but isn’t provided in an API at all? It is possible to grab that information too. How easy that is to do depends a lot on the quality of the website that we are using.
 
 
+```{r links, child="links.md"}
+```

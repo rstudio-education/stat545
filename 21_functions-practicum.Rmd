@@ -1,10 +1,12 @@
 # Function-writing practicum {#functions-practicum}
 
-[Function-writing Practicum](block012_function-regress-lifeexp-on-year.html): fit a linear model and return estimated coefficients
+<!--[Link to original content](https://stat545.com/block012_function-regress-lifeexp-on-year.html)-->
+
+Function-writing Practicum: fit a linear model and return estimated coefficients
 
 ## Overview
 
-We recently learned how to write our own R functions ([Part 1](block011_write-your-own-function-01.html), [Part 2](block011_write-your-own-function-02.html), [Part 3](block011_write-your-own-function-03.html)).
+We recently learned how to write our own R functions ([Part 1](#functions-part1), [Part 2](#functions-part2), [Part 3](#functions-part3)).
 
 Now we use that knowledge to write another useful function, within the context of the Gapminder data:
 
@@ -119,3 +121,7 @@ le_lin_fit(gapminder %>% filter(country == "Zimbabwe"))
 Yes.
 
 Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. Let's move on to [the exciting part](http://stat545-ubc.github.io/block023_dplyr-do.html), which is scaling this up to __all__ countries.
+
+
+```{r links, child="links.md"}
+```

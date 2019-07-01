@@ -1,14 +1,16 @@
 # Character vectors {#character-vectors}
 
+<!--[Link to original content](https://stat545.com/block028_character-data.html)-->
+
 ## Character vectors: where they fit in
 
-We've spent alot of time working with big, beautiful data frames. That are clean and wholesome, like the Gapminder data.
+We've spent a lot of time working with big, beautiful data frames. That are clean and wholesome, like the Gapminder data.
 
 But real life will be much nastier. You will bring data into R from the outside world and discover there are problems. You might think: how hard can it be to deal with character data? And the answer is: it can be very hard!
 
-  * [Stack Exchange outage](http://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016)
-  * [Regexes to validate/match email addresses](http://emailregex.com)
-  * [Fixing an Atom bug](http://davidvgalbraith.com/how-i-fixed-atom/)
+  * [Stack Exchange outage][stackexchange-outage]
+  * [Regexes to validate/match email addresses][email-regex]
+  * [Fixing an Atom bug][fix-atom-bug]
 
 Here we discuss common remedial tasks for cleaning and transforming character data, also known as "strings". A data frame or tibble will consist of one or more *atomic vectors* of a certain class. This lesson deals with things you can do with vectors of class `character`.
 
@@ -18,47 +20,47 @@ I start with this because we cannot possibly do this topic justice in a short am
 
 ### Manipulating character vectors
 
-  * [stringr package](https://cran.r-project.org/web/packages/stringr/index.html)
+  * [`stringr` package][stringr-web]
     - A core package in the tidyverse. It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
     - Main functions start with `str_`. Auto-complete is your friend.
     - Replacements for base functions re: string manipulation and regular expressions (see below).
     - Main advantagse over base functions: greater consistency about inputs and outputs. Outputs are more ready for your next analytical task. 
-  * [tidyr package](https://cran.r-project.org/web/packages/tidyr/index.html)
+  * [`tidyr` package][tidyr-web]
     - Especially useful for functions that split 1 character vector into many and *vice versa*: `separate()`, `unite()`, `extract()`.
   * Base functions: `nchar()`, `strsplit()`, `substr()`, `paste()`, `paste0()`.
-  * The [glue package](http://glue.tidyverse.org) is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out glue.
+  * The [`glue` package][glue-web] is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out glue.
 
 ### Regular expressions resources
 
 A God-awful and powerful language for expressing patterns to match in text or for search-and-replace. Frequently described as "write only", because regular expressions are easier to write than to read/understand. And they are not particularly easy to write.
 
-  * We again prefer the [stringr package](https://cran.r-project.org/web/packages/stringr/index.html) over base functions. Why?
-    - Wraps [stringi](https://cran.r-project.org/web/packages/stringi/index.html), which is a great place to look if stringr isn't powerful enough.
-    - Standardized on [ICU regular expressions](http://userguide.icu-project.org/strings/regexp), so you can stop toggling `perl = TRUE/FALSE` at random.
+  * We again prefer the [stringr package][stringr-cran] over base functions. Why?
+    - Wraps [stringi][stringi-cran], which is a great place to look if stringr isn't powerful enough.
+    - Standardized on [ICU regular expressions][icu-regex], so you can stop toggling `perl = TRUE/FALSE` at random.
     - Results come back in a form that is much friendlier for downstream work.
-  * The [Strings chapter](http://r4ds.had.co.nz/strings.html) of [R for Data Science](http://r4ds.had.co.nz) is a great resource.
+  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] is a great resource.
   * Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of stringr and uses example data that is easier to support long-term.
-    -  [2014 Intro to regular expressions](block022_regular-expression.html) by TA Gloria Li.
-    - [2015 Regular expressions and character data in R](block027_regular-expressions.html) by TA Kieran Samuk.
-  * RStudio Cheat Sheet on [Regular Expressions in R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+    -  [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
+    - [2015 Regular expressions and character data in R](#regex2) by TA Kieran Samuk.
+  * RStudio Cheat Sheet on [Regular Expressions in R][rstudio-regex-cheatsheet]
   * Regex testers
-    - [regex101.com](https://regex101.com)
-    - [regexr.com](http://regexr.com)
-  * [rex R package](https://github.com/kevinushey/rex): make regular expression from human readable expressions
+    - [regex101.com][regex101]
+    - [regexr.com][regexr]
+  * [rex R package][rex-github]: make regular expression from human readable expressions
   * Base functions: `grep()` and friends.
 
 ### Character encoding resources
 
-  * [Strings subsection of data import chapter](http://r4ds.had.co.nz/data-import.html#readr-strings) in R for Data Science
+  * [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science
   * Screeds on the Minimum Everyone Needs to Know about encoding
-    - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)](http://www.joelonsoftware.com/articles/Unicode.html)
+    - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
     - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text](http://kunststube.net/encoding/)
-  * I've translated this blog post [Guide to fixing encoding problems in Ruby](http://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/) into R as the first step to developing a lesson: [Encoding in R](block032_character-encoding.html)
+  * I've translated this blog post [Guide to fixing encoding problems in Ruby](https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/) into R as the first step to developing a lesson: [Encoding in R](#character-encoding)
 
 ### Character vectors that live in a data frame
 
   * Certain operations are facilitated by `tidyr`. These are described below.
-  * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](block031_vector-tibble-relations.html)
+  * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#vectors-tibbles)
 
 ## Load the tidyverse, which includes stringr
 
@@ -197,7 +199,7 @@ You can replace a pattern with `str_replace()`. Here we use an explicit string-t
 str_replace(my_fruit, pattern = "fruit", replacement = "THINGY")
 ```
 
-A special case that comes up alot is replacing `NA`, for which there is `str_replace_na()`.
+A special case that comes up a lot is replacing `NA`, for which there is `str_replace_na()`.
 
 ```{r}
 melons <- str_subset(fruit, pattern = "melon")
@@ -260,7 +262,7 @@ str_subset(fruit, pattern = "\\Bmelon")
 
 ### Character classes
 
-Characters can be specified via classes. You can make them explicitly "by hand" or use some pre-existing ones.  The [2014 STAT 545 regex lesson](block022_regular-expression.html) has a good list of character classes. Character classes are usually given inside square brackets, `[]` but a few come up so often that we have a metacharacter for them, such as `\d` for a single digit.
+Characters can be specified via classes. You can make them explicitly "by hand" or use some pre-existing ones.  The [2014 STAT 545 regex lesson](#regex1) has a good list of character classes. Character classes are usually given inside square brackets, `[]` but a few come up so often that we have a metacharacter for them, such as `\d` for a single digit.
 
 Here we match `ia` at the end of the country name, preceded by one of the characters in the class. Or, in the negated class, preceded by anything but one of those characters.
 
@@ -380,5 +382,10 @@ You can use parentheses inside regexes to define *groups* and you can refer to t
 
 For now, this lesson will refer you to other place to read up on this:
 
-  * STAT 545 [2014 Intro to regular expressions](block022_regular-expression.html) by TA Gloria Li.
-  * The [Strings chapter](http://r4ds.had.co.nz/strings.html) of [R for Data Science](http://r4ds.had.co.nz).
+  * STAT 545 [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
+  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds].
+
+
+
+```{r links, child="links.md"}
+```

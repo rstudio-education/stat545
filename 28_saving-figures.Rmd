@@ -1,7 +1,6 @@
 # Writing figures to file {#save-figs}
 
-[Writing figures to file](block017_write-figure-to-file.html)
-
+<!--[Link to original content](https://stat545.com/block017_write-figure-to-file.html)-->
 
 It is not always appropriate or sufficient for figures to exist *only* inside a dynamic report, such as an R Markdown document. You should know how to write key figures to file for downstream use in a variety of settings. 
 
@@ -263,3 +262,7 @@ library(fs)
 file_delete(dir_ls(path("img"), regexp = "fig-io-practice"))
 file_delete(dir_ls(".", regexp = "test-fig"))
 ```
+
+
+```{r links, child="links.md"}
+``

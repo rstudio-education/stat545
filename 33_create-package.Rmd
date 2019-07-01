@@ -1,5 +1,8 @@
 # Write your own R package {#package-from-scratch}
 
+<!--[Link to original content](http://stat545.com/packages06_foofactors-package.html)-->
+
+
 This section closely tracks with content from the book [R Packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game."](https://r-pkgs.org/whole-game.html) The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."](https://r-pkgs.org/whole-game.html) The [R Packages](https://r-pkgs.org/) book is a great place to go next to learn more. 
 
 
@@ -1077,5 +1080,8 @@ getwd()
 
 ## for now, I like leaving this for inspection
 #unlink(ff_path, recursive = TRUE)
+```
+
+```{r links, child="links.md"}
 ```
 
