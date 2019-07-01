@@ -73,7 +73,7 @@ qdiff5(z, na.rm = FALSE)
 
 ## The useful but mysterious `...` argument
 
-You probably could have lived a long and happy life without knowing there are at least 9 different algorithms for computing quantiles. [Go read about the `type` argument](http://www.rdocumentation.org/packages/stats/functions/quantile) of `quantile()`. TLDR: If a quantile is not unambiguously equal to an observed data point, you must somehow average two data points. You can weight this average different ways, depending on the rest of the data, and `type =` controls this.
+You probably could have lived a long and happy life without knowing there are at least 9 different algorithms for computing quantiles. [Go read about the `type` argument][rdocs-quantile] of `quantile()`. TLDR: If a quantile is not unambiguously equal to an observed data point, you must somehow average two data points. You can weight this average different ways, depending on the rest of the data, and `type =` controls this.
 
 Let's say we want to give the user of our function the ability to specify how the quantiles are computed, but we want to accomplish with as little fuss as possible. In fact, we don't even want to clutter our function's interface with this! This calls for the very special `...` argument. In English, this set of three dots is frequently called an "ellipsis".
 
@@ -84,7 +84,7 @@ qdiff6 <- function(x, probs = c(0, 1), na.rm = TRUE, ...) {
 }
 ```
 
-The practical significance of the `type =` argument is virtually nonexistent, so we can't demo with the Gapminder data. Thanks to [\@wrathematics](https://twitter.com/wrathematics), here's a small example where we can (barely) detect a difference due to `type`.
+The practical significance of the `type =` argument is virtually nonexistent, so we can't demo with the Gapminder data. Thanks to [\@wrathematics][twitter-wrathematics], here's a small example where we can (barely) detect a difference due to `type`.
 
 ```{r}
 set.seed(1234)
@@ -105,15 +105,15 @@ While the difference may be subtle, __it's there__. Marvel at the fact that we h
 
 The special argument `...` is very useful when you want the ability to pass arbitrary arguments down to another function, but without constantly expanding the formal arguments to your function. This leaves you with a less cluttered function definition and gives you future flexibility to specify these arguments only when you need to.
 
-You will also encounter the `...` argument in many built-in functions -- read up [on `c()`](http://www.rdocumentation.org/packages/base/functions/c) or [`list()`](http://www.rdocumentation.org/packages/base/functions/list) -- and now you have a better sense of what it means. It is not a breezy "and so on and so forth."
+You will also encounter the `...` argument in many built-in functions -- read up on [`c()`][rdocs-c] or [`list()`][rdocs-list] -- and now you have a better sense of what it means. It is not a breezy "and so on and so forth."
 
 There are also downsides to `...`, so use it with intention. In a package, you will have to work harder to create truly informative documentation for your user. Also, the quiet, absorbent properties of `...` mean it can sometimes silently swallow other named arguments, when the user has a typo in the name. Depending on whether or how this fails, it can be a little tricky to find out what went wrong.
 
 ## Use `testthat` for formal unit tests
 
-Until now, we've relied on informal tests of our evolving function. If you are going to use a function alot, especially if it is part of a package, it is wise to use formal unit tests.
+Until now, we've relied on informal tests of our evolving function. If you are going to use a function a lot, especially if it is part of a package, it is wise to use formal unit tests.
 
-The [`testthat` package](https://github.com/hadley/testthat) provides excellent facilities for this, with a distinct emphasis on automated unit testing of entire packages. However, we can take it out for a test drive even with our one measly function.
+The [`testthat`][testthat-web] package ([CRAN][testthat-cran]; GitHub [testthat-github]) provides excellent facilities for this, with a distinct emphasis on automated unit testing of entire packages. However, we can take it out for a test drive even with our one measly function.
 
 We will construct a test with `test_that()` and, within it, we put one or more *expectations* that check actual against expected results. You simply harden your informal, interactive tests into formal unit tests. Here are some examples of tests and indicative expectations.
 
@@ -158,19 +158,20 @@ defaulting to NULL then checking is.null() and take it from there
 
 ## Resources
 
-Hadley Wickham's book [Advanced R](http://adv-r.had.co.nz)
+Hadley Wickham's book [Advanced R][adv-r]
 
-  * Section on [function arguments](http://adv-r.had.co.nz/Functions.html#function-arguments)
-
+  * Section on [function arguments][adv-r-fxn-args]
+  
 Unit testing with `testthat`:
 
-  * On [CRAN](https://cran.r-project.org/web/packages/testthat/index.html), development on [GitHub](https://github.com/hadley/testthat)
-
-Hadley Wickham's [R packages](http://r-pkgs.had.co.nz) book
-
-  * [Testing chapter](http://r-pkgs.had.co.nz/tests.html)
+  * On [CRAN][testthat-cran], development on [GitHub][testthat-github], main [webpage][testthat-web]
   
-Article [testthat: Get Started with Testing](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf) in The R Journal Vol. 3/1, June 2011. Maybe this is completely superceded by the newer chapter above? Be aware that parts could be out of date, but I recall it was a helpful read.
+  
+Hadley Wickham's [R packages][r-pkgs] book
+
+  * [Testing chapter][r-pkgs-tests]
+  
+Article [testthat: Get Started with Testing][testthat-article] in The R Journal Vol. 3/1, June 2011. Maybe this is completely superseded by the newer chapter above? Be aware that parts could be out of date, but I recall it was a helpful read.
 
 
 ```{r links, child="links.md"}

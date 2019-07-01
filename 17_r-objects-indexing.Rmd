@@ -49,7 +49,7 @@ round(rnorm(5, sd = 10^(0:4)), 2)
 ```
 This could be awesome in some settings, but dangerous in others, i.e. if you exploit this by mistake and get no warning. This is one of the reasons it's so important to keep close tabs on your R objects: are they what you expect in terms of their flavor and length or dimensions? Check early and check often.
 
-Notice that R also recycles vectors, if they are not the necessary length. You will get a warning if R suspects recycling is unintended, i.e. when one length is not an integer multiple of another, but recycling is silent if it seems like you know what you're doing. Can be a beautiful thing when you're doing this deliberately, but devasting when you don't.
+Notice that R also recycles vectors, if they are not the necessary length. You will get a warning if R suspects recycling is unintended, i.e. when one length is not an integer multiple of another, but recycling is silent if it seems like you know what you're doing. Can be a beautiful thing when you're doing this deliberately, but devastating when you don't.
 
 > Question: is there a way to turn recycling off? Not that I know of.
 
@@ -81,9 +81,9 @@ class(x)
 
 The most important atomic vector types are
 
-  * logical: TRUE's AND FALSE's, easily coerced into 1's and 0's
-  * numeric: numbers and, yes, integers and double-precision floating point numbers are different but you can live happily for a long time without worrying about this
-  * character
+  * __logical__: TRUE's AND FALSE's, easily coerced into 1's and 0's
+  * __numeric__: numbers and, yes, integers and double-precision floating point numbers are different but you can live happily for a long time without worrying about this
+  * __character__
 
 Let's create some simple vectors for more demos below.
 
@@ -112,10 +112,10 @@ We've said, and even seen, that square brackets are used to index a vector. Ther
 
 Most common, useful ways to index a vector
 
-  * logical vector: keep elements associated with TRUEs, ditch the FALSEs
-  * vector of positive integers specifying the keepers
-  * vector of negative integers specifying the losers
-  * character vector, naming the keepers
+  * __logical vector__: keep elements associated with TRUE's, ditch the FALSE's
+  * __vector of positive integers__: specifying the keepers
+  * __vector of negative integers: specifying the losers
+  * __character vector__: naming the keepers
 
 ```{r}
 w
@@ -137,7 +137,7 @@ Lists are basically über-vectors in R. It's like a vector, but with no requirem
   * data.frames are lists! They are a special case where each element is an atomic vector, all having the same length.
   * many functions will return lists to you and you will want to extract goodies from them, such as the p-value for a hypothesis test or the estimated error variance in a regression model
 
-Here we repeat an assignment from above, using `list()` instead of `c()` to combine things and you'll notice that the different flavors of the consitutent parts are retained this time.
+Here we repeat an assignment from above, using `list()` instead of `c()` to combine things and you'll notice that the different flavors of the constituent parts are retained this time.
 ```{r}
 ## earlier: a <- c("cabbage", pi, TRUE, 4.3)
 (a <- list("cabbage", pi, TRUE, 4.3))
@@ -158,7 +158,7 @@ names(a)
 
 Indexing a list is similar to indexing a vector but it is necessarily more complex. The fundamental issue is this: if you request a single element from the list, do you want a list of length 1 containing only that element or do you want the element itself? For the former (desired return value is a list), we use single square brackets, `[` and `]`, just like indexing a vector. For the latter (desired return value is a single element), we use a dollar sign `$`, which you've already used to get one variable from a data.frame, or double square brackets, `[[` and `]]`.
 
-The ["pepper shaker photos" in R for Data Science](http://r4ds.had.co.nz/vectors.html#lists-of-condiments) are a splendid visual explanation of the different ways to get stuff out of a list. Highly recommended.
+The ["pepper shaker photos" in R for Data Science][r4ds-pepper-shaker] are a splendid visual explanation of the different ways to get stuff out of a list. Highly recommended.
 
 > Warning: the rest of this section might make your eyes glaze over. Skip to the next section if you need to; come back later when some list is ruining your day.
 
@@ -217,7 +217,11 @@ mode(jDat)
 class(jDat)
 ```
 
-> Sidebar: What is `I()`, used when creating the variable $y$ in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the $v$ variable above. More about (foiling) R's determination to convert character data to factor can be found [here](http://www.stat.ubc.ca/~jenny/STAT545A/block08_bossYourFactors.html) (Note: links to page from 2013).
+> Sidebar: What is `I()`, used when creating the variable $y$ in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the $v$ variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors).
+
+<!--Original stat545 lesson links to an older lesson from 2013 [here][https://www.stat.ubc.ca/~jenny/STAT545A/block08_bossYourFactors.html]-->
+
+
 
 data.frames really are lists! Double square brackets can be used to get individual variables. Single square brackets can be used to get one or more variables, returned as a data.frame (though `subset(..., select = ...))` is how I would more likely do in a data analysis).
 
@@ -271,7 +275,7 @@ dimnames(jMat) # also useful for assignment
 jMat
 ```
 
-Indexing a matrix is very similar to indexing a vector or a list: use square brackets and index with logical, integer numeric (positive or negative), or character vectors. Combine those approaches if you like! The main new wrinkle is the use of a comma `,` to distinguish rows and columns. The $i,j$-th element is the element at the intersection of row $i$ and column $j$ and is obtained with `jMat[i, j]`. Request an entire row or an entire column by simplying leaving the associated index empty. The `drop =` argument controls whether the return value should be an atomic vector (`drop = TRUE`) or a matrix with a single row or column (`drop = FALSE`). Notice how row and column names persist and can help you stay oriented.
+Indexing a matrix is very similar to indexing a vector or a list: use square brackets and index with logical, integer numeric (positive or negative), or character vectors. Combine those approaches if you like! The main new wrinkle is the use of a comma `,` to distinguish rows and columns. The $i,j$-th element is the element at the intersection of row $i$ and column $j$ and is obtained with `jMat[i, j]`. Request an entire row or an entire column by simply leaving the associated index empty. The `drop =` argument controls whether the return value should be an atomic vector (`drop = TRUE`) or a matrix with a single row or column (`drop = FALSE`). Notice how row and column names persist and can help you stay oriented.
 
 ```{r}
 jMat[2, 3]
@@ -283,7 +287,7 @@ jMat[c("row1", "row4"), c("col2", "col3")]
 jMat[-c(2, 3), c(TRUE, TRUE, FALSE, FALSE)] # wacky but possible
 ```
 
-Under the hood, of course, matrices are just vectors with some extra facilities for indexing. R is a [column-major order](http://en.wikipedia.org/wiki/Row-major_order) language, in contrast to C and Python which use row-major order. What this means is that in the underlying vector storage of a matrix, the columns are stacked up one after the other. Matrices can be indexed *exactly* like a vector, i.e. with no comma $i,j$ business, like so:
+Under the hood, of course, matrices are just vectors with some extra facilities for indexing. R is a [column-major order][wiki-row-col-major-order] language, in contrast to C and Python which use row-major order. What this means is that in the underlying vector storage of a matrix, the columns are stacked up one after the other. Matrices can be indexed *exactly* like a vector, i.e. with no comma $i,j$ business, like so:
 ```{r}
 jMat[7]
 jMat
@@ -428,7 +432,7 @@ subset(jDat, subset = z)
 +-----------+---------------+-----------+-----------+
 ```
 
-Thinking about objects according to the flavors above will work fairly well for most purposes most of the time, at least when you're first getting started. Notice that most rows in the table are quite homogeneous, i.e. a logical vector is a logical vector is a logical vector. But the row pertaining to factors is an exception, which highlights the special nature of factors. (for more, go [here](block08_bossYourFactors.html)).
+Thinking about objects according to the flavors above will work fairly well for most purposes most of the time, at least when you're first getting started. Notice that most rows in the table are quite homogeneous, i.e. a logical vector is a logical vector is a logical vector. But the row pertaining to factors is an exception, which highlights the special nature of factors. (for more, go [here](#factors)).
 
 <!--
 > JB note to self. Possible TO ADD but probably belongs in separate tutorial on changing and adding to data.frames: cbind and rbind with data.frames, transform(). do.call() tricks for data.frames. adding/removing variables to/from data.frames. Does this belong in earlier tutorial on the care and feeding of a data.frame? Fits in well with subset(), after all.

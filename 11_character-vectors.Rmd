@@ -53,9 +53,9 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 
   * [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science
   * Screeds on the Minimum Everyone Needs to Know about encoding
-    - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
-    - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text](http://kunststube.net/encoding/)
-  * I've translated this blog post [Guide to fixing encoding problems in Ruby](https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/) into R as the first step to developing a lesson: [Encoding in R](#character-encoding)
+    - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
+    - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
+  * I've translated this blog post [Guide to fixing encoding problems in Ruby][encoding-probs-ruby] into R as the first step to developing a lesson: [Encoding in R](#character-encoding)
 
 ### Character vectors that live in a data frame
 

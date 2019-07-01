@@ -37,7 +37,7 @@ The max and the min are special cases of a __quantile__. Here are other special 
   * 1st quartile = 0.25 quantile
   * 3rd quartile = 0.75 quantile
   
-If you're familiar with [box plots](http://en.wikipedia.org/wiki/Box_plot), the rectangle typically runs from the 1st quartile to the 3rd quartile, with a line at the median.
+If you're familiar with [box plots][wiki-boxplot], the rectangle typically runs from the 1st quartile to the 3rd quartile, with a line at the median.
 
 If $q$ is the $p$-th quantile of a set of $n$ observations, what does that mean? Approximately $pn$ of the observations are less than $q$ and $(1 - p)n$ are greater than $q$. Yeah, you need to worry about rounding to an integer and less/greater than or equal to, but these details aren't critical here.
 
@@ -172,14 +172,14 @@ What we've accomplished:
   * we've generalized our first function to take a difference between arbitrary quantiles
   * we've specified default values for the probabilities that set the quantiles
   
-Where to next? In [Part 3](block011_write-your-own-function-03.html), we tackle `NA`s, the special `...` argument, and formal unit testing.
+Where to next? In [Part 3](#functions-part3), we tackle `NA`s, the special `...` argument, and formal unit testing.
 
 ## Resources
 
-Hadley Wickham's book [Advanced R](http://adv-r.had.co.nz)
+Hadley Wickham's book [Advanced R][adv-r]
 
-  * Section on [function arguments](http://adv-r.had.co.nz/Functions.html#function-arguments)
-  * Section on [return values](http://adv-r.had.co.nz/functions.html#return-values)
+  * Section on [function arguments][adv-r-fxn-args]
+  * Section on [return values][adv-r-return-values]
   
 
 

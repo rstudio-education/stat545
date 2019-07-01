@@ -4,15 +4,14 @@
 
 <!--[Link to original content](https://stat545.com/block033_working-with-two-tables.html)-->
 
-
-- [When one tibble is not enough](block033_working-with-two-tables.html): Overview of binds, joins, lookups.
+*Overview of binds, joins, lookups.*
 
 We've covered many topics on how to manipulate and reshape a single data frame:
 
-  * [Basic care and feeding of data in R](block006_care-feeding-data.html): data frames (and tibbles) are awesome.
-  * [Introduction to dplyr](block009_dplyr-intro.html): filter, select, the pipe.
-  * [dplyr functions for a single dataset](block010_dplyr-end-single-table.html): single table verbs.
-  * [Tidy data using Lord of the Rings](https://github.com/jennybc/lotr-tidy#readme): tidy data, tidyr. *This actually kicks off with a row bind operation, discussed below.*
+  * [Basic care and feeding of data in R](#data-care): data frames (and tibbles) are awesome.
+  * [Introduction to dplyr](#dplyr-intro): filter, select, the pipe.
+  * [dplyr functions for a single dataset](#dplyr-single): single table verbs.
+  * [Tidy data using Lord of the Rings][tidydata-lotr]: tidy data, tidyr. *This actually kicks off with a row bind operation, discussed below.*
 
 But what if your data arrives in many pieces? There are many good (and bad) reasons why this might happen. How do you get it into one big beautiful tibble? These tasks break down into 3 main classes:
 

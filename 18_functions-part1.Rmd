@@ -27,7 +27,7 @@ Say you've got a numeric vector, and you want to compute the difference between 
 
 First, develop some working code for interactive use, using a representative input. I'll use Gapminder's life expectancy variable.
 
-R functions that will be useful: `min()`, `max()`, `range()`. __Read their documentation.__
+R functions that will be useful: `min()`, `max()`, `range()`. (__Read their documentation:__ [here][rdocs-extremes] and [here][rdocs-range])
 
 ```{r}
 ## get to know the functions mentioned above
@@ -47,13 +47,13 @@ Internalize this "answer" because our informal testing relies on you noticing de
 
 ### Skateboard >> perfectly formed rear-view mirror
 
-This image [widely attributed to the Spotify development team](http://blog.fastmonkeys.com/?utm_content=bufferc2d6e&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) conveys an important point.
+This image [widely attributed to the Spotify development team][min-viable-product] conveys an important point.
 
 ![](img/spotify-howtobuildmvp.gif)
 
 Build that skateboard before you build the car or some fancy car part. A limited-but-functioning thing is very useful. It also keeps the spirits high.
 
-This is related to the valuable [Telescope Rule](http://c2.com/cgi/wiki?TelescopeRule):
+This is related to the valuable [Telescope Rule][telescope-rule]:
 
 > It is faster to make a four-inch mirror then a six-inch mirror than to make a six-inch mirror.
 
@@ -119,7 +119,7 @@ In both cases, R's eagerness to make sense of our requests is unfortunately succ
 
 ## Check the validity of arguments
 
-For functions that will be used again -- which is not all of them! -- it is good to check the validity of arguments. This implements a rule from [the Unix philosophy](http://www.faqs.org/docs/artu/ch01s06.html):
+For functions that will be used again -- which is not all of them! -- it is good to check the validity of arguments. This implements a rule from [the Unix philosophy][unix-philosophy]:
 
 > Rule of Repair: When you must fail, fail noisily and as soon as possible.
 
@@ -165,7 +165,7 @@ If it is easy to do so, I highly recommend this template: "you gave me THIS, but
 
 ### Sidebar: non-programming uses for assertions
 
-Another good use of this pattern is to leave checks behind in data analytical scripts. Consider our repetitive use of Gapminder in this course. Every time we load it, we inspect it, hoping to see the usual stuff. If we were loading from file (vs. a stable data package), we might want to formalize our expectations about the number of rows and columns, the names and flavors of the variables, etc. This would alert us if the data suddenly changed, which can be a useful wake-up call in scripts that you re-run *ad nauseum* on auto-pilot or non-interactively.
+Another good use of this pattern is to leave checks behind in data analytical scripts. Consider our repetitive use of Gapminder in this course. Every time we load it, we inspect it, hoping to see the usual stuff. If we were loading from file (vs. a stable data package), we might want to formalize our expectations about the number of rows and columns, the names and flavors of the variables, etc. This would alert us if the data suddenly changed, which can be a useful wake-up call in scripts that you re-run *ad nauseam* on auto-pilot or non-interactively.
 
 ## Wrap-up and what's next?
 
@@ -181,20 +181,20 @@ What we've accomplished:
   * we are checking the validity of its input, argument `x`
   * we've done a good amount of informal testing
   
-Where to next? In [part 2](block011_write-your-own-function-02.html), we generalize this function to take differences in other quantiles and learn how to set default values for arguments.
+Where to next? In [part 2](#functions-part2), we generalize this function to take differences in other quantiles and learn how to set default values for arguments.
 
 ## Resources
 
 Packages for runtime assertions (the last 3 seem to be under more active development than `assertthat`):
 
-  * `assertthat` on [CRAN](https://cran.r-project.org/web/packages/asserthat/index.html) and [GitHub](https://github.com/hadley/assertthat) *the Hadleyverse option*
-  * `ensurer` on [CRAN](https://cran.r-project.org/web/packages/ensurer/index.html) and [GitHub](https://github.com/smbache/ensurer) *general purpose, pipe-friendly*
-  * `assertr` on [CRAN](https://cran.r-project.org/web/packages/assertr/index.html) and [GitHub](https://github.com/tonyfischetti/assertr) *explicitly data pipeline oriented*
-  * `assertive` on [CRAN](https://cran.r-project.org/web/packages/assertive/index.html) and [Bitbucket](https://bitbucket.org/richierocks/assertive) *rich set of built-in functions*
+  * `assertthat` on [CRAN][assertthat-cran] and [GitHub][assertthat-github] *the Hadleyverse option*
+  * `ensurer` on [CRAN][ensurer-cran] and [GitHub][ensurer-github] *general purpose, pipe-friendly*
+  * `assertr` on [CRAN][assertr-cran] and [GitHub][assertr-github] *explicitly data pipeline oriented*
+  * `assertive` on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] *rich set of built-in functions*
 
-Hadley Wickham's book [Advanced R](http://adv-r.had.co.nz)
+Hadley Wickham's book [Advanced R][adv-r]
 
-  * Section on [defensive programming](http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming)
+  * Section on [defensive programming][adv-r-defensive-programming]
 
 
 ```{r links, child="links.md"}

@@ -6,12 +6,13 @@ Join (a.k.a. merge) two tables: dplyr join cheatsheet with comic characters and 
 
 ## Why the cheatsheet
 
-Examples for those of us who don't speak SQL so good. There are lots of [Venn diagrams re: SQL joins on the internet](//encrypted.google.com/search?q=sql+join&tbm=isch), but I wanted R examples. Those diagrams also utterly fail to show what's really going on vis-a-vis rows AND columns.
+Examples for those of us who don't speak SQL so good. There are lots of [Venn diagrams re: SQL joins on the internet][google-sql-join], but I wanted R examples. Those diagrams also utterly fail to show what's really going on vis-a-vis rows AND columns.
+
 
 Other great places to read about joins:
 
-  * The dplyr vignette on [Two-table verbs](http://dplyr.tidyverse.org/articles/two-table.html)
-  * The [Relational data chapter](http://r4ds.had.co.nz/relational-data.html) in [R for Data Science](http://r4ds.had.co.nz). Excellent diagrams.
+  * The dplyr vignette on [Two-table verbs][dplyr-vignette-two-table]
+  * The [Relational data chapter][r4ds-relational-data] in [R for Data Science][r4ds]. Excellent diagrams.
   
 ## The data
 

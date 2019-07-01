@@ -20,12 +20,26 @@
 [rstudio-regex-cheatsheet]: https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf
 
 <!--Book Links--> 
+[adv-r]: http://adv-r.had.co.nz
 [adv-r-fxns]: http://adv-r.had.co.nz/Functions.html
 [adv-r-dsl]: http://adv-r.had.co.nz/dsl.html
+[adv-r-defensive-programming]: http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming
+[adv-r-fxn-args]: http://adv-r.had.co.nz/Functions.html#function-arguments
+[adv-r-return-values]: http://adv-r.had.co.nz/Functions.html#return-values
+
 [r4ds]: https://r4ds.had.co.nz
 [r4ds-transform]: https://r4ds.had.co.nz/transform.html
 [r4ds-strings]: https://r4ds.had.co.nz/strings.html
 [r4ds-readr-strings]: https://r4ds.had.co.nz/data-import.html#readr-strings
+[r4ds-dates-times]: https://r4ds.had.co.nz/dates-and-times.html
+[r4ds-data-import]: http://r4ds.had.co.nz/data-import.html
+[r4ds-relational-data]: https://r4ds.had.co.nz/relational-data.html
+[r4ds-pepper-shaker]: https://r4ds.had.co.nz/vectors.html#lists-of-condiments
+
+
+[r-pkgs]: http://r-pkgs.had.co.nz
+[r-pkgs-test]: http://r-pkgs.had.co.nz/tests.html
+
 
 <!--HappyGitWithR Links-->
 [happy-git]: https://happygitwithr.com
@@ -40,30 +54,68 @@
 <!--Package Links-->
 [rmarkdown]: https://rmarkdown.rstudio.com
 [knitr-faq]: https://yihui.name/knitr/faq/
+
+
+[tidyverse-main-page]: https://www.tidyverse.org
+[tidyverse-web]: https://tidyverse.tidyverse.org
+[tidyverse-github]: https://github.com/hadley/tidyverse
+
 [dplyr-cran]: https://CRAN.R-project.org/package=dplyr
 [dplyr-github]: https://github.com/hadley/dplyr
 [dplyr-vignette-intro]: https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
 [dplyr-vignette-window-fxns]: https://cran.r-project.org/web/packages/dplyr/vignettes/window-functions.html
-[gapminder-cran]: https://CRAN.R-project.org/package=gapminder
-[tidyverse-main-page]: https://www.tidyverse.org
-[tidyverse-web]: https://tidyverse.tidyverse.org
-[tidyverse-github]: https://github.com/hadley/tidyverse
+[dplyr-vignette-two-table]: https://dplyr.tidyverse.org/articles/two-table.html
+
+[lubridate-web]: https://lubridate.tidyverse.org
+[lubridate-cran]: https://CRAN.R-project.org/package=lubridate
+[lubridate-github]: https://github.com/tidyverse/lubridate
+[lubridate-vignette]: https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html
+
 [tidyr-web]: https://tidyr.tidyverse.org
 [tidyr-cran]: https://CRAN.R-project.org/package=tidyr 
-[ggplot2-web]: https://ggplot2.tidyverse.org
-[magrittr-web]: https://magrittr.tidyverse.org
-[forcats-web]: https://forcats.tidyverse.org
-[gapminder-web]: https://www.gapminder.org
-[plyr-web]: http://plyr.had.co.nz
-[fs-rlib]: https://fs.r-lib.org/index.html
+
 [readr-web]: https://readr.tidyverse.org
 [readr-vignette-intro]: https://cran.r-project.org/web/packages/readr/vignettes/readr.html
+
 [stringr-web]: https://stringr.tidyverse.org
 [stringr-cran]: https://CRAN.R-project.org/package=stringr
+
+[ggplot2-web]: https://ggplot2.tidyverse.org
+
+[gapminder-web]: https://www.gapminder.org
+[gapminder-cran]: https://CRAN.R-project.org/package=gapminder
+
+[assertthat-cran]: https://CRAN.R-project.org/package=assertthat
+[assertthat-github]: https://github.com/hadley/assertthat
+
+[ensurer-cran]: https://CRAN.R-project.org/package=ensurer
+[ensurer-github]: https://github.com/smbache/ensurer
+
+[assertr-cran]: https://CRAN.R-project.org/package=assertr
+[assertr-github]: https://github.com/ropensci/assertr
+
+[assertive-cran]: https://CRAN.R-project.org/package=assertive
+[assertive-bitbucket]: https://bitbucket.org/richierocks/assertive/src/master/
+
+[testthat-cran]: https://CRAN.R-project.org/package=testthat
+[testthat-github]: https://github.com/r-lib/testthat
+[testthat-web]: https://testthat.r-lib.org
+
+
+[plyr-web]: http://plyr.had.co.nz
+[fs-rlib]: https://fs.r-lib.org/index.html
+[magrittr-web]: https://magrittr.tidyverse.org
+[forcats-web]: https://forcats.tidyverse.org
 [glue-web]: https://glue.tidyverse.org
 [stringi-cran]: https://CRAN.R-project.org/package=stringi
-
 [rex-github]: https://github.com/kevinushey/rex
+
+<!--R Documentation-->
+[rdocs-extremes]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Extremes
+[rdocs-range]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/range
+[rdocs-quantile]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/quantile
+[rdocs-c]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/c
+[rdocs-list]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/list
 
 <!--Wikipedia Links-->
 [wiki-snake-case]: https://en.wikipedia.org/wiki/Snake_case
@@ -72,6 +124,9 @@
 [wiki-nesting-dolls]: https://en.wikipedia.org/wiki/Matryoshka_doll
 [wiki-pure-fxns]: https://en.wikipedia.org/wiki/Pure_function
 [wiki-camel-case]: https://en.wikipedia.org/wiki/Camel_case
+[wiki-mojibake]: https://en.wikipedia.org/wiki/Mojibake
+[wiki-row-col-major-order]: https://en.wikipedia.org/wiki/Row-_and_column-major_order
+[wiki-boxplot]: https://en.wikipedia.org/wiki/Box_plot
 
 
 <!--Misc. Links-->
@@ -102,3 +157,19 @@
 [icu-regex]: https://userguide.icu-project.org/strings/regexp
 [regex101]: https://regex101.com
 [regexr]: https://regexr.com
+[utf8-debug]: http://www.i18nqa.com/debug/utf8-debug.html
+[unicode-noexcuses]: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
+[programmers-encoding]: http://kunststube.net/encoding/
+[encoding-probs-ruby]: https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/
+[theyre-to-theyre]: https://www.justinweiss.com/articles/how-to-get-from-theyre-to-theyre/
+[lubridate-ex1]: https://www.r-exercises.com/2016/08/15/dates-and-times-simple-and-easy-with-lubridate-part-1/
+[lubridate-ex2]: https://www.r-exercises.com/2016/08/29/dates-and-times-simple-and-easy-with-lubridate-exercises-part-2/
+[lubridate-ex3]: https://www.r-exercises.com/2016/10/04/dates-and-times-simple-and-easy-with-lubridate-exercises-part-3/
+[google-sql-join]: https://www.google.com/search?q=sql+join&tbm=isch
+[min-viable-product]: https://blog.fastmonkeys.com/?utm_content=bufferc2d6e&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+[telescope-rule]: http://c2.com/cgi/wiki?TelescopeRule
+[unix-philosophy]: http://www.faqs.org/docs/artu/ch01s06.html
+[twitter-wrathematics]: https://twitter.com/wrathematics
+[testthat-article]: https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+
+
