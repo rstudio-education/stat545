@@ -40,6 +40,12 @@
 [r-pkgs]: http://r-pkgs.had.co.nz
 [r-pkgs-test]: http://r-pkgs.had.co.nz/tests.html
 
+[r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do
+[cookbook-for-r]: http://www.cookbook-r.com
+[cookbook-for-r-graphs]: http://www.cookbook-r.com/Graphs/
+[cookbook-for-r-multigraphs]: http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
+
+[elegant-graphics-springer]: https://www.springer.com/gp/book/9780387981413
 
 <!--HappyGitWithR Links-->
 [happy-git]: https://happygitwithr.com
@@ -81,6 +87,11 @@
 [stringr-cran]: https://CRAN.R-project.org/package=stringr
 
 [ggplot2-web]: https://ggplot2.tidyverse.org
+[ggplot2-tutorial]: https://github.com/jennybc/ggplot2-tutorial
+[ggplot2-reference]: https://docs.ggplot2.org/current/
+[ggplot2-cran]: https://CRAN.R-project.org/package=ggplot2
+[ggplot2-github]: https://github.com/tidyverse/ggplot2
+[ggplot2-theme-args]: https://ggplot2.tidyverse.org/reference/ggtheme.html#arguments
 
 [gapminder-web]: https://www.gapminder.org
 [gapminder-cran]: https://CRAN.R-project.org/package=gapminder
@@ -101,6 +112,17 @@
 [testthat-github]: https://github.com/r-lib/testthat
 [testthat-web]: https://testthat.r-lib.org
 
+[viridis-cran]: https://CRAN.R-project.org/package=viridis
+[viridis-github]: https://github.com/sjmgarnier/viridis
+[viridis-vignette]: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+[viridis-example-plots]: https://github.com/sjmgarnier/viridis/blob/master/img/sample2.png
+
+[colorspace-cran]: https://CRAN.R-project.org/package=colorspace
+[colorspace-vignette]: https://cran.r-project.org/web/packages/colorspace/vignettes/hcl-colors.pdf
+
+[cowplot-cran]: https://CRAN.R-project.org/package=cowplot
+[cowplot-github]: https://github.com/wilkelab/cowplot
+[cowplot-vignette]: https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html
 
 [plyr-web]: http://plyr.had.co.nz
 [fs-rlib]: https://fs.r-lib.org/index.html
@@ -109,6 +131,8 @@
 [glue-web]: https://glue.tidyverse.org
 [stringi-cran]: https://CRAN.R-project.org/package=stringi
 [rex-github]: https://github.com/kevinushey/rex
+[rcolorbrewer-cran]: https://CRAN.R-project.org/package=RColorBrewer
+[dichromat-cran]: https://CRAN.R-project.org/package=dichromat
 
 <!--R Documentation-->
 [rdocs-extremes]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Extremes
@@ -116,6 +140,13 @@
 [rdocs-quantile]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/quantile
 [rdocs-c]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/c
 [rdocs-list]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/list
+[rdocs-lm]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/lm
+[rdocs-coef]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/coef
+[rdocs-devices]: https://www.rdocumentation.org/packages/grDevices/versions/3.6.0/topics/Devices
+[rdocs-ggsave]: https://www.rdocumentation.org/packages/ggplot2/versions/3.2.0/topics/ggsave
+[rdocs-dev]: https://www.rdocumentation.org/packages/grDevices/versions/3.6.0/topics/dev
+
+
 
 <!--Wikipedia Links-->
 [wiki-snake-case]: https://en.wikipedia.org/wiki/Snake_case
@@ -127,7 +158,9 @@
 [wiki-mojibake]: https://en.wikipedia.org/wiki/Mojibake
 [wiki-row-col-major-order]: https://en.wikipedia.org/wiki/Row-_and_column-major_order
 [wiki-boxplot]: https://en.wikipedia.org/wiki/Box_plot
-
+[wiki-brewer]: https://en.wikipedia.org/wiki/Cynthia_Brewer
+[wiki-vector-graphics]: https://en.wikipedia.org/wiki/Vector_graphics
+[wiki-raster-graphics]: https://en.wikipedia.org/wiki/Raster_graphics
 
 <!--Misc. Links-->
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
@@ -171,5 +204,24 @@
 [unix-philosophy]: http://www.faqs.org/docs/artu/ch01s06.html
 [twitter-wrathematics]: https://twitter.com/wrathematics
 [testthat-article]: https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
-
+[robbins-effective-graphs]: https://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123
+[r-graph-catalog-github]: https://github.com/jennybc/r-graph-catalog
+[google-pie-charts]: https://www.google.com/search?q=pie+charts+suck
+[why-pi-charts-sucks]: https://www.richardhollins.com/blog/why-pie-charts-suck/
+[worst-figure]: https://robjhyndman.com/hyndsight/worst-figure/
+[naomi-robbins]: http://www.nbr-graphs.com
+[hadley-github-index]: https://hadley.github.io
+[scipy-2015-matplotlib-colors]: https://www.youtube.com/watch?v=xAoljeRJ3lU&feature=youtu.be
+[winston-chang-github]: https://github.com/wch
+[favorite-rgb-color]: https://manyworldstheory.com/2013/01/15/my-favorite-rgb-color/
+[worry-about-color]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwi0xYqJ8JbjAhWNvp4KHViYDxsQFjABegQIABAC&url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FAhmed_Elhattab2%2Fpost%2FPlease_suggest_some_good_3D_plot_tool_Software_for_surface_plot%2Fattachment%2F5c05ba35cfe4a7645506948e%2FAS%253A699894335557644%25401543879221725%2Fdownload%2FWhy%2BShould%2BEngineers%2Band%2BScientists%2BBe%2BWorried%2BAbout%2BColor_.pdf&usg=AOvVaw1qwjjGMd7h_z6TLUjzu7Nb
+[escaping-rgbland-pdf]: https://eeecon.uibk.ac.at/~zeileis/papers/Zeileis+Hornik+Murrell-2009.pdf
+[escaping-rgbland-doi]: https://doi.org/10.1016/j.csda.2008.11.033
+[stowers-color-chart]: https://web.archive.org/web/20121022044903/http://research.stowers-institute.org/efg/R/Color/Chart/
+[stowers-using-color-in-R]: https://www.uv.es/conesa/CursoR/material/UsingColorInR.pdf
+[zombie-project]: https://imgur.com/ewmBeQG
+[tweet-project-resurfacing]: https://twitter.com/JohnDCook/status/522377493417033728
+[rgraphics-looks-tips]: https://blog.revolutionanalytics.com/2009/01/10-tips-for-making-your-r-graphics-look-their-best.html
+[rgraphics-svg-tips]: https://blog.revolutionanalytics.com/2011/07/r-svg-graphics.html
+[zev-ross-cheatsheet]: http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/
 

@@ -2,7 +2,9 @@
 
 <!--[Link to original content](https://stat545.com/block015_graph-dos-donts.html)-->
 
+<!-- Link below is broken and I can't find the source material.
 *In 2015, this was mercifully replaced by a [guest lecture from UBC colleague Tamara Munzner](http://stat545-ubc.github.io/cm014_viz-design-munzner.html). The content below would be better with links to specific figures from Naomi Robbins' book, but the Shiny app does not make that possible. Or perhaps I should just embed my versions of them.*
+-->
 
 ## Goal: create more effective graphs
 
@@ -12,22 +14,22 @@ To paraphrase: Most of us use a computer to write but we would never characteriz
 
 > One graph is more effective than another if its quantitative information can be decoded more quickly or more easily by most observers.
 
-When I'm lost in data and struggling to make a figure, I repeat this mantra distilled from Gelman, et al:
+When I'm lost in data and struggling to make a figure, I repeat this mantra distilled from Gelman, et al.:
 
   * Facilitate comparisons
   * Reveal trends
 
-*CMEG = Naomi Robbins' book ["Creating More Effective Graphs"](http://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123); visual catalog of figures via the [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/)*
+*CMEG = Naomi Robbins' book ["Creating More Effective Graphs"][robbins-effective-graphs]; visual catalog of figures via the [R Graph Catalog][r-graph-catalog-github]*
 
 ## No no's
 
 ### Pie charts
 
-The [most loathed graph of all](http://www.google.com/search?q=pie+charts+suck) and yet surprisingly common. Give your average person a bunch of numbers that add up to one and they want to make a pie chart. Why? My hypothesis is it goes back to all the pies and pizzas referenced when kids learn to work with fractions.
+The [most loathed graph of all][google-pie-charts] and yet surprisingly common. Give your average person a bunch of numbers that add up to one and they want to make a pie chart. Why? My hypothesis is it goes back to all the pies and pizzas referenced when kids learn to work with fractions.
 
 Why do the pros hate pie charts? They are awful because they encode quantitative information in angles and areas, which are very hard for humans to judge. Skeptical? Read on.
 
-Examples from CMEG and the [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/):
+Examples from CMEG and the [R Graph Catalog][r-graph-catalog-github]:
 
   * Try to place the wedges in order from largest to smallest based on the pie chart in Fig 1.1. Now do same using the dot plot in Fig 1.2. Which figure made this task easier? Which presentation of this data improves your understanding of the data? Reflect on the same info presented as a table, Fig 1.3.
   * Try to decode the data from the pie chart in Fig 2.2. Now do the same using the dot plot in Fig 2.3.
@@ -38,14 +40,14 @@ We are best able to make comparisons via position of objects along a common scal
 
 Tufte, as quoted by Robbins: "the only worse design than a pie chart is several of them."
 
-  * "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck](http://www.richardhollins.com/blog/why-pie-charts-suck/) shows a series of 3 pie charts versus a line chart.
-  * Rob Hyndman nominated a 3 pie chart series as [the worst figure](http://robjhyndman.com/hyndsight/worst-figure/), which has the added horror of cross-hatching. Sorry, no before and after here. Do for [Homework 06](hw06_repo-hygiene-figure-boss.html) anyone?
+  * "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck][why-pi-charts-suck] shows a series of 3 pie charts versus a line chart.
+  * Rob Hyndman nominated a 3 pie chart series as [the worst figure][worst-figure], which has the added horror of cross-hatching. Sorry, no before and after here.
 
 ### Stacked and group bar charts
 
 The average person, if told they should not make a pie chart, might then take that bunch of numbers for different categories and make a stacked bar chart. Especially if they have a a series of such numbers. But this is also a very difficult graph to decode.
 
-  * Fig 8.11 from CMEG (not in the Catalog) presents a series of 4 pie charts, showing various nations' share of world car production from 1977 to 1980. The same data is presented as a stacked bar chart in Fig 8.12. How easy is it to figure out which countries are gaining and losing share? Now take a look at the facetted line chart in Fig 8.13. BOOM!
+  * Fig 8.11 from CMEG (not in the Catalog) presents a series of 4 pie charts, showing various nations' share of world car production from 1977 to 1980. The same data is presented as a stacked bar chart in Fig 8.12. How easy is it to figure out which countries are gaining and losing share? Now take a look at the faceted line chart in Fig 8.13. BOOM!
   
 Stacked bar charts are difficult to decode because we need a common baseline to judge changes in length. So the trend for the category on the "ground floor" is easy to see but trends for those stuck in the middle are hard to see.
 
@@ -74,14 +76,14 @@ This animation created by Darkhorse Analytics illustrates how communication can 
 ![](img/less-is-more-darkhorse-analytics.gif)
 <!--http://i.imgur.com/WntrM6p.gif-->
 
-In CMEG, Figs 6.2 vs 6.3 make much the same point, i.e. stripping the figure way down is a huge improvement. Figs 5.4 and 5.5 are both decent graphs but using dots (Fig 5.5) instead of bars (Fig 5.4) improves the data:ink ratio.
+In CMEG, Figs 6.2 vs 6.3 make much the same point, i.e. stripping the figure way down is a huge improvement. Figs 5.4 and 5.5 are both decent graphs but using dots (Fig 5.5) instead of bars (Fig 5.4) improves the data\:ink ratio.
 
 ## Do: spare your reader from mental gymnastics
 
 If you're going to talk about the difference between this and that, then please go ahead a plot the difference between this and that! Sure, it might be nice to plot this and that, on their own, but don't stop there. *You've got a computer. And software.* Use them to do annoying arithmetic for your reader.
 
   * Figs 2.14 and 2.15 show imports to England and exports from England from long ago. But if you are interested in the balance of trade, imports - exports, then plot that! It's very hard to do this well in your head.
-  * Fig 2.16 show the function $y = 1/x^2$ and the same function shifted vertically by a constant. But the figure is incredibly deceptive, underscoring how bad we are at taking differences.
+  * Fig 2.16 show the function $y = \frac{1}{x^2}$ and the same function shifted vertically by a constant. But the figure is incredibly deceptive, underscoring how bad we are at taking differences.
   * Figs 8.3, 8.4, 8.5, 8.6 show the time taken for subjects to do annoying things, like set the clock on their VCR, with two different sets of instructions. The original graph spread this out over 10 small bar charts, but the next 3 graphs present more direct looks at the improvement offered by revised instructions.
 
 ## Do: use position along a common scale
@@ -109,7 +111,7 @@ Figs 7.3, 7.4, and 7.5 explore the inclusion of zero.
 
 ## Do: choose the scale with intention
 
-Logarithically transformed scales are useful when
+Logarithmically transformed scales are useful when
 
   * it makes sense to think of changes on a multiplicative scale, instead of additive.
     - example: gene expression ratios are naturally viewed on the log 2 scale, where 0 represents a ratio of 1 and equal expression and -1 and 1 represent ratios of 1/2 and 2, respectively
@@ -123,7 +125,7 @@ How about presenting two scales for the same axis?
   * It is NOT OK to present two entirely different scales, just so you can squeeze two different variables onto the same plot.
     - Figs 7.17 and 7.18 explore how deceptive this can be.
   * Even if variables are technically reported in the same units, it might make a better graph to use facets and choose axis limits accordingly.
-    - Figs 7.19 and 7.21 show the importance of facetting when looking at levels of blood lipids.
+    - Figs 7.19 and 7.21 show the importance of faceting when looking at levels of blood lipids.
 
 ## Do: connect the dots with care
 
@@ -134,7 +136,7 @@ Consider two quantitative variables, where the x-axis is time or something simil
 
 Beware connecting the dots when the x axis represents an unordered categorical variable.
 
-  * Figs 4.22, 4.23, and 4.24 depict mountain heights for different continents. The connecting line can be misleading here. What it the graph were targetted at an audience that speaks a different language? Even alphabetical is not a well-defined ordering. Unless sorting on size, best to avoid connecting these dots (and even then one must be careful).
+  * Figs 4.22, 4.23, and 4.24 depict mountain heights for different continents. The connecting line can be misleading here. What it the graph were targeted at an audience that speaks a different language? Even alphabetical is not a well-defined ordering. Unless sorting on size, best to avoid connecting these dots (and even then one must be careful).
 
 ## Do: convey groups clearly
 
@@ -146,7 +148,7 @@ If superposing, you have shape, filled-ness, and color at your disposal.
 
 It is often better to avoid superposition and, instead, to put the groups into different facets.
 
-  * Fig 6.8 revisits the data from Figs 6.6 and 6.7, but using facetting. Gridlines can be very helpful to faciliate comparisons across facets.
+  * Fig 6.8 revisits the data from Figs 6.6 and 6.7, but using faceting. Gridlines can be very helpful to facilitate comparisons across facets.
   * Figs 6.9 and 6.10 make this point for line charts.
 
 ### A tour of the Do's
@@ -155,22 +157,16 @@ We will look through another section (slides 48 - 62) of Karl Broman's excellent
 
 ## Resources
 
-["Creating More Effective Graphs"](http://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123) by [Naomi Robbins](http://www.nbr-graphs.com)
+* ["Creating More Effective Graphs"][robbins-effective-graphs] by [Naomi Robbins][naomi-robbins]  
+* The [R Graph Catalog][r-graph-catalog-github] presents the figures from ["Creating More Effective Graphs"][robbins-effective-graphs] as a visual quilt. Click on a figure to see the `ggplot2` code that makes it.  
+* Karl Broman's talk "How to display data badly"  
+  * Home on GitHub: https://github.com/kbroman/Talk_Graphs  
+  * The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)  
+* [`ggplot2`][ggplot2-web] written by [Hadley Wickham][hadley-github-index]  
+* [Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r]  
+* My [`ggplot2` tutorial][ggplot2-tutorial]  
+* "Let's Practice What We Preach: Turning Tables into Graphs" by Gelman A, Pasarica C, Dodhia R. *The American Statistician*, Volume 56, Number 2, 1 May 2002 , pp. 121-130(10). via [JSTOR](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents)  
 
-The [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/) presents the figures from ["Creating More Effective Graphs"](http://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123) as a visual quilt. Click on a figure to see the `ggplot2` code that makes it.
-
-Karl Broman's talk "How to display data badly"
-
-  * Home on GitHub: https://github.com/kbroman/Talk_Graphs
-  * The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)
-
-[`ggplot2`](http://ggplot2.org) written by [Hadley Wickham](http://hadley.github.io)
-
-[Winston Chang's](https://github.com/wch) book ["R Graphics Cookbook"](http://shop.oreilly.com/product/0636920023135.do) and the [Graphs section](http://www.cookbook-r.com/Graphs/) of his [Cookbook for R website](http://www.cookbook-r.com/)
-
-My [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial)
-
-"Let's Practice What We Preach: Turning Tables into Graphs" by Gelman A, Pasarica C, Dodhia R. *The American Statistician*, Volume 56, Number 2, 1 May 2002 , pp. 121-130(10). via [JSTOR](http://www.jstor.org/discover/10.2307/3087382?uid=2&uid=4&sid=21104340349921)
 
 <!--
 ### Distribution one quantitative variable

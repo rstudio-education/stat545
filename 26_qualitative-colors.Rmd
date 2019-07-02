@@ -8,10 +8,11 @@ Bring in the usual Gapminder data but drop Oceania, which only has two countries
 
 We also sort the country factor based on population and then sort the data as well. Why? In the bubble plots below, we don't want large countries to hide small countries. This is a case where, sadly, the row order of the data truly affects the visual output.
 
-```{r}
+```{r message=FALSE}
 library(ggplot2)
 library(gapminder)
-suppressPackageStartupMessages(library(dplyr))
+library(dplyr)
+
 jdat <- gapminder %>% 
   filter(continent != "Oceania") %>% 
   droplevels() %>% 
@@ -27,11 +28,12 @@ First, make a simple scatterplot for a single year.
 
 ```{r scatterplot}
 j_year <- 2007
-q <-
-  jdat %>% 
+
+q <- jdat %>% 
   filter(year == j_year) %>% 
   ggplot(aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10(limits = c(230, 63000))
+
 q + geom_point()
 ```
 
@@ -64,7 +66,9 @@ r + aes(fill = continent)
 
 ## Get the color scheme for the countries
 
-The gapminder package comes with color palettes for the continents and the individual countries. For example, here's the [country color scheme](https://github.com/jennybc/gapminder/blob/master/data-raw/gapminder-color-scheme-ggplot2.png).
+The gapminder package comes with color palettes for the continents and the individual countries. For example, here's the country color scheme:
+
+![Source: <https://github.com/jennybc/gapminder/blob/master/data-raw/gapminder-color-scheme-ggplot2.png>](img/gapminder-color-scheme-ggplot2.png)
 
 ```{r}
 str(country_colors)

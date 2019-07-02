@@ -16,5 +16,8 @@
 
 [Link to original content](https://stat545.com/block031_vector-tibble-relations.html)
 
+## Aggregating data using `dplyr::do()` {#dplyr-do}
+
+[Link to original content](https://stat545.com/block023_dplyr-do.html)
 
 # Short random things {#random}

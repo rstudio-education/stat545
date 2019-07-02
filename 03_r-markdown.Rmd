@@ -47,7 +47,7 @@ Congratulations, you've just made your first reproducible report with R Markdown
 
 Git people: this is a decent time to commit your new HTML. One day you might reconsider whether you want HTML in your repo, but don't worry about that now.
 
-## Step 3: Take control of the output format
+## Step 3: Take control of the output format {r-markdown-step3}
 
 Do you really want HTML? Do you only want HTML? If so, you can skip this step!
 
