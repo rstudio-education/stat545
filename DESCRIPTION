@@ -19,7 +19,10 @@ Imports:
     git2r,
     roxygen2 (>= 6.1.1.9000),
     rplos,
-    censusapi
+    censusapi,
+    viridis,
+    RColorBrewer,
+    dichromat
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
