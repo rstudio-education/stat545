@@ -22,7 +22,7 @@ Imports:
     censusapi,
     viridis,
     RColorBrewer,
-    dichromat
+    dichromat,
     bcdata
 Remotes:  
     r-lib/fs,
