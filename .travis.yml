@@ -29,3 +29,14 @@ deploy:
     on:
       all_branches: true
       condition: $TRAVIS_BRANCH != "master"
+      
+
+# for bcdata and tidycensus packages
+apt_packages:
+  - libudunits2-dev
+  - gdal-bin
+  - libgdal1-dev
+  - libproj-dev
+  
+r_binary_packages:
+  - rgdal
