@@ -23,6 +23,7 @@ Imports:
     viridis,
     RColorBrewer,
     dichromat
+    bcdata
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
