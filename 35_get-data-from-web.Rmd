@@ -6,22 +6,25 @@
 
 Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
 
+```{r echo = FALSE}
+# Revisiting this later; issues with zoom
+#knitr::include_url("http://stat545.com/webdata01_slides.html")
+```
+
+
 There are many ways to obtain data from the Internet; let's consider four categories:
 
-1. **Click-and-download** on the internet as a "flat" file, such as .csv, .xls
-2. **Install-and-play** an API for which someone has written a handy R package (i.e. an API-wrapping package)
+<!--TODO: Add links to specific chapters-->
+
+1. **click-and-download** on the internet as a "flat" file, such as .csv, .xls
+2. **install-and-play** an API for which someone has written a handy R package (i.e. an API-wrapping package)
 3. **API-query** published with an unwrapped API
-4. **Scraping** implicit in an html website
+4. **scraping** implicit in an html website
 
 
-Many times, the data that you want is not already organized into one or a few tables that you can read directly into R. More frequently, you find this data is given in the form of an API. 
+## Resources {-}
 
-**A**pplication **P**rogramming **I**nterfaces (APIs) are descriptions of the kind of requests that can be made of a certain piece of software, and descriptions of the kind of answers that are returned. 
-
-Many sources of data -- databases, websites, services -- have made all (or part) of their data available via APIs over the internet. Computer programs ("clients") can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
-
-
-All this and more is described at the [rOpenSci repository of R tools for interacting with the internet](https://github.com/ropensci/webservices).
+From the [rOpenSci repository of R tools for interacting with the internet](https://github.com/ropensci/webservices).
 
 * `downloader::download()` for SSL
 * `curl::curl()` for SSL.

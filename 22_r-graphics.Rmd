@@ -1,6 +1,6 @@
 # (PART) All the graph things {-} 
 
-# Overview {#graphics-overview}
+# Overview {-#graphics-overview}
 
 <!--[Link to original content](https://stat545.com/graph00_index.html)-->
 <!--Have this be a landing page similar to stat545's "All the graph things"?-->

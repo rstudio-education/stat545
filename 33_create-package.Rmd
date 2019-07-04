@@ -1,9 +1,10 @@
 # Write your own R package {#package-from-scratch}
 
 <!--[Link to original content](http://stat545.com/packages06_foofactors-package.html)-->
+<!--Has this section been edited? There are some parts that deviate from the original stat545 material-->
 
-
-This section closely tracks with content from the book [R Packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game."](https://r-pkgs.org/whole-game.html) The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."](https://r-pkgs.org/whole-game.html) The [R Packages](https://r-pkgs.org/) book is a great place to go next to learn more. 
+This section closely tracks with content from the book R Packages
+[r-pkgs2] (currently a work in progress, see [here][r-pkgs2] for the 1st edition) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game."][r-pkgs2-whole-game] The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
 
 
 ```{r, include = FALSE}
@@ -23,7 +24,7 @@ where <- "tmp_session"
 
 ## Why `devtools`?
 
-We use the `devtools` package to facilitate package development. It’s on [CRAN](https://cloud.r-project.org/web/packages/usethis/index.html) and developed on [GitHub](https://devtools.r-lib.org/). Why devtools? 
+We use the [`devtools`][devtools-web] package to facilitate package development. It’s on [CRAN][devtools-cran] and developed on [GitHub][devtools-github]. Why devtools? 
 
   * ensure your package source has the format of a valid R package
   * provide a fluid workflow for package development: tweak it, use it, ... lather, rinse, repeat

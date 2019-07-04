@@ -18,34 +18,7 @@
 [rstudio-code-snippets]: https://support.rstudio.com/hc/en-us/articles/204463668-Code-Snippets
 [rstudio-dplyr-cheatsheet-download]: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
 [rstudio-regex-cheatsheet]: https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf
-
-<!--Book Links--> 
-[adv-r]: http://adv-r.had.co.nz
-[adv-r-fxns]: http://adv-r.had.co.nz/Functions.html
-[adv-r-dsl]: http://adv-r.had.co.nz/dsl.html
-[adv-r-defensive-programming]: http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming
-[adv-r-fxn-args]: http://adv-r.had.co.nz/Functions.html#function-arguments
-[adv-r-return-values]: http://adv-r.had.co.nz/Functions.html#return-values
-
-[r4ds]: https://r4ds.had.co.nz
-[r4ds-transform]: https://r4ds.had.co.nz/transform.html
-[r4ds-strings]: https://r4ds.had.co.nz/strings.html
-[r4ds-readr-strings]: https://r4ds.had.co.nz/data-import.html#readr-strings
-[r4ds-dates-times]: https://r4ds.had.co.nz/dates-and-times.html
-[r4ds-data-import]: http://r4ds.had.co.nz/data-import.html
-[r4ds-relational-data]: https://r4ds.had.co.nz/relational-data.html
-[r4ds-pepper-shaker]: https://r4ds.had.co.nz/vectors.html#lists-of-condiments
-
-
-[r-pkgs]: http://r-pkgs.had.co.nz
-[r-pkgs-test]: http://r-pkgs.had.co.nz/tests.html
-
-[r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do
-[cookbook-for-r]: http://www.cookbook-r.com
-[cookbook-for-r-graphs]: http://www.cookbook-r.com/Graphs/
-[cookbook-for-r-multigraphs]: http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-
-[elegant-graphics-springer]: https://www.springer.com/gp/book/9780387981413
+[rstudio-devtools]: https://www.rstudio.com/products/rpackages/devtools/
 
 <!--HappyGitWithR Links-->
 [happy-git]: https://happygitwithr.com
@@ -124,6 +97,17 @@
 [cowplot-github]: https://github.com/wilkelab/cowplot
 [cowplot-vignette]: https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html
 
+[devtools-cran]: https://CRAN.R-project.org/package=devtools
+[devtools-github]: https://github.com/r-lib/devtools
+[devtools-web]: https://devtools.r-lib.org
+[devtools-cheatsheet]: https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf
+[devtools-1-6]: https://blog.rstudio.com/2014/10/02/devtools-1-6/
+[devtools-1-8]: https://blog.rstudio.com/2015/05/11/devtools-1-9-0/
+[devtools-1-9-1]: https://blog.rstudio.com/2015/09/13/devtools-1-9-1/
+
+[googlesheets-cran]: https://CRAN.R-project.org/package=googlesheets
+[googlesheets-github]: https://github.com/jennybc/googlesheets
+
 [plyr-web]: http://plyr.had.co.nz
 [fs-rlib]: https://fs.r-lib.org/index.html
 [magrittr-web]: https://magrittr.tidyverse.org
@@ -133,6 +117,43 @@
 [rex-github]: https://github.com/kevinushey/rex
 [rcolorbrewer-cran]: https://CRAN.R-project.org/package=RColorBrewer
 [dichromat-cran]: https://CRAN.R-project.org/package=dichromat
+
+[roxygen2-vignette]: https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
+
+
+<!--Book Links--> 
+[adv-r]: http://adv-r.had.co.nz
+[adv-r-fxns]: http://adv-r.had.co.nz/Functions.html
+[adv-r-dsl]: http://adv-r.had.co.nz/dsl.html
+[adv-r-defensive-programming]: http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming
+[adv-r-fxn-args]: http://adv-r.had.co.nz/Functions.html#function-arguments
+[adv-r-return-values]: http://adv-r.had.co.nz/Functions.html#return-values
+
+[r4ds]: https://r4ds.had.co.nz
+[r4ds-transform]: https://r4ds.had.co.nz/transform.html
+[r4ds-strings]: https://r4ds.had.co.nz/strings.html
+[r4ds-readr-strings]: https://r4ds.had.co.nz/data-import.html#readr-strings
+[r4ds-dates-times]: https://r4ds.had.co.nz/dates-and-times.html
+[r4ds-data-import]: http://r4ds.had.co.nz/data-import.html
+[r4ds-relational-data]: https://r4ds.had.co.nz/relational-data.html
+[r4ds-pepper-shaker]: https://r4ds.had.co.nz/vectors.html#lists-of-condiments
+
+
+[r-pkgs]: http://r-pkgs.had.co.nz
+[r-pkgs-test]: http://r-pkgs.had.co.nz/tests.html
+[r-pkgs-intro-get]: http://r-pkgs.had.co.nz/intro.html#intro-get
+[r-pkgs2]: https://r-pkgs.org/index.html
+[r-pkgs2-whole-game]: https://r-pkgs.org/whole-game.html
+
+
+[r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do
+[cookbook-for-r]: http://www.cookbook-r.com
+[cookbook-for-r-graphs]: http://www.cookbook-r.com/Graphs/
+[cookbook-for-r-multigraphs]: http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
+
+[elegant-graphics-springer]: https://www.springer.com/gp/book/9780387981413
+
+
 
 <!--R Documentation-->
 [rdocs-extremes]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Extremes
@@ -145,6 +166,7 @@
 [rdocs-devices]: https://www.rdocumentation.org/packages/grDevices/versions/3.6.0/topics/Devices
 [rdocs-ggsave]: https://www.rdocumentation.org/packages/ggplot2/versions/3.2.0/topics/ggsave
 [rdocs-dev]: https://www.rdocumentation.org/packages/grDevices/versions/3.6.0/topics/dev
+[cran-r-extensions]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html
 
 
 
@@ -224,4 +246,10 @@
 [rgraphics-looks-tips]: https://blog.revolutionanalytics.com/2009/01/10-tips-for-making-your-r-graphics-look-their-best.html
 [rgraphics-svg-tips]: https://blog.revolutionanalytics.com/2011/07/r-svg-graphics.html
 [zev-ross-cheatsheet]: http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/
-
+[parker-writing-r-packages]: https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/
+[broman-r-packages]: https://kbroman.org/pkg_primer/
+[broman-tools4rr]: https://kbroman.org/Tools4RR/
+[leeks-r-packages]: https://github.com/jtleek/rpackages
+[build-maintain-r-packages]: https://thepoliticalmethodologist.com/2014/08/14/building-and-maintaining-r-packages-with-devtools-and-roxygen2/
+[murdoch-package-vignette-slides]: https://web.archive.org/web/20160824010213/http://www.stats.uwo.ca/faculty/murdoch/ism2013/5Vignettes.pdf
+[how-r-searches]: http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/

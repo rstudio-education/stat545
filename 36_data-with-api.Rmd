@@ -3,24 +3,83 @@
 <!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
 <!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
 
+## Data on the web
+
+Many times, the data that you want is not already organized into one or a few tables that you can read directly into R. More frequently, you find this data is given in the form of an API. 
+
+**A**pplication **P**rogramming **I**nterfaces (APIs) are descriptions of the kind of requests that can be made of a certain piece of software, and descriptions of the kind of answers that are returned. 
+
+Many sources of data -- databases, websites, services -- have made all (or part) of their data available via APIs over the internet. Computer programs ("clients") can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
+
+
 ## Click-and-Download
 
 In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
 
 * use `read.csv` or `readr::read_csv` to read the data straight into R.
 
-* use the command line program `curl` to do that work, and place it in a Makefile or shell script (see the Make lesson for how to do that).
+* use the command line program `curl` to do that work, and place it in a Makefile or shell script.
 
-The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, if the data you are interested in is available as Excel sheets, the safest option in this case is to download the `.xls` file and then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
+The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, if the data you are interested in is available as Excel sheets, the safest option in this case is to download the `.xls` file and then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the `googlesheets` package (on [CRAN][googlesheets-cran], on [GitHub][googlesheets-github]).
 
 
-### Example
+### Grizzly Bear Deaths in British Columbia {#grizzly-bears-1}
 
-```{r message = FALSE, warning = FALSE}
-library(dplyr)
-library(knitr)
+The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) has a dataset of [human-caused grizzly bear deaths](https://catalogue.data.gov.bc.ca/dataset/history-of-grizzly-bear-mortalities) recorded in British Columbia between 1976 and 2017. You can download the csv file by going [here](https://catalogue.data.gov.bc.ca/dataset/history-of-grizzly-bear-mortalities/resource/c5fc42c7-67d3-4669-b281-61dc50fdef22) and clicking the Access/Download button. Save this file somewhere in your current directory. I'm going to save it in `data/`. 
+
+
+We can use the `read_csv()` function from the `readr` package to read in the file.  
+```{r}
+library(readr)
+
+bears <- read_csv("data/grizzlybearmortalityhistory_1976_2017.csv")
 ```
 
+Let's check out what we have.
+```{r message = FALSE}
+bears
+```
+
+<!--After looking at some of the other grizzly bear data that BC Data Catalogue has available I was able to find out that `GBPU` stands for "grizzly bear population unit" and `MU` stands for management unit (used to separate different areas of land).-->
+
+We know from the information online that there is some inconsistency for the records with `KILL_CODE` values of "Pick Up", "Rail Kill", and "Road Kill", so let's focus only on those classified as "Hunter Kill", "Animal Control", and "Illegal". We can filter to retain only those records by using `dplyr::filter()` and then count how many observations we have for each unique year and cause of death using `dplyr::count()`.
+```{r}
+library(dplyr)
+
+bears_proc <- bears %>% 
+  filter(KILL_CODE %in% c("Hunter Kill", "Animal Control", "Illegal")) %>% 
+  count(HUNT_YEAR, KILL_CODE)
+```
+
+We can use these counts to plot the number of recorded grizzly bear deaths over time. 
+```{r fig.width = 12, fig.height = 9, dpi = 600}
+library(ggplot2)
+
+bears_plot <- ggplot(bears_proc, aes(HUNT_YEAR, n, color = KILL_CODE)) +
+  geom_point() +
+  geom_line() +
+  theme_minimal() +
+  labs(x = "Year", y = "Grizzly Bears Killed", 
+       title = "Grizzly Bear Deaths Caused by Humans", 
+       subtitle = "British Columbia, 1976-2017",
+       caption = "Data Source: https://catalogue.data.gov.bc.ca") +
+  scale_color_discrete(name = "Cause of Death")
+
+bears_plot
+```
+
+
+We can take this plot a step further by adding in some contextual information that is included in the notes for this dataset in the BC Data Catalogue. 
+```{r fig.width = 12, fig.height = 9, dpi = 600}
+bears_plot2 <- bears_plot +
+  geom_vline(xintercept = 1996, color = "black", linetype = "dashed", alpha = 0.5) +
+  annotate(geom = "text", x = 1996.25, y = 390, label = "1996:\nLimited Entry\nHunt Instituted", size = 3.5, hjust = 0) +
+  
+  geom_vline(xintercept = 2001, color = "black", linetype = "dashed", alpha = 0.5) +
+  annotate(geom = "text", x = 2001.25, y = 360, label = "2001:\nGrizzly Bear\nHunting Moratorium", size = 3.5, hjust = 0)
+  
+bears_plot2
+```
 
 ## Install-and-play {#api-wrappers}
 
@@ -35,35 +94,75 @@ Why do we want this?
 * scaling
 
 
-### Searching the Public Library of Science using `rplos`
+### Revisiting Grizzly Bear Mortality Data using `bcdata` {#grizzly-bear-2}
 
-**Planning to switch out this example for another**
+The `bcdata` package is a wrapper for the British Columbia Data Catalogue. We can use this package to get the same Grizzly Bear mortality data that we manually downloaded in earlier in Chapter \@ref(grizzly-bears-1).
 
-PLOS ONE is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. 
+First, we need to install the package using `remotes::install_github()`.
 
+Install the `bcdata` package on GitHub
+```{r message = FALSE}
+library(remotes)
+
+# remotes::install_github("bcgov/bcdata") 
+library(bcdata)
+```
+
+We can use the `bcdc_search()` function to find all records that contain the word "grizzly" and "morality".
+```{r warning = FALSE}
+bcdc_search("grizzly", "mortality")
+```
+
+The first record listed is the same csv file that we downloaded earlier. Let's try to read the file into our session without manually downloading it. We can do this using the `bcdc_get_data()` function. We need to pass it the ID of the record we're interested in, which we already know from our `bcdc_search()`.
 ```{r}
-# install.packages("rplos")
-library(rplos)
+bears_2 <- bcdc_get_data("4bc13aa2-80c9-441b-8f46-0b9574109b93")
+```
+
+Let's see if `bears_2` is the same as our previous `bears`
+```{r}
+bears_2
+```
+
+It looks the same but is it *identical*?
+```{r}
+all_equal(bears, bears_2)
 ```
 
 
-#### Searching PLOS
+### Setting API keys
 
-Let's do some searches:
-```{r}
-searchplos(q = "Helianthus", fl = "id", limit = 5)
-```
-
-```{r}
-searchplos("materials_and_methods:France", 
-           fl = "title, materials_and_methods")
+Using the package `censusapi`
+```{r warning = FALSE}
+# install.packages("censusapi")
+library(censusapi)
 ```
 
 
-#### Plots over time
+Request a new API key [here](https://api.census.gov/data/key_signup.html). Check your email to activate the key.
 
+Now put your API key in your .Renviron file using `usethis`.
+
+```r
+library(usethis)
+
+usethis::edit_r_environ() # edit your user level .Renviron
+```
+
+Add "CENSUS_API_KEY=<your-api-key>" on a new line. Be sure to add a new line after this! <insert photo of RStudio default setting here> 
+
+
+Save the file and restart your R session. If you are using GitHub be sure to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide. (or is this only the case if using a project + edit_r_environ("profile")?)
+
+
+Now you can access your key with `Sys.getenv("CENSUS_API_KEY")`
+
+Example
 ```{r}
-plot_throughtime(terms = "phylogeny", limit = 200)
+my_api_key <- Sys.getenv("CENSUS_API_KEY")
+
+getCensus(name = "dec/sf1", vintage = 2010, vars = c("NAME","P001001"), region = "block:*", 
+          regionin = "state:36+county:027+tract:010000", key = my_api_key) %>% 
+  head()
 ```
 
 
@@ -77,52 +176,6 @@ First we're going to examine the structure of API requests via the [Open Movie D
 
 stat545 examples no longer work :( this section needs to be updated
 
-
-## Setting API keys
-
-Using the package `censusapi`
-```{r warning = FALSE}
-# install.packages("censusapi")
-library(censusapi)
-```
-
-
-Request a new API key [here](https://api.census.gov/data/key_signup.html). Check your email to activitate the key.
-
-Now put your API key in your .Renviron file using `usethis`.
-
-```r
-library(usethis)
-
-usethis::edit_r_environ() # edit your user level .Renviron
-# OR
-usethis::edit_r_environ("profile") # edit your project level .Renviron
-```
-
-Add "CENSUS_API_KEY=<your-api-key>" on a new line. Be sure to add a new line after this! <insert photo of RStudio default setting here> 
-
-
-Save the file and restart your R session. If you are using Github be sure to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide. (or is this only the case if using a project + edit_r_environ("profile")?)
-
-
-Now you can access your key with `Sys.getenv("CENSUS_API_KEY")`
-
-Example
-```{r}
-my_secret <- function() {
-  val <- Sys.getenv("CENSUS_API_KEY")
-  if (identical(val, "")) {
-    stop("`CENSUS_API_KEY` env var has not been set")
-  }
-  val
-}
-
-api_key <- my_secret()
-
-getCensus(name = "dec/sf1", vintage = 2010, vars = c("NAME","P001001"), region = "block:*", 
-          regionin = "state:36+county:027+tract:010000", key = api_key) %>% 
-  head()
-```
 
 ```{r links, child="links.md"}
 ```
