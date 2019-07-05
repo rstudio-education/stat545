@@ -18,11 +18,8 @@ Imports:
     knitr,
     git2r,
     roxygen2 (>= 6.1.1.9000),
-    rplos,
-    censusapi,
     viridis,
     RColorBrewer,
-    dichromat,
     bcdata,
     units,
     tidycensus
