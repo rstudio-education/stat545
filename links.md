@@ -108,6 +108,10 @@
 [googlesheets-cran]: https://CRAN.R-project.org/package=googlesheets
 [googlesheets-github]: https://github.com/jennybc/googlesheets
 
+[tidycensus-cran]: https://CRAN.R-project.org/package=tidycensus
+[tidycensus-github]: https://github.com/walkerke/tidycensus
+[tidycensus-web]: https://walkerke.github.io/tidycensus/index.html
+
 [plyr-web]: http://plyr.had.co.nz
 [fs-rlib]: https://fs.r-lib.org/index.html
 [magrittr-web]: https://magrittr.tidyverse.org
