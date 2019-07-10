@@ -14,22 +14,44 @@ Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
 
 There are many ways to obtain data from the Internet; let's consider four categories:
 
-<!--TODO: Add links to specific chapters-->
-
-1. **click-and-download** on the internet as a "flat" file, such as .csv, .xls
-2. **install-and-play** an API for which someone has written a handy R package (i.e. an API-wrapping package)
-3. **API-query** published with an unwrapped API
-4. **scraping** implicit in an html website
+1. **Click-and-download**: get data from the internet as a "flat" file, such as a .csv, .xls
+2. **Install-and-play**: get data from an API using an API-specific R package (a.k.a. an API client or an API wrapper) to do most of the heavy lifting (i.e. format the query, send the query to the API, get the response, etc.)
+3. **Query an API**: get data from an API and *you* do most of the heavy lifting (i.e. interact with the API directly)
+4. **Web-Scraping**: collect implicit data in an html website
 
 
-## Resources {-}
+## Grace's Notes
 
-From the [rOpenSci repository of R tools for interacting with the internet](https://github.com/ropensci/webservices).
+API's / Datasets
 
-* `downloader::download()` for SSL
-* `curl::curl()` for SSL.
-* `httr::GET` data read this way needs to be parsed later with read.table
-* `rio::import()` can "read a number of common data formats directly from an https:// URL".  Isn't that very similar to the previous?
+* https://catalogue.data.gov.bc.ca/dataset/most-popular-girl-names-for-the-past-100-years
+* https://github.com/josiahparry/genius
+* https://github.com/andrewheiss/colourlovers
+* https://github.com/ropensci/gistr
+* https://ghibliapi.herokuapp.com/#tag/Species%2Fpaths%2F~1species%2Fget
+
+
+Responsible Web Scraping
+
+* https://github.com/ropensci/robotstxt
+* https://rud.is/b/2017/09/19/pirating-web-content-responsibly-with-r/
+
+
+Web Data Blog Posts:
+
+* http://cwickham.github.io/r/2015/11/20/fitbit-data-in-R.html
+* https://www.lucymcgowan.com/talk/asa_joint_statistical_meeting_2018/
+* https://livefreeordichotomize.com/2017/07/17/ropensci-slack-emojis/
+
+
+Web Scraping
+
+* https://en.wikipedia.org/wiki/Harry_Potter_(film_series)
+* https://github.com/apreshill/bakeoff/blob/master/data-raw/series-scrape.R
+
+
+Also:
+* [rOpenSci repository of R tools for interacting with the internet](https://github.com/ropensci/webservices)
 
 ```{r links, child="links.md"}
 ```

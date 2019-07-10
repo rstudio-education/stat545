@@ -1,97 +1,29 @@
 # Using an API to get data {#use-api}
 
-<!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
-<!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
+In the simplest case, the data you need is already on the internet in a tabular format. In these cases you could use `read.csv()` or `readr::read_csv()` to read the data straight into R. 
 
-## Data on the web
+<!--If you're lucky, the data that you want is neatly packaged in a familiar format such as a csv or xls and you can download and read directly into R. -->
 
-Many times, the data that you want is not already organized into one or a few tables that you can read directly into R. More frequently, you find this data is given in the form of an API. 
+Often times, however, things are a bit more complicated and you might need to go through an [**Application Programming Interface**](https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs) (API) to get the data that you want.
+18
+An API allows you (the client) to programmatically get resources (e.g. a csv file, html file, etc.) from a web server via a [**Hypertext Transfer Protocol**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (HTTP) request. 
 
-**A**pplication **P**rogramming **I**nterfaces (APIs) are descriptions of the kind of requests that can be made of a certain piece of software, and descriptions of the kind of answers that are returned. 
+![Image Source: https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f](img/api-diagram2.png)
 
-Many sources of data -- databases, websites, services -- have made all (or part) of their data available via APIs over the internet. Computer programs ("clients") can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
+Sometimes an API will have an API wrapper package that will handle the HTTP part for you. Sometimes you will have to handle the HTTP part yourself. In the latter cases, the [`httr`](https://CRAN.R-project.org/package=httr) package is a great resource to use.
 
+Many sources of data – databases, websites, services – have made all (or part) of their data available via APIs over the internet. Computer programs (“clients”) can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
 
-## Click-and-Download
+There is a lot more to API's and HTTP that we won't cover. If you're interested in learning more these are some good resources to check out:
 
-In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
+  * A very thorough explanation of API's: https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f
+  * Lucy D'Agostino McGowan's "Harnessing the Power of the Web via R Clients for Web APIs" [here](https://www.lucymcgowan.com/talk/asa_joint_statistical_meeting_2018/)
+  * ["HTTP: The Protocol Every Web Developer Must Know"](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177)
 
-* use `read.csv` or `readr::read_csv` to read the data straight into R.
-
-* use the command line program `curl` to do that work, and place it in a Makefile or shell script.
-
-The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, if the data you are interested in is available as Excel sheets, the safest option in this case is to download the `.xls` file and then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the `googlesheets` package (on [CRAN][googlesheets-cran], on [GitHub][googlesheets-github]).
-
-
-### Grizzly Bear Deaths in British Columbia {#grizzly-bears-1}
-
-The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) has a dataset of [human-caused grizzly bear deaths](https://catalogue.data.gov.bc.ca/dataset/history-of-grizzly-bear-mortalities) recorded in British Columbia between 1976 and 2017. The dataset is licensed under [Open Government License - British Columbia](https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc). You can download the csv file by going [here](https://catalogue.data.gov.bc.ca/dataset/history-of-grizzly-bear-mortalities/resource/c5fc42c7-67d3-4669-b281-61dc50fdef22) and clicking the Access/Download button. Save this file somewhere in your current directory. I'm going to save it in `data/`. 
-
-
-We can use the `read_csv()` function from the `readr` package to read in the file.  
-```{r}
-library(readr)
-
-bears <- read_csv("data/grizzlybearmortalityhistory_1976_2017.csv")
-```
-
-Let's check out what we have.
-```{r message = FALSE}
-library(dplyr)
-
-glimpse(bears)
-```
-
-<!--After looking at some of the other grizzly bear data that BC Data Catalogue has available I was able to find out that `GBPU` stands for "grizzly bear population unit" and `MU` stands for management unit (used to separate different areas of land).-->
-
-The notes online mention that there is some inconsistency for the records with `KILL_CODE` values of "Pick Up", "Rail Kill", and "Road Kill", so let's focus only on those classified as "Hunter Kill", "Animal Control", and "Illegal". We can filter to retain only those records by using `dplyr::filter()` and then count how many observations we have for each unique year and cause of death using `dplyr::count()`.
-```{r}
-bears_proc <- bears %>% 
-  filter(KILL_CODE %in% c("Hunter Kill", "Animal Control", "Illegal")) %>% 
-  count(HUNT_YEAR, KILL_CODE)
-
-bears_proc %>% 
-  head()
-```
-
-We can use these counts to plot the number of recorded grizzly bear deaths for each `KILL_CODE` category over time.
-```{r fig.width = 10, fig.height = 9}
-library(ggplot2)
-
-bears_plot <- ggplot(bears_proc, aes(HUNT_YEAR, n, color = KILL_CODE)) +
-  geom_point() +
-  geom_line() +
-  theme_minimal() +
-  labs(x = "Year", y = "Grizzly Bears Killed", 
-       title = "Grizzly Bear Deaths Caused by Humans", 
-       subtitle = "British Columbia, 1976-2017",
-       caption = "Data Source: https://catalogue.data.gov.bc.ca") +
-  scale_color_discrete(name = "Cause of Death")
-
-bears_plot
-```
-
-
-We can take this plot a step further by adding in some contextual information that is included in the notes for this dataset in the BC Data Catalogue. 
-```{r fig.width = 10, fig.height = 9}
-bears_plot2 <- bears_plot +
-  geom_vline(xintercept = 1996, color = "black", 
-             linetype = "dashed", alpha = 0.5) +
-  annotate(geom = "text", x = 1996.25, y = 395, 
-           label = "1996:\nLimited Entry\nHunt Instituted", 
-           size = 3, hjust = 0) +
-  geom_vline(xintercept = 2001, color = "black", 
-             linetype = "dashed", alpha = 0.5) +
-  annotate(geom = "text", x = 2001.25, y = 365, 
-           label = "2001:\nGrizzly Bear\nHunting\nMoratorium", 
-           size = 3, hjust = 0)
-  
-bears_plot2
-```
 
 ## Install-and-play {#api-wrappers}
 
-Many common web services and APIs have been "wrapped", i.e. R functions have been written around them which send your query to the server and format the response.
+Many common web services and APIs have been “wrapped”, i.e. R functions have been written around them which send your query to the server and format the response.
 
 Why do we want this?
 
@@ -101,46 +33,175 @@ Why do we want this?
 * ease
 * scaling
 
+The first thing that you should do if you're planning on using an API to get data is to see if there is already an API wrapper package that exists. Try searching the API name on CRAN and GitHub. Most popular API's will likely have an API wrapper package available that will make your life so much easier. 
 
-### Revisiting Grizzly Bear Mortality Data using `bcdata` {#grizzly-bear-2}
+Here are a few popular API wrapper packages that you may have heard of (see _resources_ for more):
 
-The `bcdata` package is a wrapper for the British Columbia Data Catalogue. We can use this package to get the same Grizzly Bear mortality data that we manually downloaded in earlier in Chapter \@ref(grizzly-bears-1).
+* [`rtweet`](https://rtweet.info): on [CRAN](https://CRAN.R-project.org/package=rtweet), on [GitHub](https://github.com/mkearney/rtweet)
+* [`gutenbergr`](https://docs.ropensci.org/gutenbergr/): on [CRAN](https://CRAN.R-project.org/package=gutenbergr), on [GitHub](https://github.com/ropensci/gutenbergr)
+* [`gistr`](https://docs.ropensci.org/gistr/): on [CRAN](https://CRAN.R-project.org/package=gistr), on [GitHub](https://github.com/ropensci/gistr)
+* [`rplos`](https://docs.ropensci.org/rplos/): on [CRAN](https://CRAN.R-project.org/package=rplos), on [GitHub](https://github.com/ropensci/rplos)
+* [`googleLanguageR`](http://code.markedmondson.me/googleLanguageR/): on [CRAN](https://CRAN.R-project.org/package=googleLanguageR), on [GitHub](https://github.com/ropensci/googleLanguageR)
+* [`aRxiv`](https://docs.ropensci.org/aRxiv/): on [CRAN](https://CRAN.R-project.org/package=aRxiv), on [GitHub](https://github.com/ropensci/aRxiv)
+* [`rnoaa`](https://ropensci.org/tutorials/rnoaa_tutorial/): on [CRAN](https://CRAN.R-project.org/package=rnoaa), on [GitHub](https://github.com/ropensci/rnoaa)
 
-First, we need to install the package using `remotes::install_github()`.
 
-Install the `bcdata` package on GitHub
-```{r message = FALSE}
+### Exploring Headcount of Homeschooled Children in British Columbia with `bcdata` {#bcdata}
+
+The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) contains thousands of B.C. government datasets that are available under the [Open Government License - British Columbia](https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc). From searching "B.C. Data Catalogue CRAN" on google I found the an R package called [`bcdata`](https://bcgov.github.io/bcdata/) (on [GitHub](https://github.com/bcgov/bcdata)) that is a wrapper for the B.C. Data Catalogue.
+
+The record that we will explore is the ["Headcount of Homeschool Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children) which contains data about the number of homeschool children registered between 1991 and 2018. Let's visualize how the headcounts varies between male and female students.
+
+We can use the `bcdata` package to get the data into our R session. First, let's install the package from GitHub (only do once) and then load it.
+
+```r
 library(remotes)
+remotes::install_github("bcgov/bcdata")
+```
 
-# remotes::install_github("bcgov/bcdata") 
+```{r}
 library(bcdata)
 ```
 
-We can use the `bcdc_search()` function to find all records that contain the words "grizzly" and "mortality".
-```{r warning = FALSE}
-bcdc_search("grizzly", "mortality")
+
+The `bcdata` [website](https://bcgov.github.io/bcdata/) gives us a nice overview of the main functions in the package and tells us that there is a  ["Get started" vignette](https://bcgov.github.io/bcdata/articles/bcdata.html) available. This vignette seems like it would be a good starting point to get familiar with this package. Let's follow along and load in some data to explore.
+
+First, we will use the [`bcdc_browse()`](https://bcgov.github.io/bcdata/reference/bcdc_browse.html) function to open up the B.C. Data Catalogue in our browser and find a record that we are interested in.
+
+```r
+bcdc_browse()
 ```
 
-The first record listed is the same csv file that we downloaded earlier. Let's try to read the file into our session without manually downloading it. We can do this using the `bcdc_get_data()` function. We need to pass it the ID of the record we're interested in, which we already know from our `bcdc_search()`.
+You can filter the results by format type (e.g. .csv, .xls) and also search for keywords. Let's explore the record titled ["Headcount of Homeschool Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children). In the Data and Resources section of the webpage we can see that there are six files available. Let's figure out how to get the first csv into R. 
+
+
+In the `bcdata` package [vignette](https://bcgov.github.io/bcdata/articles/bcdata.html) they use the `bcdc_get_data()` function to pull down a dataset. Take a look at the documentation for this function [here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console. 
+
+This function has one required argument, `record`, which can be the output of `bcdc_get_record()`, the resource name or ID as a string, or the resource URL. Let's use the resource URL. On the record [webpage](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children) there is a "Show the Permalink" button. [Permalink](https://en.wikipedia.org/wiki/Permalink) is short for permanent link and is pretty much exactly what it sounds like, a link that will most likely not change. If you click on this button it will change the url to the permalink: `https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c697979ec3`. Let's save this as a string called `url` pass to `bcdc_get_data()`. 
+
 ```{r}
-bears_2 <- bcdc_get_data("4bc13aa2-80c9-441b-8f46-0b9574109b93")
+url <- "https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c697979ec3"
 ```
 
-Let's see if `bears_2` is the same as our previous `bears`
+We aren't quite ready to run `bcdc_get_data()` yet, however. There is also an optional argument, `resource`, which is used for cases when a record has multiple files available. Our record has six files available so we will definitely need to supply a `resource` argument. In the examples section of the documentation we see that the resource ID is what we need to pass to `resource`. 
+
+Where do we get the resource ID from? It isn't quite clear in the `bcdc_get_data()` [documentation](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) so we might need to explore a bit. Let's start by looking at the `bcdc_get_record()` function that was mentioned earlier. 
+
+Take a look at the documentation for `bcdc_get_record()` [here](https://bcgov.github.io/bcdata/reference/bcdc_get_record.html) or by typing `?bcdc_get_record` in your console. It takes one argument, `id`, which can be the record URL. Let's see what it returns.
+
 ```{r}
+bcdc_get_record(url)
+```
+
+This has the information that we were looking for! It lists six resources in total, the first one is a csv file called `Headcount_Homeschool`. This is the one we want. The resource ID is listed under "resource".
+
+```
+1) Headcount_Homeschool
+     format: csv 
+     url: https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c697979ec3/resource/409faf5a-7bf9-4d3f-baf6-758e0892a9c6/download/headcount_homeschool.csv 
+     resource: 409faf5a-7bf9-4d3f-baf6-758e0892a9c6
+     available in R via bcdata:  TRUE 
+     code: bcdc_get_data(record = 'd378b0ba-6fa2-4f7f-a08c-97c697979ec3', resource = '409faf5a-7bf9-4d3f-baf6-758e0892a9c6')
+```
+
+Let's copy-and-paste the resource ID and save it as a string called `resource_id`.
+
+```{r}
+resource_id <- "409faf5a-7bf9-4d3f-baf6-758e0892a9c6"
+```
+
+Now we are ready to run `bcdc_get_data()` and read in the csv file!
+
+```{r}
+homeschool_data <- bcdc_get_data(record = url, resource = resource_id)
+```
+
+Yikes, we get a warning saying that there were 14,750 parsing failures. Only the first five parsing failures are printed out here but we can see that the failures started at row 2,974. It looks like a some of the failures occured because a logical (TRUE/FALSE) was expected but the actual row value was an integer or a string. To fix this first we need to figure out how `bcdc_get_data()` handles reading in files. Let's so back to the documentation (online [here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console). 
+
+Under the Arguments section we learn that `...` corresponds to arguments that are passed to the function that handles reading in the data file and that we can use `bcdc_read_functions()` to see what these functions are. 
+
+```{r}
+bcdc_read_functions()
+```
+
+From this we see that csv files are imported using `readr::read_csv()`. From previous use I know that `read_csv()` has an argument called `guess_max`, which is the maximum number of rows that are used to guess the column type (we haven't covered this earlier so don't worry if this is uncharted territory for you). Remember that our parsing failures started at row 2,974, so let's see if setting `guess_max = 3000` helps.
+
+```{r}
+homeschool_data <- bcdc_get_data(record = url, resource = resource_id, guess_max = 3000)
+```
+
+No parsing failures! Phew. Now let's check out this data.
+
+```{r message = FALSE}
 library(dplyr)
 
-glimpse(bears_2)
+glimpse(homeschool_data)
 ```
 
-It looks the same but is it *identical*?
+To find out what the column names mean we need to examine the [record webpage](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children) to locate the data dictionary. The data dictionary is [here](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children/resource/aa05b182-e655-4b0f-8da6-af954b374c79). 
+
+
+The `DATA_LEVEL` column specifies whether an observation is at the district-, province-, or school-level. We're want to look at headcounts across all of B.C. so we need to filter out data to only keep the observations at the province-level.
+
 ```{r}
-dplyr::all_equal(bears, bears_2)
+homeschool_province <- homeschool_data %>% 
+  filter(DATA_LEVEL == "PROVINCE LEVEL")
+
+glimpse(homeschool_province)
 ```
 
-Looks good!
 
-### Exploring US census data using `tidycensus`
+From the data dictionary we also learn that the `PUBLIC_OR_INDEPENDENT` column splits the headcounts by whether the child was registered at a public school or an independent school. It has three values:
+
+  * `BC Public School`
+  * `BC Independent School`
+  * `PROVINCE - Total`: the sum of the `BC Public School` and `BC Independent School` values
+  
+We want to look at headcount differences between male and female, not between registration types, so let's filter our data and keep only the `PROVINCE - Total` rows. 
+
+```{r}
+homeschool_province2 <- homeschool_province %>% 
+  filter(PUBLIC_OR_INDEPENDENT == "PROVINCE - Total") 
+
+glimpse(homeschool_province2)
+```
+
+There are a few final things that we need to do before we can start plotting. The headcounts for males and females are in an un-tidy format. Let's reshape the data by using `tidyr::gather()` that we learned about in Chapter __insert-ref__ to gather the `MALE_HOME_SCHOOL_COUNT` and `FEMALE_HOME_SCHOOL_COUNT` columns into `gender` and `headcount`. Then, we will use `dplyr::case_when()` to rename `MALE_HOME_SCHOOL_COUNT` and `FEMALE_HOME_SCHOOL_COUNT` to `male` and `female` (we haven't used this function yet so don't worry if this is new territory for you, this is just to make things neater). 
+
+```{r}
+library(tidyr)
+library(forcats)
+
+homeschool_tidy <- homeschool_province2 %>% 
+  gather(MALE_HOME_SCHOOL_COUNT, FEMALE_HOME_SCHOOL_COUNT, key = "gender", value = "headcount") %>% 
+  mutate(gender = case_when(gender == "FEMALE_HOME_SCHOOL_COUNT" ~ "female",
+                            gender == "MALE_HOME_SCHOOL_COUNT" ~ "male"))
+
+glimpse(homeschool_tidy)
+```
+
+Great! Now let's plot the headcounts of homeschooled males and females over the school years.
+
+```{r}
+library(ggplot2)
+
+ggplot(homeschool_tidy, aes(x = SCHOOL_YEAR, y = headcount, 
+                            color = gender, group = gender)) +
+  geom_point() +
+  geom_line() +
+  
+  # clean up axis title and plot title
+  labs(x = "School Year", y = "Total Homeschooled Children",
+       title = "Headcounts of Homeschooled Children in British Columbia by Gender",
+       caption = "Data Source: B.C. Data Catalogue") +
+  
+  # this changes the angle of the x axis labels 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+Interesting, there were more male children than female children that were homeschooled in B.C. for all schools years except 1994/1995. The number of children homeschooled also peaked in the 1996/1997 school year and steadily decreased after.
+### Exploring US census data using `tidycensus` {#tidycensus}
 
 The [`tidycensus`][tidycensus-web] package (on [CRAN][tidycensus-cran], on [GitHub][tidycensus-github]) is a wrapper package for two US Census Bureau API's:
 
@@ -185,7 +246,7 @@ Let's explore variables related to income. We can filter for labels that contain
 library(stringr)
 
 variables_1990 %>% 
-  mutate(label = str_to_lower(label)) %>%  # eliminate case sensitivity probs
+  mutate(label = str_to_lower(label)) %>%  # eliminate case sensitivity problems
   filter(str_detect(label, "income"))
 ```
 
@@ -201,7 +262,7 @@ glimpse(median_income)
 Hmm, there are 51 observations instead of 50. Maybe this is because they separated DC?
 ```{r}
 median_income %>% 
-  mutate(state = str_to_lower(state)) %>% # eliminate case sensitivity probs
+  mutate(state = str_to_lower(state)) %>% # eliminate case sensitivity problems
   filter(state %in% c("dc", "d.c.", "district of columbia")) # check a few variations
 ```
 It looks like they did!
@@ -223,7 +284,7 @@ ggplot(median_income, aes(state, value)) +
   theme_minimal()
 ```
 
-Whoops. Let's use `forcats::fct_reorder` to reorder the factor levels of `state` to make this plot a little bit easier to read.
+Whoops. Let's use `forcats::fct_reorder` to reorder the factor levels of `state` to make this plot easier to parse.
 ```{r}
 library(forcats)
 
@@ -250,13 +311,20 @@ The states with the highest median household income in 1990 were Connecticut, Al
 
 ## Interact with an API
 
-Earlier we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. Now we're going to look at (part of) what these functions were doing.
+In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. What do you do if you want to use an API in R that doesn't already have a wrapper package written for it? One option is using the `httr` package to help out with the 
+
+
+
 
 First we're going to examine the structure of API requests via the [Open Movie Database](https://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDB, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
 
 ### Exploring movies using the OMDb API
 
-stat545 examples no longer work :( this section needs to be updated
+
+The [Open Movie Database](http://www.omdbapi.com) (OMDb) is an API for movies. <!--CC BY-NC 4.0--> Before we can interact with this API in R we need to request an API key. 
+
+request a free API key (1,000 daily request limit) here: http://www.omdbapi.com/apikey.aspx
+
 
 
 ```{r links, child="links.md"}
