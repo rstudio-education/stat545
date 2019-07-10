@@ -8,7 +8,7 @@ Often times, however, things are a bit more complicated and you might need to go
 18
 An API allows you (the client) to programmatically get resources (e.g. a csv file, html file, etc.) from a web server via a [**Hypertext Transfer Protocol**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (HTTP) request. 
 
-![Image Source: https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f](img/api-diagram2.png)
+![Image Source: https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f](img/api-diagram.png)
 
 Sometimes an API will have an API wrapper package that will handle the HTTP part for you. Sometimes you will have to handle the HTTP part yourself. In the latter cases, the [`httr`](https://CRAN.R-project.org/package=httr) package is a great resource to use.
 
@@ -23,19 +23,11 @@ There is a lot more to API's and HTTP that we won't cover. If you're interested 
 
 ## Install-and-play {#api-wrappers}
 
-Many common web services and APIs have been “wrapped”, i.e. R functions have been written around them which send your query to the server and format the response.
+Many popular API's have helper R packages are "wrappers" around the original API. These packages generally will have functions that assist with formatting a query, sending the query to the web server, and finally parsing the response sent back.
 
-Why do we want this?
+The first thing that you should do if you're planning on using an API to get data is to see if there is already an API wrapper package that exists. Try searching the API name on CRAN and GitHub. If there is an API wrapper package available then you should definitely try to use it. 
 
-* provenance
-* reproducible
-* updating
-* ease
-* scaling
-
-The first thing that you should do if you're planning on using an API to get data is to see if there is already an API wrapper package that exists. Try searching the API name on CRAN and GitHub. Most popular API's will likely have an API wrapper package available that will make your life so much easier. 
-
-Here are a few popular API wrapper packages that you may have heard of (see _resources_ for more):
+Here are a few popular API wrapper packages for API's that you may have heard of (see _resources_ for more):
 
 * [`rtweet`](https://rtweet.info): on [CRAN](https://CRAN.R-project.org/package=rtweet), on [GitHub](https://github.com/mkearney/rtweet)
 * [`gutenbergr`](https://docs.ropensci.org/gutenbergr/): on [CRAN](https://CRAN.R-project.org/package=gutenbergr), on [GitHub](https://github.com/ropensci/gutenbergr)
@@ -48,11 +40,11 @@ Here are a few popular API wrapper packages that you may have heard of (see _res
 
 ### Exploring Headcount of Homeschooled Children in British Columbia with `bcdata` {#bcdata}
 
-The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) contains thousands of B.C. government datasets that are available under the [Open Government License - British Columbia](https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc). From searching "B.C. Data Catalogue CRAN" on google I found the an R package called [`bcdata`](https://bcgov.github.io/bcdata/) (on [GitHub](https://github.com/bcgov/bcdata)) that is a wrapper for the B.C. Data Catalogue.
+The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) contains thousands of B.C. government datasets that are available under the [Open Government License - British Columbia](https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc). From searching "B.C. Data Catalogue CRAN" on google I found an R package called [`bcdata`](https://bcgov.github.io/bcdata/) (on [GitHub](https://github.com/bcgov/bcdata)) that is a wrapper for the B.C. Data Catalogue.
 
-The record that we will explore is the ["Headcount of Homeschool Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children) which contains data about the number of homeschool children registered between 1991 and 2018. Let's visualize how the headcounts varies between male and female students.
+The record that we will explore is the ["Headcount of Homeschool Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children),which contains data about the number of homeschool children registered between 1991 and 2018. Our end goal is to visualize how the headcounts varies between male and female students over the school years. The first step is to get the data into R. We can use `bcdata` to help us with this.
 
-We can use the `bcdata` package to get the data into our R session. First, let's install the package from GitHub (only do once) and then load it.
+Install the package from GitHub (only do once) and then load it.
 
 ```r
 library(remotes)
@@ -63,17 +55,17 @@ remotes::install_github("bcgov/bcdata")
 library(bcdata)
 ```
 
+The `bcdata` [website](https://bcgov.github.io/bcdata/) gives us a nice overview of the main functions in the package and links to a ["Get started" vignette](https://bcgov.github.io/bcdata/articles/bcdata.html) available. This vignette is a good starting point to get familiar with this package. Let's follow along with the vignette to get the data that we're looking for.
 
-The `bcdata` [website](https://bcgov.github.io/bcdata/) gives us a nice overview of the main functions in the package and tells us that there is a  ["Get started" vignette](https://bcgov.github.io/bcdata/articles/bcdata.html) available. This vignette seems like it would be a good starting point to get familiar with this package. Let's follow along and load in some data to explore.
-
-First, we will use the [`bcdc_browse()`](https://bcgov.github.io/bcdata/reference/bcdc_browse.html) function to open up the B.C. Data Catalogue in our browser and find a record that we are interested in.
+First, we will use the [`bcdc_browse()`](https://bcgov.github.io/bcdata/reference/bcdc_browse.html) function to open up the B.C. Data Catalogue in our browser and find the record that we want.
 
 ```r
 bcdc_browse()
 ```
 
-You can filter the results by format type (e.g. .csv, .xls) and also search for keywords. Let's explore the record titled ["Headcount of Homeschool Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children). In the Data and Resources section of the webpage we can see that there are six files available. Let's figure out how to get the first csv into R. 
+You can filter the results by format type (e.g. .csv, .xls) and also search for keywords. Searching for "homeschool" will lead us to the "Headcount of Homeschooled Children" record [page](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children). 
 
+On this page, under the Data and Resources section, we can see that there are six files available. Let's figure out how to get the first csv into R. 
 
 In the `bcdata` package [vignette](https://bcgov.github.io/bcdata/articles/bcdata.html) they use the `bcdc_get_data()` function to pull down a dataset. Take a look at the documentation for this function [here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console. 
 
@@ -85,7 +77,7 @@ url <- "https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c6979
 
 We aren't quite ready to run `bcdc_get_data()` yet, however. There is also an optional argument, `resource`, which is used for cases when a record has multiple files available. Our record has six files available so we will definitely need to supply a `resource` argument. In the examples section of the documentation we see that the resource ID is what we need to pass to `resource`. 
 
-Where do we get the resource ID from? It isn't quite clear in the `bcdc_get_data()` [documentation](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) so we might need to explore a bit. Let's start by looking at the `bcdc_get_record()` function that was mentioned earlier. 
+Where do we get the resource ID from? It isn't quite clear in the `bcdc_get_data()` documentation so we might need to explore a bit. Let's start by looking at the `bcdc_get_record()` function that was mentioned earlier. 
 
 Take a look at the documentation for `bcdc_get_record()` [here](https://bcgov.github.io/bcdata/reference/bcdc_get_record.html) or by typing `?bcdc_get_record` in your console. It takes one argument, `id`, which can be the record URL. Let's see what it returns.
 
@@ -93,7 +85,7 @@ Take a look at the documentation for `bcdc_get_record()` [here](https://bcgov.gi
 bcdc_get_record(url)
 ```
 
-This has the information that we were looking for! It lists six resources in total, the first one is a csv file called `Headcount_Homeschool`. This is the one we want. The resource ID is listed under "resource".
+This has the information that we were looking for. It lists six resources in total, the first one is a csv file called `Headcount_Homeschool`. This is the one we want. The resource ID is listed under "resource".
 
 ```
 1) Headcount_Homeschool
@@ -110,13 +102,13 @@ Let's copy-and-paste the resource ID and save it as a string called `resource_id
 resource_id <- "409faf5a-7bf9-4d3f-baf6-758e0892a9c6"
 ```
 
-Now we are ready to run `bcdc_get_data()` and read in the csv file!
+Now we are ready to run `bcdc_get_data()` and read in the csv file.
 
 ```{r}
 homeschool_data <- bcdc_get_data(record = url, resource = resource_id)
 ```
 
-Yikes, we get a warning saying that there were 14,750 parsing failures. Only the first five parsing failures are printed out here but we can see that the failures started at row 2,974. It looks like a some of the failures occured because a logical (TRUE/FALSE) was expected but the actual row value was an integer or a string. To fix this first we need to figure out how `bcdc_get_data()` handles reading in files. Let's so back to the documentation (online [here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console). 
+Yikes, we get a warning saying that there were 14,750 parsing failures. Only the first five parsing failures are printed out here but we can see that the failures started at row 2,974. It looks like a some of the failures occured because a logical (TRUE/FALSE) was expected but the actual row value was an integer or a string. To fix this first we need to figure out how `bcdc_get_data()` handles reading in files. Let's go back to the documentation ([here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console). 
 
 Under the Arguments section we learn that `...` corresponds to arguments that are passed to the function that handles reading in the data file and that we can use `bcdc_read_functions()` to see what these functions are. 
 
@@ -124,13 +116,13 @@ Under the Arguments section we learn that `...` corresponds to arguments that ar
 bcdc_read_functions()
 ```
 
-From this we see that csv files are imported using `readr::read_csv()`. From previous use I know that `read_csv()` has an argument called `guess_max`, which is the maximum number of rows that are used to guess the column type (we haven't covered this earlier so don't worry if this is uncharted territory for you). Remember that our parsing failures started at row 2,974, so let's see if setting `guess_max = 3000` helps.
+From this we see that csv files are imported using `readr::read_csv()`. From previous use I know that `read_csv()` has an argument called `guess_max`, which is the maximum number of rows that are used to guess the column type (we haven't covered this so don't worry if this is uncharted territory for you). Remember that our parsing failures started at row 2,974, so let's see if setting `guess_max = 3000` helps.
 
 ```{r}
 homeschool_data <- bcdc_get_data(record = url, resource = resource_id, guess_max = 3000)
 ```
 
-No parsing failures! Phew. Now let's check out this data.
+No parsing failures! Now let's check out this data.
 
 ```{r message = FALSE}
 library(dplyr)
