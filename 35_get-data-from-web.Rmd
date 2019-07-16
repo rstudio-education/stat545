@@ -4,7 +4,7 @@
 
 <!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
 
-There are many ways to obtain data from the Internet; let's consider four categories:
+There are many ways to obtain data from the Internet. Let's consider four categories:
 
 1. **Click-and-download**: get data from the internet as a "flat" file, such as a .csv, .xls
 2. **Install-and-play**: get data from an API using an API-specific R package (a.k.a. an API client or an API wrapper) to do most of the heavy lifting (i.e. format the query, send the query to the API, get the response, etc.)
@@ -12,38 +12,56 @@ There are many ways to obtain data from the Internet; let's consider four catego
 4. **Web-Scraping**: collect implicit data in an html website
 
 
-## Grace's Notes
-
-API's / Datasets
-
-* https://catalogue.data.gov.bc.ca/dataset/most-popular-girl-names-for-the-past-100-years
-* https://github.com/josiahparry/genius
-* https://github.com/andrewheiss/colourlovers
-* https://github.com/ropensci/gistr
-* https://ghibliapi.herokuapp.com/#tag/Species%2Fpaths%2F~1species%2Fget
 
 
-Responsible Web Scraping
+## Resources {-#api-resources}
 
-* https://github.com/ropensci/robotstxt
-* https://rud.is/b/2017/09/19/pirating-web-content-responsibly-with-r/
+There is a lot more to web-based data that we won't cover in this chapter. If you're interested in learning more here are some good places to start.
+
+__Data on the web__
+
+* The [Reading Web-Based Data](https://bookdown.org/rdpeng/RProgDA/reading-web-based-data.html#requesting-data-through-a-web-api) chapter of [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/)
+* [CRAN Task View: Web Technologies and Services](https://github.com/ropensci/webservices), the rOpenSci repository of R tools for interacting with the internet]
+
+__APIs__
+
+* A very thorough explanation of APIs: [What exactly IS an API?](https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f)
+* [An Introduction to APIs](https://zapier.com/learn/apis/) by Brian Cooksey
+* Amanda Gadrow's [Using Web APIs from R](https://www.rstudio.com/resources/videos/using-web-apis-from-r/) talk at rstudio::conf2019
+* Lucy D'Agostino McGowan's ["Harnessing the Power of the Web via R Clients for Web APIs"](https://www.lucymcgowan.com/talk/asa_joint_statistical_meeting_2018/) talk
+* The [`plumber`][plumber-web] R package for writing API wrapper packages, which has very nice [documentation][plumber-docs]! (on [CRAN][plumber-cran], on [GitHub][plumber-github])
+
+__API wrapper packages__
+
+* [`rtweet`](https://rtweet.info): on [CRAN](https://CRAN.R-project.org/package=rtweet), on [GitHub](https://github.com/mkearney/rtweet)
+* [`gutenbergr`](https://docs.ropensci.org/gutenbergr/): on [CRAN](https://CRAN.R-project.org/package=gutenbergr), on [GitHub](https://github.com/ropensci/gutenbergr)
+* [`gistr`](https://docs.ropensci.org/gistr/): on [CRAN](https://CRAN.R-project.org/package=gistr), on [GitHub](https://github.com/ropensci/gistr)
+* [`rplos`](https://docs.ropensci.org/rplos/): on [CRAN](https://CRAN.R-project.org/package=rplos), on [GitHub](https://github.com/ropensci/rplos)
+* [`googleLanguageR`](http://code.markedmondson.me/googleLanguageR/): on [CRAN](https://CRAN.R-project.org/package=googleLanguageR), on [GitHub](https://github.com/ropensci/googleLanguageR)
+* [`aRxiv`](https://docs.ropensci.org/aRxiv/): on [CRAN](https://CRAN.R-project.org/package=aRxiv), on [GitHub](https://github.com/ropensci/aRxiv)
+* [`rnoaa`](https://ropensci.org/tutorials/rnoaa_tutorial/): on [CRAN](https://CRAN.R-project.org/package=rnoaa), on [GitHub](https://github.com/ropensci/rnoaa)
 
 
-Web Data Blog Posts:
 
-* http://cwickham.github.io/r/2015/11/20/fitbit-data-in-R.html
-* https://www.lucymcgowan.com/talk/asa_joint_statistical_meeting_2018/
-* https://livefreeordichotomize.com/2017/07/17/ropensci-slack-emojis/
+__HTTP__
+
+* All of the `httr` vignettes: 
+  * [Best practices for API packages](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html)
+  + [Getting started with `httr`](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html)
+  + [Managing secrets](https://cran.r-project.org/web/packages/httr/vignettes/secrets.html)
+* [HTTP Made Really Easy](https://www.jmarshall.com/easy/http/)
+* ["HTTP: The Protocol Every Web Developer Must Know"](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177)
+* HTTP status codes:
+  + [List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) on wikipedia
+  + A nicely organized list of the different HTTP status codes [here](https://www.restapitutorial.com/httpstatuscodes.html) that points out the "Top 10" most frequent codes
 
 
-Web Scraping
+__Blog posts__
 
-* https://en.wikipedia.org/wiki/Harry_Potter_(film_series)
-* https://github.com/apreshill/bakeoff/blob/master/data-raw/series-scrape.R
+* Charlotte Wickham's [fitbit data in R!](http://cwickham.github.io/r/2015/11/20/fitbit-data-in-R.html) blogpost where she loads in here fitbit data using the `httr` package
+* Lucy D'Agostino McGowan's [analysis of rOpenSci's Slack emojis](https://livefreeordichotomize.com/2017/07/17/ropensci-slack-emojis/)
 
 
-Also:
-* [rOpenSci repository of R tools for interacting with the internet](https://github.com/ropensci/webservices)
 
 ```{r links, child="links.md"}
 ```

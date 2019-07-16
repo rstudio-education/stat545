@@ -118,6 +118,10 @@
 [fs-cran]: https://CRAN.R-project.org/package=fs
 [fs-github]: https://github.com/r-lib/fs
 
+[plumber-web]: https://www.rplumber.io
+[plumber-docs]: https://www.rplumber.io/docs/
+[plumber-github]: https://github.com/trestletech/plumber
+[plumber-cran]: https://CRAN.R-project.org/package=plumber
 
 [plyr-web]: http://plyr.had.co.nz
 
@@ -129,6 +133,9 @@
 [rcolorbrewer-cran]: https://CRAN.R-project.org/package=RColorBrewer
 [dichromat-cran]: https://CRAN.R-project.org/package=dichromat
 
+[httr-web]: https://httr.r-lib.org
+[httr-cran]: https://CRAN.R-project.org/package=httr
+[httr-github]: https://github.com/r-lib/httr
 
 [roxygen2-cran]: https://CRAN.R-project.org/package=roxygen2
 [roxygen2-vignette]: https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html

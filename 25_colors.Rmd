@@ -188,7 +188,7 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   scale_fill_viridis() + theme_bw()
 ```
 
-![Source: [sjmgarnier][viridis-example-plots]](img/viridis-sample2.png)
+![Image Source: [sjmgarnier][viridis-example-plots]](img/viridis-sample2.png)
 
 ## Hexadecimal RGB color specification
 
