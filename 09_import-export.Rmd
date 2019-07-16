@@ -40,7 +40,7 @@ library(tidyverse)
 
 ## Locate the Gapminder data
 
-We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package][fs-rlib].
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package][fs-web].
 
 ```{r}
 library(fs)

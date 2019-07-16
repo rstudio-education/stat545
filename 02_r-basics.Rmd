@@ -203,13 +203,13 @@ I created a directory and, therefore RStudio project, called `swc` in my `tmp` d
 
 <!-- https://github.com/yihui/knitr/issues/277 -->
 
-```{r eval = FALSE}
+```r
 setwd("~/tmp/swc")
 ```
 
 Now check that the "home" directory for your project is the working directory of our current R process:
 
-```{r eval = FALSE}
+```r
 getwd()
 ```
 _I can't print my output here because this document itself does not reside in the RStudio Project we just created._

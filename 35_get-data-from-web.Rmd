@@ -4,14 +4,6 @@
 
 <!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
 
-Accompanying slides are [here](http://stat545.com/webdata01_slides.html)
-
-```{r echo = FALSE}
-# Revisiting this later; issues with zoom
-#knitr::include_url("http://stat545.com/webdata01_slides.html")
-```
-
-
 There are many ways to obtain data from the Internet; let's consider four categories:
 
 1. **Click-and-download**: get data from the internet as a "flat" file, such as a .csv, .xls

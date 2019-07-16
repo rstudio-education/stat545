@@ -100,7 +100,8 @@
 [devtools-cran]: https://CRAN.R-project.org/package=devtools
 [devtools-github]: https://github.com/r-lib/devtools
 [devtools-web]: https://devtools.r-lib.org
-[devtools-cheatsheet]: https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf
+[devtools-cheatsheet]: https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf
+[devtools-cheatsheet-old]: https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf
 [devtools-1-6]: https://blog.rstudio.com/2014/10/02/devtools-1-6/
 [devtools-1-8]: https://blog.rstudio.com/2015/05/11/devtools-1-9-0/
 [devtools-1-9-1]: https://blog.rstudio.com/2015/09/13/devtools-1-9-1/
@@ -112,8 +113,14 @@
 [tidycensus-github]: https://github.com/walkerke/tidycensus
 [tidycensus-web]: https://walkerke.github.io/tidycensus/index.html
 
+
+[fs-web]: https://fs.r-lib.org/index.html
+[fs-cran]: https://CRAN.R-project.org/package=fs
+[fs-github]: https://github.com/r-lib/fs
+
+
 [plyr-web]: http://plyr.had.co.nz
-[fs-rlib]: https://fs.r-lib.org/index.html
+
 [magrittr-web]: https://magrittr.tidyverse.org
 [forcats-web]: https://forcats.tidyverse.org
 [glue-web]: https://glue.tidyverse.org
@@ -122,6 +129,8 @@
 [rcolorbrewer-cran]: https://CRAN.R-project.org/package=RColorBrewer
 [dichromat-cran]: https://CRAN.R-project.org/package=dichromat
 
+
+[roxygen2-cran]: https://CRAN.R-project.org/package=roxygen2
 [roxygen2-vignette]: https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
 
 
@@ -140,6 +149,13 @@
 [ggvis-cran]: https://CRAN.R-project.org/package=ggvis
  
 
+[usethis-web]: https://usethis.r-lib.org
+[usethis-cran]: https://CRAN.R-project.org/package=usethis
+[usethis-github]: https://github.com/r-lib/usethis
+
+[pkgdown-web]: https://pkgdown.r-lib.org
+
+<!--Shiny links-->
 [shinydashboard-web]: https://rstudio.github.io/shinydashboard/
 [shinydashboard-cran]: https://CRAN.R-project.org/package=shinydashboard
 [shinydashboard-github]: https://github.com/rstudio/shinydashboard
@@ -182,8 +198,15 @@
 [r-pkgs]: http://r-pkgs.had.co.nz
 [r-pkgs-test]: http://r-pkgs.had.co.nz/tests.html
 [r-pkgs-intro-get]: http://r-pkgs.had.co.nz/intro.html#intro-get
+
 [r-pkgs2]: https://r-pkgs.org/index.html
 [r-pkgs2-whole-game]: https://r-pkgs.org/whole-game.html
+[r-pkgs2-description]: https://r-pkgs.org/description.html
+[r-pkgs2-man]: https://r-pkgs.org/man.htm
+[r-pkgs2-tests]: https://r-pkgs.org/tests.html
+[r-pkgs2-namespace]: https://r-pkgs.org/namespace.html
+[r-pkgs2-vignettes]: https://r-pkgs.org/vignettes.html
+[r-pkgs2-release]: https://r-pkgs.org/release.html
 
 
 [r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do

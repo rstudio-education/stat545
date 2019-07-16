@@ -224,7 +224,7 @@ Save the file and restart your R session. You can now access your key with `Sys.
 
 Let's try pulling in some data from the [1990 Decennial Census](https://www.census.gov/data/developers/data-sets/decennial-census.1990.html). We can check out the different variables for one of the datasets through the US Census Bureau [website](https://api.census.gov/data/1990/sf3/variables.html) or with `tidycensus::load_variables()`.
 
-```{r}
+```{r eval = FALSE}
 library(dplyr)
 
 # what are the variables for the sf3 dataset for 1990?
@@ -232,9 +232,8 @@ variables_1990 <- load_variables(1990, "sf3")
 glimpse(variables_1990)
 ```
 
-
 Let's explore variables related to income. We can filter for labels that contain the string "income" by combining `stringr::str_detect()` with `dplyr::filter()`.
-```{r}
+```{r eval = FALSE}
 library(stringr)
 
 variables_1990 %>% 
@@ -243,7 +242,7 @@ variables_1990 %>%
 ```
 
 What was the median household income in 1990 by state? Let's use `tidycensus::get_decennial()` to pull down the relevant data.
-```{r}
+```{r eval = FALSE}
 median_income <- get_decennial(geography = "state", variables = "P080A001", 
                                year = 1990) %>% 
   rename(state = NAME)
@@ -252,7 +251,7 @@ glimpse(median_income)
 ```
 
 Hmm, there are 51 observations instead of 50. Maybe this is because they separated DC?
-```{r}
+```{r eval = FALSE}
 median_income %>% 
   mutate(state = str_to_lower(state)) %>% # eliminate case sensitivity problems
   filter(state %in% c("dc", "d.c.", "district of columbia")) # check a few variations
@@ -260,7 +259,7 @@ median_income %>%
 It looks like they did!
 
 Let's try plotting.
-```{r fig.width = 9, fig.height = 9}
+```{r fig.width = 9, fig.height = 9,eval = FALSE}
 library(ggplot2)
 
 ggplot(median_income, aes(state, value)) +
@@ -277,14 +276,14 @@ ggplot(median_income, aes(state, value)) +
 ```
 
 Whoops. Let's use `forcats::fct_reorder` to reorder the factor levels of `state` to make this plot easier to parse.
-```{r}
+```{r eval = FALSE}
 library(forcats)
 
 median_income_ordered <- median_income %>% 
   mutate(state = fct_reorder(state, value))
 ```
 
-```{r fig.width = 9, fig.height = 9}
+```{r fig.width = 9, fig.height = 9, eval = FALSE}
 ggplot(median_income_ordered, aes(state, value)) +
   geom_point(color = "cornflowerblue", alpha = 0.8) +
   labs(x = "State", y = "Median Household Income", 
@@ -303,12 +302,9 @@ The states with the highest median household income in 1990 were Connecticut, Al
 
 ## Interact with an API
 
-In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. What do you do if you want to use an API in R that doesn't already have a wrapper package written for it? One option is using the `httr` package to help out with the 
+In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. What do you do if you want to use an API in R that doesn't already have a wrapper package written for it? One option is using the `httr` package to help out with the HTTP requests and responses. 
 
 
-
-
-First we're going to examine the structure of API requests via the [Open Movie Database](https://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDB, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
 
 ### Exploring movies using the OMDb API
 

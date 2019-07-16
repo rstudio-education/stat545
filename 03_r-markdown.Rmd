@@ -18,7 +18,6 @@ We assume the following
   * You've already [registered a free GitHub account][hg-github-account].
   * You've already [installed R and RStudio][hg-install-r-rstudio].
   * You've [tested your installation and configuration of Git, GitHub, and RStudio][hg-connect-intro]
-  * ~~You've completed **Homework 01** or an equivalent exercise to truly test all of the above and to introduce you to Markdown.~~
 
 ## Step 1: Get ready to work
 

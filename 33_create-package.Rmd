@@ -3,8 +3,7 @@
 <!--[Link to original content](http://stat545.com/packages06_foofactors-package.html)-->
 <!--Has this section been edited? There are some parts that deviate from the original stat545 material-->
 
-This section closely tracks with content from the book R Packages
-[r-pkgs2] (currently a work in progress, see [here][r-pkgs2] for the 1st edition) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game."][r-pkgs2-whole-game] The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
+This section closely tracks with content from the book [R Packages][r-pkgs2] (2nd edition) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game"][r-pkgs2-whole-game] (*Note*: The 2nd edition of the R Packages book is currently under development. You can see the 1st edition of the R Packages book [here][r-pkgs]). The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
 
 
 ```{r, include = FALSE}
@@ -24,7 +23,7 @@ where <- "tmp_session"
 
 ## Why `devtools`?
 
-We use the [`devtools`][devtools-web] package to facilitate package development. It’s on [CRAN][devtools-cran] and developed on [GitHub][devtools-github]. Why devtools? 
+We use the [`devtools`][devtools-web] package to facilitate package development. It’s on [CRAN][devtools-cran] and developed on [GitHub][devtools-github]. Why `devtools`? 
 
   * ensure your package source has the format of a valid R package
   * provide a fluid workflow for package development: tweak it, use it, ... lather, rinse, repeat
@@ -33,7 +32,7 @@ The source of an R package is a highly structured set of files that reside in a 
 
 As you develop the functions in your package, you need to take them out regularly for a test drive. How do you plan to get them into memory? Various workflows come to mind:
 
-  * copy/paste or use IDE magic to send the function definition to R Console
+  * copy/paste or use IDE magic to send the function definition to R console
   * use `source()` or IDE magic to evaluate the `.R` file with function definition
   * use `R CMD INSTALL` in the shell then, in R, load your package
 
@@ -46,15 +45,15 @@ These workflows may be tolerable at first, but they grow old very quickly. The f
 
 We assume you have [configured your system for R package development](#system-prep). This will ensure you have all the right software installed and that it's updated. Ignoring this prep will only lead to heartache. **Do it.**
 
-## Load devtools and friends
+## Load `devtools` and friends
 
-Load the devtools package, which is the public face of a set of packages that support various aspects of package development.
+Load the `devtools` package, which is the public face of a set of packages that support various aspects of package development.
 
 ```{r}
 library(devtools)
 ```
 
-Since devtools is a workflow package, you may consider loading it automatically in all of your interactive R sessions. In general, it's not a great idea to load packages this way, as it invites you to create R scripts that don't reflect all of their dependencies via explicit calls to `library(foo)`. But devtools is meant to smooth the process of package development and is, therefore, unlikely to get baked into any analysis scripts. The pros may outweigh the cons in this case.
+Since `devtools` is a workflow package, you may consider loading it automatically in all of your interactive R sessions. In general, it's not a great idea to load packages this way, as it invites you to create R scripts that don't reflect all of their dependencies via explicit calls to `library(foo)`. But `devtools` is meant to smooth the process of package development and is, therefore, unlikely to get baked into any analysis scripts. The pros may outweigh the cons in this case.
 
 You can do this by adding these lines to your `.Rprofile`:
 
@@ -64,16 +63,16 @@ if (interactive()) {
 }
 ```
 
-The helper `use_devtools()` creates this file, if needed, opens it for editing, and puts the necessary lines of code on the clipboard and the screen. Another package you may want to handle this way is `testthat`.
+The helper `use_devtools()` creates this file, if needed, opens it for editing, and puts the necessary lines of code on the clipboard and the screen. Another package you may want to handle this way is [`testthat`][testthat-web].
 
-For presentation purposes only, we use [fs](https://fs.r-lib.org), for filesystem work, and the [tidyverse](https://tidyverse.tidyverse.org), for light data wrangling.
+For presentation purposes only, we use [`fs`][fs-web], for filesystem work, and the [`tidyverse`][tidyverse-web], for light data wrangling.
 
 ```{r, R.options = list(tidyverse.quiet = TRUE)}
 library(tidyverse)
 library(fs)
 ```
 
-You may notice that some functions we'll use in this chapter start with `use_*()`. These functions derive from the [`usethis` package](https://usethis.r-lib.org/), which is also on [CRAN](https://cloud.r-project.org/web/packages/usethis/index.html) and developed on [GitHub](https://github.com/r-lib/usethis). Generally, you should not need to worry about these different packages, because `devtools` installs them all automatically for you. `devtools` remains the primary package developers will interact with when writing R packages; it just relies on these other packages internally for most of the functionality. 
+You may notice that some functions we'll use in this chapter start with `use_*()`. These functions derive from the [`usethis` package][usethis-web], which is also on [CRAN][usethis-cran] and developed on [GitHub][usethis-github]. Generally, you should not need to worry about these different packages, because `devtools` installs them all automatically for you. `devtools` remains the primary package developers will interact with when writing R packages; it just relies on these other packages internally for most of the functionality. 
 
 Nevertheless, as you work through the development of this toy package, it may be useful to notice that the `use_*()` functions can often be "chatty", explaining what the function is doing and assigning you tasks to complete. For example:
 
@@ -84,19 +83,19 @@ You can think of the `usethis::use_*()` family as functions that simplify things
 
 ## Toy package: foofactors
 
-We use various functions from devtools to build a small toy package from scratch, with features commonly seen in released packages:
+We use various functions from `devtools` to build a small toy package from scratch, with features commonly seen in released packages:
 
   * Functions to address a specific need, such as helpers to work with factors.
   * Access to established workflows for installation, getting help, and checking basic quality.
   * Version control and an open development process.
     - This is completely optional in your work, but recommended. You'll see how Git and GitHub helps us expose all the intermediate stages of our package.
-  * Documentation for individual functions via [roxygen2](https://CRAN.R-project.org/package=roxygen2).
-  * Unit testing with [testthat](http://testthat.r-lib.org).
+  * Documentation for individual functions via [`roxygen2`][roxygen2-web].
+  * Unit testing with [`testthat`][testthat-web].
   * Documentation for the package as a whole via an executable `README.Rmd`.
 
-We call the package **foofactors** and it will have a couple functions for handling factors. Please note that these functions are super simple and definitely not the point! For a proper package for factor handling, please see [forcats](https://cran.r-project.org/package=forcats).
+We call the package **foofactors** and it will have a couple functions for handling factors. Please note that these functions are super simple and definitely not the point! For a proper package for factor handling, please see the [`forcats`][forcats-web] package.
 
-The foofactors package itself is not our goal here. It is a device for demonstrating a typical workflow for package development with devtools.
+The foofactors package itself is not our goal here. It is a device for demonstrating a typical workflow for package development with `devtools.`
 
 
 ## Peek at the finished product
@@ -105,9 +104,9 @@ The foofactors package is tracked during its development with the Git version co
 
 ## `create_package()`
 
-The `usethis::create_package()` function initializes a new package in a new directory on your computer. The new package will comply with all devtools conventions and will immediately pass `R CMD check`. Ideally, your package will always be in this happy state and it is something you should verify often.
+The `usethis::create_package()` function initializes a new package in a new directory on your computer. The new package will comply with all `devtools` conventions and will immediately pass `R CMD check`. Ideally, your package will always be in this happy state and it is something you should verify often.
 
-Make a deliberate choice about where to create this package on your computer. It should probably be in your home directory, alongside your other R projects. It should not be in, for example, an R package library, which holds packages that have already been built and installed. The conversion of the source package we are creating here into an installed package is part of what devtools facilitates. Don't try to do devtools' job for it.
+Make a deliberate choice about where to create this package on your computer. It should probably be in your home directory, alongside your other R projects. It should not be in, for example, an R package library, which holds packages that have already been built and installed. The conversion of the source package we are creating here into an installed package is part of what `devtools` facilitates. Don't try to do `devtools`' job for it.
 
 
 ```{r configure, include = FALSE}
@@ -165,7 +164,7 @@ proj_sitrep()
 
 If you use RStudio, navigate to this directory and double click on `foofactors.Rproj` to launch a new instance of RStudio in the Project that is also your foofactors package. RStudio has special handling for packages and you should now see a *Build* tab in the same pane as *Environment* and *History*.
 
-What files are in this new directory? Here's a listing using the [fs package](https://fs.r-lib.org/) (locally, you can consult your file browser):
+What files are in this new directory? Here's a listing using the [`fs` package][fs-web] (locally, you can consult your file browser):
 
 ```{r init-show-files, echo = FALSE, eval = create}
 dir_tree(path = ".", all = TRUE, glob = "TRUE", invert = TRUE, recurse = FALSE)
@@ -209,7 +208,7 @@ dir_tree(path = ".", all = TRUE, glob = "TRUE", invert = TRUE, recurse = FALSE)
 ```
 
 
-If you use RStudio, quit and relaunch this Project, by double clicking on `foofactors.Rproj`. Now, in addition to package development support, you have access to a basic Git client in the *Git* tab of the *Environment/History/Build* pane. Click on History (the clock icon) and you should see the initial commit made by `use_git()`:
+If you use RStudio, quit and then relaunch this Project by double clicking on `foofactors.Rproj`. Now, in addition to package development support, you have access to a basic Git client in the *Git* tab of the *Environment/History/Build* pane. Click on History (the clock icon) and you should see the initial commit made by `use_git()`:
 
 
 ```{r inspect-first-commit, echo = FALSE, eval = create}
@@ -255,11 +254,11 @@ writeLines(fbind_fodder, path("R", "fbind.R"))
 
 Where do you put this function definition? Save it in a `.R` file, in the `R/` subdirectory of your package. A reasonable default is to make a new `.R` file for each function in your package and name the file after the function. So we save the above definition of `fbind()` in the file `R/fbind.R`. The file should consist solely of this function definition, i.e. it should NOT contain other top-level code we have recently executed, such as `library(devtools)` or `use_git()`. Package code should *never* contain a call to `library()`.
 
-How do we test drive `fbind()`? If this were a regular R script, we might use Rstudio or Emacs/ESS to send the function definition to the R Console, thereby defining `fbind()` in the global workspace. Or we might do so via `source("R/fbind.R")`. For package development, however, devtools offers a more robust approach.
+How do we test drive `fbind()`? If this were a regular R script, we might use RStudio or Emacs/ESS to send the function definition to the R Console, thereby defining `fbind()` in the global workspace. Or we might do so via `source("R/fbind.R")`. For package development, however, `devtools` offers a more robust approach.
 
 ## `load_all()` to test drive
 
-How do we test drive `fbind()`? If this were a regular R script, we might use RStudio to send the function definition to the R Console and define `fbind()` in the global workspace. Or maybe we'd call `source("R/fbind.R")`. For package development, however, devtools offers a more robust approach.
+How do we test drive `fbind()`? If this were a regular R script, we might use RStudio to send the function definition to the R Console and define `fbind()` in the global workspace. Or maybe we'd call `source("R/fbind.R")`. For package development, however, `devtools` offers a more robust approach.
 
 Call `devtools::load_all()` to make `fbind()` available for experimentation.
 
@@ -326,15 +325,15 @@ From this point on, we make commits after each step, indicated by a brief messag
 
 We have solid evidence that `fbind()` works. But how can we be sure that all the moving parts of the package still work? This may seem silly to check, after such a small addition, but it's good to establish the habit of checking this often.
 
-How do we move our local source package through the necessary stages to get it properly installed? (Figure from [R Packages](https://r-pkgs.org/package-structure.html#package).)
+How do we move our local source package through the necessary stages to get it properly installed?
 
-```{r pkg-installation-diagram, echo = FALSE, out.width = "100%"}
+```{r pkg-installation-diagram, echo = FALSE, out.width = "100%", fig.cap = "From [R Packages](https://r-pkgs.org/package-structure.html#package)"}
 knitr::include_graphics("https://raw.githubusercontent.com/hadley/r-pkgs/master/diagrams/installation.png")
 ```
 
 ### Base utilities
 
-devtools wraps the base utilities for package management, but in a way favorable for very quick iteration. Under the hood, here are the important commands:
+`devtools` wraps the base utilities for package management, but in a way favorable for very quick iteration. Under the hood, here are the important commands:
 
   * [`R CMD build`](https://stat.ethz.ch/R-manual/R-patched/library/utils/html/PkgUtils.html) converts a source package to a bundle or tarball
   * [`R CMD INSTALL`](https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html) installs a package bundle into a library
@@ -348,9 +347,9 @@ R CMD check foofactors_0.0.0.9000.tar.gz
 R CMD INSTALL foofactors_0.0.0.9000.tar.gz
 ```
 
-### devtools and RStudio
+### `devtools` and RStudio
 
-Luckily devtools and RStudio make these utilities very easy to access without going to the shell.
+Luckily `devtools` and RStudio make these utilities very easy to access without going to the shell.
 
 At intermediate milestones, you should check your package:
 
@@ -423,7 +422,7 @@ Success!
 
 Before we tackle the warnings about the license and documentation, we replace some of the boilerplate content in `DESCRIPTION`. The `DESCRIPTION` file provides metadata about your package:
 
-  * read more from [R Packages](https://r-pkgs.org/description.html)
+  * read more from [R Packages][r-pkgs2-description]
   * read more from [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file)
 
 Make these edits:
@@ -490,7 +489,7 @@ For future projects, there is more guidance on licenses in these sources:
 
 Wouldn't it be nice to get help on `fbind()`, just like we do with other R functions? This requires that your package have a special R documentation file, `man/fbind.Rd`, written in an R-specific markup language that is sort of like LaTeX. Luckily we don't necessarily have to author that directly.
 
-We write a specially formatted comment right above `fbind()`, in its source file, and then let a package called [roxygen2](https://CRAN.R-project.org/package=roxygen2) handle the creation of `man/fbind.Rd`.  To read more about the motivation and mechanics of roxygen2, read [the documentation chapter](https://r-pkgs.org/man.html) of R Packages.
+We write a specially formatted comment right above `fbind()`, in its source file, and then let a package called [`roxygen2`][roxygen2-cran] handle the creation of `man/fbind.Rd`.  To read more about the motivation and mechanics of `roxygen2`, read [the documentation chapter](https://r-pkgs.org/man.html) of R Packages.
 
 If you use RStudio, open `R/fbind.R` in the source editor and put the cursor somewhere in the `fbind()` function definition. Now do *Code > Insert roxygen skeleton*. A very special comment should appear above your function, in which each line begins with `#'`. RStudio only inserts a barebones template, so you will need to edit it to look something like that below.
 
@@ -531,8 +530,8 @@ But we're not done yet! We still need to trigger the conversion of the roxygen c
   * From RStudio:
     - *Build > More > Document*
   * From R:
-    - `document()`, which is a wrapper function provided by devtools.
-    Under the hood, it's calling the roxygen2 package.
+    - `document()`, which is a wrapper function provided by `devtools.`
+    Under the hood, it's calling the `roxygen2` package.
 
 ```{r document-fbind, eval = create}
 document()
@@ -548,7 +547,7 @@ Does it show up in the usual help pane? Looking like real documentation? Isn't t
 
 Your package's documentation won't be properly wired up until you do a full "Build & Reload". I'm referring to the links between help files, the link to the package index, etc.
 
-The RStudio [Package Development with devtools Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf) has really nice coverage of roxygen comment syntax. You can also get information from *Help > Roxygen Quick Reference*.
+The RStudio [Package Development with `devtools` Cheat Sheet][devtools-cheatsheet] has really nice coverage of roxygen comment syntax. You can also get information from *Help > Roxygen Quick Reference*.
 
 ### `NAMESPACE` changes
 
@@ -560,7 +559,7 @@ cat(readLines("NAMESPACE"), sep = "\n")
 
 It no longer has the placeholder content saying "export everything". Instead, there is now an explicit directive to export the `fbind()` function.
 
-The export directive in `NAMESPACE` is what's required to "export a function" and it's what makes `fbind()` available to a user after loading foofactors via `library(foofactors)`. Just as it is entirely possible to author `.Rd` files "by hand", you can manage `NAMESPACE` explicitly yourself. But we are opting to delegate this to devtools and roxygen2.
+The export directive in `NAMESPACE` is what's required to "export a function" and it's what makes `fbind()` available to a user after loading foofactors via `library(foofactors)`. Just as it is entirely possible to author `.Rd` files "by hand", you can manage `NAMESPACE` explicitly yourself. But we are opting to delegate this to `devtools` and `roxygen2.`
 
 ```{r commit-namespace, echo = debug, comment = NA, eval = create}
 add(repo, path = c("DESCRIPTION", "NAMESPACE", path("man", "fbind.Rd")))
@@ -608,7 +607,7 @@ Success!
 
 We've tested `fbind()` informally, in a single example. We can formalize and expand this with some unit tests. This means we express a few concrete expectations about the correct `fbind()` result for various inputs.
 
-First, we declare our intent to write unit tests and to use the testthat package for this, via `usethis::use_testthat()`:
+First, we declare our intent to write unit tests and to use the `testthat` package for this, via `usethis::use_testthat()`:
 
 ```{r use-testthat}
 use_testthat()
@@ -659,14 +658,14 @@ add(repo, path = paths)
 commit(repo, message = "Test fbind()")
 ```
 
-Run this test interactively, as you will when you write your own. Note you'll have to load testthat via `library(testthat)` in your R session first and you'll probably want to `load_all()`.
+Run this test interactively, as you will when you write your own. Note you'll have to load `testthat` via `library(testthat)` in your R session first and you'll probably want to `load_all()`.
 
-Going forward, your tests will mostly run *en masse* and at arms's length:
+Going forward, your tests will mostly run *en masse* and at arm's length:
 
   * In RStudio:
     - *Build > Test package*
   * In R:
-    - `test()`, which is a convenience wrapper in devtools that calls the testthat package.
+    - `test()`, which is a convenience wrapper in `devtools` that calls the `testthat` package.
 
 ```{r test, eval = create, message = FALSE}
 test()
@@ -674,15 +673,15 @@ test()
 
 Your tests are also run whenever you `check()` the package. In this way, you basically augment the standard checks with some of your own, that are specific to your package.
 
-For much more guidance, read the [testing chapter](https://r-pkgs.org/tests.html) in R Packages.
+For much more guidance, read the [testing chapter][r-pkgs2-tests] in R Packages.
 
 ## `use_package()`
 
 You will inevitably want to use a function from another package in your own package. Just as we needed to **export** `fbind()`, we need to **import** functions from the namespace of other packages. If you plan to submit a package to CRAN, note that this even applies to functions in packages that you think of as "always available", such as `stats::median()` or `utils::head()`.
 
-There is more than one way to go about this. We use the approach recommended in the [namespace chapter](https://r-pkgs.org/namespace.html) of R Packages and in the [rOpenSci Packaging Guide](https://ropensci.github.io/dev_guide/building.html#package-dependencies).  The general usage pattern is this: give the name of the external package, then two colons, then the function to call.
+There is more than one way to go about this. We use the approach recommended in the [namespace chapter][r-pkgs2-namespace] of R Packages and in the [rOpenSci Packaging Guide](https://ropensci.github.io/dev_guide/building.html#package-dependencies).  The general usage pattern is this: give the name of the external package, then two colons, then the function to call.
 
-First, declare your general intent to use some functions from the forcats namespace with `usethis::use_package()`:
+First, declare your general intent to use some functions from the `forcats` namespace with `usethis::use_package()`:
 
 ```{r use-forcats}
 use_package("forcats")
@@ -694,9 +693,9 @@ add(repo, path = paths)
 commit(repo, message = "Declare we will use forcats")
 ```
 
-This adds the forcats package to the "Imports" section of `DESCRIPTION`. And that is all.
+This adds the `forcats` package to the "Imports" section of `DESCRIPTION`. And that is all.
 
-Now we add a new function to foofactors that does, indeed, use a function from forcats. Imagine we want a frequency table for a factor, as a regular data frame with nice variable names, versus as an object of class `table` or something with odd names. Let's also sort the rows so that the most prevalent level is at the top. Preface your calls to forcats functions with `forcats::`.
+Now we add a new function to foofactors that does, indeed, use a function from `forcats.` Imagine we want a frequency table for a factor, as a regular data frame with nice variable names, versus as an object of class `table` or something with odd names. Let's also sort the rows so that the most prevalent level is at the top. Preface your calls to `forcats` functions with `forcats::`.
 
 Initiate a new `.R` file below `R/` with `use_r()`:
 
@@ -727,7 +726,7 @@ cat(fcount_fodder, sep = "\n")
 writeLines(fcount_fodder, path("R", "fcount.R"))
 ```
 
-Notice how we preface the call to a forcats functions with `forcats::`. This specifies that we want to call the `fct_count()` function from the forcats namespace. There is more than one way to call functions in other packages and the one we espouse here is explained fully in the [namespace chapter](https://r-pkgs.org/namespace.html) of R Packages.
+Notice how we preface the call to a `forcats` functions with `forcats::`. This specifies that we want to call the `fct_count()` function from the `forcats` namespace. There is more than one way to call functions in other packages and the one we espouse here is explained fully in the [namespace chapter][r-pkgs2-namespace] of R Packages.
 
 ```{r commit-fcount, echo = debug, comment = NA, eval = create}
 paths <- unlist(status(repo))
@@ -768,7 +767,7 @@ use_package_doc()
 
 This creates a peculiar dummy file `R/foofactors-package.R` with a roxygen header, that is documenting just ... `NULL`. The purpose of this is simply to trigger the generation of a package-level `.Rd` file.
 
-Edit `R/foofactors-package.R` to look something like this. I just copied info from `DESCRIPTION` but you can add more info here and possibly should in real life.  This file isn't subject to the same CRAN checks as `DESCRIPTION`, so you have much more freedom.
+Edit `R/foofactors-package.R` to look something like this. I just copied info from `DESCRIPTION` but you can add more info here and possibly should in real life. This file isn't subject to the same CRAN checks as `DESCRIPTION`, so you have much more freedom.
 
 
 ```{r pkg-doc-fodder, asis = TRUE, echo = FALSE, comment = NA}
@@ -815,7 +814,7 @@ Have a look at your new package-level docs:
 
 ## `use_vignette()`
 
-A piece of package-level documentation that's probably familiar to you is the vignette. This is a great place to put a fully developed example that calls multiple functions from your package to do something useful and realistic. See the [vignettes chapter](https://r-pkgs.org/vignettes.html) of R Packages for more.
+A piece of package-level documentation that's probably familiar to you is the vignette. This is a great place to put a fully developed example that calls multiple functions from your package to do something useful and realistic. See the [vignettes chapter][r-pkgs2-vignettes] of R Packages for more.
 
 Use `usethis::use_vignette()` to initialize a new vignette:
 
@@ -825,7 +824,7 @@ use_vignette("foofactors-vignette")
 
 Here's what happens:
 
-  * Adds knitr and rmarkdown to `Suggests` in `DESCRIPTION`.
+  * Adds `knitr` and `rmarkdown` to `Suggests` in `DESCRIPTION`.
   * Creates a new file with boilerplate vignette content, `vignettes/foofactors-vignette.Rmd`.
   * Adds `inst/doc` to `.gitignore`.
   * If using RStudio, open `vignettes/foofactors-vignette.Rmd` for editing.
@@ -842,7 +841,7 @@ Now you need to edit `vignettes/foofactors-vignette.Rmd`. At the very least, do 
   * List yourself as author or remove that line.
   * Remove the boilerplate content and throw in some usage. Even early on, just mine your examples or tests for something to throw in here. It is better than nothing.
 
-The vignette source can be seen here: [foofactors-vignette.Rmd](https://raw.githubusercontent.com/apreshill/stat545-reboot/master/supporting-docs/foofactors-vignette.Rmd)
+The vignette source can be seen here: [foofactors-vignette.Rmd](https://raw.githubusercontent.com/rstudio-education/stat545-reboot/master/supporting-docs/foofactors-vignette.Rmd)
 
 ```{r copy-vignette, asis = TRUE, echo = FALSE, comment = NA, include = debug}
 vignette_path <- path("vignettes", "foofactors-vignette.Rmd")
@@ -861,7 +860,7 @@ How to see your compiled vignette? For a quick preview, just use RStudio's "Knit
 
 If you want to hold on to a compiled vignette, for your own sake or to push to GitHub, it's a little fiddly. I'm not executing any of these for real, so don't expect to see the result in the foofactors repo on GitHub.
 
-Option 1:
+__Option 1:__
 
 ```{r eval = FALSE}
 build_vignettes()
@@ -870,9 +869,9 @@ browseVignettes("foofactors")
 ## look at your vignette
 ```
 
-This puts your vignette (`.Rmd` and any downstream products, such as `.html`) in `inst/doc` but because we are gitignoring `inst/doc` this won't make a rendered vignette available on GitHub. You can however view it locally.
+This puts your vignette (`.Rmd` and any downstream products, such as `.html`) in `inst/doc` but because we are git-ignoring `inst/doc` this won't make a rendered vignette available on GitHub. You can however view it locally.
 
-Option 2:
+__Option 2:__
 
 In RStudio, do *Tools > Project Options > Build Tools > Generate documentation with Roxygen > Configure > Use roxygen to generate vignettes*. Then when you `document()`, downstream products, such as vignette `.html` will be left behind in `vignettes/`. There is nothing stopping you from including something like this in vignette YAML:
 
@@ -891,11 +890,11 @@ Which means vignette `.md` would be left behind in `vignettes/` and therefore po
 
 This creates a remote companion repository on GitHub, sets an upstream tracking branch for `master`, and makes an initial push. If you use RStudio, this means your Push and Pull buttons will work. If you prefer, you can always create the GitHub repo in the browser and use command line Git to add the GitHub remote and set an upstream tracking branch for `master`.
 
-To connect to GitHub, under the hood devtools calls the GitHub API. This means you'll need to use your GitHub account to get a personal access token (PAT).
+To connect to GitHub, under the hood `devtools` calls the GitHub API. This means you'll need to use your GitHub account to get a personal access token (PAT).
 
 Get a PAT here <https://github.com/settings/tokens>. Make sure the "repo" scope is included.
 
-Store your PAT as an environment variable named `GITHUB_PAT` in `~/.Renviron`, which holds environment variables that should be available to all R processes. devtools will look here for it, by default. Here "~/" means your home directory. If you're not sure where that is, execute `normalizePath("~/")` in R console. **This file should be named `.Renviron`, not `.Renviron.R`, look like this, and end in a newline:**
+Store your PAT as an environment variable named `GITHUB_PAT` in `~/.Renviron`, which holds environment variables that should be available to all R processes. `devtools` will look here for it, by default. Here "~/" means your home directory. If you're not sure where that is, execute `normalizePath("~/")` in R console. **This file should be named `.Renviron`, not `.Renviron.R`, look like this, and end in a newline:**
 
 ``` sh
 GITHUB_PAT=??40-RANDOM-LETTERS-AND-DIGITS-GO-HERE??
@@ -948,11 +947,11 @@ use_github(protocol = "https", private = TRUE)
 ```
 
 
-Go look at your package's repo on GitHub! It should look very similar to the package created by this vignette <https://github.com/jennybc/foofactors>. If you use RStudio, your Pull and Push buttons should now work.
+Go look at your package's repo on GitHub! It should look very similar to the package created by this vignette: <https://github.com/jennybc/foofactors>. If you use RStudio, your Pull and Push buttons should now work.
 
 ## `use_readme_rmd()`
 
-Now that your package is on GitHub, the `README.md` file matters. It is the package's home page and welcome mat, at least until you decide to give it a website (see [pkgdown](https://pkgdown.r-lib.org)) or submit it to CRAN (see the [Releasing a package chapter](https://r-pkgs.org/release.html) in the R Packages book).
+Now that your package is on GitHub, the `README.md` file matters. It is the package's home page and welcome mat, at least until you decide to give it a website (see [`pkgdown`][pkgdown-web]) or submit it to CRAN (see the [Releasing a package chapter][r-pkgs2-release] in the R Packages book).
 
 
 The `use_readme_rmd()` function initializes a basic, executable `README.Rmd` ready for you to edit:
@@ -971,7 +970,7 @@ In addition to creating `README.Rmd`, this adds some lines to `.Rbuildignore`, a
 
 How to populate this skeleton? Copy stuff liberally from `DESCRIPTION`, `R/foofactors-package.R`, examples, and the vignette. Anything is better than nothing. Otherwise ... do you expect people to install your package and comb through individual help files to figure out how to use it?
 
-We write the `README` in R markdown, so it can feature actual usage. It will load the currently installed version of your package, so this is a good time to do "Build & Reload" in RStudio. Or do this in R Console:
+We write the `README` in R Markdown, so it can feature actual usage. It will load the currently installed version of your package, so this is a good time to do "Build & Reload" in RStudio. Or do this in R Console:
 
 ```{r pre-readme-install-fake, eval = FALSE}
 install()

@@ -6,18 +6,31 @@
 
 ## Regular Expression in R {#regex1}
 
-[Link to original content](https://stat545.com/block022_regular-expression.html)
-
+* __Rendered__: https://stat545.com/block022_regular-expression.html
+* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block022_regular-expression.rmd
+  
 ## Regular Expression and Character Data {#regex2}
 
-[Link to original content](https://stat545.com/block027_regular-expressions.html)
+* __Rendered__: https://stat545.com/block027_regular-expressions.html
+* __Raw__:  https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block027_regular-expressions.Rmd
+
 
 ## Vectors versus tibbles {#vectors-tibbles}
 
-[Link to original content](https://stat545.com/block031_vector-tibble-relations.html)
+* __Rendered__: https://stat545.com/block031_vector-tibble-relations.html
+* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block031_vector-tibble-relations.Rmd
 
-## Aggregating data using `dplyr::do()` {#dplyr-do}
 
-[Link to original content](https://stat545.com/block023_dplyr-do.html)
+## Computing by groups within data.frames with dplyr and broom {#dplyr-do}
+
+* __Rendered__: https://stat545.com/block023_dplyr-do.html
+* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block023_dplyr-do.rmd
+  
+  
+## Computing by groups within data.frames with `plyr` {#plyr-ddply}
+
+* __Rendered__: https://stat545.com/block013_plyr-ddply.html
+* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block013_plyr-ddply.rmd
+
 
 # Short random things {#random}
