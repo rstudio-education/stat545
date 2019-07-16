@@ -24,7 +24,7 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 - [Shiny official tutorial][shiny-official-tutorial]
 - [Shiny cheatsheet][shiny-cheatsheet]
 - [Lots of short useful articles about different topics in Shiny - **highly recommended**][shiny-articles]
-- [Shiny in Rmarkdown](http://rmarkdown.rstudio.com/authoring_shiny.html)
+- [Shiny in R Markdown](http://rmarkdown.rstudio.com/authoring_shiny.html)
 - Get help from the [Shiny Google group][shiny-google-groups] or [StackOverflow][shiny-stack-overflow]
 - [Publish your apps for free with shinyapps.io][shinyapps-web]
 - [Host your app on your own Shiny server][shiny-server-setup]
@@ -34,15 +34,18 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 
 # Slides {#shiny-slides}
 
-Link to slides [here](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p)
-
 <!--[Link to original content](http://stat545.com/shiny00_index.html)-->
+<!--[Link to slides](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p)-->
 
+```{r echo = FALSE, fig.align = 'center', out.width="100%", out.height = 450}
+library(knitr)
+include_graphics("img/shiny-slides.pdf")
+```
 
 # Building Shiny Apps {#shiny-tutorial}
 
 <!--[Link to original content](http://stat545.com/shiny01_activity.html)-->
-<!--Original author: Dean Attali-->
+<!--Original Author: Dean Attali; slightly modified by Grace Lawley-->
 
 Shiny is a package from RStudio that can be used to build interactive web pages with R. While that may sound scary because of the words "web pages", it's geared to R users who have 0 experience with web development, and you do not need to know any HTML/CSS/JavaScript.
 
@@ -112,7 +115,7 @@ You may have noticed that when you click the *Run App* button, all it's doing is
 
 Another way to define a Shiny app is by separating the UI and server code into two files: `ui.R` and `server.R`. This is the preferable way to write Shiny apps when the app is complex and involves more code, but in this tutorial we'll stick to the simple single file.  If you want to break up your app into these two files, you simply put all code that is assigned to the `ui` variable in `ui.R` and all the code assigned to the `server` function in `server.R`. When RStudio sees these two files in the same folder, it will know you're writing a Shiny app. 
 
-**Exercise:** Try making a new Shiny app by creating the two files `ui.R` and `server.R`. Rememeber that they have to be in the same folder. Also remember to put them in a *new, isolated* folder (not where your `app.R` already exists).
+**Exercise:** Try making a new Shiny app by creating the two files `ui.R` and `server.R`. Remember that they have to be in the same folder. Also remember to put them in a *new, isolated* folder (not where your `app.R` already exists).
 
 ### Let RStudio fill out a Shiny app template for you
 
@@ -257,7 +260,7 @@ shinyApp(ui = ui, server = server)
 
 ### All UI functions are simply HTML wrappers
 
-This was already mentioned, but it's important to remember: the enire UI is just HTML, and Shiny simply gives you easy tools to write it without having to know HTML. To convince yourself of this, look at the output when printing the contents of the `ui` variable.
+This was already mentioned, but it's important to remember: the entire UI is just HTML, and Shiny simply gives you easy tools to write it without having to know HTML. To convince yourself of this, look at the output when printing the contents of the `ui` variable.
 
 
 
@@ -369,7 +372,7 @@ shinyApp(ui = ui, server = server)
 
 After creating all the inputs, we should add elements to the UI to display the outputs. Outputs can be any object that R creates and that we want to display in our app - such as a plot, a table, or text. We're still only building the UI, so at this point we can only add *placeholders* for the outputs that will determine where an output will be and what its ID is, but it won't actually show anything. Each output needs to be constructed in the server code later.
 
-Shiny provides several output functions, one for each type of output. Similarly to the input functions, all the ouput functions have a `outputId` argument that is used to identify each output, and this argument must be unique for each output.
+Shiny provides several output functions, one for each type of output. Similarly to the input functions, all the output functions have a `outputId` argument that is used to identify each output, and this argument must be unique for each output.
 
 ### Output for a plot of the results
 
@@ -476,9 +479,9 @@ output$coolplot <- renderPlot({
 
 Replace the previous code in your server function with this code, and run the app. Whenever you choose a new minimum price range, the plot will update with a new number of points. Notice that the only thing different in the code is that instead of using the number `100` we are using `input$priceInput[1]`. 
 
-What does this mean? Just like the variable `output` contains a list of all the outputs (and we need to assign code into them), the variable `input` contains a list of all the inputs that are defined in the UI. `input$priceInput` return a vector of length 2 containing the miminimum and maximum price. Whenever the user manipulates the slider in the app, these values are updated, and whatever code relies on it gets re-evaluated. This is a concept known as [**reactivity**](#reactivity-101), which we will get to in a few minutes.
+What does this mean? Just like the variable `output` contains a list of all the outputs (and we need to assign code into them), the variable `input` contains a list of all the inputs that are defined in the UI. `input$priceInput` return a vector of length 2 containing the minimum and maximum price. Whenever the user manipulates the slider in the app, these values are updated, and whatever code relies on it gets re-evaluated. This is a concept known as [**reactivity**](#reactivity-101), which we will get to in a few minutes.
 
-Notice that these short 3 lins of code are using all the 3 rules for building outputs: we are saving to the `output` list (`output$coolplot <-`), we are using a `render*` function to build the output (`renderPlot({})`), and we are accessing an input value (`input$priceInput[1]`). 
+Notice that these short 3 lines of code are using all the 3 rules for building outputs: we are saving to the `output` list (`output$coolplot <-`), we are using a `render*` function to build the output (`renderPlot({})`), and we are accessing an input value (`input$priceInput[1]`). 
 
 ### Building the plot output
 
@@ -515,7 +518,7 @@ output$coolplot <- renderPlot({
 })
 ```
 
-Place this code in your server function and run the app. If you change any input, you should see the histogram update. The way I know the histogram is correct is by noticing that the alcohol content is about 5% when I selecte beer, 40% for spirits, and 13% for wine. That sounds right.
+Place this code in your server function and run the app. If you change any input, you should see the histogram update. The way I know the histogram is correct is by noticing that the alcohol content is about 5% when I select beer, 40% for spirits, and 13% for wine. That sounds right.
 
 Read this code and understand it. You've successfully created an interactive app - the plot is changing according to the user's selection.
 
@@ -591,7 +594,7 @@ output$results <- renderTable({
 
 Add this code to your server. Don't overwrite the previous definition of `output$coolplot`, just add this code before or after that, but inside the server function. Run your app, and be amazed! You can now see a table showing all the products at the BC Liquor Store that match your criteria. 
 
-**Exercise:** Add a new output. Either a new plot, a new table, or some piece of text that changes based on the inputs. For example, you could add a text output (`textOutput()` in the UI, `renderText()` in the server) that says how many results were found. If you choose to do this, I recommend first adding the output to the UI, then building the output in the server with static text to make sure you have the syntax correct. Only once you can see the text output in your app you should make it reflect the inputs. Protip: since `textOutput()` is written in the UI, you can wrap it in other UI functions. For example, `h2(textOutput(...))` will result in larger text.
+**Exercise:** Add a new output. Either a new plot, a new table, or some piece of text that changes based on the inputs. For example, you could add a text output (`textOutput()` in the UI, `renderText()` in the server) that says how many results were found. If you choose to do this, I recommend first adding the output to the UI, then building the output in the server with static text to make sure you have the syntax correct. Only once you can see the text output in your app you should make it reflect the inputs. Pro-tip: since `textOutput()` is written in the UI, you can wrap it in other UI functions. For example, `h2(textOutput(...))` will result in larger text.
 
 
 
@@ -641,7 +644,7 @@ priceDiff <- reactive({
 
 Now your app will run. If you want to access a reactive variable defined with `reactive({})`, **you must add parentheses after the variable name, as if it's a function**. To demonstrate this, add `observe({ print(priceDiff()) })` to your server function. Notice that we use `priceDiff()` rather than `priceDiff`. It's very important to remember this, because you can get confusing unclear errors if you simply try to access a custom reactive variable without the parentheses.
 
-You can think of reactivity as causing a chain reaction: when one reactive value changes, anything that depends on it will get updated. If any of the updated values are themselves reactive variables, then any reactive contexts that depend on those variables will also get updated in turn. As a concrete example, let's think about what happens when you change the value of the `priceInput` on the page. Since `input$priceInput` is a reactive variable, any expression that uses it will get updated. This means the two render functions from earlier will execute because they both depend on `input$priceInput`, as well as the `priceDiff` variable because it also depends on it. But since `priceDiff` is itself a reactive variable, Shiny will check if there is anything that depends on `priceDiff`, and indeed there is - the `observe({})` function that prints tthe value of `priceDiff`. So once `priceDiff` gets updated, the `observe({})` function will run, and the value will get printed.
+You can think of reactivity as causing a chain reaction: when one reactive value changes, anything that depends on it will get updated. If any of the updated values are themselves reactive variables, then any reactive contexts that depend on those variables will also get updated in turn. As a concrete example, let's think about what happens when you change the value of the `priceInput` on the page. Since `input$priceInput` is a reactive variable, any expression that uses it will get updated. This means the two render functions from earlier will execute because they both depend on `input$priceInput`, as well as the `priceDiff` variable because it also depends on it. But since `priceDiff` is itself a reactive variable, Shiny will check if there is anything that depends on `priceDiff`, and indeed there is - the `observe({})` function that prints the value of `priceDiff`. So once `priceDiff` gets updated, the `observe({})` function will run, and the value will get printed.
 
 Reactivity is usually the hardest part about Shiny to understand, so if you don't quite get it, don't feel bad. Try reading this section again, and I promise that with time and experience you will get more comfortable with reactivity. Once you do feel more confident with reactivity, it may be a good idea to read more advanced documentation describing reactivity, since this section greatly simplifies ideas to make them more understandable. A great resource is RStudio's [tutorial on reactivity][shiny-reactivity].
 
@@ -697,7 +700,7 @@ As a reminder, Shiny creates a dependency tree with all the reactive expressions
 
 ## Using `uiOutput()` to create UI elements dynamically {#shiny-tutorial-11}
 
-One of the output functions you can add in the UI is `uiOutput()`. According to the naming convention (eg. `plotOutput()` is an output to render a plot), this is an output used to render more UI. This may sound a bit confusing, but it's actually very useful. It's usually used to create inputs (or any other UI) from the server, or in other words - you can create inputs dynamically.
+One of the output functions you can add in the UI is `uiOutput()`. According to the naming convention (e.g. `plotOutput()` is an output to render a plot), this is an output used to render more UI. This may sound a bit confusing, but it's actually very useful. It's usually used to create inputs (or any other UI) from the server, or in other words - you can create inputs dynamically.
 
 Any input that you normally create in the UI is created when the app starts, and it cannot be changed. But what if one of your inputs depends on another input? In that case, you want to be able to create an input dynamically, in the server, and you would use `uiOutput()`.  `uiOutput()` can be used to create *any* UI element, but it's most often used to create input UI elements. The same rules regarding building outputs apply, which means the output (which is a UI element in this case) is created with the function `renderUI()`.
 
@@ -723,7 +726,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-If you run that tiny app, you will see that whenever you change the value of the numeric input, the slider input is re-generated. This behaviour can come in handy often.
+If you run that tiny app, you will see that whenever you change the value of the numeric input, the slider input is re-generated. This behavior can come in handy often.
 
 ### Use `uiOutput()` in our app to populate the countries
 
@@ -880,9 +883,9 @@ If you're feeling adventurous and want to host your own server, you can follow [
 
 Shiny is extremely powerful and has lots of features that we haven't covered. Here's a sneak peek of just a few other common Shiny features that are not too advanced. 
 
-### Shiny in Rmarkdown
+### Shiny in R Markdown
 
-You can include Shiny inputs and outputs in an Rmarkdown document! This means that your Rmarkdown document can be interactive. Learn more [here][shiny-bookdown]. Here's a simple example of how to include interactive Shiny elements in an Rmarkdown.  
+You can include Shiny inputs and outputs in an Markdown document! This means that your Markdown document can be interactive. Learn more [here][shiny-bookdown]. Here's a simple example of how to include interactive Shiny elements in an Markdown.  
 
 ````markdown
 `r xfun::file_string('examples/shiny.Rmd')`
@@ -929,7 +932,7 @@ Whenever you use `tableOutput()` + `renderTable()`, the table that Shiny creates
 
 ### Use `isolate()` function to remove a dependency on a reactive variable
 
-When you have multiple reactive variables inside a reactive context, the whole code block will get re-executed whenever *any* of the reactive variables change because all the variables become dependencies of the code. If you want to suppress this behaviour and cause a reactive variable to not be a dependency, you can wrap the code that uses that variable inside the `isolate()` function.  Any reactive variables that are inside `isolate()` will not result in the code re-executing when their value is changed. Read more about this behaviour with `?isolate`.
+When you have multiple reactive variables inside a reactive context, the whole code block will get re-executed whenever *any* of the reactive variables change because all the variables become dependencies of the code. If you want to suppress this behavior and cause a reactive variable to not be a dependency, you can wrap the code that uses that variable inside the `isolate()` function.  Any reactive variables that are inside `isolate()` will not result in the code re-executing when their value is changed. Read more about this behavior with `?isolate`.
 
 ### Use `update*Input()` functions to update input values programmatically
 
@@ -1012,7 +1015,7 @@ The app we developed is functional, but there are plenty of improvements that ca
     - **Hint:** You will need to add input functions that will be used as parameters for the plot. You could use `shinyjs::colourInput()` to let the user decide on the colours of the bars in the plot.
 
 - The app currently behaves strangely when the user selects filters that return 0 results. For example, try searching for wines from Belgium. There will be an empty plot and empty table generated, and there will be a warning message in the R console. Try to figure out why this warning message is appearing, and how to fix it.
-    - **Hint:** The problem happens because `renderPlot()` and `renderTable()` are trying to render an empty dataframe. To fix this issue, the `filtered` reactive expression should check for the number of rows in the filtered data, and if that number is 0 then return `NULL` instead of a 0-row dataframe.
+    - **Hint:** The problem happens because `renderPlot()` and `renderTable()` are trying to render an empty data frame. To fix this issue, the `filtered` reactive expression should check for the number of rows in the filtered data, and if that number is 0 then return `NULL` instead of a 0-row data frame.
 
 - Place the plot and the table in separate tabs.
     - **Hint:** Use `tabsetPanel()` to create an interface with multiple tabs.
