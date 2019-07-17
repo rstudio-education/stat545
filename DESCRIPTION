@@ -22,7 +22,10 @@ Imports:
     RColorBrewer,
     bcdata,
     units,
-    tidycensus
+    tidycensus,
+    rvest,
+    xml2,
+    httr
 Remotes:  
     r-lib/fs,
     r-lib/usethis,

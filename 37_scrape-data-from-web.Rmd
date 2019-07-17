@@ -2,8 +2,165 @@
 
 <!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
 
+What if data is present on a website but isn’t accessible through an API? We can still get that data, we just need to do some [web scraping][wiki-web-scraping]. 
 
-What if data is present on a website, but isn’t provided in an API at all? It is possible to grab that information too. How easy that is to do depends a lot on the quality of the website that we are using.
+There are three main steps to web scraping:
+
+1. __Download__ the web page(s) as html files - download the raw html for however many pages you are interested in
+2. __Locate__ the information you're interested in - find where in the html file the data you want is 
+3. __Extract__ the information you're interested in - pull out the data
+
+After this all that is left is to parse the data returned, which will likely be either html, XML, or JSON. We talked about this in the previous [Chapter](#api-query) and walked through an example of parsing an XML response. 
+
+The [`rvest`][rvest-web] package (on [CRAN][rvest-cran], on [GitHub][rvest-github]) is a fantastic tool for web scraping in R. There are three main functions from `rvest` that we will use to get the data from wikipedia:
+
+`read_html()` - a function imported from the `xml2` package, use to create an html document from a url (step 1 of our web scraping process). It requires one argument, `x`, which in our case will be a url as a string.
+
+
+`html_nodes()` and `html_node()` - use to extract the information we're interested in (step 3). It has two arguments: `x`, an html document; `css` or `xpath`, the CSS selectors or [XPath][wiki-xpath] that let's `rvest` know which information it should extract from the html document. 
+
+
+*following is in progress*
+
+XPath is a query language 
+
+
+It returns information for an html document(s) based on specified XPath or CSS selectors.
+
+
+* `html_table()` - use to transform the extracted information into a data frame
+
+You might have noticed that none of these functions have address step 2: __Locate__ the information that you're interested in. 
+
+
+
+## Responsible Web Scraping {#responsible-scraping}
+
+
+*in progress*
+
+CSS selectors
+
+[Fun CSS practice](http://flukeout.github.io)
+
+
+Responsible Web Scraping
+
+* https://github.com/ropensci/robotstxt
+* https://rud.is/b/2017/09/19/pirating-web-content-responsibly-with-r/
+
+Web Scraping
+
+* https://en.wikipedia.org/wiki/Harry_Potter_(film_series)
+* https://github.com/apreshill/bakeoff/blob/master/data-raw/series-scrape.R
+
+
+## Scraping Harry Potter Film Ratings {#harry-potter}
+
+<!--Do I need to have a couple sentences talking about what Harry Potter is?-->
+
+
+Let's practice web scraping by scraping [this table](https://en.wikipedia.org/wiki/Harry_Potter_(film_series)#Critical_and_public_response) of ratings from the wikipedia page for the Harry Potter Film series. Our end goal is to turn this table into a data frame in R and then plot the ratings each film received on Rotten Tomatoes.
+
+[![Harry Potter Table](./img/harry-potter-table.png)](./img/harry-potter-table.png)
+
+
+First, install/load the `rvest` package.
+
+```{r message = FALSE}
+#install.packages("rvest")
+library(rvest)
+```
+
+*below is in progress; need to flesh out the narrative* 
+
+
+```{r}
+url <- "https://en.wikipedia.org/wiki/Harry_Potter_(film_series)"
+html_page <- xml2::read_html(url)
+```
+
+
+Next, we need to get an XPath.
+
+[![Harry Potter 1](./img/harry-potter-1.png)](./img/harry-potter-1.png)
+[![Harry Potter 2](./img/harry-potter-2.png)](./img/harry-potter-2.png)
+[![Harry Potter 3](./img/harry-potter-3.png)](./img/harry-potter-3.png)
+[![Harry Potter 4](./img/harry-potter-4.png)](./img/harry-potter-4.png)
+
+
+*Insert photos of getting the XPath*
+
+```{r}
+ratings_xpath = '//*[@id="mw-content-text"]/div/table[3]'
+```
+
+*explain html_node()*
+
+```{r}
+ratings_node <- html_node(html_page, xpath = ratings_xpath)
+ratings_node
+```
+
+Convert to a df 
+```{r message = FALSE}
+library(dplyr)
+
+ratings_df <- html_table(ratings_node)
+glimpse(ratings_df)
+```
+
+Make a plot
+
+First, some data wrangling
+```{r}
+library(stringr)
+
+rotten_tomatoes <- ratings_df %>% 
+  select(Film, `Rotten Tomatoes`) %>% 
+  filter(Film != "Average") %>% 
+  rename(Rating = `Rotten Tomatoes`) %>% 
+  
+  # pull out percentage numbers only
+  mutate(Rating = str_extract(string = Rating, pattern = "[:digit:]{2}")) %>% 
+  # change from string to double
+  mutate(Rating = as.double(Rating))
+
+rotten_tomatoes
+```
+
+Change Film to a factor
+```{r}
+film_levels <- rotten_tomatoes %>% 
+  pull(Film)
+
+film_levels
+```
+
+It's already in the correct order!
+
+```{r}
+rotten_tomatoes <- rotten_tomatoes %>% 
+  mutate(Film = factor(Film, levels = film_levels))
+
+glimpse(rotten_tomatoes)
+```
+
+We can see that Film is listed as <fct>.
+
+
+Change the y axis limits to 0% - 100% to prevent plot from being misleading
+```{r}
+library(ggplot2)
+
+ggplot(rotten_tomatoes, aes(Film, Rating)) +
+  geom_col(fill = "darkred") +
+  labs(title = "Rotten Tomato Ratings of the Harry Potter Film Series",
+       y = "Rating (%)", caption = "Data Source: Wikipedia") +
+  # this changes the y axis limits to 0% to 100%
+  coord_cartesian(ylim = c(0, 100)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
 
 
 ```{r links, child="links.md"}

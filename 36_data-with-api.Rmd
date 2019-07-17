@@ -4,32 +4,32 @@ In the simplest case, the data that you want is already available on the interne
 
 Often times, however, things are a bit more complicated. You might need to go through an [**Application Programming Interface**](https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs) (API) to get the data that you want.
 
-An API allows you (the client) to programmatically get resources (e.g. a csv file, html file, etc.) from a web server via a [**Hypertext Transfer Protocol**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (HTTP) request. You send the web server a request and then the server sends you back a response. This response can be the data you asked for or an error message.
+An API allows you (the client) to programmatically get resources (e.g. a csv file, html file, etc.) from a web server via a [**Hypertext Transfer Protocol**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (HTTP) request. It is essentially facilitating a conversation: you send the web server a request and then the server sends you back a response. This response can either be the data you asked for or an error message.
 
 ![Image Source: [What exactly IS an API?](https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f)  by Perry Eising](img/api-diagram.png)
 
-If an API is popular, it might have an API wrapper package that will handle the HTTP part for you. If not, then you will have to handle the HTTP part yourself. For the latter cases, you don't need to do it entirely by yourself! The [`httr`][httr-web] package (on [CRAN][httr-cran], on [GitHub][httr-github]) can help make this less painful. 
+If an API is popular, it might have an API wrapper package that will handle the HTTP part for you. If not, then you will need to handle the HTTP part yourself. This isn't as bad as it may seem! The [`httr`][httr-web] package (on [CRAN][httr-cran], on [GitHub][httr-github]) can help make this easier.
 
-There's a lot more to APIs and HTTP that we won't cover in this chapter. Check out Chapter \@ref(api-resources) for some good resources if you're interested in learning more.
+If you are interested in learning more about APIs and HTTP check out Chapter \@ref(api-resources) for some good places to start.
 
 
 ## Install-and-play {#api-wrappers}
 
 Many popular APIs have helper R packages that "wrap" around the original API. These packages generally will have functions that assist with formatting a query, sending the query to the web server, and parsing the response sent back.
 
-The first thing that you should do if you're planning on using an API to get data is to see if there is already an API wrapper package that exists. Try searching the API name on CRAN and GitHub. If there is an API wrapper package available then you should definitely try to use it. 
+The first thing that you should do if you're planning on using an API to get data is to see if there is already an API wrapper package that exists. Try searching the API name on CRAN and GitHub. If there is an API wrapper package available, you should definitely try to use it. 
 
 Here are a few popular API wrapper packages for APIs that you may have heard of (see Chapter \@ref(api-resources) for more):
 
-* [`rtweet`](https://rtweet.info) - on [CRAN](https://CRAN.R-project.org/package=rtweet), on [GitHub](https://github.com/mkearney/rtweet)
-* [`gutenbergr`](https://docs.ropensci.org/gutenbergr/) - on [CRAN](https://CRAN.R-project.org/package=gutenbergr) - on [GitHub](https://github.com/ropensci/gutenbergr)
-* [`gistr`](https://docs.ropensci.org/gistr/) - on [CRAN](https://CRAN.R-project.org/package=gistr), on [GitHub](https://github.com/ropensci/gistr)
+* [`rtweet`](https://rtweet.info) for the Twitter API (on [CRAN](https://CRAN.R-project.org/package=rtweet), on [GitHub](https://github.com/mkearney/rtweet))
+* [`gutenbergr`](https://docs.ropensci.org/gutenbergr/) for Project Gutenberg's API (on [CRAN](https://CRAN.R-project.org/package=gutenbergr), on [GitHub](https://github.com/ropensci/gutenbergr))
+* [`gistr`](https://docs.ropensci.org/gistr/) for GitHub gists (on [CRAN](https://CRAN.R-project.org/package=gistr), on [GitHub](https://github.com/ropensci/gistr))
 
 ### Exploring Headcount of Homeschooled Children in British Columbia with `bcdata` {#bcdata}
 
 The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) contains thousands of B.C. government datasets that are available under the [Open Government License - British Columbia](https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc). From searching "B.C. Data Catalogue CRAN" on google I found an R package called [`bcdata`](https://bcgov.github.io/bcdata/) (on [GitHub](https://github.com/bcgov/bcdata)) that is a wrapper for the B.C. Data Catalogue.
 
-The record that we will explore is the ["Headcount of Homeschool Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children), which contains data about the number of homeschool children in B.C. registered between 1991 and 2018. Our end goal is to visualize how the headcounts varies between male and female students across all of B.C. over the school years. The first step is to get the data into R. We can use the `bcdata` wrapper package to help us with this.
+The record that we will explore is the ["Headcount of Homeschooled Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children), which contains data about the number of homeschooled children in B.C. registered between 1991 and 2018. Our end goal is to visualize how the headcounts varies between male and female students across all of B.C. over the school years. The first step is to get the data into R. We can use the `bcdata` wrapper package to help us with this.
 
 Install the package from GitHub (only do once)...
 
@@ -50,14 +50,14 @@ The `bcdata` [website](https://bcgov.github.io/bcdata/) gives an overview of the
 * `bcdc_get_record()` - returns the catalogue record
 * `bcdc_get_data()` - get the data for a catalogue record
 
-There is also a [Get Started](https://bcgov.github.io/bcdata/articles/bcdata.html) vignette that is a good starting point for getting familiar with this package. We wil loosely follow along with this vignette to get the "Headcount of Homeschool Children" record data. 
+There is also a [Get Started](https://bcgov.github.io/bcdata/articles/bcdata.html) vignette that is a good starting point for getting familiar with this package. We will loosely follow along with this vignette to get the "Headcount of Homeschooled Children" record data. 
 
-First, we will use the [`bcdc_browse()`](https://bcgov.github.io/bcdata/reference/bcdc_browse.html) function to open up the B.C. Data Catalogue in our browser and find the webpage for the "Headcount of Homeschool Children" record.
+First, we will use the [`bcdc_browse()`](https://bcgov.github.io/bcdata/reference/bcdc_browse.html) function to open up the B.C. Data Catalogue in our browser and find the webpage for the "Headcount of Homeschooled Children" record.
 
 ```r
 bcdc_browse()
 ```
-You can filter the results by format type (e.g. .csv, .xls) and also search for keywords. Searching for "homeschool" will lead us to the "Headcount of Homeschooled Children" record [page](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children). 
+You can filter the results by format type (e.g. csv files, xls files) and also search for keywords. Searching for "homeschool" will lead us to the "Headcount of Homeschooled Children" record [page](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children). 
 
 Under the Data and Resources section on this page we can see that there are six files available. Let's figure out how to get the first csv into R. 
 
@@ -104,7 +104,7 @@ Now we are ready to call `bcdc_get_data()` and read in the csv file.
 homeschool_data <- bcdc_get_data(record = url, resource = resource_id)
 ```
 
-Yikes. We get a warning saying that there were 14,750 parsing failures. Only the first five parsing failures are printed out here but we can see that the failures started at row 2,974. It looks like a some of the failures occured because a logical (TRUE/FALSE) was expected but the actual row value was an integer or a string. 
+Yikes. We get a warning saying that there were 14,750 parsing failures. Only the first five parsing failures are printed out here but we can see that the failures started at row 2,974. It looks like a some of the failures occurred because a logical (TRUE/FALSE) was expected but the actual row value was an integer or a string. 
 
 The output told us that it was using `readr::read_csv()` to read in the file. From previous use I know that `read_csv()` has an argument called `guess_max`, which is the maximum number of rows that are used to guess the column type (we haven't covered this so don't worry if this is uncharted territory for you). Remember that our parsing failures started at row 2,974, so let's see if setting `guess_max = 3000` helps.
 
@@ -168,7 +168,7 @@ glimpse(homeschool_tidy)
 
 Great! Now let's plot the headcounts of homeschooled males and females over the school years.
 
-```{r}
+```{r fig.pos = "center"}
 library(ggplot2)
 
 ggplot(homeschool_tidy, aes(x = SCHOOL_YEAR, y = headcount, 
@@ -187,126 +187,61 @@ Interesting, there were more male children than female children that were homesc
 
 If you want to keep going, try visualizing the headcounts of homeschooled children over the school years (regardless of gender) for registrations at Public School vs Independent Schools.
 
-### Exploring US census data using `tidycensus` {#tidycensus}
+## Interact with an API {#api-query}
 
-The [`tidycensus`][tidycensus-web] package (on [CRAN][tidycensus-cran], on [GitHub][tidycensus-github]) is a wrapper package for two US Census Bureau APIs:
+In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs. API wrapper packages handle the creation of the request and the parsing of the output. What do you do if you want to use an API in R that doesn't already have a wrapper package written for it? One option is using the [`httr`][httr-web] package (on [CRAN][httr-cran], on [GitHub][httr-github]) to help out with the HTTP requests and responses. 
 
-* [Decennial Census (1990, 2000, 2010) API](https://www.census.gov/data/developers/data-sets/decennial-census.html)
-* [American Community Survey 5-Year Data (2009-2017) API](https://www.census.gov/data/developers/data-sets/acs-5year.html)
+The [Getting started with `httr`](https://httr.r-lib.org/articles/quickstart.html) vignette is a good place to start if you haven't used the `httr` package before. 
 
-The authors have written a great vignette to help get you started with `tidycensus` [here](https://walkerke.github.io/tidycensus/articles/basic-usage.html).
+The main functions in `httr` that we will be using are:
 
-First, let's install/load the package.
-```{r message = FALSE}
-#install.packages("tidycensus")
-library(tidycensus)
-```
+* [`GET()`](https://httr.r-lib.org/reference/GET.html) - sends a request to a `url` with `config` settings that you specify and returns a `response` object
+* [`content()`](https://httr.r-lib.org//reference/content.html) - returns the body of a response object (more on this later)
 
-To access the US Census Bureau APIs first we need to request a new API key here: <https://api.census.gov/data/key_signup.html>. Check your email and follow the instructions to activate your key.
+A `response` object contains all of the information associated with a request. You can pull up the documentation for `response` by calling `?response` in your console. Some of the fields that a `response` object will have include:
 
-Now that you have a personal API key, the next step is to add it to your .Renviron file. The `tidycensus` package has a helpful function called `census_api_key()` that will take care of this step for you but we can also do it ourselves with the `usethis` package.
+* `url` - where the request was sent (i.e. the url passed to `GET()`)
+* `status_code` - the HTTP status code request/response
+* `header` - a named list of the headers in the response 
+
+We will talk more about the specifics of all of this when we walk through an example of using `httr` to query the [Open Movie Database](http://www.omdbapi.com) (OMBD) API in the following section.
+
+Before that, however, there is one more layer to querying an API that we need to address: the format of the response sent back by the web server. A good API wrapper package will spare you the pain of parsing the response and hand you the data all neat and cleaned up. We won't be as lucky this time around. 
+
+The two most common formats that you will encounter are [JSON](https://www.json.org) and [XML](https://en.wikipedia.org/wiki/XML), which stand for JavaScript Object Notation and Extensible Markup Language respectively. JSON is a ["lightweight data-interchange format"](https://www.json.org) and XML is a data format and also a markup language. Both are used to store and transfer data on the web. There is the [`jsonlite`][jsonlite-cran] package for handling JSON in R and the [`xml2`][xml2-web] package for handling XML in R.
+
+We will be focusing mainly on XML in this chapter but I recommend starting with [JSON vs XML](https://restfulapi.net/json-vs-xml/) and [json.org](https://www.json.org) to learn more about both. 
+
+Next up: using `httr` to query the [Open Movie Database](http://www.omdbapi.com) (OMBD) API and `xml2` to parse the response!
+
+### Getting movie data with the OMDb API
+
+The [Open Movie Database](http://www.omdbapi.com) (OMDb) is an API that you can use to get data about movies and movie posters. <!--CC BY-NC 4.0-->We won't be using an API wrapper package to get data via this API so we will need to read the OMDb documentation to find out how to use it. 
+
+Looking through [omdbapi.com](http://www.omdbapi.com) we find out that in order to interact with this API we will need to request an API key. An API key is used to track how an API is being used. It is a secret, unique identifier that is associated with a request(s). They are often used to limit the number of requests that someone is sending. For example, the OMDb API has a 1,000 daily request limit. You can read more about API keys in the `httr` vignette [Managing secrets](https://httr.r-lib.org/articles/secrets.html).
+
+Request a free API key for the OMDb API here: <http://www.omdbapi.com/apikey.aspx> 
+
+Check your email and follow the instructions to activate your key. This email should include your key, which will be a mix of letters and digits.
+
+Now that you have an API key, the next step is to put it somewhere that you (or an API wrapper package, etc.) can access. Your API key should be kept secret so we need make sure we put it somewhere safe. One option is to stash it in your .Renviron file. Be sure to save it as something memorable, like `OMDB_API_KEY`. You can use the `edit_r_environ()` function from the `usethis` package to add it to your `.Renviron` file.
 
 ```r
 library(usethis)
 
 usethis::edit_r_environ() # edit your user level.Renviron file.
 ```
+This will open up your .Renviron file in a new tab. Add `OMDB_API_KEY=<your-secret-api-key>` on a new line (be sure to add a new line after this).
 
-This will open up your .Renviron file in a new tab. Add `CENSUS_API_KEY=<your-secret-api-key>` on a new line. Be sure to add a new line after this! <!--insert photo of RStudio default setting here--> 
-
-Save the file and restart your R session. You can now access your key with `Sys.getenv("CENSUS_API_KEY")`. If you are using GitHub be sure to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide.
-
-Let's try pulling in some data from the [1990 Decennial Census](https://www.census.gov/data/developers/data-sets/decennial-census.1990.html). We can check out the different variables for one of the datasets through the US Census Bureau [website](https://api.census.gov/data/1990/sf3/variables.html) or with `tidycensus::load_variables()`.
-
-```{r eval = FALSE}
-library(dplyr)
-
-# what are the variables for the sf3 dataset for 1990?
-variables_1990 <- load_variables(1990, "sf3")
-glimpse(variables_1990)
-```
-
-Let's explore variables related to income. We can filter for labels that contain the string "income" by combining `stringr::str_detect()` with `dplyr::filter()`.
-```{r eval = FALSE}
-library(stringr)
-
-variables_1990 %>% 
-  mutate(label = str_to_lower(label)) %>%  # eliminate case sensitivity problems
-  filter(str_detect(label, "income"))
-```
-
-What was the median household income in 1990 by state? Let's use `tidycensus::get_decennial()` to pull down the relevant data.
-```{r eval = FALSE}
-median_income <- get_decennial(geography = "state", variables = "P080A001", 
-                               year = 1990) %>% 
-  rename(state = NAME)
-
-glimpse(median_income)
-```
-
-Hmm, there are 51 observations instead of 50. Maybe this is because they separated DC?
-```{r eval = FALSE}
-median_income %>% 
-  mutate(state = str_to_lower(state)) %>% # eliminate case sensitivity problems
-  filter(state %in% c("dc", "d.c.", "district of columbia")) # check a few variations
-```
-It looks like they did!
-
-Let's try plotting.
-```{r fig.width = 9, fig.height = 9,eval = FALSE}
-library(ggplot2)
-
-ggplot(median_income, aes(state, value)) +
-  geom_point(color = "cornflowerblue", alpha = 0.8) +
-  labs(x = "State", y = "Median Household Income", 
-       title = "1990 US Decennial Census Data",
-       subtitle = "Median Household Income by State",
-       caption = "Data Source: https://www.census.gov") +
-  scale_y_continuous(breaks = c(20000, 25000, 30000, 35000, 40000, 45000),
-                     labels = c("$20,000", "$25,000", "$30,000", "$35,000",
-                                "$40,000", "$45,000")) +
-  coord_flip() +
-  theme_minimal()
-```
-
-Whoops. Let's use `forcats::fct_reorder` to reorder the factor levels of `state` to make this plot easier to parse.
-```{r eval = FALSE}
-library(forcats)
-
-median_income_ordered <- median_income %>% 
-  mutate(state = fct_reorder(state, value))
-```
-
-```{r fig.width = 9, fig.height = 9, eval = FALSE}
-ggplot(median_income_ordered, aes(state, value)) +
-  geom_point(color = "cornflowerblue", alpha = 0.8) +
-  labs(x = "State", y = "Median Household Income", 
-       title = "1990 US Decennial Census Data",
-       subtitle = "Median Household Income by State",
-       caption = "Data Source: United States Census Bureau") +
-  scale_y_continuous(breaks = c(20000, 25000, 30000, 35000, 40000, 45000),
-                     labels = c("$20,000", "$25,000", "$30,000", "$35,000",
-                                "$40,000", "$45,000")) +
-  coord_flip() +
-  theme_minimal()
-```
-
-The states with the highest median household income in 1990 were Connecticut, Alaska, and New Jersey while those with the lowest were Arkansas, West Virginia, and Mississippi. Is it what you were expecting to see?
+Save the file and restart your R session (Session -> Restart R). You can now access your key whenever you want by calling `Sys.getenv("OMDB_API_KEY")`. __Note!__ If you are using GitHub you may want to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide.
 
 
-## Interact with an API
-
-In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs. That is, they handled the creation of the request and the formatting of the output. What do you do if you want to use an API in R that doesn't already have a wrapper package written for it? One option is using the `httr` package to help out with the HTTP requests and responses. 
-
-
-
-### Exploring movies using the OMDb API
-
-
-The [Open Movie Database](http://www.omdbapi.com) (OMDb) is an API for movies. <!--CC BY-NC 4.0--> Before we can interact with this API in R we need to request an API key. 
-
-request a free API key (1,000 daily request limit) here: http://www.omdbapi.com/apikey.aspx
-
+* brief review of available functions
+* pull down Harry Potter and the Prisoner of Azkaban the movie poster
+* pull down Harry Potter and the Prisoner of Azkaban metadata
+  + returns an xml doc
+* main xml2 functions
+* parse xml response
 
 
 ```{r links, child="links.md"}

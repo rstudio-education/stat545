@@ -3,7 +3,8 @@
 [cran-R-admin]: http://cran.r-project.org/doc/manuals/R-admin.html
 [cran-add-ons]: https://cran.r-project.org/doc/manuals/R-admin.html#Add_002don-packages
 [r-proj]: https://www.r-project.org
-
+[stat-545]: https://stat545.com
+[software-carpentry]: https://software-carpentry.org
 
 <!--RStudio Links-->
 [rstudio-preview]: https://www.rstudio.com/products/rstudio/download/preview/
@@ -133,9 +134,7 @@
 [rcolorbrewer-cran]: https://CRAN.R-project.org/package=RColorBrewer
 [dichromat-cran]: https://CRAN.R-project.org/package=dichromat
 
-[httr-web]: https://httr.r-lib.org
-[httr-cran]: https://CRAN.R-project.org/package=httr
-[httr-github]: https://github.com/r-lib/httr
+
 
 [roxygen2-cran]: https://CRAN.R-project.org/package=roxygen2
 [roxygen2-vignette]: https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
@@ -161,12 +160,33 @@
 [usethis-github]: https://github.com/r-lib/usethis
 
 [pkgdown-web]: https://pkgdown.r-lib.org
+[gh-github]: https://github.com/r-lib/gh
+
+[httr-web]: https://httr.r-lib.org
+[httr-cran]: https://CRAN.R-project.org/package=httr
+[httr-github]: https://github.com/r-lib/httr
+
+[gistr-web]: https://docs.ropensci.org/gistr
+[gistr-cran]: https://CRAN.R-project.org/package=gistr
+[gistr-github]: https://github.com/ropensci/gistr
+
+[rvest-web]: https://rvest.tidyverse.org
+[rvest-cran]: https://CRAN.R-project.org/package=rvest
+[rvest-github]: https://github.com/tidyverse/rvest
+
+[xml2-web]: https://xml2.r-lib.org
+[xml2-cran]: https://CRAN.R-project.org/package=xml2
+[xml2-github]: https://github.com/r-lib/xml2
+
+
+[jsonlite-paper]: https://arxiv.org/abs/1403.2805
+[jsonlite-cran]: https://CRAN.R-project.org/package=jsonlite
+[jsonlite-github]: https://github.com/jeroen/jsonlite
 
 <!--Shiny links-->
 [shinydashboard-web]: https://rstudio.github.io/shinydashboard/
 [shinydashboard-cran]: https://CRAN.R-project.org/package=shinydashboard
 [shinydashboard-github]: https://github.com/rstudio/shinydashboard
-
 
 
 [shiny-official-web]: https://shiny.rstudio.com
@@ -191,6 +211,7 @@
 [adv-r-defensive-programming]: http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming
 [adv-r-fxn-args]: http://adv-r.had.co.nz/Functions.html#function-arguments
 [adv-r-return-values]: http://adv-r.had.co.nz/Functions.html#return-values
+[adv-r-closures]: http://adv-r.had.co.nz/Functional-programming.html#closures
 
 [r4ds]: https://r4ds.had.co.nz
 [r4ds-transform]: https://r4ds.had.co.nz/transform.html
@@ -253,6 +274,9 @@
 [wiki-brewer]: https://en.wikipedia.org/wiki/Cynthia_Brewer
 [wiki-vector-graphics]: https://en.wikipedia.org/wiki/Vector_graphics
 [wiki-raster-graphics]: https://en.wikipedia.org/wiki/Raster_graphics
+[wiki-dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+[wiki-web-scraping]: https://en.wikipedia.org/wiki/Web_scraping
+[wiki-xpath]: https://en.wikipedia.org/wiki/XPath
 
 <!--Misc. Links-->
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
