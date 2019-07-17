@@ -38,8 +38,8 @@ The dataset that we will explore is the [Global wood density database](https://d
 The dataset contains the wood density (g/cm^3) values for over 16,000 samples of trees from various regions around the world. Let's pull down the dataset into R using the `rdryad` package and check out the distribution of the wood density values for trees in Australia, Europe, India, Madagascar, and Mexico.
 
 The first step is to install/load the `rdryad` package.
-```{r}
-#install.packages("rdyrad")
+```{r message = FALSE}
+#install.packages("rdryad")
 library(rdryad)
 ```
 
@@ -88,7 +88,7 @@ library(dplyr)
 glimpse(wood_data)
 ```
 
-Yikes, those columns names are pretty messy. I'm going to use the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) function from the [`janitor`](janitor-web) package (on [CRAN][janitor-cran], on [GitHub][janitor-github]) to help tidy these up. `clean_names()` takes a data frame, `dat`, and returns it back with the column names cleaned up. The column names are changed to [Snake case][wiki-snake-case] by default, but you can change with the `case` argument. Check out the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) documentation to see all the possible values for `case`. For now, let's just stick with snake case.
+Yikes, those columns names are pretty messy. I'm going to use the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) function from the [`janitor`](janitor-web) package (on [CRAN][janitor-cran], on [GitHub][janitor-github]) to help tidy these up. `clean_names()` takes a data frame and returns it with the column names cleaned up. The column names are changed to [Snake case][wiki-snake-case] by default, but you can change this with the `case` argument. Check out the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) documentation to see all the possible values for `case`. For now, let's just stick with snake case.
 
 ```{r message = FALSE}
 #install.packages("janitor")
@@ -100,7 +100,7 @@ wood_data <- wood_data %>%
 glimpse(wood_data)
 ```
 
-So much better! Next let's filter the data so we only keep observations that are in Australia, Europe, India, Madagascar, and Mexico. We can do this by using `filter()` from `dplyr` on the `region` column. 
+So much better! Next, let's filter the data so we only keep observations that are in Australia, Europe, India, Madagascar, and Mexico. We can do this by using `filter()` from `dplyr` on the `region` column. 
 
 Matching for so many values would require a lot of repetitions of `filter(region == __)`. We can do the same thing by using the `%in%` operator. To use it here let's first save all of the `region` values that we want to keep as a vector called `region_values`. Now we can filter for rows where `region` matches any one of the values in `region_values` with `region %in% region_values`. You can pull up the documentation for `%in%` by calling ```` ?`%in%` ```` in your console. 
 
@@ -206,7 +206,7 @@ omdb_url <- "http://www.omdbapi.com/"
 
 We also learn in the "Usage" section that we can ask for request data for a specific movie by setting the parameter `t` to the title and `y` to the year it was released.
 
-Now we can create a named list called `query_params` with each parameter key-value pair to pass to `GET()`. This list will include the title (`t`), the year released (`y`), *and* our API key (`apikey`).
+Now we can create a named list called `query_params` with each parameter key-value pair to pass to `GET()`. This list will include the title (`t`), the year released (`y`), and our API key (`apikey`).
 
 ```{r}
 query_params <- list(t = "Harry Potter and the Chamber of Secrets", 
@@ -252,10 +252,10 @@ download.file(url = poster_url,
               destfile = "img/harry-potter-poster.jpg")
 ```
 
-Here it is!
+
 ![](img/harry-potter-poster.jpg)
 
-If you want to keep going why don't you try getting the movie posters for the next Harry Potter film in the series, Harry Potter and Prisoner of Azkaban (2004)? After that try writing a function that will get the movie posters for all of the films in the Harry Potter series.
+Next try getting the movie posters for the next Harry Potter film in the series, Harry Potter and Prisoner of Azkaban (2004). Then try writing a function that will get the movie posters for all of the films in the Harry Potter series.
 
 ```{r links, child="links.md"}
 ```

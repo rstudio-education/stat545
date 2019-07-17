@@ -61,8 +61,5 @@ __API wrapper packages__
 * [`rnoaa`](https://ropensci.org/tutorials/rnoaa_tutorial/): on [CRAN](https://CRAN.R-project.org/package=rnoaa), on [GitHub](https://github.com/ropensci/rnoaa)
 
 
-
-
-
 ```{r links, child="links.md"}
 ```

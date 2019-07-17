@@ -290,6 +290,7 @@
 [wiki-dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [wiki-web-scraping]: https://en.wikipedia.org/wiki/Web_scraping
 [wiki-xpath]: https://en.wikipedia.org/wiki/XPath
+[wiki-css-selector]: https://en.wikipedia.org/wiki/Cascading_Style_Sheets#Selector
 
 <!--Misc. Links-->
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
