@@ -246,7 +246,8 @@ response_parsed$Poster
 
 We can download this file and save it locally using `download.file()` (from the pre-loaded `utils` package) by specifying the url of the file and where we want it to be saved using `destfile`. 
 ```{r}
-download.file(response_parsed$Poster, destfile = "img/harry-potter-poster.jpg")
+download.file(url = response_parsed$Poster,
+              destfile = "img/harry-potter-poster.jpg")
 ```
 
 Here it is!
