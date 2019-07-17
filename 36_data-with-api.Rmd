@@ -253,7 +253,7 @@ download.file(url = poster_url,
 ```
 
 Here it is!
-![](img/harry-potter-poster.jgp)
+![](img/harry-potter-poster.jpg)
 
 If you want to keep going why don't you try getting the movie posters for the next Harry Potter film in the series, Harry Potter and Prisoner of Azkaban (2004)? After that try writing a function that will get the movie posters for all of the films in the Harry Potter series.
 
