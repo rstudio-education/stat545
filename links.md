@@ -187,9 +187,9 @@
 [jsonlite-github]: https://github.com/jeroen/jsonlite
 
 
-[readxl_web]: https://readxl.tidyverse.org
-[readxl_github]: https://github.com/tidyverse/readxl
-[readxl_cran]: https://CRAN.R-project.org/package=readxl
+[readxl-web]: https://readxl.tidyverse.org
+[readxl-github]: https://github.com/tidyverse/readxl
+[readxl-cran]: https://CRAN.R-project.org/package=readxl
 
 [janitor-web]: http://sfirke.github.io/janitor/
 [janitor-cran]: https://CRAN.R-project.org/package=janitor

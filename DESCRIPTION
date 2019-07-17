@@ -26,7 +26,7 @@ Imports:
     rvest,
     xml2,
     httr,
-    read_xls
+    readxl
 Remotes:  
     r-lib/fs,
     r-lib/usethis,

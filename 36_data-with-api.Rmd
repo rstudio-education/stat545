@@ -72,12 +72,12 @@ file_path
 All that's left now is to read in the temporary file into R. The [webpage for the record](https://datadryad.org/resource/doi:10.5061/dryad.234/1) tells us that the file is an xls file. We can use the `read_xls()` function from the [`readxl`][readxl-web] package (on [CRAN][readxl-cran], on [GitHub][readxl-github]) to load the file into R. Before that, however, let's use the `excel_sheets()` function from the same package to find out how many sheets there are. 
 
 ```{r}
-library(read_xls)
+library(readxl)
 
 excel_sheets(file_path)
 ```
 
-There are three sheets in the file. Let's load in the sheet called "Data" by using `sheet = "Data"` when calling `read_xls`.
+There are three sheets in the file. Let's load in the sheet called "Data" by including `sheet = "Data"` when calling `read_xls`.
 ```{r}
 wood_data <- read_xls(file_path, sheet = "Data")
 ```
@@ -88,9 +88,9 @@ library(dplyr)
 glimpse(wood_data)
 ```
 
-Oh wow, those columns names are pretty messy. I'm going to use the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) function from the [`janitor`](janitor-web) package (on [CRAN][janitor-cran], on [GitHub][janitor-github]) to help tidy these up. `clean_names()` takes a data frame, `dat`, and returns it back with the column names cleaned up. The column names are changed to [Snake case][wiki-snake-case] by default, but you can change with the `case` argument. Check out the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) documentation to see all the possible values for `case`. For now, let's just stick with snake case.
+Yikes, those columns names are pretty messy. I'm going to use the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) function from the [`janitor`](janitor-web) package (on [CRAN][janitor-cran], on [GitHub][janitor-github]) to help tidy these up. `clean_names()` takes a data frame, `dat`, and returns it back with the column names cleaned up. The column names are changed to [Snake case][wiki-snake-case] by default, but you can change with the `case` argument. Check out the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) documentation to see all the possible values for `case`. For now, let's just stick with snake case.
 
-```{r}
+```{r message = FALSE}
 #install.packages("janitor")
 library(janitor)
 
@@ -100,9 +100,9 @@ wood_data <- wood_data %>%
 glimpse(wood_data)
 ```
 
-Looks good! Next let's filter the data so we only keep observations that are in Australia, Europe, India, Madagascar, and Mexico. We can do this by using `filter()` from `dplyr` on the `region` column. 
+So much better! Next let's filter the data so we only keep observations that are in Australia, Europe, India, Madagascar, and Mexico. We can do this by using `filter()` from `dplyr` on the `region` column. 
 
-Matching for so many values would require a lot of repetitions of `filter(region == __)`. We can do the same thing by using the `%in%` operator. To use it here let's first save all of the `region` values that we want to keep as a vector called `region_values`. Now we can filter for rows where `region` matches any one of the values in `region_values` with `region %in% region_values`. You can pull up the documentation for `%in%` by calling `?`%in%`` in your console. 
+Matching for so many values would require a lot of repetitions of `filter(region == __)`. We can do the same thing by using the `%in%` operator. To use it here let's first save all of the `region` values that we want to keep as a vector called `region_values`. Now we can filter for rows where `region` matches any one of the values in `region_values` with `region %in% region_values`. You can pull up the documentation for `%in%` by calling ```` ?`%in%` ```` in your console. 
 
 Here is the `%in%` operator in action:
 ```{r}
@@ -110,8 +110,6 @@ region_list <- c("Australia","Europe", "India", "Madagascar", "Mexico")
 
 wood_filtered <- wood_data %>% 
   filter(region %in% region_list)
-
-glimpse(wood_filtered)
 ```
 
 Now let's visualize the distribution of wood density values of by using the `geom_boxplot()` layer in `ggplot2`.
@@ -121,11 +119,12 @@ library(ggplot2)
 
 ggplot(wood_filtered, aes(region, wood_density_g_cm_3_oven_dry_mass_fresh_volume)) +
   geom_boxplot() +
-  labs(x = "Region", y = "Wood Density (g/cm^3)", title = "Distributions of Wood Density Values for Trees in 5 Countries",
+  labs(x = "Region", y = "Wood Density (g/cm^3)", 
+       title = "Distributions of Wood Density Values for Trees in 5 Countries",
        caption = "Data Source: https://doi.org/10.5061/dryad.234")
 ```
 
-Interesting. The trees in Australia had the highest mean wood density while the trees in Europe had the lowest mean wood density. If you want to keep going try visualizing the distribution of wood density values for other regions included in the dataset.
+It looks like the trees in Australia had the highest mean wood density while the trees in Europe had the lowest mean wood density. If you want to keep going try visualizing the distribution of wood density values for other regions included in the dataset.
 
 
 ### References
@@ -161,11 +160,13 @@ The two most common formats that you will encounter are [JSON](https://www.json.
 
 We will be focusing mainly on XML in this chapter but I recommend starting with [JSON vs XML](https://restfulapi.net/json-vs-xml/) and [json.org](https://www.json.org) to learn more about both. 
 
-Next up: using `httr` to query the [Open Movie Database](http://www.omdbapi.com) (OMBD) API and `xml2` to parse the response!
+Next up: using `httr` to query the [Open Movie Database](http://www.omdbapi.com) (OMBD) API and `xml2` to parse the response.
 
 ### Getting movie data with the OMDb API
 
 The [Open Movie Database](http://www.omdbapi.com) (OMDb) is an API that you can use to get data about movies and movie posters. <!--CC BY-NC 4.0-->We won't be using an API wrapper package to get data via this API so we will need to read the OMDb documentation to find out how to use it. 
+
+We will use the `httr` package query the OMDb API for the movie poster and movie data for the film Harry Potter and the Chamber of Secrets (2002). 
 
 Looking through [omdbapi.com](http://www.omdbapi.com) we find out that in order to interact with this API we will need to request an API key. An API key is used to track how an API is being used. It is a secret, unique identifier that is associated with a request(s). They are often used to limit the number of requests that someone is sending. For example, the OMDb API has a 1,000 daily request limit. You can read more about API keys in the `httr` vignette [Managing secrets](https://httr.r-lib.org/articles/secrets.html).
 
@@ -184,17 +185,74 @@ This will open up your .Renviron file in a new tab. Add `OMDB_API_KEY=<your-secr
 
 Save the file and restart your R session (Session -> Restart R). You can now access your key whenever you want by calling `Sys.getenv("OMDB_API_KEY")`. __Note!__ If you are using GitHub you may want to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide.
 
+Now that we got the setting up the API key out of the way we can use the `httr` package to help with the next part. First, install/load in the `httr` package.
 
+```{r}
+#install.packages("httr")
+library(httr)
+```
 
+We will use the `GET()` function from `httr` to format and send our request to the OMDb API. Check out the documentation for `GET()` [here](https://httr.r-lib.org/reference/GET.html) or by calling `?GET` in your console.
 
+[This](https://httr.r-lib.org/articles/quickstart.html#the-request) section of the [Getting started with `httr`](https://httr.r-lib.org/articles/quickstart.html) vignette does a good job explaining how to use `GET()` to make a request. I recommend taking a quick look through it before continuing.
 
-* brief review of available functions
-* pull down Harry Potter and the Prisoner of Azkaban the movie poster
-* pull down Harry Potter and the Prisoner of Azkaban metadata
-  + returns an xml doc
-* main xml2 functions
-* parse xml response
+To use `GET()` here we will need to specify the `url` and `query` arguments. The `url` is the url that `GET()` should use to call the API as a string. `query` is a named list of the query parameters that `GET()` should include in our request. 
 
+To figure out the values of `url` and `query` that we should use we need to return to the [OMDb documentation](http://www.omdbapi.com). Under "Usage" we learn that data requests should be sent to: `http://www.omdbapi.com/?apikey=[yourkey]&`. We are going to include our API key in the query parameters later so this url becomes: `http://www.omdbapi.com/`. Let's save this as `omdb_url`. 
+
+```{r}
+omdb_url <- "http://www.omdbapi.com/"
+```
+
+We also learn in the "Usage" section that we can ask for request data for a specific movie by setting the parameter `t` to the title and `y` to the year it was released.
+
+Now we can create a named list called `query_params` with each parameter key-value pair to pass to `GET()`. This list will include the title (`t`), the year released (`y`), *and* our API key (`apikey`).
+
+```{r}
+query_params <- list(t = "Harry Potter and the Chamber of Secrets", 
+                     y = "2002", apikey = Sys.getenv("OMDB_API_KEY"))
+```
+
+Let's try calling `GET()`.
+
+```{r}
+response <- GET(url = omdb_url, query = query_params)
+```
+
+This gives us the `response` object that I mentioned earlier. One of the fields that it includes is a `status_code`. We can use the [`http_status()`](https://www.rdocumentation.org/packages/httr/versions/1.4.0/topics/http_status) function from `httr` to get the HTTP status code. It takes a response object as input.
+
+```{r}
+http_status(response)
+```
+
+The HTTP status code is 200, meaning that the request was successful! 
+
+We can use the [`content()`](https://www.rdocumentation.org/packages/httr/versions/1.4.0/topics/content) to extract and parse the actual body of the response that was sent back.
+```{r}
+response_parsed <- content(response)
+
+str(response_parsed)
+```
+
+Let's check out what there is under Plot. 
+```{r}
+response_parsed$Plot
+```
+
+There also is a link to the movie poster under Poster
+```{r}
+response_parsed$Poster
+```
+
+We can download this file and save it locally using `download.file()` (from the pre-loaded `utils` package) by specifying the url of the file and where we want it to be saved using `destfile`. 
+```{r}
+download.file(response_parsed$Poster, destfile = "img/harry-potter-poster.jpg")
+```
+
+Here it is!
+![](img/harry-potter-poster.jgp)
+
+If you want to keep going why don't you try getting the movie posters for the next Harry Potter film in the series, Harry Potter and Prisoner of Azkaban (2004)? Once you do that try writing a function that will get the movie posters for all of the films in the Harry Potter series.
 
 ```{r links, child="links.md"}
 ```
