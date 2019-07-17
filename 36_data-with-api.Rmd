@@ -25,167 +25,116 @@ Here are a few popular API wrapper packages for APIs that you may have heard of 
 * [`gutenbergr`](https://docs.ropensci.org/gutenbergr/) for Project Gutenberg's API (on [CRAN](https://CRAN.R-project.org/package=gutenbergr), on [GitHub](https://github.com/ropensci/gutenbergr))
 * [`gistr`](https://docs.ropensci.org/gistr/) for GitHub gists (on [CRAN](https://CRAN.R-project.org/package=gistr), on [GitHub](https://github.com/ropensci/gistr))
 
-### Exploring Headcount of Homeschooled Children in British Columbia with `bcdata` {#bcdata}
+### Exploring Density Data on Dryad Digital Repository with `rdryad` {#dryad-wood}
 
-The [British Columbia Data Catalogue](https://catalogue.data.gov.bc.ca/dataset) contains thousands of B.C. government datasets that are available under the [Open Government License - British Columbia](https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc). From searching "B.C. Data Catalogue CRAN" on google I found an R package called [`bcdata`](https://bcgov.github.io/bcdata/) (on [GitHub](https://github.com/bcgov/bcdata)) that is a wrapper for the B.C. Data Catalogue.
+<!--There is a note attached to this dataset asking that Lopez-Gonzalez be notified if the dataset is used in publication--> 
 
-The record that we will explore is the ["Headcount of Homeschooled Children"](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children), which contains data about the number of homeschooled children in B.C. registered between 1991 and 2018. Our end goal is to visualize how the headcounts varies between male and female students across all of B.C. over the school years. The first step is to get the data into R. We can use the `bcdata` wrapper package to help us with this.
+The [Dryad Digital Repository](https://datadryad.org) contains datasets from scientific publications that are available to download and explore. From searching "Dryad Digital Repository R package" on google I found the [`rdryad`][rdryad-web] package (on [CRAN][rdryad-cran], on [GitHub][rdryad-github]) that is a wrapper for the Dryad Digital Repository API.
 
-Install the package from GitHub (only do once)...
+The dataset that we will explore is the [Global wood density database](https://datadryad.org/resource/doi:10.5061/dryad.234/1), which is data from a [paper](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1461-0248.2009.01285.x) that was published in 2009:
 
-```r
-library(remotes)
-remotes::install_github("bcgov/bcdata")
+> Chave J, Coomes DA, Jansen S, Lewis SL, Swenson NG, Zanne AE (2009) Towards a worldwide wood economics spectrum. Ecology Letters 12(4): 351-366. https://doi.org/10.1111/j.1461-0248.2009.01285.x
+
+The dataset contains the wood density (g/cm^3) values for over 16,000 samples of trees from various regions around the world. Let's pull down the dataset into R using the `rdryad` package and check out the distribution of the wood density values for trees in Australia, Europe, India, Madagascar, and Mexico.
+
+The first step is to install/load the `rdryad` package.
+```{r}
+#install.packages("rdyrad")
+library(rdryad)
 ```
 
-...and then load it.
+We will use two functions from `rdryad`: [`dryad_files()`](https://docs.ropensci.org/rdryad/reference/dryad_files.html) and [`dryad_fetch()`](https://docs.ropensci.org/rdryad/reference/dryad_fetch.html). 
+
+`dryad_files()` requires one argument, `doi`, the DOI ([Digital Object Identifier](https://en.wikipedia.org/wiki/Digital_object_identifier)) for a Dryad dataset as a string. The `doi` needs to have the form "10.5061/dryad.xxx". It returns a url that can be used to download the dataset.
+
+`dryad_fetch()` requires one argument, `url`, which is the output of `dryad_files()`. When called it will download the dataset located at the url and saves it as a temporary file. It returns a named list where the name corresponds to the url and the value corresponds to the temporary file location.
+
+We can find the DOI for the for the dataset we're interested on the [webpage for the record](https://datadryad.org/resource/doi:10.5061/dryad.234/1). Next to DOI is "https://doi.org/10.5061/dryad.234/1". This is not quite the format that `dryad_files()` requires so let's change this to "10.5061/dryad.234". Pass it to `dryad_files()` to get the download url for the dataset.
 
 ```{r}
-library(bcdata)
+wood_url <- dryad_files(doi = "10.5061/dryad.234")
+wood_url
 ```
 
-The `bcdata` [website](https://bcgov.github.io/bcdata/) gives an overview of the main functions in the package. The ones that we will use are:
-
-* `bcdc_browse()` - to browse the B.C. Data Catalogue (opens in your default browser)
-* `bcdc_get_record()` - returns the catalogue record
-* `bcdc_get_data()` - get the data for a catalogue record
-
-There is also a [Get Started](https://bcgov.github.io/bcdata/articles/bcdata.html) vignette that is a good starting point for getting familiar with this package. We will loosely follow along with this vignette to get the "Headcount of Homeschooled Children" record data. 
-
-First, we will use the [`bcdc_browse()`](https://bcgov.github.io/bcdata/reference/bcdc_browse.html) function to open up the B.C. Data Catalogue in our browser and find the webpage for the "Headcount of Homeschooled Children" record.
-
-```r
-bcdc_browse()
-```
-You can filter the results by format type (e.g. csv files, xls files) and also search for keywords. Searching for "homeschool" will lead us to the "Headcount of Homeschooled Children" record [page](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children). 
-
-Under the Data and Resources section on this page we can see that there are six files available. Let's figure out how to get the first csv into R. 
-
-We can use `bcdc_get_data()` to pull down the file into R. Take a look at the documentation for this function [here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console. 
-
-This function has one required argument, `record`, which can be the output of `bcdc_get_record()`, the resource name or ID as a string, or the resource URL. Let's use the resource URL. 
-
-On the record [webpage](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children) there is a "Show the Permalink" button. [Permalink](https://en.wikipedia.org/wiki/Permalink) is short for permanent link and is exactly what it sounds like: a link that will most likely not change. If you click on this button it will change the url to the permalink: `https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c697979ec3`. Save this as a string called `url`.
+Great! Now let's use `dryad_fetch()` to download the dataset into a temporary file.
 
 ```{r}
-url <- "https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c697979ec3"
+fetch_output <- dryad_fetch(url = wood_url)
+fetch_output
 ```
 
-We aren't quite ready to run `bcdc_get_data()` yet, however. There is also an optional argument, `resource`, which is used for cases when a record has multiple files available. Our record has six files available so we will definitely need to supply a `resource` argument. In the examples section of the [`bcdc_get_data()` documentation](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) we see that the resource ID is what we need to pass to `resource`. 
+I'm going to pull out the file path and save it as `file_path` just to make things cleaner.
+```{r}
+file_path <- fetch_output[[1]]
+file_path
+```
 
-Where do we get the resource ID from? This isn't quite clear in the `bcdc_get_data()` documentation so we might need to explore a bit. Let's start by looking at the `bcdc_get_record()` function that was mentioned earlier. 
-
-Take a look at the documentation for `bcdc_get_record()` [here](https://bcgov.github.io/bcdata/reference/bcdc_get_record.html) or by typing `?bcdc_get_record` in your console. It takes one argument, `id`, which can be the record URL. Let's pass it the permalink url that we saved earlier and see what we get back.
+All that's left now is to read in the temporary file into R. The [webpage for the record](https://datadryad.org/resource/doi:10.5061/dryad.234/1) tells us that the file is an xls file. We can use the `read_xls()` function from the [`readxl`][readxl-web] package (on [CRAN][readxl-cran], on [GitHub][readxl-github]) to load the file into R. Before that, however, let's use the `excel_sheets()` function from the same package to find out how many sheets there are. 
 
 ```{r}
-bcdc_get_record(url)
+library(read_xls)
+
+excel_sheets(file_path)
 ```
 
-This has the information that we were looking for! It lists six resources in total, the first one is a csv file called `Headcount_Homeschool`. This is the one we want. The resource ID is listed under "resource".
-
-```
-1) Headcount_Homeschool
-     format: csv 
-     url: https://catalogue.data.gov.bc.ca/dataset/d378b0ba-6fa2-4f7f-a08c-97c697979ec3/resource/409faf5a-7bf9-4d3f-baf6-758e0892a9c6/download/headcount_homeschool.csv 
-     resource: 409faf5a-7bf9-4d3f-baf6-758e0892a9c6
-     available in R via bcdata:  TRUE 
-     code: bcdc_get_data(record = 'd378b0ba-6fa2-4f7f-a08c-97c697979ec3', resource = '409faf5a-7bf9-4d3f-baf6-758e0892a9c6')
-```
-
-Copy-and-paste the resource ID and save it as a string called `resource_id`.
-
+There are three sheets in the file. Let's load in the sheet called "Data" by using `sheet = "Data"` when calling `read_xls`.
 ```{r}
-resource_id <- "409faf5a-7bf9-4d3f-baf6-758e0892a9c6"
+wood_data <- read_xls(file_path, sheet = "Data")
 ```
 
-Now we are ready to call `bcdc_get_data()` and read in the csv file.
-
-```{r}
-homeschool_data <- bcdc_get_data(record = url, resource = resource_id)
-```
-
-Yikes. We get a warning saying that there were 14,750 parsing failures. Only the first five parsing failures are printed out here but we can see that the failures started at row 2,974. It looks like a some of the failures occurred because a logical (TRUE/FALSE) was expected but the actual row value was an integer or a string. 
-
-The output told us that it was using `readr::read_csv()` to read in the file. From previous use I know that `read_csv()` has an argument called `guess_max`, which is the maximum number of rows that are used to guess the column type (we haven't covered this so don't worry if this is uncharted territory for you). Remember that our parsing failures started at row 2,974, so let's see if setting `guess_max = 3000` helps.
-
-How do we pass `guess_max = 3000` to the `readr::read_csv()` call?
-
-Let's go back to the `bcdc_get_data` documentation ([here](https://bcgov.github.io/bcdata/reference/bcdc_get_data.html) or by typing `?bcdc_get_data` in your console). 
-
-Under the Arguments section we learn that `...` corresponds to arguments that are passed to the function that handles reading in the data file so we can just add `guess_max = 3000` as a third argument to our `bcdc_get_data()` call.  
-
-```{r}
-homeschool_data <- bcdc_get_data(record = url, resource = resource_id, guess_max = 3000)
-```
-
-No parsing failures! Now let's check out this data.
-
+Now let's check out what we have!
 ```{r message = FALSE}
 library(dplyr)
-glimpse(homeschool_data)
+glimpse(wood_data)
 ```
 
-To find out what the column names mean we need to examine the original [record webpage](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children) to locate the data dictionary. The data dictionary is [here](https://catalogue.data.gov.bc.ca/dataset/headcount-of-homeschooled-children/resource/aa05b182-e655-4b0f-8da6-af954b374c79). 
-
-
-The `DATA_LEVEL` column specifies whether an observation is at the district-, province-, or school-level. The possible values are "PROVINCE LEVEL", "DISTRICT LEVEL", and "SCHOOL LEVEL". We want to look at headcounts across all of B.C. so we need to filter out data to only keep the observations that are at the province-level.
+Oh wow, those columns names are pretty messy. I'm going to use the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) function from the [`janitor`](janitor-web) package (on [CRAN][janitor-cran], on [GitHub][janitor-github]) to help tidy these up. `clean_names()` takes a data frame, `dat`, and returns it back with the column names cleaned up. The column names are changed to [Snake case][wiki-snake-case] by default, but you can change with the `case` argument. Check out the [`clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) documentation to see all the possible values for `case`. For now, let's just stick with snake case.
 
 ```{r}
-homeschool_province <- homeschool_data %>% 
-  filter(DATA_LEVEL == "PROVINCE LEVEL")
+#install.packages("janitor")
+library(janitor)
 
-glimpse(homeschool_province)
+wood_data <- wood_data %>% 
+  clean_names()
+
+glimpse(wood_data)
 ```
 
-From the data dictionary we also learn that the `PUBLIC_OR_INDEPENDENT` column splits the headcounts by whether the child was registered at a public school or an independent school. It has three values:
+Looks good! Next let's filter the data so we only keep observations that are in Australia, Europe, India, Madagascar, and Mexico. We can do this by using `filter()` from `dplyr` on the `region` column. 
 
-  * `BC Public School`
-  * `BC Independent School`
-  * `PROVINCE - Total` (the sum of the `BC Public School` and `BC Independent School` values)
-  
-We want to look at headcount differences between male and female, not between registration types, so let's filter our data and keep only the `PROVINCE - Total` rows. 
+Matching for so many values would require a lot of repetitions of `filter(region == __)`. We can do the same thing by using the `%in%` operator. To use it here let's first save all of the `region` values that we want to keep as a vector called `region_values`. Now we can filter for rows where `region` matches any one of the values in `region_values` with `region %in% region_values`. You can pull up the documentation for `%in%` by calling `?`%in%`` in your console. 
+
+Here is the `%in%` operator in action:
+```{r}
+region_list <- c("Australia","Europe", "India", "Madagascar", "Mexico")
+
+wood_filtered <- wood_data %>% 
+  filter(region %in% region_list)
+
+glimpse(wood_filtered)
+```
+
+Now let's visualize the distribution of wood density values of by using the `geom_boxplot()` layer in `ggplot2`.
 
 ```{r}
-homeschool_province2 <- homeschool_province %>% 
-  filter(PUBLIC_OR_INDEPENDENT == "PROVINCE - Total") 
-
-glimpse(homeschool_province2)
-```
-
-There are a few final things that we need to do before we can start plotting. The headcounts for males and females are in an un-tidy format. Let's reshape the data by using `tidyr::gather()` that we learned about in Chapter \@ref(tidy-data) to gather the `MALE_HOME_SCHOOL_COUNT` and `FEMALE_HOME_SCHOOL_COUNT` columns into `gender` and `headcount`. Then we will use `dplyr::case_when()` to rename `MALE_HOME_SCHOOL_COUNT` and `FEMALE_HOME_SCHOOL_COUNT` to `male` and `female` (we haven't used this function yet so don't worry if this is new territory for you, this is just to make things neater). 
-
-```{r}
-library(tidyr)
-
-homeschool_tidy <- homeschool_province2 %>% 
-  gather(MALE_HOME_SCHOOL_COUNT, FEMALE_HOME_SCHOOL_COUNT, key = "gender", 
-         value = "headcount") %>% 
-  mutate(gender = case_when(gender == "FEMALE_HOME_SCHOOL_COUNT" ~ "female",
-                            gender == "MALE_HOME_SCHOOL_COUNT" ~ "male"))
-
-glimpse(homeschool_tidy)
-```
-
-Great! Now let's plot the headcounts of homeschooled males and females over the school years.
-
-```{r fig.pos = "center"}
 library(ggplot2)
 
-ggplot(homeschool_tidy, aes(x = SCHOOL_YEAR, y = headcount, 
-                            color = gender, group = gender)) +
-  geom_point() +
-  geom_line() +
-  # clean up axis title and plot title
-  labs(x = "School Year", y = "Total Homeschooled Children",
-       title = "Headcounts of Homeschooled Children in British Columbia by Gender",
-       caption = "Data Source: B.C. Data Catalogue") +
-  # this changes the angle of the x axis labels 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggplot(wood_filtered, aes(region, wood_density_g_cm_3_oven_dry_mass_fresh_volume)) +
+  geom_boxplot() +
+  labs(x = "Region", y = "Wood Density (g/cm^3)", title = "Distributions of Wood Density Values for Trees in 5 Countries",
+       caption = "Data Source: https://doi.org/10.5061/dryad.234")
 ```
 
-Interesting, there were more male children than female children that were homeschooled in B.C. for all schools years except 1994/1995. The number of children homeschooled also peaked in the 1996/1997 school year and steadily decreased after. Maybe there was something that happened in 1996/1997 that sparked this decline.
+Interesting. The trees in Australia had the highest mean wood density while the trees in Europe had the lowest mean wood density. If you want to keep going try visualizing the distribution of wood density values for other regions included in the dataset.
 
-If you want to keep going, try visualizing the headcounts of homeschooled children over the school years (regardless of gender) for registrations at Public School vs Independent Schools.
+
+### References
+
+Chave J, Coomes DA, Jansen S, Lewis SL, Swenson NG, Zanne AE (2009) Towards a worldwide wood economics spectrum. Ecology Letters 12(4): 351-366. https://doi.org/10.1111/j.1461-0248.2009.01285.x
+
+Zanne AE, Lopez-Gonzalez G, Coomes DA, Ilic J, Jansen S, Lewis SL, Miller RB, Swenson NG, Wiemann MC, Chave J (2009) Data from: Towards a worldwide wood economics spectrum. Dryad Digital Repository. https://doi.org/10.5061/dryad.234
+
+
 
 ## Interact with an API {#api-query}
 
@@ -234,6 +183,9 @@ usethis::edit_r_environ() # edit your user level.Renviron file.
 This will open up your .Renviron file in a new tab. Add `OMDB_API_KEY=<your-secret-api-key>` on a new line (be sure to add a new line after this).
 
 Save the file and restart your R session (Session -> Restart R). You can now access your key whenever you want by calling `Sys.getenv("OMDB_API_KEY")`. __Note!__ If you are using GitHub you may want to add `.Renviron` to your `.gitignore` file so you don't accidentally push the key that you just took the time to hide.
+
+
+
 
 
 * brief review of available functions

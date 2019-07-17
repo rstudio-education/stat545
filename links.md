@@ -135,6 +135,9 @@
 [dichromat-cran]: https://CRAN.R-project.org/package=dichromat
 
 
+[rdryad-web]: https://docs.ropensci.org/rdryad/
+[rdryad-cran]: https://CRAN.R-project.org/package=rdryad
+[rdryad-github]: https://github.com/ropensci/rdryad
 
 [roxygen2-cran]: https://CRAN.R-project.org/package=roxygen2
 [roxygen2-vignette]: https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
@@ -182,6 +185,16 @@
 [jsonlite-paper]: https://arxiv.org/abs/1403.2805
 [jsonlite-cran]: https://CRAN.R-project.org/package=jsonlite
 [jsonlite-github]: https://github.com/jeroen/jsonlite
+
+
+[readxl_web]: https://readxl.tidyverse.org
+[readxl_github]: https://github.com/tidyverse/readxl
+[readxl_cran]: https://CRAN.R-project.org/package=readxl
+
+[janitor-web]: http://sfirke.github.io/janitor/
+[janitor-cran]: https://CRAN.R-project.org/package=janitor
+[janitor-github]: https://github.com/sfirke/janitor
+
 
 <!--Shiny links-->
 [shinydashboard-web]: https://rstudio.github.io/shinydashboard/
