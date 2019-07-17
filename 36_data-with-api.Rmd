@@ -1,10 +1,14 @@
 # Using an API to get data {#use-api}
 
-In the simplest case, the data that you want is already available on the internet in a familiar format such as a csv and you can use `readr::read_csv()` to load it directly into R.
+In the simplest case, the data that you want is already available on the internet in a familiar format such as a csv and you can use `readr::read_csv()` to load it directly into R (see Chapter \@ref(import-export)).
 
 Often times, however, things are a bit more complicated. You might need to go through an [**Application Programming Interface**](https://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs) (API) to get the data that you want.
 
-An API allows you (the client) to programmatically get resources (e.g. a csv file, html file, etc.) from a web server via a [**Hypertext Transfer Protocol**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (HTTP) request. It is essentially facilitating a conversation: you send the web server a request and then the server sends you back a response. This response can either be the data you asked for or an error message.
+If you have never heard of an API, we recommend this [introduction to APIs from Zapier](https://zapier.com/learn/apis/).
+
+Application Programming Interfaces (APIs) are descriptions of the kind of requests that can be made of a certain piece of software, and descriptions of the kind of answers that are returned. Many sources of data – databases, websites, services – have made all (or part) of their data available via APIs over the internet. Computer programs (“clients”) can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
+
+An API allows you to programmatically get resources (e.g. a csv file, html file, etc.) from a website. It is essentially facilitating a conversation: you send the web server a request and then the server sends you back a response. This response can either be the data you asked for or an error message.
 
 ![Image Source: [What exactly IS an API?](https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f)  by Perry Eising](img/api-diagram.png)
 
