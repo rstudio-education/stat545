@@ -241,12 +241,13 @@ response_parsed$Plot
 
 There also is a link to the movie poster under Poster
 ```{r}
-response_parsed$Poster
+poster_url <- response_parsed$Poster
+poster_url
 ```
 
 We can download this file and save it locally using `download.file()` (from the pre-loaded `utils` package) by specifying the url of the file and where we want it to be saved using `destfile`. 
 ```{r}
-download.file(url = response_parsed$Poster,
+download.file(url = poster_url,
               destfile = "img/harry-potter-poster.jpg")
 ```
 
