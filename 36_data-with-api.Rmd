@@ -246,7 +246,8 @@ poster_url
 ```
 
 We can download this file and save it locally using `download.file()` (from the pre-loaded `utils` package) by specifying the url of the file and where we want it to be saved using `destfile`. 
-```{r}
+
+```r
 download.file(url = poster_url,
               destfile = "img/harry-potter-poster.jpg")
 ```
@@ -254,7 +255,7 @@ download.file(url = poster_url,
 Here it is!
 ![](img/harry-potter-poster.jgp)
 
-If you want to keep going why don't you try getting the movie posters for the next Harry Potter film in the series, Harry Potter and Prisoner of Azkaban (2004)? Once you do that try writing a function that will get the movie posters for all of the films in the Harry Potter series.
+If you want to keep going why don't you try getting the movie posters for the next Harry Potter film in the series, Harry Potter and Prisoner of Azkaban (2004)? After that try writing a function that will get the movie posters for all of the films in the Harry Potter series.
 
 ```{r links, child="links.md"}
 ```
