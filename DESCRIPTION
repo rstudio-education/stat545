@@ -20,14 +20,14 @@ Imports:
     roxygen2 (>= 6.1.1.9000),
     viridis,
     RColorBrewer,
-    rdryad,
     units,
-    tidycensus,
     rvest,
     xml2,
     httr,
-    readxl,
-    janitor
+    rplos,
+    rebirds,
+    geonames,
+    gender
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
