@@ -1,7 +1,7 @@
 language: r
 cran: https://cran.rstudio.com
 cache:
-  packages: true
+  packages: false
   directories:
   - $HOME/.npm
 
