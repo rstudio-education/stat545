@@ -3,7 +3,7 @@
 <!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
 
 
-```{r message=FALSE, warning=FALSE}
+```{r message = FALSE, warning = FALSE}
 library(knitr)
 library(curl)
 library(jsonlite)
@@ -70,7 +70,7 @@ answer_xml
 ```
 
 
-```{r warning=FALSE, eval = FALSE}
+```{r warning = FALSE, eval = FALSE}
 request_interstellar <- omdb("Interstellar", "2014", "short", "json")
 con <-  curl(request_interstellar)
 answer_json <- readLines(con)
@@ -123,7 +123,7 @@ answer_json %>%
 
 The output is a named list! A familiar and friendly R structure. Because data frames are lists, and because this list has no nested lists-within-lists, we can coerce it very simply:
 
-```{r results='asis', eval = FALSE}
+```{r results = 'asis', eval = FALSE}
 answer_json %>% 
   fromJSON() %>% 
   as.data.frame() %>% 
@@ -164,7 +164,7 @@ ans_xml_attrs <- xmlAttrs(ans_xml_parsed_root)
 ans_xml_attrs
 ```
 
-```{r results='asis', eval = FALSE}
+```{r results = 'asis', eval = FALSE}
 kable(data.frame(t(ans_xml_attrs)))
 ```
 

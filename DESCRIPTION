@@ -22,14 +22,13 @@ Imports:
     RColorBrewer,
     units,
     rvest,
-    xml2,
     httr,
     rplos,
     rebird,
     geonames,
-    gender
+    gender,
+    XML
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
-    r-lib/devtools,
-    klutometis/roxygen
+    r-lib/devtools
