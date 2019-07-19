@@ -1,8 +1,8 @@
 # Write your own R package {#package-from-scratch}
 
-<!--[Link to original content](http://stat545.com/packages06_foofactors-package.html)-->
+<!--Original content: http://stat545.com/packages06_foofactors-package.html-->
 
-This section closely tracks with content from the book [R Packages][r-pkgs2] (2nd edition) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game"][r-pkgs2-whole-game] (*Note*: The 2nd edition of the R Packages book is currently under development. You can see the 1st edition of the R Packages book [here][r-pkgs]). The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
+This section closely tracks with content from the book [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game"][r-pkgs2-whole-game]. The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
 
 
 ```{r, include = FALSE}
@@ -188,7 +188,7 @@ use_git()
 ```
 
 
-<!-- added from Whole Game-->
+<!--APH: added from Whole Game-->
 In an interactive session, you will be asked if you want to commit some files here and you should probably accept the offer. Behind the scenes, we'll cause the same to happen for us.
 
 ```{r git2r-begin, echo = debug, eval = create}
@@ -754,7 +754,7 @@ commit(repo, message = "Document fcount()")
 
 ## `use_package_doc()`
 
-<!--Update to use the new sentinel and describe it accurately? Maybe devtools should be updated to do that too?-->
+<!--APH: Update to use the new sentinel and describe it accurately? Maybe devtools should be updated to do that too?-->
 
 Let's start adding package-level documentation. Your package as a whole can have its own `.Rd` file. You can see an example by entering `package?dplyr` in R Console. Read more about the uses of package-level documentation in [R Packages](https://r-pkgs.org/man.html#man-packages).
 
@@ -883,7 +883,7 @@ output:
 
 Which means vignette `.md` would be left behind in `vignettes/` and therefore potentially available on GitHub.
 
-<!--I'm really not sure what to advise here?-->
+<!--APH: I'm really not sure what to advise here?-->
 
 ## `use_github()`
 

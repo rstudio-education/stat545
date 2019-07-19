@@ -2,8 +2,7 @@
 
 # Overview {-#graphics-overview}
 
-<!--[Link to original content](https://stat545.com/graph00_index.html)-->
-<!--Have this be a landing page similar to stat545's "All the graph things"?-->
+<!--Original content:https://stat545.com/graph00_index.html-->
 
 We work on visualization throughout the course. Here are the bits in rough order of presentation.
 
@@ -26,14 +25,13 @@ We work on visualization throughout the course. Here are the bits in rough order
   - Chapter \@ref(multiple-plots) - Multiple plots on a page
 
 
-<!-- 
-The R Graph Catalog link and the ugrad.stat.ubc.ca link are both broken
+<!--TODO: The R Graph Catalog link and the ugrad.stat.ubc.ca link are both broken. Find a replacement? Currently links all point to github repo-->
 
+<!--JB:
 * The [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/) presents a visual, clickable index of 100+ figures
     - mostly from Naomi Robbins' book ["Creating More Effective Graphs"](http://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123)
     - see figure and the exact `ggplot2` code to produce it, side-by-side
     - code for all figures and app itself is on [GitHub](https://github.com/jennybc/r-graph-catalog)
-
 * underappreciated basics: density plots, high-volume scatterplots good stuff here: http://www.ugrad.stat.ubc.ca/~stat540/seminars/seminar03_graphics-ggplot2.html
 -->
 

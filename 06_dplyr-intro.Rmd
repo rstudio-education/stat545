@@ -1,12 +1,12 @@
 # Introduction to dplyr {#dplyr-intro}
 
-<!--[Link to original content](https://stat545.com/block009_dplyr-intro.html)-->
+<!--Original content:https://stat545.com/block009_dplyr-intro.html-->
 
 ## Intro
 
 `dplyr` is a package for data manipulation, developed by Hadley Wickham and Romain Francois. It is built to be fast, highly expressive, and open-minded about how your data is stored. It is installed as part of the [`tidyverse`][tidyverse-web] meta-package and, as a core package, it is among those loaded via `library(tidyverse)`.
 
-`dplyr`'s roots are in an earlier package called [`plyr`][plyr-web], which implements the ["split-apply-combine" strategy for data analysis][split-apply-combine]. Where `plyr` covers a diverse set of inputs and outputs (e.g., arrays, data frames, lists), `dplyr` has a laser-like focus on data frames or, in the `tidyverse`, "tibbles". `dplyr` is a package-level treatment of the `ddply()` function from `plyr`, because "data frame in, data frame out" proved to be so incredibly important.
+`dplyr`'s roots are in an earlier package called [`plyr`][plyr-web], which implements the ["split-apply-combine" strategy for data analysis][split-apply-combine] [@wickham2011a]. Where `plyr` covers a diverse set of inputs and outputs (e.g., arrays, data frames, lists), `dplyr` has a laser-like focus on data frames or, in the `tidyverse`, "tibbles". `dplyr` is a package-level treatment of the `ddply()` function from `plyr`, because "data frame in, data frame out" proved to be so incredibly important.
 
 Have no idea what I'm talking about? Not sure if you care? If you use these base R functions: `subset()`, `apply()`, `[sl]apply()`, `tapply()`, `aggregate()`, `split()`, `do.call()`, `with()`, `within()`, then you should keep reading. Also, if you use `for()` loops a lot, you might enjoy learning other ways to iterate over rows or groups of rows or variables in a data frame.
 
@@ -183,17 +183,13 @@ Go to the next block, [`dplyr` functions for a single dataset](#dplyr-single), f
 
 [RStudio Data Transformation Cheat Sheet][rstudio-dplyr-cheatsheet-download], covering `dplyr`. Remember you can get to these via *Help > Cheatsheets.* 
 
-[Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds]
+[Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds] [@wickham2016].
 
 
-<!--
-TODO: This should probably be updated with something more recent
--->
+<!--TODO: This should probably be updated with something more recent-->
 [Excellent slides][tj-mahr-slides]on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
 
-<!--
-TODO: This should probably be updated with something more recent
--->
+<!--TODO: This should probably be updated with something more recent-->
 Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos
 
 [Cheatsheet](#join-cheatsheet) I made for `dplyr` join functions (not relevant yet but soon)

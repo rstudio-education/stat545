@@ -1,6 +1,6 @@
 # Function-writing practicum {#functions-practicum}
 
-<!--[Link to original content](https://stat545.com/block012_function-regress-lifeexp-on-year.html)-->
+<!--Original content:https://stat545.com/block012_function-regress-lifeexp-on-year.html-->
 
 ## Overview
 
@@ -120,7 +120,6 @@ Yes.
 
 Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. Let's move on to [the exciting part](#dplyr-do), which is scaling this up to __all__ countries.
 
-<!--section linked to above is under the deprecated section in the appendix-->
 
 ```{r links, child="links.md"}
 ```

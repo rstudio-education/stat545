@@ -1,6 +1,6 @@
 # R basics and workflows {#r-basics}
 
-<!--[Link to original content](http://stat545.com/block002_hello-r-workspace-wd-project.html)-->
+<!--Original content:http://stat545.com/block002_hello-r-workspace-wd-project.html-->
 
 ## Basics of working with R at the command line and RStudio goodies
 
@@ -201,7 +201,7 @@ Let's make one to use for the rest of this workshop/class. Do this: File > New P
 
 I created a directory and, therefore RStudio project, called `swc` in my `tmp` directory, FYI.
 
-<!-- https://github.com/yihui/knitr/issues/277 -->
+<!--JB: https://github.com/yihui/knitr/issues/277 -->
 
 ```r
 setwd("~/tmp/swc")

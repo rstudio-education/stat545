@@ -1,6 +1,6 @@
 # Single table dplyr functions {#dplyr-single}
 
-<!--[Link to original content](https://stat545.com/block010_dplyr-end-single-table.html)-->
+<!--Original content: https://stat545.com/block010_dplyr-end-single-table.html-->
 
 ## Where were we?
 
@@ -367,13 +367,13 @@ In later tutorials, we'll explore more of dplyr, such as operations based on two
 
 [RStudio Data Transformation Cheat Sheet][rstudio-dplyr-cheatsheet-download], covering `dplyr`. Remember you can get to these via *Help > Cheatsheets.* 
 
-[Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds]
+[Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds] [@wickham2016].
 
 
-<!--This should probably be updated with something more recent-->
+<!--TODO: This should probably be updated with something more recent-->
 [Excellent slides][tj-mahr-slides]on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
 
-<!--This should probably be updated with something more recent-->
+<!--TODO: This should probably be updated with something more recent-->
 Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos
 
 [Cheatsheet](#join-cheatsheet) I made for `dplyr` join functions (not relevant yet but soon)

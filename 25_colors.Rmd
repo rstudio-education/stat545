@@ -1,14 +1,13 @@
 # Using colors in R {#colors}
 
 
-<!--[Link to original content](http://stat545.com/block018_colors.html)-->
+<!--Original content:http://stat545.com/block018_colors.html-->
 
-<!--The link below is broken. Found it listed [here](https://www.showmeshiny.com/r-graph-catalog/) which links this [repo](https://github.com/jennybc/r-graph-catalog) as the source code
+<!--TODO: The link below is broken. Found it listed [here](https://www.showmeshiny.com/r-graph-catalog/) which links this [repo](https://github.com/jennybc/r-graph-catalog) as the source code
 
 [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/), a visual, clickable index of 100+ figures + `ggplot2` code to make them
 
 Note that I SKIPPED THE R GRAPH CATALOG LINK
-
 -->
 
 ## Load the Gapminder data and `dplyr`
@@ -126,7 +125,7 @@ But it's much more exciting to see the colors displayed! Lots of people have tac
   * I printed [the first 30 plotting symbols](img/r.pch.pdf) (presumably using code found elsewhere or in documentation? can't remember whom to credit) *(sorry, it's a PDF)*
   * In [Chapter 3 of R Graphics 1st edition](https://www.stat.auckland.ac.nz/~paul/RGraphics/chapter3.html), Paul Murrell shows predefined and custom line types in Figure 3.6 and plotting symbols in Figure 3.10.
   
-<!--This link is broken, replace with something similar?
+<!--TODO: The link below is broken, replace with something similar?
   * Earl F. Glynn offers [an excellent resource](http://research.stowers-institute.org/efg/R/Color/Chart/) on R's built-in named colors.
 -->
 
@@ -296,7 +295,7 @@ Here is an article that uses compelling examples to advocate for perceptually ba
 
 * ["Why Should Engineers and Scientists Be Worried About Color?"][worry-about-color] [@rogowitz1996]
 
-<!-- TO DO: Insert/recreate some visuals from the Zeileis et al. paper or from the `colorspace` vignette. Show actual usage! -->
+<!--TODO: Insert/recreate some visuals from the Zeileis et al. paper or from the `colorspace` vignette. Show actual usage! -->
 
 ## Accommodating color blindness
 

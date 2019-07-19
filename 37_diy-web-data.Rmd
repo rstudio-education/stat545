@@ -1,6 +1,7 @@
 # DIY web data {#diy-web-data}
 
-<!--[Link to original content](https://stat545.com/webdata03_activity.html)-->
+<!--Original content: https://stat545.com/webdata03_activity.html-->
+<!--Original author: Andrew MacDonald-->
 
 
 ```{r message = FALSE, warning = FALSE}
@@ -60,7 +61,7 @@ omdb("Interstellar", "2014", "short", "xml")
 
 Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R:
 
-<!--The following code chunks are broken; OMDb requires an API key now-->
+<!--TODO: The following code chunks are broken; OMDb requires an API key now-->
 ```{r eval = FALSE}
 request_interstellar <- omdb("Interstellar", "2014", "short", "xml")
 con <-  curl(request_interstellar)
@@ -177,7 +178,7 @@ kable(data.frame(t(ans_xml_attrs)))
 * __PUT__: update an existing resource. The payload may contain the updated data for the resource.
 * __DELETE__: delete an existing resource.
 
-<!--It's not clear in the original stat545 lesson what this is referring to-->
+<!--TODO: It's not clear in the original stat545 lesson what this is referring to-->
 (from [HTTP made really easy](http://www.jmarshall.com/easy/http/))
 
 HTTP is the foundation for APIs; understanding how it works is the key to interacting with all the diverse APIs out there. An excellent beginning resource for APIs (including HTTP basics) is [this simple guide](https://zapier.com/learn/apis/).

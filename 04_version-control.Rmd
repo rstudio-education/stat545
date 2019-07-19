@@ -6,7 +6,7 @@ Content now [here][happy-git]. Install Git, install a Git client or GUI, establi
 
 ## Claim your private STAT 545 repository
 
-<!--[Link to original content](https://stat545.com/git08_claim-stat545-repo.html)-->
+<!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
 
 ### Prerequisites
 

@@ -37,10 +37,7 @@
 
 ## Draw the rest of the owl, a pep talk for building off simple examples {#draw-the-owl}
 
-<!--
-[Link to original content rendered](http://stat545.com/bit007_draw-the-rest-of-the-owl.html)
-[Link to original content raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/bit007_draw-the-rest-of-the-owl.Rmd)
--->
+<!--Original content: http://stat545.com/bit007_draw-the-rest-of-the-owl.html-->
 
 ```{r echo = FALSE}
 set.seed(328)
@@ -74,7 +71,7 @@ It turns out you can write R (or S) for ~20 years and not be very facile with th
 
 ### Start at the beginning
 
-My reference is the section of Wickham's [Advanced R][adv-r] that is about [closures][adv-r-closures], "functions written by functions". Here's one of the two main examples: a function that creates an exponentiation function.
+My reference is the section of Wickham's [Advanced R][adv-r] [-@wickham2015a] that is about [closures][adv-r-closures], "functions written by functions". Here's one of the two main examples: a function that creates an exponentiation function.
 
 ```{r}
 power <- function(exponent) {
@@ -294,10 +291,7 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## Make browsing your GitHub repos more rewarding {#github-browsability}
 
-<!--
-[Link to original content rendered](http://stat545.com/bit006_github-browsability-wins.html)
-[Link to original content raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/bit006_github-browsability-wins.Rmd)
--->
+<!--Original content: http://stat545.com/bit006_github-browsability-wins.html)-->
 
 *The unreasonable effectiveness of GitHub browsability*
 

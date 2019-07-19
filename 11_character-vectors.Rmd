@@ -1,6 +1,6 @@
 # Character vectors {#character-vectors}
 
-<!--[Link to original content](https://stat545.com/block028_character-data.html)-->
+<!--Original content: https://stat545.com/block028_character-data.html-->
 
 ## Character vectors: where they fit in
 
@@ -38,7 +38,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
     - Wraps [stringi][stringi-cran], which is a great place to look if stringr isn't powerful enough.
     - Standardized on [ICU regular expressions][icu-regex], so you can stop toggling `perl = TRUE/FALSE` at random.
     - Results come back in a form that is much friendlier for downstream work.
-  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] is a great resource.
+  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016] is a great resource.
   * Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of stringr and uses example data that is easier to support long-term.
     -  [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
     - [2015 Regular expressions and character data in R](#regex2) by TA Kieran Samuk.
@@ -385,7 +385,7 @@ You can use parentheses inside regexes to define *groups* and you can refer to t
 For now, this lesson will refer you to other place to read up on this:
 
   * STAT 545 [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
-  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds].
+  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016].
 
 
 

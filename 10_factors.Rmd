@@ -2,7 +2,7 @@
 
 # Be the boss of your factors {#factors}
 
-<!--[Link to original content](https://stat545.com/block029_factors.html)-->
+<!--Original content: https://stat545.com/block029_factors.html-->
 
 ## Factors: where they fit in
 

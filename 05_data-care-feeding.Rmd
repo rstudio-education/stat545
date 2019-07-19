@@ -2,7 +2,7 @@
 
 # Basic care and feeding of data in R {#data-care}
 
-<!--[Link to original content](https://stat545.com/block006_care-feeding-data.html)-->
+<!--Original content: https://stat545.com/block006_care-feeding-data.html-->
 
 ```{r start_data_analysis, echo = FALSE}
 set.seed(4561)
@@ -116,7 +116,7 @@ plot(lifeExp ~ gdpPercap, gapminder)
 plot(lifeExp ~ log(gdpPercap), gapminder)
 ```
 
-<!-- This is a non-sequitur here ... where came from originally?
+<!--JB: This is a non-sequitur here ... where came from originally?
 > Sidebar on equals: A single equal sign `=` is most commonly used to specify values of arguments when calling functions in R, e.g. `group = continent`. It can be used for assignment but we advise against that, in favor of `<-`. A double equal sign `==` is a binary comparison operator, akin to less than `<` or greater than `>`, returning the logical value `TRUE` in the case of equality and `FALSE` otherwise. Although you may not yet understand exactly why, `subset = country == "Colombia"` restricts operation -- scatterplotting, in above examples -- to observations where the country is Colombia.
 -->
 
@@ -182,7 +182,7 @@ p + geom_point(alpha = (1/3), size = 3) + facet_wrap(~ continent) +
   geom_smooth(lwd = 1.5, se = FALSE)
 ```
 
-<!---
+<!---JB:
 EXERCISES I have used and let languish.
 Let's get the data for just 2007.
 How many rows?

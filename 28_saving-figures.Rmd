@@ -1,6 +1,6 @@
 # Writing figures to file {#save-figs}
 
-<!--[Link to original content](https://stat545.com/block017_write-figure-to-file.html)-->
+<!--Original content: https://stat545.com/block017_write-figure-to-file.html-->
 
 It is not always appropriate or sufficient for figures to exist *only* inside a dynamic report, such as an R Markdown document. You should know how to write key figures to file for downstream use in a variety of settings. 
 
@@ -9,8 +9,6 @@ During development, you need the immediate feedback from seeing your figures app
 Now what? How to preserve the figure in a file?
 
 ## Step away from the mouse
-
-<!--Removed img/evil-mouse.jpg because I couldn't find the original source-->
 
 _Do not_ succumb to the temptation of a mouse-based process. If might feel handy at the time, but you will regret it. This establishes no link between the source code and the figure product. So when -- not if -- you need to remake the figure with a different color scheme or aspect ratio or graphics device, you will struggle to dig up the proper source code. Use one of the methods below to avoid this predicament.
 
@@ -79,10 +77,6 @@ See below for gotchas and FAQs when making figures in a non-interactive setting!
 ### Scaling
 
 Figures need to be prepared differently for a presentation versus a poster versus a manuscript. You need to fiddle with the size of text, such as the title and axis labels, relative to the entire plot area. There are at least two ways to do this, with slightly different effects and workflows.
-
-<!--
-The original stat545 lesson had all of the (visible) code in one big chunk and the four plots together in one square. This was my attempt at breaking the code and the plots into two separate figures and weaving it into the text so that it better matches the structure in the text itself.
--->
 
 __Via the `scale =` argument to `ggsave()`__: This actually changes the physical size of the plot, but as an interesting side effect, it changes the relative size of the title and axis labels. Therefore, tweaking this can be a quick-and-dirty way to get different versions of a figure appropriate for a presentation versus a poster versus a manuscript. You can still insert the figure downstream with a different physical size, though you may need to adjust the dpi accordingly on the front end. When `scale < 1`, various plot elements will be bigger relative to the plotting area; when `scale > 1`, these elements will be smaller. YMMV but `scale = 0.8` often works well for posters and slides. Figure \@ref(fig:exaggerated-scale) shows two versions of a figure, with exaggerated values of `scale`, to illustrate its effect.
 
@@ -248,7 +242,7 @@ Some relevant threads on stackoverflow:
 
 Coming full circle, we return to the topic of figures produced via an R chunk in an R Markdown file. If you are writing [GitHub-flavored markdown or keeping the intermediate markdown](#r-markdown-step3), your figures will also be saved to file. Rendering `foo.Rmd` will leave behind `foo.md`, maybe `foo.html`, and a directory `foo_files`, containing any figures created in the document. By default, they will have meaningless names, like `unnamed-chunk-7.png`. This makes it difficult to find specific figures, i.e. for unplanned use in another setting. However, if you name an R chunk, this name will be baked into the figure file name.
 
-<!-- the "live" version of the chunk I include verbatim below -->
+<!--JB: the "live" version of the chunk I include verbatim below -->
 ```{r scatterplot-lifeExp-vs-year, echo = FALSE, fig.show = "hide"}
 p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
 p

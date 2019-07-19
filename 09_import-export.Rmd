@@ -1,6 +1,6 @@
 # Writing and reading files {#import-export}
 
-<!--[Link to original content](https://stat545.com/block002_hello-r-workspace-wd-project.html)-->
+<!--Original content: https://stat545.com/block002_hello-r-workspace-wd-project.html-->
 
 ## File I/O overview
 
@@ -237,7 +237,7 @@ Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter.
 
 ## Resources
 
-[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund.
+[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund [-@wickham2016].
 
 White et al.'s "Nine simple ways to make it easier to (re)use your data" [-@white2013]. 
 

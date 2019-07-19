@@ -1,6 +1,6 @@
 # Test drive R Markdown {#r-markdown}
 
-<!--[Link to original content](https://stat545.com/block007_first-use-rmarkdown.html)-->
+<!--Original content: https://stat545.com/block007_first-use-rmarkdown.html-->
 
 ## Overview
 

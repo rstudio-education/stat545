@@ -1,5 +1,8 @@
 # Use API-wrapping packages {#api-wrappers}
 
+<!--Original content: http://stat545.com/webdata02_activity.html-->
+<!--Original author: Andrew MacDonald-->
+
 ```{r message = FALSE}
 library(dplyr)
 library(knitr)
@@ -79,7 +82,7 @@ knitr::include_graphics("img/Iona_island.png")
 
 The data already look to be organized in a data frame! `rebird` allows us to read these data directly into R (the ID code for Iona Island is **"L261851**).
 
-<!--The following chunks are broken; ebird now requires an API key.-->
+<!--TODO: The following chunks are broken; ebird now requires an API key.-->
 ```{r eval = FALSE}
 ebirdhotspot(locID = "L261851") %>%
   head() %>%
@@ -214,7 +217,7 @@ library(rplos)
 
 Immediately we get a message. It's a link to the [tutorial on the Ropensci website](http://ropensci.org/tutorials/rplos_tutorial.html)! How nice :)
 
-<!--rplos no longer requires an API key-->
+<!--TODO: rplos no longer requires an API key-->
 
 We also get instructions to [create a PLOS account](https://register.plos.org/ambra-registration/register.action):
 

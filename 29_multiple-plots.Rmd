@@ -2,7 +2,7 @@
 
 <!--[Link to original content](http://stat545.com/block020_multiple-plots-on-a-page.html)-->
 
-<!--Note add patchwork package here?-->
+<!--TODO: add patchwork package here?-->
 
 ## Faceting is not a panacea
 

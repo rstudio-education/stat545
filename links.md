@@ -35,7 +35,6 @@
 [rmarkdown]: https://rmarkdown.rstudio.com
 [knitr-faq]: https://yihui.name/knitr/faq/
 
-
 [tidyverse-main-page]: https://www.tidyverse.org
 [tidyverse-web]: https://tidyverse.tidyverse.org
 [tidyverse-github]: https://github.com/hadley/tidyverse
@@ -113,7 +112,6 @@
 [tidycensus-github]: https://github.com/walkerke/tidycensus
 [tidycensus-web]: https://walkerke.github.io/tidycensus/index.html
 
-
 [fs-web]: https://fs.r-lib.org/index.html
 [fs-cran]: https://CRAN.R-project.org/package=fs
 [fs-github]: https://github.com/r-lib/fs
@@ -133,14 +131,12 @@
 [rcolorbrewer-cran]: https://CRAN.R-project.org/package=RColorBrewer
 [dichromat-cran]: https://CRAN.R-project.org/package=dichromat
 
-
 [rdryad-web]: https://docs.ropensci.org/rdryad/
 [rdryad-cran]: https://CRAN.R-project.org/package=rdryad
 [rdryad-github]: https://github.com/ropensci/rdryad
 
 [roxygen2-cran]: https://CRAN.R-project.org/package=roxygen2
 [roxygen2-vignette]: https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
-
 
 [shinythemes-web]: https://rstudio.github.io/shinythemes/
 [shinythemes-cran]: https://CRAN.R-project.org/package=shinythemes
@@ -156,7 +152,6 @@
 [ggvis-web]: https://ggvis.rstudio.com
 [ggvis-cran]: https://CRAN.R-project.org/package=ggvis
  
-
 [usethis-web]: https://usethis.r-lib.org
 [usethis-cran]: https://CRAN.R-project.org/package=usethis
 [usethis-github]: https://github.com/r-lib/usethis
@@ -180,11 +175,9 @@
 [xml2-cran]: https://CRAN.R-project.org/package=xml2
 [xml2-github]: https://github.com/r-lib/xml2
 
-
 [jsonlite-paper]: https://arxiv.org/abs/1403.2805
 [jsonlite-cran]: https://CRAN.R-project.org/package=jsonlite
 [jsonlite-github]: https://github.com/jeroen/jsonlite
-
 
 [readxl-web]: https://readxl.tidyverse.org
 [readxl-github]: https://github.com/tidyverse/readxl
@@ -214,9 +207,7 @@
 [shiny-debugging]: https://shiny.rstudio.com/articles/debugging.html
 [shiny-server]: https://www.rstudio.com/products/shiny/shiny-server/
 
-
-
-<!--Book Links--> 
+<!--Publications--> 
 [adv-r]: http://adv-r.had.co.nz
 [adv-r-fxns]: http://adv-r.had.co.nz/Functions.html
 [adv-r-dsl]: http://adv-r.had.co.nz/dsl.html
@@ -234,11 +225,6 @@
 [r4ds-relational-data]: https://r4ds.had.co.nz/relational-data.html
 [r4ds-pepper-shaker]: https://r4ds.had.co.nz/vectors.html#lists-of-condiments
 
-
-[r-pkgs]: http://r-pkgs.had.co.nz
-[r-pkgs-tests]: http://r-pkgs.had.co.nz/tests.html
-[r-pkgs-intro-get]: http://r-pkgs.had.co.nz/intro.html#intro-get
-
 [r-pkgs2]: https://r-pkgs.org/index.html
 [r-pkgs2-whole-game]: https://r-pkgs.org/whole-game.html
 [r-pkgs2-description]: https://r-pkgs.org/description.html
@@ -249,12 +235,17 @@
 [r-pkgs2-release]: https://r-pkgs.org/release.html
 
 [r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do
-[cookbook-for-r]: http://www.cookbook-r.com
+
+[cookbook-for-r]: http://www.cookbook-r.com <!--just a web based book, no physical book/citation-->
 [cookbook-for-r-graphs]: http://www.cookbook-r.com/Graphs/
 [cookbook-for-r-multigraphs]: http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 
 [elegant-graphics-springer]: https://www.springer.com/gp/book/9780387981413
 
+[testthat-article]: https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+[worry-about-color]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwi0xYqJ8JbjAhWNvp4KHViYDxsQFjABegQIABAC&url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FAhmed_Elhattab2%2Fpost%2FPlease_suggest_some_good_3D_plot_tool_Software_for_surface_plot%2Fattachment%2F5c05ba35cfe4a7645506948e%2FAS%253A699894335557644%25401543879221725%2Fdownload%2FWhy%2BShould%2BEngineers%2Band%2BScientists%2BBe%2BWorried%2BAbout%2BColor_.pdf&usg=AOvVaw1qwjjGMd7h_z6TLUjzu7Nb
+[escaping-rgbland-pdf]: https://eeecon.uibk.ac.at/~zeileis/papers/Zeileis+Hornik+Murrell-2009.pdf
+[escaping-rgbland-doi]: https://doi.org/10.1016/j.csda.2008.11.033
 
 
 <!--R Documentation-->
@@ -290,18 +281,16 @@
 [wiki-xpath]: https://en.wikipedia.org/wiki/XPath
 [wiki-css-selector]: https://en.wikipedia.org/wiki/Cascading_Style_Sheets#Selector
 
+
 <!--Misc. Links-->
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
 [useR-2014-dropbox]: https://www.dropbox.com/sh/i8qnluwmuieicxc/AAAgt9tIKoIm7WZKIyK25lh6a
-
 [gh-pages]: https://pages.github.com
 [html-preview]: http://htmlpreview.github.io
-
 [tj-mahr-slides]: https://github.com/tjmahr/MadR_Pipelines
 [dataschool-dplyr]: https://www.dataschool.io/dplyr-tutorial-for-faster-data-manipulation-in-r/
 [xckd-randall-munroe]: https://fivethirtyeight.com/features/xkcd-randall-munroe-qanda-what-if/
 [athena-zeus-forehead]: https://tinyurl.com/athenaforehead
-
 [tidydata-lotr]: https://github.com/jennybc/lotr-tidy#readme
 [minimal-make]: https://kbroman.org/minimal_make/
 [write-data-tweet]: https://twitter.com/vsbuffalo/statuses/358699162679787521
@@ -331,7 +320,6 @@
 [telescope-rule]: http://c2.com/cgi/wiki?TelescopeRule
 [unix-philosophy]: http://www.faqs.org/docs/artu/ch01s06.html
 [twitter-wrathematics]: https://twitter.com/wrathematics
-[testthat-article]: https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
 [robbins-effective-graphs]: https://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123
 [r-graph-catalog-github]: https://github.com/jennybc/r-graph-catalog
 [google-pie-charts]: https://www.google.com/search?q=pie+charts+suck
@@ -342,9 +330,6 @@
 [scipy-2015-matplotlib-colors]: https://www.youtube.com/watch?v=xAoljeRJ3lU&feature=youtu.be
 [winston-chang-github]: https://github.com/wch
 [favorite-rgb-color]: https://manyworldstheory.com/2013/01/15/my-favorite-rgb-color/
-[worry-about-color]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwi0xYqJ8JbjAhWNvp4KHViYDxsQFjABegQIABAC&url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FAhmed_Elhattab2%2Fpost%2FPlease_suggest_some_good_3D_plot_tool_Software_for_surface_plot%2Fattachment%2F5c05ba35cfe4a7645506948e%2FAS%253A699894335557644%25401543879221725%2Fdownload%2FWhy%2BShould%2BEngineers%2Band%2BScientists%2BBe%2BWorried%2BAbout%2BColor_.pdf&usg=AOvVaw1qwjjGMd7h_z6TLUjzu7Nb
-[escaping-rgbland-pdf]: https://eeecon.uibk.ac.at/~zeileis/papers/Zeileis+Hornik+Murrell-2009.pdf
-[escaping-rgbland-doi]: https://doi.org/10.1016/j.csda.2008.11.033
 [stowers-color-chart]: https://web.archive.org/web/20121022044903/http://research.stowers-institute.org/efg/R/Color/Chart/
 [stowers-using-color-in-R]: https://www.uv.es/conesa/CursoR/material/UsingColorInR.pdf
 [zombie-project]: https://imgur.com/ewmBeQG

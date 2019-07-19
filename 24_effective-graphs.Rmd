@@ -1,10 +1,8 @@
 # Do's and don'ts of making effective graphics {#effective-graphs}
 
-<!--[Link to original content](https://stat545.com/block015_graph-dos-donts.html)-->
+<!--Original content:https://stat545.com/block015_graph-dos-donts.html-->
 
-<!-- 
-The link mentioned below is broken and I can't find the source material.
-
+<!--JB:
 *In 2015, this was mercifully replaced by a [guest lecture from UBC colleague Tamara Munzner](http://stat545-ubc.github.io/cm014_viz-design-munzner.html). The content below would be better with links to specific figures from Naomi Robbins' book, but the Shiny app does not make that possible. Or perhaps I should just embed my versions of them.*
 -->
 
@@ -166,12 +164,12 @@ We will look through another section (slides 48 - 62) of Karl Broman's excellent
   * Home on GitHub: https://github.com/kbroman/Talk_Graphs  
   * The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)  
 * [`ggplot2`][ggplot2-web] written by [Hadley Wickham][hadley-github-index]  
-* [Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r]  
+* [Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] [-@chang2013] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r]  
 * My [`ggplot2` tutorial][ggplot2-tutorial]  
 * Gelman et al.'s ["Let's Practice What We Preach"](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents) in The American Statistician [-@gelman2002].
 
 
-<!--
+<!--JB:
 ### Distribution one quantitative variable
 
 stripplot (+ summary stats, jittering) Fig 4.1, 4.8

@@ -34,10 +34,7 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 
 # Slides {#shiny-slides}
 
-<!--
-[Link to original content](http://stat545.com/shiny00_index.html)
-[Link to slides](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p)
--->
+<!--Original content: http://stat545.com/shiny00_index.htm-->
 
 ```{r echo = FALSE, fig.align = 'center', out.width="100%", out.height = 450, fig.cap = "[Building Shiny Apps](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) by Dean Attali"}
 library(knitr)
@@ -46,10 +43,9 @@ knitr::include_graphics("img/shiny-slides.pdf")
 
 # Building Shiny Apps {#shiny-tutorial}
 
-<!--
-[Link to original content](http://stat545.com/shiny01_activity.html)
-Original Author: Dean Attali; edited by Grace Lawley
--->
+<!--Original content: http://stat545.com/shiny01_activity.html-->
+<!--Original Author: Dean Attali-->
+
 
 Shiny is a package from RStudio that can be used to build interactive web pages with R. While that may sound scary because of the words "web pages", it's geared to R users who have 0 experience with web development, and you do not need to know any HTML/CSS/JavaScript.
 
@@ -136,7 +132,7 @@ You can also create a new Shiny app using RStudio's menu by selecting *File > Ne
 
 ## Load the dataset {#shiny-tutorial-4}
 
-<!--
+<!--TODO:
 Link to the original dataset no longer works. The closest thing I could find is [this](https://catalogue.data.gov.bc.ca/dataset/bc-liquor-store-product-price-list-historical-prices) but it was just modified in 2019. The csv at deanattali.com is still live so will just refer to that for now. 
 -->
 

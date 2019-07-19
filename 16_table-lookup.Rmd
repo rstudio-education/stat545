@@ -1,6 +1,6 @@
 # Table lookup {#lookup}
 
-<!--[Link to original content](https://stat545.com/bit008_lookup.html) -->
+<!--Original content:https://stat545.com/bit008_lookup.html-->
 
 I try to use [dplyr joins](#join-cheatsheet) for most tasks that combine data from two tibbles. But sometimes you just need good old "table lookup". Party like it's Microsoft Excel `LOOKUP()` time!
 

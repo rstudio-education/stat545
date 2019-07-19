@@ -1,6 +1,6 @@
 # Write your own R functions: Part 1 {#functions-part1}
 
-<!--[Link to original content](https://stat545.com/block011_write-your-own-function-01.html) -->
+<!--Original content: https://stat545.com/block011_write-your-own-function-01.html-->
 
 ## What and why?
 
@@ -192,7 +192,7 @@ Packages for runtime assertions (the last 3 seem to be under more active develop
   * `assertr` on [CRAN][assertr-cran] and [GitHub][assertr-github] *explicitly data pipeline oriented*
   * `assertive` on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] *rich set of built-in functions*
 
-Hadley Wickham's book [Advanced R][adv-r]
+Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]
 
   * Section on [defensive programming][adv-r-defensive-programming]
 

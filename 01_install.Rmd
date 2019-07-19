@@ -2,7 +2,7 @@
 
 # Install R and RStudio {#install}
 
-<!--[Link to original content](http://stat545.com/block000_r-rstudio-install.html)-->
+<!--Original content: http://stat545.com/block000_r-rstudio-install.html-->
 
 ## R and RStudio
 

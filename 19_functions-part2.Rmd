@@ -1,6 +1,6 @@
 # Write your own R functions: Part 2 {#functions-part2}
 
-<!--[Link to original content](https://stat545.com/block011_write-your-own-function-02.html) -->
+<!--Original content:https://stat545.com/block011_write-your-own-function-02.html-->
 
 ## Where were we? Where are we going?
 
@@ -174,7 +174,7 @@ Where to next? In [part 3](#functions-part3), we tackle `NA`s, the special `...`
 
 ## Resources
 
-Hadley Wickham's book [Advanced R][adv-r]
+Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]
 
   * Section on [function arguments][adv-r-fxn-args]
   * Section on [return values][adv-r-return-values]

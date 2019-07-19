@@ -1,8 +1,8 @@
 # Dates and times {#date-time}
 
-<!--*Under development ... really just a placeholder / collection of links*-->
+<!--JB: *Under development ... really just a placeholder / collection of links*-->
 
-<!--[Link to original content](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block030_date-times.Rmd)--> 
+<!--Original content:https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block030_date-times.Rmd--> 
 
 ## Date-time vectors: where they fit in
 
@@ -16,7 +16,7 @@ Here we discuss common remedial tasks for dealing with date-times.
 
 I start with this because we cannot possibly do this topic justice in a short amount of time. Our goal is to make you aware of specific problems and solutions. Once you have a character problem in real life, these resources will be extremely helpful as you delve deeper.
 
-[Dates and times][r4ds-dates-times] chapter from [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund. See also the subsection on dates and times in the [Data import chapter][r4ds-data-import].
+[Dates and times][r4ds-dates-times] chapter from [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund [-@wickham2016]. See also the subsection on dates and times in the [Data import chapter][r4ds-data-import].
 
 The [`lubridate`][lubridate-web] package ([CRAN][lubridate-cran]; [GitHub][lubridate-github]; [main vignette][lubridate-vignette]).
 

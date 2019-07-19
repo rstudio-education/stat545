@@ -2,6 +2,6 @@
 
 # Slides
 
-<!--[Link to original content](https://stat545.com/webdata02_activity.html)-->
+<!--Original content: https://stat545.com/webdata02_activity.html-->
 
 See slides [here](supporting-docs/webdata01_slides.html)
