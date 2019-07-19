@@ -10,7 +10,7 @@ Now what? How to preserve the figure in a file?
 
 ## Step away from the mouse
 
-<img src="img/evil-mouse.jpg" width="300px">
+<!--Removed img/evil-mouse.jpg because I couldn't find the original source-->
 
 _Do not_ succumb to the temptation of a mouse-based process. If might feel handy at the time, but you will regret it. This establishes no link between the source code and the figure product. So when -- not if -- you need to remake the figure with a different color scheme or aspect ratio or graphics device, you will struggle to dig up the proper source code. Use one of the methods below to avoid this predicament.
 
@@ -80,35 +80,49 @@ See below for gotchas and FAQs when making figures in a non-interactive setting!
 
 Figures need to be prepared differently for a presentation versus a poster versus a manuscript. You need to fiddle with the size of text, such as the title and axis labels, relative to the entire plot area. There are at least two ways to do this, with slightly different effects and workflows.
 
-__Via the `scale =` argument to `ggsave()`__: This actually changes the physical size of the plot, but as an interesting side effect, it changes the relative size of the title and axis labels. Therefore, tweaking this can be a quick-and-dirty way to get different versions of a figure appropriate for a presentation versus a poster versus a manuscript. You can still insert the figure downstream with a different physical size, though you may need to adjust the dpi accordingly on the front end. When `scale < 1`, various plot elements will be bigger relative to the plotting area; when `scale > 1`, these elements will be smaller. YMMV but `scale = 0.8` often works well for posters and slides. Below are two versions of a figure, with exaggerated values of `scale`, to illustrate its effect.
+<!--
+The original stat545 lesson had all of the (visible) code in one big chunk and the four plots together in one square. This was my attempt at breaking the code and the plots into two separate figures and weaving it into the text so that it better matches the structure in the text itself.
+-->
 
-__Via the `base_size` of the active theme__: The `base_size` of the [theme][ggplot2-theme-args] refers to the base font size. This is NOT a theme element that can be modified via `ggplot(...) + theme(...)`. Rather, it's an argument to various functions that set theme elements. Therefore, to get the desired effect you need to create a complete theme, specifying the desired `base_size`. By setting `base size < 12`, the default value, you shrink text elements and by setting `base_size > 12`, you make them larger. Below are two versions of a figure, with exaggerated values of `base_size`, to illustrate its effect. 
+__Via the `scale =` argument to `ggsave()`__: This actually changes the physical size of the plot, but as an interesting side effect, it changes the relative size of the title and axis labels. Therefore, tweaking this can be a quick-and-dirty way to get different versions of a figure appropriate for a presentation versus a poster versus a manuscript. You can still insert the figure downstream with a different physical size, though you may need to adjust the dpi accordingly on the front end. When `scale < 1`, various plot elements will be bigger relative to the plotting area; when `scale > 1`, these elements will be smaller. YMMV but `scale = 0.8` often works well for posters and slides. Figure \@ref(fig:exaggerated-scale) shows two versions of a figure, with exaggerated values of `scale`, to illustrate its effect.
 
-```{r message=FALSE}
+```{r}
 library(ggplot2)
 library(gapminder)
+p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
 ```
 
-```{r eval=FALSE}
-p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
-
+```{r eval = FALSE}
 p1 <- p + ggtitle("scale = 0.6")
 p2 <- p + ggtitle("scale = 2")
-p3 <- p + ggtitle("base_size = 20") + theme_grey(base_size = 20)
-p4 <- p + ggtitle("base_size = 3") + theme_grey(base_size = 3)
 
 ggsave("img/fig-io-practice-scale-0.3.png", p1, scale = 0.6)
 ggsave("img/fig-io-practice-scale-2.png", p2, scale = 2)
+```
+
+```{r exaggerated-scale, echo = FALSE, fig.cap = "Two versions of a figure with exaggerated values of `scale`", fig.show='hold', out.width='50%'}
+p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
+
+p + ggtitle("scale = 0.6")
+p + ggtitle("scale = 2")
+```
+
+__Via the `base_size` of the active theme__: The `base_size` of the [theme][ggplot2-theme-args] refers to the base font size. This is NOT a theme element that can be modified via `ggplot(...) + theme(...)`. Rather, it's an argument to various functions that set theme elements. Therefore, to get the desired effect you need to create a complete theme, specifying the desired `base_size`. By setting `base size < 12`, the default value, you shrink text elements and by setting `base_size > 12`, you make them larger. Figure \@ref(fig:exaggerated-base-size) shows two versions of a figure, with exaggerated values of `base_size`, to illustrate its effect. 
+
+```{r eval = FALSE}
+p3 <- p + ggtitle("base_size = 20") + theme_grey(base_size = 20)
+p4 <- p + ggtitle("base_size = 3") + theme_grey(base_size = 3)
+
 ggsave("img/fig-io-practice-base-size-20.png", p3)
 ggsave("img/fig-io-practice-base-size-3.png", p4)
 ```
 
-<table width="800px" height="100%" border="1">
-<tr><td><img src="img/fig-practice1.png"></td>
-<td><img src="img/fig-practice2.png"></td></tr>
-<tr><td><img src="img/fig-practice3.png"></td>
-<td><img src="img/fig-practice4.png"></td></tr>
-</table>
+```{r exaggerated-base-size, echo = FALSE, fig.cap = "Two versions of a figure with exaggerated values of `base_size`", fig.show='hold', out.width='50%'}
+p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
+
+p + ggtitle("base_size = 20") + theme_grey(base_size = 20)
+p + ggtitle("base_size = 3") + theme_grey(base_size = 3)
+```
 
 *Thanks to [Casey Shannon](https://twitter.com/cashoes_) for tips about `scale =` and this [cheatsheet from Zev Ross][zev-ross-cheatsheet] for tips about `base_size`.*
 
@@ -215,9 +229,7 @@ It is worth noting here that the `ggsave()` workflow is not vulnerable to this g
 Some relevant threads on stackoverflow:
 
   * [Using png not working when called within a function](https://stackoverflow.com/questions/9206110/using-png-function-not-working-when-called-within-a-function)
-
   * [ggplot's qplot does not execute on sourcing](https://stackoverflow.com/questions/6675066/ggplots-qplot-does-not-execute-on-sourcing)
-
   * [Save ggplot within a function](https://stackoverflow.com/questions/7034647/save-ggplot-within-a-function)
   
 ### Mysterious empty `Rplots.pdf` file

@@ -188,7 +188,10 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   scale_fill_viridis() + theme_bw()
 ```
 
-![Image Source: [sjmgarnier][viridis-example-plots]](img/viridis-sample2.png)
+
+```{r echo = FALSE, fig.cap = "From [https://github.com/sjmgarnier/viridis](https://github.com/sjmgarnier/viridis)"}
+knitr::include_graphics("img/viridis-sample2.png")
+```
 
 ## Hexadecimal RGB color specification
 
@@ -275,18 +278,23 @@ Here's what I can tell you about the HCL model's three dimensions:
   
 Full disclosure: I have a hard time really grasping and distinguishing chroma and luminance. As we point out above, they are not entirely independent, which speaks to the weird shape of the 3 dimensional HCL space.
   
-Figure 6.6 in Wickham's `ggplot2` book is helpful for understanding the HCL color space.
+This figure in Wickham's [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html) book is helpful for understanding the HCL color space:
 
-![Figure 6.6 of Wickham's ggplot2 book](img/ggplot2book-fig6.6.png)
+
+```{r echo = FALSE, fig.cap = "From [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html) by Hadley Wickham"}
+knitr::include_graphics("img/ggplot2book-fig6.6.png")
+```
 
 Paraphrasing Wickham: Each facet or panel depicts a slice through HCL space for a specific luminance, going from low to high. The extreme luminance values of 0 and 100 are omitted because they would, respectively, be a single black point and a single white point. Within a slice, the centre has chroma 0, which corresponds to a shade of grey. As you move toward the slice's edge, chroma increases and the color gets more pure and intense. Hue is mapped to angle.
   
 A valuable contribution of the `colorspace` package is that it provides functions to create color palettes traversing color space in a rational way. In contrast, the palettes offered by `RColorBrewer`, though well-crafted, are unfortunately fixed.
 
+
+
+
 Here is an article that uses compelling examples to advocate for perceptually based color systems and to demonstrate the importance of signalling where zero is in colorspace:
 
-<!--Link below auto-downloads a pdf file, this was the best link I could find. Do we want to change this?-->
-  * "Why Should Engineers and Scientists Be Worried About Color?"[(pdf)][worry-about-color]
+* ["Why Should Engineers and Scientists Be Worried About Color?"][worry-about-color] [@rogowitz1996]
 
 <!-- TO DO: Insert/recreate some visuals from the Zeileis et al. paper or from the `colorspace` vignette. Show actual usage! -->
 
@@ -301,7 +309,7 @@ library(dichromat)
 
 This `colorschemes` list contains `length(colorschemes)` color schemes "suitable for people with deficient or anomalous red-green vision".
 
-```{r dichromat-colorschemes, echo = FALSE}
+```{r dichromat-colorschemes, echo = FALSE, fig.cap = 'Color Schemes "suitable for people with deficient or anomalous red-green vision"'}
 library(ggplot2)
 
 x_boundaries <-
@@ -405,20 +413,21 @@ par(opar)
 par(opar)
 ```
 
-## References
+## Resources
 
-* Achim Zeileis, Kurt Hornik, Paul Murrell (2009). Escaping RGBland: Selecting Colors for Statistical Graphics. Computational Statistics & Data Analysis, 53(9), 3259-3270. [DOI][escaping-rgbland-doi] | [PDF][escaping-rgbland-pdf]
+* Zeileis et al.'s ["Escaping RGBland: Selecting Colors for Statistical Graphs"][escaping-rgbland-pdf] in [Computational Statistics & Data Analysis][escaping-rgbland-doi] [-@zeileis2009]. 
 * [Vignette][colorspace-vignette] for the [`colorspace`][colorspace-cran] package
 * Earl F. Glynn (Stowers Institute for Medical Research)
   + [excellent resources][stowers-color-chart] for named colors, i.e. the ones available via `colors()`
-  + informative talk "Using Color in R"[(pdf)][stowers-using-color-in-R],  though features some questionable *use* of color itself
-* Blog post [My favorite RGB color][favorite-rbg-color] on the Many World Theory blog
-* ggplot2: Elegant Graphics for Data Analysis [available via SpringerLink][elegant-graphics-springer] by Hadley Wickham, Springer (2009)
+  + informative talk ["Using Color in R"][stowers-using-color-in-R],  though features some questionable *use* of color itself
+* Blog post [My favorite RGB color][favorite-rgb-color] on the Many World Theory blog
+* Wickham's [ggplot2: Elegant Graphics for Data Analysis][elegant-graphics-springer] [-@wickham2009]
   + [online docs (nice!)][ggplot2-reference] 
   + [package webpage][ggplot2-web]
   + `ggplot2` on [CRAN][ggplot2-cran] and [GitHub][ggplot2-github]
   + Section 6.4.3 Colour
-* "Why Should Engineers and Scientists Be Worried About Color?" [(pdf)][worry-about-color] by Bernice E. Rogowitz and Lloyd A. Treinish of IBM Research , h/t [\@EdwardTufte](https://twitter.com/EdwardTufte).
+* ["Why Should Engineers and Scientists Be Worried About Color?"][worry-about-color] by Bernice E. Rogowitz and Lloyd A. Treinish of IBM Research [-@rogowitz1996], h/t [\@EdwardTufte](https://twitter.com/EdwardTufte)
+
 
 ```{r links, child="links.md"}
 ```

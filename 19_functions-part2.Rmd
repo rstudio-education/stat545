@@ -2,8 +2,6 @@
 
 <!--[Link to original content](https://stat545.com/block011_write-your-own-function-02.html) -->
 
-Writing your own R functions Part 2: generalize, set default argument values
-
 ## Where were we? Where are we going?
 
 In [part 1](#functions-part1) we wrote our first R function to compute the difference between the max and min of a numeric vector. We checked the validity of the function's only argument and, informally, we verified that it worked pretty well.
@@ -172,7 +170,7 @@ What we've accomplished:
   * we've generalized our first function to take a difference between arbitrary quantiles
   * we've specified default values for the probabilities that set the quantiles
   
-Where to next? In [Part 3](#functions-part3), we tackle `NA`s, the special `...` argument, and formal unit testing.
+Where to next? In [part 3](#functions-part3), we tackle `NA`s, the special `...` argument, and formal unit testing.
 
 ## Resources
 

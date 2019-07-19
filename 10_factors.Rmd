@@ -104,7 +104,7 @@ low_pop %>%
   summarize(max_pop = max(pop))
 ```
 
-## Change order of the levels, principled
+## Change order of the levels, principled {#reorder-factors}
 
 By default, factor levels are ordered alphabetically. Which might as well be random, when you think about it! It is preferable to order the levels according to some principle:
 

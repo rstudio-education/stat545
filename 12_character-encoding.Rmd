@@ -1,6 +1,6 @@
 # Character encoding {#character-encoding}
 
-*under development ... not clear where this is going*
+<!--*under development ... not clear where this is going*-->
 
 <!--[Link to original content](https://stat545.com/block032_character-encoding.html)-->
 

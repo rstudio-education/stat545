@@ -44,7 +44,7 @@
 * [Building and Maintaining R Packages with devtools and roxygen2][build-maintain-r-packages], blog post by Jacob Montgomery and Ryan T. Moore
 * [Writing Package Vignettes][murdoch-package-vignette-slides], slides for a November 2013 talk by Duncan Murdoch
 * [Roxygen vignette on Generating Rd files][roxygen2-vignette]
-* [`testthat`: Get Started with Testing][testthat-article], an article written by Hadley Wickham for *The R Journal,* Vol. 3/1, June 2011, pp. 5-10. *This may no longer be correct in every last detail, due to evolution of `testthat`, but it still makes an excellent, readable introduction to unit testing in R (packages)*.
+* Wickham's [testthat: Get Started with Testing][testthat-article] article in The R Journal [-@wickham2011b]. *This may no longer be correct in every last detail, due to evolution of `testthat`, but it still makes an excellent, readable introduction to unit testing in R (packages)*.
 * [How R Searches and Finds Stuff][how-r-searches] is a fairly technical blog post for understanding the R search path, but also gives some great explanations on some differences between `Imports` vs `Depends` and why `Imports` is safer.
 
 

@@ -219,7 +219,9 @@ And that concludes our treatment of regex-free manipulations of character data!
 
 ## Regular expressions with stringr
 
-![](img/regexbytrialanderror-big-smaller.png)
+```{r echo = FALSE, fig.cap = "From [\\@ThePracticalDev](https://twitter.com/ThePracticalDev/status/774309983467016193)", out.width = "50%"}
+knitr::include_graphics("img/regexbytrialanderror-big-smaller.png")
+```
 
 ### Load Gapminder
 

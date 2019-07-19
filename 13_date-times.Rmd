@@ -1,6 +1,6 @@
 # Dates and times {#date-time}
 
-*Under development ... really just a placeholder / collection of links*
+<!--*Under development ... really just a placeholder / collection of links*-->
 
 <!--[Link to original content](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block030_date-times.Rmd)--> 
 
@@ -18,9 +18,9 @@ I start with this because we cannot possibly do this topic justice in a short am
 
 [Dates and times][r4ds-dates-times] chapter from [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund. See also the subsection on dates and times in the [Data import chapter][r4ds-data-import].
 
-The [`lubridate`][lubridate-web] package ([CRAN][lubridate-cran]; github[lubridate-github]; [main vignette][lubridate-vignette]).
+The [`lubridate`][lubridate-web] package ([CRAN][lubridate-cran]; [GitHub][lubridate-github]; [main vignette][lubridate-vignette]).
 
-Grolemund, G., & Wickham, H. (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1 - 25. <http://dx.doi.org/10.18637/jss.v040.i03>
+Grolemund and Wickham's paper on `lubridate` in the Journal of Statistical Software [-@grolemund2011].
 
 Exercises to push you to learn `lubridate`: [part 1][lubridate-ex1], [part 2][lubridate-ex2], and [part 3][lubridate-ex3] *posts include links to answers!*
 

@@ -89,7 +89,6 @@
 [viridis-cran]: https://CRAN.R-project.org/package=viridis
 [viridis-github]: https://github.com/sjmgarnier/viridis
 [viridis-vignette]: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
-[viridis-example-plots]: https://github.com/sjmgarnier/viridis/blob/master/img/sample2.png
 
 [colorspace-cran]: https://CRAN.R-project.org/package=colorspace
 [colorspace-vignette]: https://cran.r-project.org/web/packages/colorspace/vignettes/hcl-colors.pdf
@@ -237,7 +236,7 @@
 
 
 [r-pkgs]: http://r-pkgs.had.co.nz
-[r-pkgs-test]: http://r-pkgs.had.co.nz/tests.html
+[r-pkgs-tests]: http://r-pkgs.had.co.nz/tests.html
 [r-pkgs-intro-get]: http://r-pkgs.had.co.nz/intro.html#intro-get
 
 [r-pkgs2]: https://r-pkgs.org/index.html
@@ -248,7 +247,6 @@
 [r-pkgs2-namespace]: https://r-pkgs.org/namespace.html
 [r-pkgs2-vignettes]: https://r-pkgs.org/vignettes.html
 [r-pkgs2-release]: https://r-pkgs.org/release.html
-
 
 [r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do
 [cookbook-for-r]: http://www.cookbook-r.com
@@ -321,7 +319,7 @@
 [regex101]: https://regex101.com
 [regexr]: https://regexr.com
 [utf8-debug]: http://www.i18nqa.com/debug/utf8-debug.html
-[unicode-noexcuses]: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
+[unicode-no-excuses]: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
 [programmers-encoding]: http://kunststube.net/encoding/
 [encoding-probs-ruby]: https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/
 [theyre-to-theyre]: https://www.justinweiss.com/articles/how-to-get-from-theyre-to-theyre/
@@ -337,7 +335,7 @@
 [robbins-effective-graphs]: https://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123
 [r-graph-catalog-github]: https://github.com/jennybc/r-graph-catalog
 [google-pie-charts]: https://www.google.com/search?q=pie+charts+suck
-[why-pi-charts-sucks]: https://www.richardhollins.com/blog/why-pie-charts-suck/
+[why-pie-charts-suck]: https://www.richardhollins.com/blog/why-pie-charts-suck/
 [worst-figure]: https://robjhyndman.com/hyndsight/worst-figure/
 [naomi-robbins]: http://www.nbr-graphs.com
 [hadley-github-index]: https://hadley.github.io

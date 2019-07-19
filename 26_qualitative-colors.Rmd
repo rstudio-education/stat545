@@ -22,7 +22,7 @@ jdat <- gapminder %>%
 
 ## Take control of the size and color of points
 
-Let's use ggplot2 to move towards the classic Gapminder bubble chart. Crawl then walk then run.
+Let's use `ggplot2` to move towards the classic Gapminder bubble chart. Crawl then walk then run.
 
 First, make a simple scatterplot for a single year.
 
@@ -68,7 +68,10 @@ r + aes(fill = continent)
 
 The gapminder package comes with color palettes for the continents and the individual countries. For example, here's the country color scheme:
 
-![Source: <https://github.com/jennybc/gapminder/blob/master/data-raw/gapminder-color-scheme-ggplot2.png>](img/gapminder-color-scheme-ggplot2.png)
+```{r echo = FALSE, fig.cap = "From [https://github.com/jennybc/gapminder](https://github.com/jennybc/gapminder)"}
+knitr::include_graphics("img/gapminder-color-scheme-ggplot2.png")
+```
+
 
 ```{r}
 str(country_colors)

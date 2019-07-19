@@ -2,11 +2,9 @@
 
 <!--[Link to original content](https://stat545.com/block012_function-regress-lifeexp-on-year.html)-->
 
-Function-writing Practicum: fit a linear model and return estimated coefficients
-
 ## Overview
 
-We recently learned how to write our own R functions ([Part 1](#functions-part1), [Part 2](#functions-part2), [Part 3](#functions-part3)).
+We recently learned how to write our own R functions ([part 1](#functions-part1), [part 2](#functions-part2), [part 3](#functions-part3)).
 
 Now we use that knowledge to write another useful function, within the context of the Gapminder data:
 
@@ -19,10 +17,10 @@ The ultimate goal is to apply this function to the Gapminder data for a specific
 
 As usual, load the Gapminder excerpt. Load `ggplot2` because we'll make some plots and `dplyr` too.
 
-```{r}
+```{r message = FALSE}
 library(gapminder)
 library(ggplot2)
-suppressPackageStartupMessages(library(dplyr))
+library(dplyr)
 ```
 
 ## Get data to practice with

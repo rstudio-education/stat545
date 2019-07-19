@@ -32,7 +32,7 @@ How does this fit with our emphasis on dynamic reporting via R Markdown? There i
 
 ## Load the tidyverse
 
-The main package we will be using is [`readr`][readr-webpage], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
+The main package we will be using is [`readr`][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
 
 ```{r start_import_export}
 library(tidyverse)
@@ -235,27 +235,26 @@ When the header fields (often, but not always, the variable names) or actual dat
 
 Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter. That is, in fact, the default for both `read.table()` and `write.table()`. Assuming you will write/read variable names from the first line (a.k.a. the `header` in `write.table()` and `read.table()`), they must be valid R variable names ... or they will be coerced into something valid. So, for these two reasons, it is good practice to use "one word" variable names whenever possible. If you need to evoke multiple words, use `snake_case` or `camelCase` to cope. Example: the header entry for the field holding the subject's last name should be `last_name` or `lastName` NOT `last name`. With the `readr` package, "column names are left as is, not munged into valid R identifiers (i.e. there is no `check.names = TRUE`)". So you can get away with whitespace in variable names and yet I recommend that you do not.
 
-## References
+## Resources
 
 [Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund.
 
-Nine simple ways to make it easier to (re)use your data by Ethan P White, Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, Sarah R. Supp.
+White et al.'s "Nine simple ways to make it easier to (re)use your data" [-@white2013]. 
 
-  * First appeared here: PeerJ PrePrints 1:e7v2 <https://doi.org/10.7287/peerj.preprints.7v2>
-  * Published here: Ideas in Ecology and Evolution 6(2), 2013. <https://ojs.library.queensu.ca/index.php/IEE/article/view/4608>
-  * Section 4 "Use Standard Data Formats" is especially good reading.
+* First appeared [in PeerJ Preprints](https://doi.org/10.7287/peerj.preprints.7v2)
+* Published in [Ideas in Ecology and Evolution in 2013](https://ojs.library.queensu.ca/index.php/IEE/article/view/4608)
+* Section 4 "Use Standard Data Formats" is especially good reading.
   
-Tidy data by Hadley Wickham
+Wickham's paper on tidy data in the Journal of Statistical Software [-@wickham2014]. 
 
-  * In the Journal of Statistical Software Vol 59 (2014), Issue 10, 10.18637/jss.v059.i10: <https://www.jstatsoft.org/article/view/v059i10>
-  * PDF also available here: <http://vita.had.co.nz/papers/tidy-data.pdf>
+* Available as a PDF [here](http://vita.had.co.nz/papers/tidy-data.pdf)
 
-Data Manipulation with R by Phil Spector, Springer (2008)
+Data Manipulation in R by Phil Spector [-@spector2008].
 
-  * Available via [SpringerLink](https://www.springer.com/gp/book/9780387747309)
-  * [Author's webpage](https://www.stat.berkeley.edu/%7Espector/)
-  * [GoogleBooks search](https://books.google.com/books?id=grfuq1twFe4C&lpg=PP1&dq=data%2520manipulation%2520spector&pg=PP1#v=onepage&q&f=false)
-  * See Chapter 2 ("Reading and Writing Data")
+* Available via [SpringerLink](https://www.springer.com/gp/book/9780387747309)
+* [Author's webpage](https://www.stat.berkeley.edu/%7Espector/)
+* [GoogleBooks search](https://books.google.com/books?id=grfuq1twFe4C&lpg=PP1&dq=data%2520manipulation%2520spector&pg=PP1#v=onepage&q&f=false)
+* See Chapter 2 ("Reading and Writing Data")
 
 
 ```{r links, child="links.md"}

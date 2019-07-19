@@ -2,7 +2,9 @@
 
 <!--[Link to original content](https://stat545.com/block015_graph-dos-donts.html)-->
 
-<!-- Link below is broken and I can't find the source material.
+<!-- 
+The link mentioned below is broken and I can't find the source material.
+
 *In 2015, this was mercifully replaced by a [guest lecture from UBC colleague Tamara Munzner](http://stat545-ubc.github.io/cm014_viz-design-munzner.html). The content below would be better with links to specific figures from Naomi Robbins' book, but the Shiny app does not make that possible. Or perhaps I should just embed my versions of them.*
 -->
 
@@ -40,7 +42,7 @@ We are best able to make comparisons via position of objects along a common scal
 
 Tufte, as quoted by Robbins: "the only worse design than a pie chart is several of them."
 
-  * "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck][why-pi-charts-suck] shows a series of 3 pie charts versus a line chart.
+  * "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck][why-pie-charts-suck] shows a series of 3 pie charts versus a line chart.
   * Rob Hyndman nominated a 3 pie chart series as [the worst figure][worst-figure], which has the added horror of cross-hatching. Sorry, no before and after here.
 
 ### Stacked and group bar charts
@@ -67,14 +69,15 @@ Barring that, my advice is to proofread like a maniac.
 
 ### Using Microsoft Excel to obscure your data and annoy your readers
 
-We will look through this section (slides 1 - 36) of Karl Broman's excellent talk How to Display Data Badly (see References for links).
+We will look through this section (slides 1 - 36) of Karl Broman's excellent talk How to Display Data Badly (see [Resources](#effective-graphs-resources) for links).
 
 ## Do: make the data stand out
 
 This animation created by Darkhorse Analytics illustrates how communication can be greatly enhanced by eliminating clutter and de-emphasizing supporting elements. Every aspect of a figure should be there on a "need to have it" basis.
 
-![](img/less-is-more-darkhorse-analytics.gif)
-<!--http://i.imgur.com/WntrM6p.gif-->
+```{r echo = FALSE, fig.cap = "From  [Data Looks Better Naked](https://www.darkhorseanalytics.com/blog/data-looks-better-naked) by Darkhorse Analytics"}
+knitr::include_graphics("img/less-is-more-darkhorse-analytics.gif")
+```
 
 In CMEG, Figs 6.2 vs 6.3 make much the same point, i.e. stripping the figure way down is a huge improvement. Figs 5.4 and 5.5 are both decent graphs but using dots (Fig 5.5) instead of bars (Fig 5.4) improves the data\:ink ratio.
 
@@ -153,9 +156,9 @@ It is often better to avoid superposition and, instead, to put the groups into d
 
 ### A tour of the Do's
 
-We will look through another section (slides 48 - 62) of Karl Broman's excellent talk How to Display Data Badly (see References for links).
+We will look through another section (slides 48 - 62) of Karl Broman's excellent talk How to Display Data Badly (see [Resources](#effective-graphs-resources) for links).
 
-## Resources
+## Resources {#effective-graphs-resources}
 
 * ["Creating More Effective Graphs"][robbins-effective-graphs] by [Naomi Robbins][naomi-robbins]  
 * The [R Graph Catalog][r-graph-catalog-github] presents the figures from ["Creating More Effective Graphs"][robbins-effective-graphs] as a visual quilt. Click on a figure to see the `ggplot2` code that makes it.  
@@ -165,7 +168,7 @@ We will look through another section (slides 48 - 62) of Karl Broman's excellent
 * [`ggplot2`][ggplot2-web] written by [Hadley Wickham][hadley-github-index]  
 * [Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r]  
 * My [`ggplot2` tutorial][ggplot2-tutorial]  
-* "Let's Practice What We Preach: Turning Tables into Graphs" by Gelman A, Pasarica C, Dodhia R. *The American Statistician*, Volume 56, Number 2, 1 May 2002 , pp. 121-130(10). via [JSTOR](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents)  
+* Gelman et al.'s ["Let's Practice What We Preach"](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents) in The American Statistician [-@gelman2002].
 
 
 <!--

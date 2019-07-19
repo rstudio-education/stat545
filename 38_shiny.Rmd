@@ -97,7 +97,10 @@ This template is by itself a working minimal Shiny app that doesn't do much. It 
 
 After saving the file, RStudio should recognize that this is a Shiny app, and you should see the usual *Run* button at the top change to *Run App*.
 
-[![Shiny Run App](./img/shiny-runapp.png)](./img/shiny-runapp.png)
+```{r echo = FALSE, fig.cap = "Shiny run app button", out.width = "93%"}
+knitr::include_graphics("img/shiny-runapp.png")
+```
+
 
 If you don't see the *Run App* button, it means you either have a very old version of RStudio, don't have Shiny installed, or didn't follow the file naming conventions.
 
@@ -105,7 +108,9 @@ Click the *Run App* button, and now your app should run. You won't see much beca
 
 Click the stop button to stop the app, or press the *Escape* key.
 
-[![Shiny Stop App](./img/shiny-stopapp.png)](./img/shiny-stopapp.png)
+```{r echo = FALSE, fig.cap = "Shiny stop app button", out.width = "93%"}
+knitr::include_graphics("img/shiny-stopapp.png")
+```
 
 You may have noticed that when you click the *Run App* button, all it's doing is just running the function `shiny::runApp()` in the console. You can run that command instead of clicking the button if you prefer.
 
@@ -127,7 +132,9 @@ You can also create a new Shiny app using RStudio's menu by selecting *File > Ne
 
 ## Load the dataset {#shiny-tutorial-4}
 
-<!--Link to the original dataset no longer works. The closest thing I could find is [this](https://catalogue.data.gov.bc.ca/dataset/bc-liquor-store-product-price-list-historical-prices) but it was just modified in 2019. The csv at deanattali.com is still live so will just refer to that for now. -->
+<!--
+Link to the original dataset no longer works. The closest thing I could find is [this](https://catalogue.data.gov.bc.ca/dataset/bc-liquor-store-product-price-list-historical-prices) but it was just modified in 2019. The csv at deanattali.com is still live so will just refer to that for now. 
+-->
 
 The dataset we'll be using contains information about all the products sold by BC Liquor Store and is provided by [OpenDataBC](https://www.opendatabc.ca/dataset/bc-liquor-store-product-price-list-current-prices). They provide a direct link to download a *csv* version of the data, and this data has the rare quality that it is immediately clean and useful. You can view the [raw data](http://pub.data.gov.bc.ca/datasets/176284/BC_Liquor_Store_Product_Price_List.csv) they provide, but I have taken a few steps to simplify the dataset to make it more useful for our app. I removed some columns, renamed other columns, and dropped a few rare factor levels.
 
@@ -252,7 +259,9 @@ server <- function(input, output) {}
 shinyApp(ui = ui, server = server)
 ```
 
-[![Shiny layout](./img/shiny-layout.png)](./img/shiny-layout.png)
+```{r echo = FALSE, out.width = "93%", fig.cap = "Our Shiny app so far"}
+knitr::include_graphics("img/shiny-layout.png")
+```
 
 > If you want to be a lot more flexible with the design, you can have much more fine control over where things go by using a grid layout. We won't cover that here, but if you're interested, look at the documentation for `?column` and `?fluidRow`.
 
@@ -286,6 +295,8 @@ This should make you appreciate Shiny for not making you write horrendous HTML b
 ## Add inputs to the UI {#shiny-tutorial-6}
 
 Inputs are what gives users a way to interact with a Shiny app. Shiny provides many input functions to support many kinds of interactions that the user could have with an app. For example, `textInput()` is used to let the user enter text, `numericInput()` lets the user select a number, `dateInput()` is for selecting a date, `selectInput()` is for creating a select box (aka a dropdown menu).
+
+
 
 [![Shiny inputs](./img/shiny-inputs.png)](./img/shiny-inputs.png)
 
@@ -888,7 +899,7 @@ Shiny is extremely powerful and has lots of features that we haven't covered. He
 You can include Shiny inputs and outputs in an Markdown document! This means that your Markdown document can be interactive. Learn more [here][shiny-bookdown]. Here's a simple example of how to include interactive Shiny elements in an Markdown.  
 
 ````markdown
-`r xfun::file_string('examples/shiny.Rmd')`
+`r xfun::file_string('supporting-docs/shiny.Rmd')`
 ````
   
 ### Use `conditionalPanel()` to conditionally show UI elements

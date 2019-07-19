@@ -2,8 +2,6 @@
 
 <!--[Link to original content](https://stat545.com/block011_write-your-own-function-01.html) -->
 
-Writing your own R functions Part 1: get something that works, check arguments
-
 ## What and why?
 
 My goal here is to reveal the __process__ a long-time useR employs for writing functions. I also want to illustrate why the process is the way it is. Merely looking at the finished product, e.g. source code for R packages, can be extremely deceiving. Reality is generally much uglier ... but more interesting!
@@ -49,7 +47,9 @@ Internalize this "answer" because our informal testing relies on you noticing de
 
 This image [widely attributed to the Spotify development team][min-viable-product] conveys an important point.
 
-![](img/spotify-howtobuildmvp.gif)
+```{r spotify-howtobuildmvp, echo = FALSE, out.width = "60%", fig.cap = "From [Your ultimate guide to Minimum Viable Product (+great examples)](https://blog.fastmonkeys.com/2014/06/18/minimum-viable-product-your-ultimate-guide-to-mvp-great-examples/)"}
+knitr::include_graphics("img/spotify-howtobuildmvp.jpg")
+```
 
 Build that skateboard before you build the car or some fancy car part. A limited-but-functioning thing is very useful. It also keeps the spirits high.
 

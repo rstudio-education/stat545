@@ -1,7 +1,6 @@
 # Write your own R package {#package-from-scratch}
 
 <!--[Link to original content](http://stat545.com/packages06_foofactors-package.html)-->
-<!--Has this section been edited? There are some parts that deviate from the original stat545 material-->
 
 This section closely tracks with content from the book [R Packages][r-pkgs2] (2nd edition) by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game"][r-pkgs2-whole-game] (*Note*: The 2nd edition of the R Packages book is currently under development. You can see the 1st edition of the R Packages book [here][r-pkgs]). The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
 
@@ -89,7 +88,7 @@ We use various functions from `devtools` to build a small toy package from scrat
   * Access to established workflows for installation, getting help, and checking basic quality.
   * Version control and an open development process.
     - This is completely optional in your work, but recommended. You'll see how Git and GitHub helps us expose all the intermediate stages of our package.
-  * Documentation for individual functions via [`roxygen2`][roxygen2-web].
+  * Documentation for individual functions via [`roxygen2`][roxygen2-cran].
   * Unit testing with [`testthat`][testthat-web].
   * Documentation for the package as a whole via an executable `README.Rmd`.
 
