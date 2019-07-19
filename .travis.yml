@@ -1,9 +1,10 @@
 language: r
 cran: https://cran.rstudio.com
-cache:
-  packages: false
-  directories:
-  - $HOME/.npm
+#cache:
+#  packages: false
+#  directories:
+#  - $HOME/.npm
+cache: packages
 
 before_install:
   # rm -rf package-lock.json node_modules
@@ -13,7 +14,7 @@ before_install:
 
 env:
   - NETLIFY_SITE_ID=82ff5a18-8a13-4f25-b688-230b04bc5664
-  # R_REMOTES_STANDALONE=true
+  - R_REMOTES_STANDALONE=true
   # NETLIFY_AUTH_TOKEN set in travis settings
 
 script:
