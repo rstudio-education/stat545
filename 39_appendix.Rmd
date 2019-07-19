@@ -21,13 +21,13 @@
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block031_vector-tibble-relations.Rmd
 
 
-## Computing by groups within data.frames with dplyr and broom {#dplyr-do}
+## Computing by groups within `data.frames` with `dplyr` and `broom` {#dplyr-do}
 
 * __Rendered__: https://stat545.com/block023_dplyr-do.html
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block023_dplyr-do.rmd
   
   
-## Computing by groups within data.frames with `plyr` {#plyr-ddply}
+## Computing by groups within `data.frames` with `plyr` {#plyr-ddply}
 
 * __Rendered__: https://stat545.com/block013_plyr-ddply.html
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block013_plyr-ddply.rmd
@@ -37,16 +37,21 @@
 
 ## Draw the rest of the owl, a pep talk for building off simple examples {#draw-the-owl}
 
-<!--[Link to original content rendered](http://stat545.com/bit007_draw-the-rest-of-the-owl.html)-->
-<!--[Link to original content raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/bit007_draw-the-rest-of-the-owl.Rmd)-->
+<!--
+[Link to original content rendered](http://stat545.com/bit007_draw-the-rest-of-the-owl.html)
+[Link to original content raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/bit007_draw-the-rest-of-the-owl.Rmd)
+-->
 
 ```{r echo = FALSE}
 set.seed(328)
 ```
 
-![](img/how-to-draw-an-own-imgur.jpg)
+```{r draw-an-owl, echo = FALSE, fig.cap = '"How to draw an owl" from [imgur](http://imgur.com/gallery/RadSf)"', out.width = "50%"}
+library(knitr)
+knitr::include_graphics("img/how-to-draw-an-own-imgur.jpg")
+```
 
-This [image](http://imgur.com/gallery/RadSf) is often used to illustrate how hard it can be to go from simple examples to the real thing you actually want.
+Figure \@ref(fig:draw-an-owl) is an image that is often used to illustrate how hard it can be to go from simple examples to the real thing you actually want.
 
 I recently needed to draw a f\*cking owl in R, so I decided to record the process as an experiment.
 
@@ -266,7 +271,10 @@ VERB_5("A group of owls is called a Parliament.")
 
 And we have drawn some f\*cking owls, with retries!
 
-![](https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr05/7/10/enhanced-22024-1394207918-30.jpg)
+```{r echo = FALSE, out.width = "50%", fig.cap = "From [buzzfeed](https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr05/7/10/enhanced-22024-1394207918-30.jpg)"}
+knitr::include_graphics("https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr05/7/10/enhanced-22024-1394207918-30.jpg")
+```
+
 
 ### The final result is not that exciting
 
@@ -286,8 +294,10 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## Make browsing your GitHub repos more rewarding {#github-browsability}
 
-<!--[Link to original content rendered](http://stat545.com/bit006_github-browsability-wins.html)-->
-<!--[Link to original content raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/bit006_github-browsability-wins.Rmd)-->
+<!--
+[Link to original content rendered](http://stat545.com/bit006_github-browsability-wins.html)
+[Link to original content raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/bit006_github-browsability-wins.Rmd)
+-->
 
 *The unreasonable effectiveness of GitHub browsability*
 
@@ -461,21 +471,40 @@ and here it is with placeholders:
 
 AFAIK, to do that in a slick automatic way across an entire repo/site, you need to be using Jekyll or some other automated system. But you could easily handcode such links on a small scale.
 
-## sheet for `dplyr` join functions
-
-__todo__
-
 ## How to send a bunch of emails from R {#email-in-r}
 
-[Workflow](https://github.com/jennybc/send-email-with-r) for sending email with R and [`gmailr`](https://CRAN.R-project.org/package=gmailr)
+[Workflow](https://github.com/jennybc/send-email-with-r) for sending email with R and [`gmailr`](https://CRAN.R-project.org/package=gmailr).
 
 ## Store an API key as an environment variable {#store-api-key}
 
-__todo__
+This can be found [here](https://happygitwithr.com/credential-caching.html).
 
 ## Data Carpentry lesson on tidy data {#data-carp-tidy-data}
 
-__todo__
+*A lesson I contributed to [Data Carpentry](https://software-carpentry.org/blog/2014/05/our-first-data-carpentry-workshop.html) on tidying data.*
+
+This is a lesson on tidying data. Specifically, what to do when a conceptual variable is spread out over 2 or more variables in a data frame.
+
+Data used: words spoken by characters of different races and gender in the Lord of the Rings movie trilogy
+
+  * [directory of this lesson](https://github.com/datacarpentry/datacarpentry/tree/master/lessons/tidy-data) in the Data Carpentry GitHub repo
+  * [01-intro](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/01-intro.md) shows untidy and tidy data. Then we demonstrate how tidy data is more useful for analysis and visualization. Includes references, resources, and exercises.
+  * [02-tidy](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/02-tidy.md) shows __how__ to tidy data, using `gather()` from the `tidyr` package. Includes references, resources, and exercises.
+  * [03-tidy-bonus-content](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/03-tidy-bonus-content.md) is not part of the lesson but may be useful as learners try to apply the principles of tidy data in more general settings. Includes links to packages used.
+
+Learner-facing dependencies:
+
+  * files in the `tidy-data` sub-directory of the Data Carpentry `data` directory
+  * `tidyr` package (only true dependency)
+  * `ggplot2` is used for illustration but is not mission critical 
+  * `dplyr` and `reshape2` are used in the bonus content
+
+Instructor dependencies:
+
+  * `curl` if you execute the code to grab the Lord of the Rings data used in examples from GitHub. Note that the files are also included in the `datacarpentry/data/tidy-data` directory, so data download is avoidable.
+  * `rmarkdown`, `knitr`, and `xtable` if you want to compile the `Rmd` to `md` and `html`
+
+
 
 ```{r links, child="links.md"}
 ```

@@ -39,9 +39,9 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 [Link to slides](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p)
 -->
 
-```{r echo = FALSE, fig.align = 'center', out.width="100%", out.height = 450}
+```{r echo = FALSE, fig.align = 'center', out.width="100%", out.height = 450, fig.cap = "[Building Shiny Apps](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) by Dean Attali"}
 library(knitr)
-include_graphics("img/shiny-slides.pdf")
+knitr::include_graphics("img/shiny-slides.pdf")
 ```
 
 # Building Shiny Apps {#shiny-tutorial}
@@ -380,8 +380,9 @@ server <- function(input, output) {}
 shinyApp(ui = ui, server = server)
 ```
 
-[![Shiny add inputs](./img/shiny-addinputs.png)](./img/shiny-addinputs.png)
-
+```{r echo = FALSE, out.width = "93%", fig.cap = "Adding inputs to our Shiny app"}
+knitr::include_graphics("img/shiny-addinputs.png")
+```
 
 ## Add placeholders for outputs {#shiny-tutorial-7}
 
@@ -583,7 +584,9 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-[![Shiny add plot](./img/shiny-addplot.png)](./img/shiny-addplot.png)
+```{r echo = FALSE, out.width = "93%", fig.cap = "Adding a plot to our Shiny app"}
+knitr::include_graphics("img/shiny-addplot.png")
+```
 
 **Exercise:** The current plot doesn't look very nice, you could enhance the plot and make it much more pleasant to look at.
 
@@ -883,7 +886,10 @@ RStudio provides a service called [shinyapps.io][shinyapps-web] which lets you h
 
 Hosting your app on shinyapps.io is the easy and recommended way of getting your app online.  Go to [www.shinyapps.io][shinyapps-web] and sign up for an account. When you're ready to publish your app, click on the "Publish Application" button in RStudio and follow their instructions. You might be asked to install a couple packages if it's your first time.
 
-[![Shiny publish](./img/shiny-publish.png)](./img/shiny-publish.png)
+```{r echo = FALSE, out.width = "93%", fig.cap = "Shiny publish application button"}
+knitr::include_graphics("img/shiny-publish.png")
+```
+
 
 After a successful deployment to shinyapps.io, you will be redirected to your app in the browser. You can use that URL to show off to your family what a cool app you wrote.
 
