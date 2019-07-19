@@ -31,6 +31,8 @@ The second case is most useful when the data you want has been provided in a for
 
 ### from ropensci web services page:
 
+From ropensci's [CRAN Task View: Web Technologies and Services](https://github.com/ropensci/webservices)
+
 * `downloader::download()` for SSL.
 * `curl::curl()` for SSL.
 * `httr::GET` data read this way needs to be parsed later with `read.table()`.
@@ -152,6 +154,8 @@ options(geonamesUsername="my_user_name")
 
 **Important**: Make sure your `.Rprofile` ends with a blank line!
 
+Also see the [Cache credentials for HTTPS](https://happygitwithr.com/credential-caching.html) chapter of [Happy Git and GitHub for the useR](https://happygitwithr.com).
+
 
 #### Using Geonames
 
@@ -261,7 +265,7 @@ key <- getOption("this_is_my_key")
 This is a simple means to keep your keys private, especially if you are sharing the same authentication across several projects.
 
 
-#### A few timely reminders about your .Rprofile
+#### A few timely reminders about your `.Rprofile`
 
 ```r
 print("This is Andrew's Rprofile and you can't have it!")

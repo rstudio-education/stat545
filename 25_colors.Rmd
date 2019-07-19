@@ -130,7 +130,7 @@ But it's much more exciting to see the colors displayed! Lots of people have tac
 -->
 
 
-## RColorBrewer
+## `RColorBrewer`
 
 Most of us are pretty lousy at choosing colors and it's easy to spend too much time fiddling with them. [Cynthia Brewer][wiki-brewer], a geographer and color specialist, has created sets of colors for print and the web and they are available in the add-on package [`RColorBrewer`][rcolorbrewer-cran]. You will need to install and load this package to use.
 
@@ -169,7 +169,7 @@ with(jdat, text(x = gdpPercap, y = lifeExp, labels = j_brew_colors,
                 pos = rep(c(1, 3, 1), c(5, 1, 2)))) 
 ```
 
-## viridis
+## `viridis`
 
 In 2015 Stéfan van der Walt and Nathaniel Smith designed new color maps for matplotlib and [presented them in a talk at SciPy 2015][scipy-2015-matplotlib-colors]. The `viridis` R package provides four new palettes for use in R: on [CRAN][viridis-cran] with development on [GitHub][viridis-github]. From DESCRIPTION:
 

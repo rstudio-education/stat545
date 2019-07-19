@@ -80,7 +80,7 @@ Nevertheless, as you work through the development of this toy package, it may be
 
 You can think of the `usethis::use_*()` family as functions that simplify things that you do once (like creating a file), whereas `devtools` automates things that you do multiple times (like running all tests).
 
-## Toy package: foofactors
+## Toy package: `foofactors`
 
 We use various functions from `devtools` to build a small toy package from scratch, with features commonly seen in released packages:
 
@@ -890,6 +890,8 @@ Which means vignette `.md` would be left behind in `vignettes/` and therefore po
 This creates a remote companion repository on GitHub, sets an upstream tracking branch for `master`, and makes an initial push. If you use RStudio, this means your Push and Pull buttons will work. If you prefer, you can always create the GitHub repo in the browser and use command line Git to add the GitHub remote and set an upstream tracking branch for `master`.
 
 To connect to GitHub, under the hood `devtools` calls the GitHub API. This means you'll need to use your GitHub account to get a personal access token (PAT).
+
+*See the [Cache credentials for HTTPS](https://happygitwithr.com/credential-caching.html) chapter of [Happy Git and GitHub for the useR](https://happygitwithr.com).*
 
 Get a PAT here <https://github.com/settings/tokens>. Make sure the "repo" scope is included.
 

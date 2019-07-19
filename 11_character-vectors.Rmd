@@ -62,13 +62,13 @@ A God-awful and powerful language for expressing patterns to match in text or fo
   * Certain operations are facilitated by `tidyr`. These are described below.
   * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#vectors-tibbles)
 
-## Load the tidyverse, which includes stringr
+## Load the `tidyverse`, which includes `stringr`
 
 ```{r start_char_vectors}
 library(tidyverse)
 ```
 
-## Regex-free string manipulation with stringr and tidyr
+## Regex-free string manipulation with `stringr` and `tidyr`
 
 Basic string manipulation tasks:
 
@@ -217,13 +217,13 @@ tibble(melons) %>%
 
 And that concludes our treatment of regex-free manipulations of character data!
 
-## Regular expressions with stringr
+## Regular expressions with `stringr`
 
 ```{r echo = FALSE, fig.cap = "From [\\@ThePracticalDev](https://twitter.com/ThePracticalDev/status/774309983467016193)", out.width = "50%"}
 knitr::include_graphics("img/regexbytrialanderror-big-smaller.png")
 ```
 
-### Load Gapminder
+### Load `gapminder`
 
 The country names in the gapminder dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
 

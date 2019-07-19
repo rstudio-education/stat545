@@ -1,4 +1,4 @@
-# Single table dplyr functions {#dplyr-single}
+# Single table `dplyr` functions {#dplyr-single}
 
 <!--Original content: https://stat545.com/block010_dplyr-end-single-table.html-->
 
@@ -15,7 +15,7 @@ We also discussed dplyr's role inside the tidyverse and tibbles:
   * dplyr is a core package in the [tidyverse][tidyverse-github] meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via `library(tidyverse)`.
   * The tidyverse embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
 
-## Load dplyr and gapminder
+## Load `dplyr` and `gapminder`
 
 I choose to load the tidyverse, which will load dplyr, among other packages we use incidentally below. Also load gapminder.
 
@@ -24,7 +24,7 @@ library(gapminder)
 library(tidyverse)
 ```
 
-## Create a copy of gapminder
+## Create a copy of `gapminder`
 
 We're going to make changes to the `gapminder` tibble. To eliminate any fear that you're damaging the data that comes with the package, we create an explicit copy of `gapminder` for our experiments.
 

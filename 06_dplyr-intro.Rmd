@@ -1,4 +1,4 @@
-# Introduction to dplyr {#dplyr-intro}
+# Introduction to `dplyr` {#dplyr-intro}
 
 <!--Original content:https://stat545.com/block009_dplyr-intro.html-->
 

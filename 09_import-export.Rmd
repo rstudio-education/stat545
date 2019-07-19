@@ -30,7 +30,7 @@ Second tip: don't be too cute or clever. A plain text file that is readable by a
 
 How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with `knitr` and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make][minimal-make].
 
-## Load the tidyverse
+## Load the `tidyverse`
 
 The main package we will be using is [`readr`][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
 

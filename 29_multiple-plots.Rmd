@@ -8,7 +8,7 @@
 
 Faceting is useful for constructing an array of similar plots where each panel corresponds to a level of a factor or a combination of levels from multiple factors. Pragmatic reshaping can make lots of graphing problems have this "look". But this does not cover the entire spectrum of multi-plot needs in the real world. Sometimes you need to get more than one plot on a virtual page and the plots are rather disconnected. How do you do that?
 
-## Meet the gridExtra package
+## Meet the `gridExtra` package
 
 Under the hood, `ggplot2` uses the `grid` package to create figures. The `gridExtra` packages provides some extra goodies and we will draw on them to place multiple `ggplot2` plots on a single virtual page.
 
@@ -19,7 +19,7 @@ You may need to install `gridExtra` and you will certainly need to load it.
 library(gridExtra)
 ```
 
-## Load the Gapminder data and ggplot2
+## Load `gapminder` and `ggplot2`
 
 ```{r}
 library(gapminder)

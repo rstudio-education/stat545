@@ -2,7 +2,7 @@
 
 <!--Original content: https://stat545.com/bit001_dplyr-cheatsheet.html--> 
 
-Join (a.k.a. merge) two tables: dplyr join cheatsheet with comic characters and publishers.
+Join (a.k.a. merge) two tables: `dplyr` join cheatsheet with comic characters and publishers.
 
 ## Why the cheatsheet
 
@@ -11,7 +11,7 @@ Examples for those of us who don't speak SQL so good. There are lots of [Venn di
 
 Other great places to read about joins:
 
-  * The dplyr vignette on [Two-table verbs][dplyr-vignette-two-table]
+  * The `dplyr` vignette on [Two-table verbs][dplyr-vignette-two-table]
   * The [Relational data chapter][r4ds-relational-data] in [R for Data Science][r4ds] [@wickham2016]. Excellent diagrams.
   
 ## The data
@@ -44,9 +44,9 @@ Sorry, cheat sheet does not illustrate "multiple match" situations terribly well
 
 Sub-plot: watch the row and variable order of the join results for a healthy reminder of why it's dangerous to rely on any of that in an analysis.
 
-## inner_join(superheroes, publishers)
+## `inner_join(superheroes, publishers)`
 
-> inner_join(x, y): Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
+> `inner_join(x, y)`: Return all rows from `x` where there are matching values in `y`, and all columns from `x` and `y`. If there are multiple matches between `x` and `y`, all combination of the matches are returned. This is a mutating join.
 
 ```{r}
 (ijsp <- inner_join(superheroes, publishers, by = c("publisher" = "publisher")))
@@ -78,9 +78,9 @@ ijsp_kable <- knitr::kable(ijsp)
 </tr>
 </table>
   
-## semi_join(superheroes, publishers)
+## `semi_join(superheroes, publishers)`
 
-> semi_join(x, y): Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x. This is a filtering join.
+> `semi_join(x, y)`: Return all rows from `x` where there are matching values in `y`, keeping just columns from `x`. A semi join differs from an inner join because an inner join will return one row of x for each matching row of `y`, where a semi join will never duplicate rows of `x`. This is a filtering join.
 
 ```{r}
 (sjsp <- semi_join(superheroes, publishers))
@@ -109,9 +109,9 @@ sjsp_kable <- knitr::kable(sjsp)
 </tr>
 </table>
 
-## left_join(superheroes, publishers)
+## `left_join(superheroes, publishers)`
 
-> left_join(x, y): Return all rows from x, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
+> `left_join(x, y)`: Return all rows from `x`, and all columns from `x` and `y`. If there are multiple matches between `x` and `y`, all combination of the matches are returned. This is a mutating join.
 
 ```{r}
 (ljsp <- left_join(superheroes, publishers))
@@ -140,9 +140,9 @@ ljsp_kable <- knitr::kable(ljsp)
 </tr>
 </table>
 
-## anti_join(superheroes, publishers)
+## `anti_join(superheroes, publishers)`
 
-> anti_join(x, y): Return all rows from x where there are not matching values in y, keeping just columns from x. This is a filtering join.
+> `anti_join(x, y)`: Return all rows from `x` where there are not matching values in `y`, keeping just columns from `x`. This is a filtering join.
 
 ```{r}
 (ajsp <- anti_join(superheroes, publishers))
@@ -171,9 +171,9 @@ ajsp_kable <- knitr::kable(ajsp)
 </tr>
 </table>
 
-## inner_join(publishers, superheroes)
+## `inner_join(publishers, superheroes)`
 
-> inner_join(x, y): Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
+> `inner_join(x, y)`: Return all rows from `x` where there are matching values in `y`, and all columns from `x` and `y`. If there are multiple matches between `x` and `y`, all combination of the matches are returned. This is a mutating join.
 
 ```{r}
 (ijps <- inner_join(publishers, superheroes))
@@ -202,9 +202,9 @@ ijps_kable <- knitr::kable(ijps)
 </tr>
 </table>
   
-## semi_join(publishers, superheroes)
+## `semi_join(publishers, superheroes)`
 
-> semi_join(x, y): Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x. This is a filtering join.
+> `semi_join(x, y)`: Return all rows from `x` where there are matching values in `y`, keeping just columns from `x`. A semi join differs from an inner join because an inner join will return one row of `x` for each matching row of `y`, where a semi join will never duplicate rows of `x`. This is a filtering join.
 
 ```{r}
 (sjps <- semi_join(x = publishers, y = superheroes))
@@ -234,9 +234,9 @@ semi-join(x = publishers, y = superheroes)
 </tr>
 </table>
 
-## left_join(publishers, superheroes)
+## `left_join(publishers, superheroes)`
 
-> left_join(x, y): Return all rows from x, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
+> `left_join(x, y)`: Return all rows from `x`, and all columns from `x` and `y`. If there are multiple matches between `x` and `y`, all combination of the matches are returned. This is a mutating join.
 
 ```{r}
 (ljps <- left_join(publishers, superheroes))
@@ -265,9 +265,9 @@ left_join(x = publishers, y = superheroes)
 </tr>
 </table>
 
-## anti_join(publishers, superheroes)
+## `anti_join(publishers, superheroes)`
 
-> anti_join(x, y): Return all rows from x where there are not matching values in y, keeping just columns from x. This is a filtering join.
+> `anti_join(x, y)`: Return all rows from `x` where there are not matching values in `y`, keeping just columns from `x`. This is a filtering join.
 
 ```{r}
 (ajps <- anti_join(publishers, superheroes))
@@ -296,9 +296,9 @@ anti_join(x = publishers, y = superheroes)
 </tr>
 </table>
 
-## full_join(superheroes, publishers)
+## `full_join(superheroes, publishers)`
 
-> full_join(x, y): Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing. This is a mutating join.
+> `full_join(x, y)`: Return all rows and all columns from both `x` and `y`. Where there are not matching values, returns `NA` for the one missing. This is a mutating join.
 
 ```{r}
 (fjsp <- full_join(superheroes, publishers))

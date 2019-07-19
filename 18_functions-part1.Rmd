@@ -123,7 +123,7 @@ For functions that will be used again -- which is not all of them! -- it is good
 
 > Rule of Repair: When you must fail, fail noisily and as soon as possible.
 
-### stopifnot
+### stop if not
 
 `stopifnot()` is the entry level solution. I use it here to make sure the input `x` is a numeric vector.
 

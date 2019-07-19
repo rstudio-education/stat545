@@ -272,13 +272,11 @@ knitr::include_graphics("img/shiny-layout.png")
 This was already mentioned, but it's important to remember: the entire UI is just HTML, and Shiny simply gives you easy tools to write it without having to know HTML. To convince yourself of this, look at the output when printing the contents of the `ui` variable.
 
 
-
-
 ```r
 print(ui)
 ```
 
-~~~
+```markdown
 ## <div class="container-fluid">
 ##   <h2>BC Liquor Store prices</h2>
 ##   <div class="row">
@@ -288,7 +286,7 @@ print(ui)
 ##     <div class="col-sm-8">the results will go here</div>
 ##   </div>
 ## </div>
-~~~
+```
 
 This should make you appreciate Shiny for not making you write horrendous HTML by hand.
 
@@ -943,7 +941,7 @@ server <- function(input, output) {}
 shinyApp(ui = ui, server = server)
 ```
 
-### Use DT for beautiful, interactive tables
+### Use `DT` for beautiful, interactive tables
 
 Whenever you use `tableOutput()` + `renderTable()`, the table that Shiny creates is a static and boring-looking table. If you download the `DT` package, you can replace the default table with a much sleeker table by just using `DT::dataTableOutput()` + `DT::renderDataTable()`. It's worth trying. Learn more on [DT's website](https://rstudio.github.io/DT/).
 

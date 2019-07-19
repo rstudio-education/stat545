@@ -4,12 +4,12 @@
 
 # Deprecated {#oldies}
 
-## Regular Expression in R {#regex1}
+## Regular expression in R {#regex1}
 
 * __Rendered__: https://stat545.com/block022_regular-expression.html
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block022_regular-expression.rmd
   
-## Regular Expression and Character Data {#regex2}
+## Regular expression and character data {#regex2}
 
 * __Rendered__: https://stat545.com/block027_regular-expressions.html
 * __Raw__:  https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block027_regular-expressions.Rmd
