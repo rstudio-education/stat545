@@ -6,13 +6,15 @@ cache:
   - $HOME/.npm
 
 before_install:
+  # rm -rf package-lock.json node_modules
   - nvm install stable
   - npm install netlify-cli -g
   - export DEPLOY_MSG="${TRAVIS_COMMIT:0:7} ${TRAVIS_COMMIT_MESSAGE:0:70}"
 
 env:
   - NETLIFY_SITE_ID=82ff5a18-8a13-4f25-b688-230b04bc5664
-  - R_REMOTES_STANDALONE=true
+  # R_REMOTES_STANDALONE=true
+  # NETLIFY_AUTH_TOKEN set in travis settings
 
 script:
 - Rscript -e 'bookdown::render_book("index.Rmd")'
@@ -29,14 +31,3 @@ deploy:
     on:
       all_branches: true
       condition: $TRAVIS_BRANCH != "master"
-      
-
-# for bcdata and tidycensus packages
-apt_packages:
-  - libudunits2-dev
-  - gdal-bin
-  - libgdal1-dev
-  - libproj-dev
-  
-r_binary_packages:
-  - rgdal
