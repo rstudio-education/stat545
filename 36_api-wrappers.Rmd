@@ -8,11 +8,11 @@ library(knitr)
 ## Introduction
 
 ```{r echo = FALSE}
-load("data/countryInfo.rds")
-load("data/francebirds.rds")
-load("data/frenchcities.rds")
-load("data/rio_english.rds")
-load("data/rio_portuguese.rds")
+countryInfo <- readRDS("data/countryInfo.rds")
+francebirds <- readRDS("data/francebirds.rds")
+frenchcities <- readRDS("data/frenchcities.rds")
+rio_english <- readRDS("data/rio_english.rds")
+rio_portuguese <- readRDS("data/rio_portuguese.rds")
 ```
 
 
