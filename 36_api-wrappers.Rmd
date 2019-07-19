@@ -7,15 +7,6 @@ library(knitr)
 
 ## Introduction
 
-```{r echo = FALSE}
-countryInfo <- readRDS("data/countryInfo.rds")
-francebirds <- readRDS("data/francebirds.rds")
-frenchcities <- readRDS("data/frenchcities.rds")
-rio_english <- readRDS("data/rio_english.rds")
-rio_portuguese <- readRDS("data/rio_portuguese.rds")
-```
-
-
 **All this and more is described at the [rOpenSci repository of R tools for interacting with the internet]( https://github.com/ropensci/webservices)**
 
 There are many ways to obtain data from the Internet; let's consider four categories:
@@ -69,7 +60,7 @@ Why do we want this?
 [`rebird`](https://github.com/ropensci/rebird) is an R interface for the [ebird](http://ebird.org/content/ebird/) database. e-Bird lets birders upload sightings of birds, and allows everyone access to those data.
 `rebird` is on CRAN.
 
-```{r message=FALSE}
+```{r message = FALSE}
 # install.packages("rebird")
 library(rebird)
 ```
@@ -97,7 +88,7 @@ ebirdhotspot(locID = "L261851") %>%
 
 We can use the function `ebirdgeo` to get a list for an area (note that South and West are negative):
 
-```{r results='asis', eval = FALSE}
+```{r results = 'asis', eval = FALSE}
 vanbirds <- ebirdgeo(lat = 49.2500, lng = -123.1000)
 vanbirds %>%
   head %>%
@@ -108,7 +99,7 @@ vanbirds %>%
 
 We can also search by "region", which refers to short codes which serve as common shorthands for different political units. For example, France is represented by the letters **FR**.
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 frenchbirds <- ebirdregion("FR")
 frenchbirds %>%
   head() %>%
@@ -117,7 +108,7 @@ frenchbirds %>%
 
 Find out *when* a bird has been seen in a certain place! Choosing a name from `vanbirds` above (the Bald Eagle):
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 eagle <- ebirdgeo(species = 'Haliaeetus leucocephalus', lat = 42, lng = -76)
 eagle %>%
   head() %>%
@@ -125,7 +116,7 @@ eagle %>%
 ```
 
 `rebird` **knows where you are**:
-```{r eval=FALSE}
+```{r eval =FALSE}
 ebirdgeo(species = 'Buteo lagopus')
 ```
 
@@ -133,7 +124,7 @@ ebirdgeo(species = 'Buteo lagopus')
 
 ### Searching geographic info: `geonames`
 
-```{r message=FALSE}
+```{r message = FALSE}
 # install.packages("geonames")
 library(geonames)
 ```
@@ -163,11 +154,11 @@ options(geonamesUsername="my_user_name")
 
 What can we do? We can get access to lots of geographical information via the various "web services" (see [here](http://www.geonames.org/export/ws-overview.html)).
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 countryInfo <- GNcountryInfo()
 ```
 
-```{r}
+```{r eval = FALSE}
 glimpse(countryInfo)
 ```
 
@@ -179,7 +170,7 @@ This country info dataset is very helpful for accessing the rest of the data, be
 
 What are the cities of France?
 
-```{r}
+```{r eval = FALSE}
 francedata <- countryInfo %>%
   filter(countryName == "France")
 ```
@@ -189,7 +180,7 @@ frenchcities <-	with(francedata, GNcities(north = north, east = east,
                                           south = south, west = west, maxRows = 500))
 ```
 
-```{r}
+```{r eval = FALSE}
 glimpse(frenchcities)
 ```
 
@@ -205,7 +196,7 @@ rio_portuguese <- GNfindNearbyWikipedia(lat = -22.9083, lng = -43.1964,
 																				radius = 20, lang = "pt", maxRows = 500)
 ```
 
-```{r}
+```{r eval = FALSE}
 nrow(rio_english)
 nrow(rio_portuguese)
 ```
@@ -285,11 +276,11 @@ Remember that using `.Rprofile` makes your code un-reproducible.  In this case, 
 
 Let's do some searches:
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 searchplos(q= "Helianthus", fl= "id", limit = 5)
 ```
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 searchplos("materials_and_methods:France",
 					 fl = "title, materials_and_methods", key = key)
 lat <- searchplos("materials_and_methods:study site",
@@ -304,7 +295,7 @@ Here is a list of [options for the search](http://api.plos.org/solr/search-field
 
 #### Take a highbrow look!
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 out <- highplos(q='alcohol', hl.fl = 'abstract', rows=10, , key = key)
 highbrow(out)
 ```
@@ -316,9 +307,6 @@ highbrow(out)
 plot_throughtime(terms = "phylogeny", limit = 200, key = key)
 ```
 
-
-```{r links, child="links.md"}
-```
 
 ### Is it a boy or a girl? `gender` throughout US history
 
@@ -334,4 +322,7 @@ gender("Kelsey")
 gender("Kelsey", years = 1940)
 ```
 
+
+```{r links, child="links.md"}
+```
 
