@@ -1,0 +1,25 @@
+digraph "activity" {
+
+node [style = "filled"]
+
+node [shape = "note" fillcolor="white"]
+
+"report.rmd"
+"/usr/share/dict/words"
+
+node [shape = "note" fillcolor="lightgray"]
+
+"words.tsv"
+"histogram.tsv"
+
+node [shape = "note" fillcolor="lightblue"]
+
+"histogram.png"
+"report.html"
+
+"/usr/share/dict/words" -> "words.tsv" [label="cp or RCurl::getURL"]
+"words.tsv" -> "histogram.tsv" [label="Rscript"]
+"histogram.tsv" -> "histogram.png" [label="ggplot2"]
+"histogram.png" -> "report.html"
+"report.rmd" -> "report.html" [label="rmarkdown::render"]
+}

@@ -29,7 +29,7 @@
 [hg-install-r-rstudio]: https://happygitwithr.com/install-r-rstudio.html
 [hg-connect-intro]: https://happygitwithr.com/connect-intro.html
 [hg-browsability]: https://happygitwithr.com/workflows-browsability.html
-
+[hg-shell]: https://happygitwithr.com/shell.html
 
 <!--Package Links-->
 [rmarkdown]: https://rmarkdown.rstudio.com
