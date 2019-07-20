@@ -27,7 +27,7 @@
 ## Resources {-}
 
 * [Writing R Extensions][cran-r-extensions], the One True Official Document on creating R packages.
-* [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan. The above lessons follow it and the [`devtools`][devtools-web] package workflow quite faithfully (`devtools` on [CRAN][devtools-cran], on [GitHub][devtools-github]).
+* [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan [-@wickham-unpub]. The above lessons follow it and the [`devtools`][devtools-web] package workflow quite faithfully (`devtools` on [CRAN][devtools-cran], on [GitHub][devtools-github]).
 * Hilary Parker's [blog post][parker-writing-r-packages] on the epiphany of writing her first R package
   + "I was hit with that familiar feeling of the joy of optimization combined with the regret of past inefficiencies (joygret?). I wish I could go back in time and create the package the first moment I thought about it, and then use all the saved time to watch cat videos because that really would have been more productive."
   + the glorious result: <https://github.com/hilaryparker/cats>

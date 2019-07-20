@@ -2,7 +2,7 @@
 
 <!--Original content: http://stat545.com/packages06_foofactors-package.html-->
 
-This section closely tracks with content from the book [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan, specifically the chapter ["The Whole Game"][r-pkgs2-whole-game]. The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
+This section closely tracks with content from the book [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan [-@wickham-unpub], specifically the chapter ["The Whole Game"][r-pkgs2-whole-game]. The material in this chapter is, however, accurate and up-to-date, although a bit longer than ["The Whole Game."][r-pkgs2-whole-game] The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
 
 
 ```{r, include = FALSE}
@@ -326,7 +326,7 @@ We have solid evidence that `fbind()` works. But how can we be sure that all the
 
 How do we move our local source package through the necessary stages to get it properly installed?
 
-```{r pkg-installation-diagram, echo = FALSE, out.width = "100%", fig.cap = "From [R Packages](https://r-pkgs.org/package-structure.html#package)"}
+```{r pkg-installation-diagram, echo = FALSE, out.width = "100%", fig.cap = "From [R Packages](https://r-pkgs.org/package-structure.html#package) [@wickham-unpub]"}
 knitr::include_graphics("https://raw.githubusercontent.com/hadley/r-pkgs/master/diagrams/installation.png")
 ```
 
@@ -421,13 +421,13 @@ Success!
 
 Before we tackle the warnings about the license and documentation, we replace some of the boilerplate content in `DESCRIPTION`. The `DESCRIPTION` file provides metadata about your package:
 
-  * read more from [R Packages][r-pkgs2-description]
+  * read more from [R Packages][r-pkgs2-description] [@wickham-unpub]
   * read more from [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file)
 
 Make these edits:
 
   * Make yourself the author.
-  * Write some descriptive text in the `Title` and `Description` fields. Note that CRAN is very particular about these fields, so if you want to keep passing `check()`, read [this section](https://r-pkgs.org/description.html#pkg-description) of R Packages.
+  * Write some descriptive text in the `Title` and `Description` fields. Note that CRAN is very particular about these fields, so if you want to keep passing `check()`, read [this section](https://r-pkgs.org/description.html#pkg-description) of R Packages [@wickham-unpub].
   * Specify a license. We opted for MIT here, which requires a bit more work to complete (see next section).
 
 When you're done, `DESCRIPTION` should look similar to this:
@@ -480,7 +480,7 @@ commit(repo, message = "Add LICENSE")
 
 For future projects, there is more guidance on licenses in these sources:
 
-  * [R Packages](https://r-pkgs.org/description.html#license)
+  * [R Packages](https://r-pkgs.org/description.html#license) [@wickham-unpub]
   * [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Licensing)
   * GitHub's guide at <http://choosealicense.com>
 
@@ -488,7 +488,7 @@ For future projects, there is more guidance on licenses in these sources:
 
 Wouldn't it be nice to get help on `fbind()`, just like we do with other R functions? This requires that your package have a special R documentation file, `man/fbind.Rd`, written in an R-specific markup language that is sort of like LaTeX. Luckily we don't necessarily have to author that directly.
 
-We write a specially formatted comment right above `fbind()`, in its source file, and then let a package called [`roxygen2`][roxygen2-cran] handle the creation of `man/fbind.Rd`.  To read more about the motivation and mechanics of `roxygen2`, read [the documentation chapter](https://r-pkgs.org/man.html) of R Packages.
+We write a specially formatted comment right above `fbind()`, in its source file, and then let a package called [`roxygen2`][roxygen2-cran] handle the creation of `man/fbind.Rd`.  To read more about the motivation and mechanics of `roxygen2`, read [the documentation chapter](https://r-pkgs.org/man.html) of R Packages [@wickham-unpub].
 
 If you use RStudio, open `R/fbind.R` in the source editor and put the cursor somewhere in the `fbind()` function definition. Now do *Code > Insert roxygen skeleton*. A very special comment should appear above your function, in which each line begins with `#'`. RStudio only inserts a barebones template, so you will need to edit it to look something like that below.
 
@@ -672,13 +672,13 @@ test()
 
 Your tests are also run whenever you `check()` the package. In this way, you basically augment the standard checks with some of your own, that are specific to your package.
 
-For much more guidance, read the [testing chapter][r-pkgs2-tests] in R Packages.
+For much more guidance, read the [testing chapter][r-pkgs2-tests] in R Packages [@wickham-unpub].
 
 ## `use_package()`
 
 You will inevitably want to use a function from another package in your own package. Just as we needed to **export** `fbind()`, we need to **import** functions from the namespace of other packages. If you plan to submit a package to CRAN, note that this even applies to functions in packages that you think of as "always available", such as `stats::median()` or `utils::head()`.
 
-There is more than one way to go about this. We use the approach recommended in the [namespace chapter][r-pkgs2-namespace] of R Packages and in the [rOpenSci Packaging Guide](https://ropensci.github.io/dev_guide/building.html#package-dependencies).  The general usage pattern is this: give the name of the external package, then two colons, then the function to call.
+There is more than one way to go about this. We use the approach recommended in the [namespace chapter][r-pkgs2-namespace] of R Packages [@wickham-unpub] and in the [rOpenSci Packaging Guide](https://ropensci.github.io/dev_guide/building.html#package-dependencies).  The general usage pattern is this: give the name of the external package, then two colons, then the function to call.
 
 First, declare your general intent to use some functions from the `forcats` namespace with `usethis::use_package()`:
 
@@ -725,7 +725,7 @@ cat(fcount_fodder, sep = "\n")
 writeLines(fcount_fodder, path("R", "fcount.R"))
 ```
 
-Notice how we preface the call to a `forcats` functions with `forcats::`. This specifies that we want to call the `fct_count()` function from the `forcats` namespace. There is more than one way to call functions in other packages and the one we espouse here is explained fully in the [namespace chapter][r-pkgs2-namespace] of R Packages.
+Notice how we preface the call to a `forcats` functions with `forcats::`. This specifies that we want to call the `fct_count()` function from the `forcats` namespace. There is more than one way to call functions in other packages and the one we espouse here is explained fully in the [namespace chapter][r-pkgs2-namespace] of R Packages [@wickham-unpub].
 
 ```{r commit-fcount, echo = debug, comment = NA, eval = create}
 paths <- unlist(status(repo))
@@ -756,7 +756,7 @@ commit(repo, message = "Document fcount()")
 
 <!--APH: Update to use the new sentinel and describe it accurately? Maybe devtools should be updated to do that too?-->
 
-Let's start adding package-level documentation. Your package as a whole can have its own `.Rd` file. You can see an example by entering `package?dplyr` in R Console. Read more about the uses of package-level documentation in [R Packages](https://r-pkgs.org/man.html#man-packages).
+Let's start adding package-level documentation. Your package as a whole can have its own `.Rd` file. You can see an example by entering `package?dplyr` in R Console. Read more about the uses of package-level documentation in [R Packages](https://r-pkgs.org/man.html#man-packages) [@wickham-unpub].
 
 Set this up with `usethis::use_package_doc()`:
 
@@ -813,7 +813,7 @@ Have a look at your new package-level docs:
 
 ## `use_vignette()`
 
-A piece of package-level documentation that's probably familiar to you is the vignette. This is a great place to put a fully developed example that calls multiple functions from your package to do something useful and realistic. See the [vignettes chapter][r-pkgs2-vignettes] of R Packages for more.
+A piece of package-level documentation that's probably familiar to you is the vignette. This is a great place to put a fully developed example that calls multiple functions from your package to do something useful and realistic. See the [vignettes chapter][r-pkgs2-vignettes] of R Packages [@wickham-unpub] for more.
 
 Use `usethis::use_vignette()` to initialize a new vignette:
 
@@ -952,7 +952,7 @@ Go look at your package's repo on GitHub! It should look very similar to the pac
 
 ## `use_readme_rmd()`
 
-Now that your package is on GitHub, the `README.md` file matters. It is the package's home page and welcome mat, at least until you decide to give it a website (see [`pkgdown`][pkgdown-web]) or submit it to CRAN (see the [Releasing a package chapter][r-pkgs2-release] in the R Packages book).
+Now that your package is on GitHub, the `README.md` file matters. It is the package's home page and welcome mat, at least until you decide to give it a website (see [`pkgdown`][pkgdown-web]) or submit it to CRAN (see the [Releasing a package chapter][r-pkgs2-release] in the R Packages book [@wickham-unpub]).
 
 
 The `use_readme_rmd()` function initializes a basic, executable `README.Rmd` ready for you to edit:

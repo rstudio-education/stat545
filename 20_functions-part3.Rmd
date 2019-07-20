@@ -165,7 +165,7 @@ Unit testing with `testthat`
   * On [CRAN][testthat-cran], development on [GitHub][testthat-github], main [webpage][testthat-web]
   
   
-Wickham and Bryan's [R Packages][r-pkgs2] book
+Wickham and Bryan's [R Packages][r-pkgs2] book [-@wickham-unpub]
 
   * [Testing chapter](https://r-pkgs.org/tests.html)
 
