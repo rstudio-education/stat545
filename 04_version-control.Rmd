@@ -7,6 +7,7 @@ Content now [here][happy-git]. Install Git, install a Git client or GUI, establi
 ## Claim your private STAT 545 repository
 
 <!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
+<!--TODO: update this section, assumes that there is an active STAT 545 organization-->
 
 ### Prerequisites
 
@@ -38,14 +39,14 @@ Copy the HTTPS URL. It will be something like this:
 https://github.com/STAT545-UBC/jennifer_bryan
 ```
 
-In RStudio, start a new Project:
+In RStudio, start a new project:
 
   * *File > New Project > Version Control > Git*. In the "repository URL" paste the URL of your new GitHub repository.
-  * Take charge of -- or at least notice! -- the local directory for the Project. This will be the main folder for your coursework. This will create a new sub-directory, which will be all of these things:
+  * Take charge of -- or at least notice! -- the local directory for the project. This will be the main folder for your coursework. This will create a new sub-directory, which will be all of these things:
     - a directory on your computer
     - a Git repository, linked to a remote GitHub repository
-    - an RStudio Project
-  * Create the Project ... you should get a pre-existing skeleton `README.md` that I created for you.
+    - an RStudio project
+  * Create the project ... you should get a pre-existing skeleton `README.md` that I created for you.
 
 Make some local changes, e.g. edit or add files.
 

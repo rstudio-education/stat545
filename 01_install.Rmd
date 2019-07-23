@@ -11,7 +11,7 @@
   * Install RStudio's IDE (stands for _integrated development environment_), a powerful user interface for R. Get the Open Source Edition of RStudio Desktop.
 
     - I __highly recommend__ you run the [Preview version][rstudio-preview]. I find these quite stable and you'll get the cool new features! Update to new Preview versions often.
-    - Of course, there are also official releases available [here][rstudio-official]
+    - Of course, there are also official releases available [here][rstudio-official].
     - RStudio comes with a __text editor__, so there is no immediate need to install a separate stand-alone editor.
     - RStudio can __interface with Git(Hub)__. However, you must do all the Git(Hub) set up [described elsewhere][happy-git] before you can take advantage of this.
     
@@ -44,7 +44,7 @@ By including `dependencies = TRUE`, we are being explicit and extra-careful to i
 You could use the above method to install the following packages, all of which we will use:
 
   * `tidyr`, [package webpage][tidyr-web]
-  * `ggplot2` [package webpage][ggplot2-web]
+  * `ggplot2`, [package webpage][ggplot2-web]
 
 
 ## Further resources
@@ -53,7 +53,7 @@ The above will get your basic setup ready but here are some links if you are int
 
   * [How to Use RStudio][rstudio-support]
   * [RStudio's leads for learning R][rstudio-R-help]
-  * [R FAQs][cran-faq]
+  * [R FAQ][cran-faq]
   * [R Installation and Administration][cran-R-admin]
   * [More about add-on packages in the R Installation and Administration Manual][cran-add-ons]
     

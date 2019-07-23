@@ -8,20 +8,22 @@ This describes a hands-on activity where the goal is to author an R Markdown doc
 
 For people also using Git and GitHub, we discuss how to keep the intermediate Markdown file, the figures, and what to commit to Git and push to GitHub. If GitHub is the primary venue, we render directly to GitHub-flavored markdown and never create HTML.
 
-The official R Markdown documentation is [here][rmarkdown]
+The official R Markdown documentation is [here][rmarkdown].
 
 ## Step 0: Software installation and configuration
 
-We assume the following
+We assume the following:
 
-  * You've already [installed Git][hg-install-git]and (probably) [a Git client][hg-git-client].
+  * You've already [installed Git][hg-install-git] and (probably) [a Git client][hg-git-client].
   * You've already [registered a free GitHub account][hg-github-account].
   * You've already [installed R and RStudio][hg-install-r-rstudio].
-  * You've [tested your installation and configuration of Git, GitHub, and RStudio][hg-connect-intro]
+  * You've [tested your installation and configuration of Git, GitHub, and RStudio][hg-connect-intro].
 
 ## Step 1: Get ready to work
 
-Launch RStudio, probably in the Project that corresponds to the repository where you are keeping all STAT 545 coursework. Make sure the workspace is clean and you've launched a fresh R process. Make sure the working directory is sensible.
+<!--TODO: changed "stat545 coursework" to "work for this book" below. Do we want to change this to something else?-->
+
+Launch RStudio, probably in the project that corresponds to the repository where you are keeping all work for this book. Make sure the workspace is clean and you've launched a fresh R process. Make sure the working directory is sensible.
 
 Git people: we assume you are working inside a Git repo -- probably one that is already set up to push/pull with a GitHub remote. That is [covered elsewhere][hg-connect-intro].
 
@@ -29,7 +31,7 @@ Git people: we assume you are working inside a Git repo -- probably one that is 
 
 I am modelling "walk before you run" here. It is best, especially for novices, to increase complexity in small increments. We will test our system's ability to render the ["hello world"][wiki-hello-world] of R Markdown documents before we muddy the waters with our own, probably buggy, documents.
 
-Do this: *File > New File > R Markdown ...*
+Do this: *File > New File > R Markdown...*
 
   - Give it an informative title. This will appear in the document but does not necessarily have anything to do with the file's name. But the title and filename should be similar! The title is for human eyeballs, so it can contain spaces and punctuation. The filename is for humans and computers, so it should have similar words in it but no spaces and no punctuation.
   - Accept the default Author or edit if you wish.
@@ -40,7 +42,7 @@ Save this document to a reasonable filename and location. The filename should en
 
 Git people: this is a decent time to commit your new Rmd.
 
-Click on "Knit HTML" or do *File > Knit Document*. RStudio should display a preview of the resulting HTML. Also look at the file browser (which should be pointed at the directory where you saved the `.Rmd` file). You should see the R Markdown document, i.e. `foo.Rmd` AND the resulting HTML `foo.html`.
+Click on "Knit HTML" or do *File > Knit Document*. RStudio should display a preview of the resulting HTML. Also look at the file browser (which should be pointed at the directory where you saved the `.Rmd` file). You should see the R Markdown document, i.e. `foo.Rmd`, AND the resulting HTML `foo.html`.
 
 Congratulations, you've just made your first reproducible report with R Markdown.
 

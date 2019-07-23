@@ -5,7 +5,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">Just the beginning</a></li>
+        <li><a href="./">Stat545</a></li>
       after: |
         <li>
           <a rel="license" href="./license.html">
