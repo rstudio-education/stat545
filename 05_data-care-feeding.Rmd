@@ -54,7 +54,7 @@ library(gapminder)
 
 By loading the `gapminder` package, we now have access to a data frame by the same name. Get an overview of this with `str()`, which displays the structure of an object.
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 str(gapminder)
 ```
 

@@ -4,4 +4,4 @@
 
 <!--Original content: https://stat545.com/webdata02_activity.html-->
 
-See slides [here](supporting-docs/webdata01_slides.html)
+See ["Getting data from the web - R packages" slides](supporting-docs/webdata01_slides.html) by Andrew MacDonald.

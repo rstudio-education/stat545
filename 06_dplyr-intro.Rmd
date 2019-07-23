@@ -12,11 +12,16 @@ Have no idea what I'm talking about? Not sure if you care? If you use these base
 
 ### Load `dplyr` and `gapminder`
 
-I choose to load the `tidyverse`, which will load `dplyr`, among other packages we use incidentally below. Also load `gapminder`.
+I choose to load the `tidyverse`, which will load `dplyr`, among other packages we use incidentally below. 
 
 ```{r start_dplyr}
-library(gapminder)
 library(tidyverse)
+```
+
+Also load `gapminder`.
+
+```{r message = FALSE, warning = FALSE}
+library(gapminder)
 ```
 
 ### Say hello to the Gapminder tibble

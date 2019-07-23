@@ -26,7 +26,7 @@ Exercises to push you to learn `lubridate`: [part 1][lubridate-ex1], [part 2][lu
 
 ## Load the `tidyverse` and `lubridate`
 
-```{r start_dates}
+```{r start_dates, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(lubridate)
 ```

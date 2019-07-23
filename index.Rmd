@@ -54,7 +54,72 @@ Here are some good resources to get your head in the right place.
     - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
     - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
 
+## Colophon
 
+<!--TODO: Update website and github links when finalized-->
+
+This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://gracious-allen-b2d17f.netlify.com) is hosted with [netlify](https://www.netlify.com), and automatically updated after every commit by [travis-ci](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545-reboot).
+
+
+This version of the book was built with:
+
+```{r}
+library(devtools)
+session_info()
+```
+
+## License {-}
+
+<!--TODO: I was only able to get the font-awesome icons in the menu and in the text to render when I include the chunk below. There must be a better way to do this. -->
+```{r setup, include=FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+<center>
+<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i>
+</center>
+
+*This is a human-readable summary of (and not a substitute for) the license.
+Please see <https://creativecommons.org/licenses/by/4.0/legalcode> for the full legal text.*
+
+**You are free to:**
+
+- **Share**---copy and redistribute the material in any medium or
+  format
+
+- **Remix**---remix, transform, and build upon the material for any
+  purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the
+license terms.
+
+**Under the following terms:**
+
+- **Attribution**---You must give appropriate credit, provide a link
+  to the license, and indicate if changes were made. You may do so in
+  any reasonable manner, but not in any way that suggests the licensor
+  endorses you or your use.
+
+- **No additional restrictions**---You may not apply legal terms or
+  technological measures that legally restrict others from doing
+  anything the license permits.
+
+**Notices:**
+
+You do not have to comply with the license for elements of the
+material in the public domain or where your use is permitted by an
+applicable exception or limitation.
+
+No warranties are given. The license may not give you all of the
+permissions necessary for your intended use. For example, other rights
+such as publicity, privacy, or moral rights may limit how you use the
+material.
+
+ Made with the <a href="https://cran.r-project.org/" target="_blank" rel="noopener"><i class="fab fa-r-project"></i></a> <a href="https://github.com/rstudio/blogdown" target="_blank" rel="noopener">blogdown</a> package and the 
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+<a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
 ```{r include = FALSE}
 # automatically create a bib database for R packages

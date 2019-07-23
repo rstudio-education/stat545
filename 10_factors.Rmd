@@ -27,10 +27,17 @@ Good articles about how the factor fiasco came to be:
 
 Currently this lesson will be mostly code vs prose. See the previous lesson for more discussion during the transition.
 
-## Load `tidyverse`, `forcats`, `gapminder`
+## Load `forcats` and `gapminder`
+
+I choose to load the `tidyverse`, which will load `forcats`, among other packages we use incidentally below. 
 
 ```{r start_factors}
 library(tidyverse)
+```
+
+Also load `gapminder`.
+
+```{r message = FALSE, warning = FALSE}
 library(gapminder)
 ```
 

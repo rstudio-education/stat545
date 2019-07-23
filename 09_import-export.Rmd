@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Writing and reading files {#import-export}
 
 <!--Original content: https://stat545.com/block002_hello-r-workspace-wd-project.html-->
@@ -32,7 +37,7 @@ How does this fit with our emphasis on dynamic reporting via R Markdown? There i
 
 ## Load the `tidyverse`
 
-The main package we will be using is [`readr`][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the forcats package, which is also included in the `tidyverse` package.
+The main package we will be using is [`readr`][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the [`forcats`][forcats-web] package, which is also included in the `tidyverse` package.
 
 ```{r start_import_export}
 library(tidyverse)

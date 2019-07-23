@@ -3,22 +3,18 @@
 <!--Original content: https://stat545.com/webdata03_activity.html-->
 <!--Original author: Andrew MacDonald-->
 
-
-```{r message = FALSE, warning = FALSE}
-library(knitr)
-library(curl)
-library(jsonlite)
-library(XML)
-library(httr)
-library(rvest)
-library(magrittr)
-library(dplyr)
-library(tidyr)
-```
-
 ## Interacting with an API
 
 In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs.  That is, they handled the creation of the request and the formatting of the output. Today we're going to look at (part of) what these functions were doing.
+
+
+### Load the `tidyverse`
+
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+```
+
+### Examine the structure of API requests using the Open Movie Database
 
 First we're going to examine the structure of API requests via the [Open Movie Database](http://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDB, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
 
@@ -27,8 +23,10 @@ First we're going to examine the structure of API requests via the [Open Movie D
 You can play around with the parameters on the OMDb website, and look at the resulting API call and the query you get back:
 
 ```{r web-data-omdb, echo = FALSE, fig.cap = "Example OMDb Query"}
+library(knitr)
 knitr::include_graphics("img/ombd.png")
 ```
+
 
 Let's experiment with different values of the `title` and `year` fields. Notice the pattern in the request. For example for `title = "Interstellar"` and `year = 2014`, we get:
 
@@ -41,7 +39,10 @@ Try pasting this link into the browser. Also experiment with `json` and `xml`.
 How can we create this request in R?
 
 ```{r}
-request <- paste0("http://www.omdbapi.com/?t=", "Interstellar", "&", "y=", "2014", "&", "plot=", "short", "&", "r=", "xml")
+request <- str_c("http://www.omdbapi.com/?t=", "Interstellar", "&", 
+                 "y=", "2014", "&", 
+                 "plot=", "short", "&", 
+                 "r=", "xml")
 request
 ```
 
@@ -62,6 +63,10 @@ omdb("Interstellar", "2014", "short", "xml")
 Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R:
 
 <!--TODO: The following code chunks are broken; OMDb requires an API key now-->
+```{r message = FALSE, warning = FALSE}
+library(curl)
+```
+
 ```{r eval = FALSE}
 request_interstellar <- omdb("Interstellar", "2014", "short", "xml")
 con <-  curl(request_interstellar)
@@ -70,6 +75,9 @@ close(con)
 answer_xml
 ```
 
+```{r message = FALSE, warning = FALSE}
+library(jsonlite)
+```
 
 ```{r warning = FALSE, eval = FALSE}
 request_interstellar <- omdb("Interstellar", "2014", "short", "json")
@@ -133,6 +141,10 @@ answer_json %>%
 
 A similar process exists for XML formats:
 
+```{r message = FALSE, warning = FALSE}
+library(XML)
+```
+
 ```{r eval = FALSE}
 ans_xml_parsed <- xmlParse(answer_xml)
 ans_xml_parsed
@@ -187,6 +199,12 @@ HTTP is the foundation for APIs; understanding how it works is the key to intera
 
 `httr` contains one function for every HTTP verb. The functions have the same names as the verbs (e.g. `GET()`, `POST()`).  They have more informative outputs than simply using `curl`, and come with some nice convenience functions for working with the output:
 
+```{r message = FALSE, warning = FALSE}
+# install.packages("httr")
+library(httr)
+```
+
+
 ```{r eval = FALSE}
 interstellar_json <- omdb("Interstellar", "2014", "short", "json")
 response_json <- GET(interstellar_json)
@@ -237,7 +255,7 @@ knitr::include_graphics("https://imgs.xkcd.com/comics/tags.png")
 
 Two pieces of equipment:
 
-* `rvest`: `devtools::install_github("hadley/rvest")`
+* `rvest`: `install.packages("rvest")`
 * SelectorGadget: [Install in your browser](http://selectorgadget.com/)
 
 Before we go any further, [let's play a game together](http://flukeout.github.io)!

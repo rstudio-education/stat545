@@ -6,7 +6,7 @@ I try to use [dplyr joins](#join-cheatsheet) for most tasks that combine data fr
 
 ## Load `gapminder` and the `tidyverse`
 
-```{r start_lookup}
+```{r start_lookup, message = FALSE, warning = FALSE}
 library(gapminder)
 library(tidyverse)
 ```

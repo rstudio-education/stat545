@@ -3,11 +3,6 @@
 <!--Original content: http://stat545.com/webdata02_activity.html-->
 <!--Original author: Andrew MacDonald-->
 
-```{r message = FALSE}
-library(dplyr)
-library(knitr)
-```
-
 ## Introduction
 
 **All this and more is described at the [rOpenSci repository of R tools for interacting with the internet]( https://github.com/ropensci/webservices)**
@@ -59,6 +54,11 @@ Why do we want this?
 * ease
 * scaling
 
+### Load the `tidyverse`
+
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+```
 
 ### Sightings of birds: `rebird`
 
@@ -78,6 +78,7 @@ The ebird website categorizes some popular locations as "Hotspots". These are ar
 At that link, you can see a page like this:
 
 ```{r ebird-iona-island, echo = FALSE, fig.cap = "Iona Island", out.width = "80%"}
+library(knitr)
 knitr::include_graphics("img/Iona_island.png")
 ```
 
