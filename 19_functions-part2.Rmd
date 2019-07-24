@@ -1,4 +1,8 @@
-# Write your own R functions: Part 2 {#functions-part2}
+```{r include = FALSE}
+source("common.R")
+```
+
+# Write your own R functions, part 2 {#functions-part2}
 
 <!--Original content:https://stat545.com/block011_write-your-own-function-02.html-->
 
@@ -10,7 +14,7 @@ In this part, we generalize this function, learn more technical details about R 
 
 ## Load the Gapminder data
 
-As usual, load the Gapminder data.
+As usual, load `gapminder`.
 
 ```{r start_func2}
 library(gapminder)
@@ -31,9 +35,9 @@ mmm <- function(x) {
 
 The max and the min are special cases of a __quantile__. Here are other special cases you may have heard of:
 
-  * median = 0.5 quantile
-  * 1st quartile = 0.25 quantile
-  * 3rd quartile = 0.75 quantile
+* median = 0.5 quantile
+* 1st quartile = 0.25 quantile
+* 3rd quartile = 0.75 quantile
   
 If you're familiar with [box plots][wiki-boxplot], the rectangle typically runs from the 1st quartile to the 3rd quartile, with a line at the median.
 
@@ -148,7 +152,7 @@ qdiff3(gapminder$lifeExp, c(0.1, 0.9))
 
 ## Check the validity of arguments, again
 
-EXERCISE FOR THE READER: upgrade our argument validity checks in light of the new argument `probs`
+Exercise: upgrade our argument validity checks in light of the new argument `probs`.
 
 ```{r}
 ## problems identified during class
@@ -167,17 +171,17 @@ qdiff3
 
 What we've accomplished:
 
-  * we've generalized our first function to take a difference between arbitrary quantiles
-  * we've specified default values for the probabilities that set the quantiles
+* We've generalized our first function to take a difference between arbitrary quantiles.
+* We've specified default values for the probabilities that set the quantiles.
   
-Where to next? In [part 3](#functions-part3), we tackle `NA`s, the special `...` argument, and formal unit testing.
+Where to next? In [part 3](#functions-part3) we tackle `NA`s, the special `...` argument, and formal unit testing.
 
 ## Resources
 
-Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]
+Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]:
 
-  * Section on [function arguments][adv-r-fxn-args]
-  * Section on [return values][adv-r-return-values]
+* Section on [function arguments][adv-r-fxn-args]
+* Section on [return values][adv-r-return-values]
   
 
 

@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Character encoding {#character-encoding}
 
 <!--TODO: *under development ... not clear where this is going*-->
@@ -6,21 +10,21 @@
 
 ## Resources
 
-  * [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science
-  * Screeds on the Minimum Everyone Needs to Know about encoding
-    - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
-    - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
-  * Debugging charts
-    - [Windows-1252 Characters to UTF-8 Bytes to Latin-1 Characters][utf8-debug]
-  * Character inspection
-    - <https://apps.timwhitlock.info/unicode/inspect>
+* [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science [@wickham2016].
+* Screeds on the Minimum Everyone Needs to Know about encoding:
+  - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
+  - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
+* Debugging charts:
+  - [Windows-1252 Characters to UTF-8 Bytes to Latin-1 Characters][utf8-debug]
+* Character inspection:
+  - <https://apps.timwhitlock.info/unicode/inspect>
 
 ## Translating two blog posts from Ruby to R
 
 For now, this page walks through these two mini-tutorials (written for Ruby), but translated to R:
 
-  * [Guide to fixing encoding problems in Ruby][encoding-probs-ruby]
-  * [How to Get From Theyâ€™re to They’re][theyre-to-theyre]
+* [Guide to fixing encoding problems in Ruby][encoding-probs-ruby]
+* [How to Get From Theyâ€™re to They’re][theyre-to-theyre]
   
 Don't expect much creativity from me here. My goal is faithful translation.
 
@@ -111,9 +115,9 @@ In Ruby, apparently that is an error. In R, we just get `NA`. Alternatively, and
 
 In the Ruby post, we've seen 3 string functions so far. Review and note which R function was used in the translation.
 
-  * `encode` translates a string to another encoding. We've used `iconv(x, from = "UTF-8", to = <DIFFERENT_ENCODING>)` here.
-  * `bytes` shows the bytes that make up a string. We've used `charToRaw()`, which returns hexadecimal in R. For the sake of comparison to the Ruby post, I've converted to decimal with `as.integer()`.
-  * `force_encoding` shows what the input bytes would look like if interpreted by a different encoding. We've used `iconv(x, from = <DIFFERENT_ENCODING>, to = "UTF-8")`.
+* `encode` translates a string to another encoding. We've used `iconv(x, from = "UTF-8", to = <DIFFERENT_ENCODING>)` here.
+* `bytes` shows the bytes that make up a string. We've used `charToRaw()`, which returns hexadecimal in R. For the sake of comparison to the Ruby post, I've converted to decimal with `as.integer()`.
+* `force_encoding` shows what the input bytes would look like if interpreted by a different encoding. We've used `iconv(x, from = <DIFFERENT_ENCODING>, to = "UTF-8")`.
 
 ## A three-step process for fixing encoding bugs
 

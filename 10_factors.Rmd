@@ -1,6 +1,10 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # (PART) Data Analysis 2 {-} 
 
-# Be the boss of your factors {#factors}
+# Be the boss of your factors {#factors-boss}
 
 <!--Original content: https://stat545.com/block029_factors.html-->
 
@@ -18,8 +22,8 @@ Where do stealth factors come from? Base R has a burning desire to turn characte
 
 Good articles about how the factor fiasco came to be:
 
-  * [stringsAsFactors: An unauthorized biography][bio-strings-as-factors] by Roger Peng
-  * [stringsAsFactors = \<sigh\>][blog-strings-as-factors] by Thomas Lumley
+* [stringsAsFactors: An unauthorized biography][bio-strings-as-factors] by Roger Peng
+* [stringsAsFactors = \<sigh\>][blog-strings-as-factors] by Thomas Lumley
 
 ## The `forcats` package
 
@@ -91,9 +95,9 @@ h_gap$country %>%
 
 Exercise: Filter the gapminder data down to rows where population is less than a quarter of a million, i.e. 250,000. Get rid of the unused factor levels for `country` and `continent` in different ways, such as:
 
-  * `droplevels()`
-  * `fct_drop()` inside `mutate()`
-  * `fct_dopr()` with `mutate_at()` or `mutate_if()`
+* `droplevels()`
+* `fct_drop()` inside `mutate()`
+* `fct_dopr()` with `mutate_at()` or `mutate_if()`
 
 ```{r, eval = FALSE, include = FALSE}
 low_pop <- gapminder %>% 
@@ -115,8 +119,8 @@ low_pop %>%
 
 By default, factor levels are ordered alphabetically. Which might as well be random, when you think about it! It is preferable to order the levels according to some principle:
 
-  * Frequency. Make the most common level the first and so on.
-  * Another variable. Order factor levels according to a summary statistic for another variable. Example: order Gapminder countries by life expectancy.
+* Frequency. Make the most common level the first and so on.
+* Another variable. Order factor levels according to a summary statistic for another variable. Example: order Gapminder countries by life expectancy.
 
 First, let's order continent by frequency, forwards and backwards. This is often a great idea for tables and figures, esp. frequency barplots.
 

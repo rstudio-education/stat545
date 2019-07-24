@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Join two tables {#join-cheatsheet}
 
 <!--Original content: https://stat545.com/bit001_dplyr-cheatsheet.html--> 
@@ -11,12 +15,12 @@ Examples for those of us who don't speak SQL so good. There are lots of [Venn di
 
 Other great places to read about joins:
 
-  * The `dplyr` vignette on [Two-table verbs][dplyr-vignette-two-table]
-  * The [Relational data chapter][r4ds-relational-data] in [R for Data Science][r4ds] [@wickham2016]. Excellent diagrams.
+* The `dplyr` vignette on [Two-table verbs][dplyr-vignette-two-table].
+* The [Relational data chapter][r4ds-relational-data] in [R for Data Science][r4ds] [@wickham2016]. Excellent diagrams.
   
 ## The data
 
-Working with two small data frames, `superheroes` and `publishers`.
+Working with two small data frames: `superheroes` and `publishers`.
 
 ```{r start_joins, message = FALSE, warning = FALSE}
 library(tidyverse) ## dplyr provides the join functions
@@ -60,7 +64,7 @@ publishers_kable <- knitr::kable(publishers)
 ijsp_kable <- knitr::kable(ijsp)
 ```
 
-
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
 <tr>
 <td valign="top">
@@ -77,10 +81,12 @@ ijsp_kable <- knitr::kable(ijsp)
 </td>
 </tr>
 </table>
-  
+</div>
+
+
 ## `semi_join(superheroes, publishers)`
 
-> `semi_join(x, y)`: Return all rows from `x` where there are matching values in `y`, keeping just columns from `x`. A semi join differs from an inner join because an inner join will return one row of x for each matching row of `y`, where a semi join will never duplicate rows of `x`. This is a filtering join.
+> `semi_join(x, y)`: Return all rows from `x` where there are matching values in `y`, keeping just columns from `x`. A semi join differs from an inner join because an inner join will return one row of `x` for each matching row of `y`, where a semi join will never duplicate rows of `x`. This is a filtering join.
 
 ```{r}
 (sjsp <- semi_join(superheroes, publishers))
@@ -92,22 +98,24 @@ We get a similar result as with `inner_join()` but the join result contains only
 sjsp_kable <- knitr::kable(sjsp)
 ```
 
-<table style="font-size:14px" class="table table-bordered">
-  <tr>
-  <td valign="top">
-  superheroes
-  `r superheroes_kable`
-</td>
-  <td valign="top">
-  publishers
-  `r publishers_kable`
-</td>
-  <td valign="top">
-  semi-join(x = superheroes, y = publishers)
-  `r sjsp_kable`
-</td>
-</tr>
-</table>
+<div style="overflow:scroll">
+  <table style="font-size:14px" class="table table-bordered">
+    <tr>
+    <td valign="top">
+    superheroes
+    `r superheroes_kable`
+  </td>
+    <td valign="top">
+    publishers
+    `r publishers_kable`
+  </td>
+    <td valign="top">
+    semi_join(x = superheroes, y = publishers)
+    `r sjsp_kable`
+  </td>
+  </tr>
+  </table>
+</div>
 
 ## `left_join(superheroes, publishers)`
 
@@ -123,6 +131,7 @@ We basically get `x = superheroes` back, but with the addition of variable `yr_f
 ljsp_kable <- knitr::kable(ljsp)
 ```
 
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
   <tr>
   <td valign="top">
@@ -139,6 +148,7 @@ ljsp_kable <- knitr::kable(ljsp)
 </td>
 </tr>
 </table>
+</div>
 
 ## `anti_join(superheroes, publishers)`
 
@@ -154,6 +164,7 @@ We keep __only__ Hellboy now (and do not get `yr_founded`).
 ajsp_kable <- knitr::kable(ajsp)
 ```
 
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
   <tr>
   <td valign="top">
@@ -170,6 +181,7 @@ ajsp_kable <- knitr::kable(ajsp)
 </td>
 </tr>
 </table>
+</div>
 
 ## `inner_join(publishers, superheroes)`
 
@@ -185,6 +197,7 @@ In a way, this does illustrate multiple matches, if you think about it from the 
 ijps_kable <- knitr::kable(ijps)
 ```
 
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
 <tr>
 <td valign="top">
@@ -201,6 +214,7 @@ ijps_kable <- knitr::kable(ijps)
 </td>
 </tr>
 </table>
+</div>  
   
 ## `semi_join(publishers, superheroes)`
 
@@ -216,7 +230,7 @@ Now the effects of switching the `x` and `y` roles is more clear. The result res
 sjps_kable <- knitr::kable(sjps)
 ```
 
-
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
 <tr>
 <td valign="top">
@@ -228,11 +242,12 @@ superheroes
 `r superheroes_kable`
 </td>
 <td valign="top">
-semi-join(x = publishers, y = superheroes)
+semi_join(x = publishers, y = superheroes)
 `r sjps_kable`
 </td>
 </tr>
 </table>
+</div>
 
 ## `left_join(publishers, superheroes)`
 
@@ -248,6 +263,7 @@ We get a similar result as with `inner_join()` but the publisher Image survives 
 ljps_kable <- knitr::kable(ljps)
 ```
 
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
 <tr>
 <td valign="top">
@@ -264,6 +280,7 @@ left_join(x = publishers, y = superheroes)
 </td>
 </tr>
 </table>
+</div>
 
 ## `anti_join(publishers, superheroes)`
 
@@ -279,6 +296,7 @@ We keep __only__ publisher Image now (and the variables found in `x = publishers
 ajps_kable <- knitr::kable(ajps)
 ```
 
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
 <tr>
 <td valign="top">
@@ -295,6 +313,7 @@ anti_join(x = publishers, y = superheroes)
 </td>
 </tr>
 </table>
+</div>
 
 ## `full_join(superheroes, publishers)`
 
@@ -310,6 +329,7 @@ We get all rows of `x = superheroes` plus a new row from `y = publishers`, conta
 fjsp_kable <- knitr::kable(fjsp)
 ```
 
+<div style="overflow:scroll">
 <table style="font-size:14px" class="table table-bordered">
 <tr>
 <td valign="top">
@@ -326,6 +346,7 @@ fjsp_kable <- knitr::kable(fjsp)
 </td>
 </tr>
 </table>
+</div>
 
 
 ```{r links, child="links.md"}

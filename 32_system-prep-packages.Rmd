@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # System preparation for package development {#system-prep}
 
 <!--Original content: https://stat545.com/packages01_system-prep.html-->

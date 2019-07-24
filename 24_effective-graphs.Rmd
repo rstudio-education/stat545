@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Do's and don'ts of making effective graphics {#effective-graphs}
 
 <!--Original content:https://stat545.com/block015_graph-dos-donts.html-->
@@ -14,12 +18,12 @@ To paraphrase: Most of us use a computer to write but we would never characteriz
 
 > One graph is more effective than another if its quantitative information can be decoded more quickly or more easily by most observers.
 
-When I'm lost in data and struggling to make a figure, I repeat this mantra distilled from Gelman, et al.:
+When I'm lost in data and struggling to make a figure, I repeat this mantra distilled from Gelman, et al. [-@gelman2002]:
 
-  * Facilitate comparisons
-  * Reveal trends
+* Facilitate comparisons
+* Reveal trends
 
-*CMEG = Naomi Robbins' book ["Creating More Effective Graphs"][robbins-effective-graphs]; visual catalog of figures via the [R Graph Catalog][r-graph-catalog-github]*
+*CMEG = Naomi Robbins' book ["Creating More Effective Graphs"][robbins-effective-graphs] [-@robbins2012]; visual catalog of figures via the [R Graph Catalog][r-graph-catalog-github]*
 
 ## No no's
 
@@ -31,8 +35,8 @@ Why do the pros hate pie charts? They are awful because they encode quantitative
 
 Examples from CMEG and the [R Graph Catalog][r-graph-catalog-github]:
 
-  * Try to place the wedges in order from largest to smallest based on the pie chart in Fig 1.1. Now do same using the dot plot in Fig 1.2. Which figure made this task easier? Which presentation of this data improves your understanding of the data? Reflect on the same info presented as a table, Fig 1.3.
-  * Try to decode the data from the pie chart in Fig 2.2. Now do the same using the dot plot in Fig 2.3.
+* Try to place the wedges in order from largest to smallest based on the pie chart in Fig 1.1. Now do same using the dot plot in Fig 1.2. Which figure made this task easier? Which presentation of this data improves your understanding of the data? Reflect on the same info presented as a table, Fig 1.3.
+* Try to decode the data from the pie chart in Fig 2.2. Now do the same using the dot plot in Fig 2.3.
   
 We are best able to make comparisons via position of objects along a common scale, which is why these simple dot plots are so much more effective than the pie charts.
 
@@ -40,22 +44,22 @@ We are best able to make comparisons via position of objects along a common scal
 
 Tufte, as quoted by Robbins: "the only worse design than a pie chart is several of them."
 
-  * "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck][why-pie-charts-suck] shows a series of 3 pie charts versus a line chart.
-  * Rob Hyndman nominated a 3 pie chart series as [the worst figure][worst-figure], which has the added horror of cross-hatching. Sorry, no before and after here.
+* "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck][why-pie-charts-suck] shows a series of 3 pie charts versus a line chart.
+* Rob Hyndman nominated a 3 pie chart series as [the worst figure][worst-figure], which has the added horror of cross-hatching. Sorry, no before and after here.
 
 ### Stacked and group bar charts
 
 The average person, if told they should not make a pie chart, might then take that bunch of numbers for different categories and make a stacked bar chart. Especially if they have a a series of such numbers. But this is also a very difficult graph to decode.
 
-  * Fig 8.11 from CMEG (not in the Catalog) presents a series of 4 pie charts, showing various nations' share of world car production from 1977 to 1980. The same data is presented as a stacked bar chart in Fig 8.12. How easy is it to figure out which countries are gaining and losing share? Now take a look at the faceted line chart in Fig 8.13. BOOM!
+* Fig 8.11 from CMEG (not in the Catalog) presents a series of 4 pie charts, showing various nations' share of world car production from 1977 to 1980. The same data is presented as a stacked bar chart in Fig 8.12. How easy is it to figure out which countries are gaining and losing share? Now take a look at the faceted line chart in Fig 8.13. BOOM!
   
 Stacked bar charts are difficult to decode because we need a common baseline to judge changes in length. So the trend for the category on the "ground floor" is easy to see but trends for those stuck in the middle are hard to see.
 
-  * Fig 5.1 shows petroleum stocks held by various countries over time as a stacked bar chart. Again it's easy to see the trend for the US, which sits on the "ground floor," but who knows what's going on with other countries. Fig 5.2 and 5.3 show alternative presentations that are much more effective.
+* Fig 5.1 shows petroleum stocks held by various countries over time as a stacked bar chart. Again it's easy to see the trend for the US, which sits on the "ground floor," but who knows what's going on with other countries. Fig 5.2 and 5.3 show alternative presentations that are much more effective.
 
 Grouped bar charts also make it hard to see trends.
 
-  * Fig 8.1 shows high, average, and low prices for gold over time as a stacked bar chart. The same info is presented differently in Fig 8.2, to much better effect.
+* Fig 8.1 shows high, average, and low prices for gold over time as a stacked bar chart. The same info is presented differently in Fig 8.2, to much better effect.
   
 Grouped bar charts are difficult because it's hard to make comparisons between things that aren't adjacent or at least very near each other.
 
@@ -83,9 +87,9 @@ In CMEG, Figs 6.2 vs 6.3 make much the same point, i.e. stripping the figure way
 
 If you're going to talk about the difference between this and that, then please go ahead a plot the difference between this and that! Sure, it might be nice to plot this and that, on their own, but don't stop there. *You've got a computer. And software.* Use them to do annoying arithmetic for your reader.
 
-  * Figs 2.14 and 2.15 show imports to England and exports from England from long ago. But if you are interested in the balance of trade, imports - exports, then plot that! It's very hard to do this well in your head.
-  * Fig 2.16 show the function $y = \frac{1}{x^2}$ and the same function shifted vertically by a constant. But the figure is incredibly deceptive, underscoring how bad we are at taking differences.
-  * Figs 8.3, 8.4, 8.5, 8.6 show the time taken for subjects to do annoying things, like set the clock on their VCR, with two different sets of instructions. The original graph spread this out over 10 small bar charts, but the next 3 graphs present more direct looks at the improvement offered by revised instructions.
+* Figs 2.14 and 2.15 show imports to England and exports from England from long ago. But if you are interested in the balance of trade, imports - exports, then plot that! It's very hard to do this well in your head.
+* Fig 2.16 show the function $y = \frac{1}{x^2}$ and the same function shifted vertically by a constant. But the figure is incredibly deceptive, underscoring how bad we are at taking differences.
+* Figs 8.3, 8.4, 8.5, 8.6 show the time taken for subjects to do annoying things, like set the clock on their VCR, with two different sets of instructions. The original graph spread this out over 10 small bar charts, but the next 3 graphs present more direct looks at the improvement offered by revised instructions.
 
 ## Do: use position along a common scale
 
@@ -93,14 +97,14 @@ We are best able to make comparisons if items are positioned along a common scal
 
 We have a harder time with area, volume, length of non-adjacent things, length without a common baseline, angle, color, and shape.
 
-  * Fig 2.18 shows a poorly ordered bubble plot that depicts population of various cities. It's really hard to order the cities by population, until you look at the clean dot plot in Fig 2.19.
-  * Figs 6.24 and 6.25 encode numbers in the area of rectangles and triangles, respectively, when a simple bar chart or dotplot would have been better.  
+* Fig 2.18 shows a poorly ordered bubble plot that depicts population of various cities. It's really hard to order the cities by population, until you look at the clean dot plot in Fig 2.19.
+* Figs 6.24 and 6.25 encode numbers in the area of rectangles and triangles, respectively, when a simple bar chart or dotplot would have been better.  
 
 ## Do: take control of aspect ratio
 
 We can see differences in angles when they're around 45 degrees. But as they get steeper, our ability to compare goes down quickly. You control the angles of line segments in your graphs by controlling the *aspect ratio*. Pick the ratio so that the "average line segment" is around 45 degrees, a.k.a. banking to 45.
 
-  * Fig 7.1 shows how a proper aspect ratio makes it easier to see that the sunspot data rises much faster than it falls.
+* Fig 7.1 shows how a proper aspect ratio makes it easier to see that the sunspot data rises much faster than it falls.
 
 ## Do: think about including zero
 
@@ -112,32 +116,32 @@ Figs 7.3, 7.4, and 7.5 explore the inclusion of zero.
 
 ## Do: choose the scale with intention
 
-Logarithmically transformed scales are useful when
+Logarithmically transformed scales are useful when:
 
-  * it makes sense to think of changes on a multiplicative scale, instead of additive.
+* It makes sense to think of changes on a multiplicative scale, instead of additive.
     - example: gene expression ratios are naturally viewed on the log 2 scale, where 0 represents a ratio of 1 and equal expression and -1 and 1 represent ratios of 1/2 and 2, respectively
-  * the data are skewed
+* The data are skewed
 
 Figs 7.7 and 7.8 show a skewed dataset before and after log transformation. We are also used to logging the `gdpPercap` variable in the Gapminder data, for the same reasons.
 
 How about presenting two scales for the same axis?
 
-  * It is OK to present tick marks in different "units," i.e. temperature in Fahrenheit vs. Celsius (Fig 7.16) or GDP per capita in raw dollars versus on the log 10 scale. However, this is not easy to do in `ggplot2`!
-  * It is NOT OK to present two entirely different scales, just so you can squeeze two different variables onto the same plot.
-    - Figs 7.17 and 7.18 explore how deceptive this can be.
-  * Even if variables are technically reported in the same units, it might make a better graph to use facets and choose axis limits accordingly.
-    - Figs 7.19 and 7.21 show the importance of faceting when looking at levels of blood lipids.
+* It is OK to present tick marks in different "units," i.e. temperature in Fahrenheit vs. Celsius (Fig 7.16) or GDP per capita in raw dollars versus on the log 10 scale. However, this is not easy to do in `ggplot2`!
+* It is NOT OK to present two entirely different scales, just so you can squeeze two different variables onto the same plot.
+  - Figs 7.17 and 7.18 explore how deceptive this can be.
+* Even if variables are technically reported in the same units, it might make a better graph to use facets and choose axis limits accordingly.
+  - Figs 7.19 and 7.21 show the importance of faceting when looking at levels of blood lipids.
 
 ## Do: connect the dots with care
 
 Consider two quantitative variables, where the x-axis is time or something similar. There are many legitimate ways to present such data. In `ggplot2` jargon, there are many relevant geoms.
 
-  * Fig 4.17 shows a single time series presented 4 different ways, each serving a different purpose.
-  * Fig 4.21 presents another line graph, showing used car price against mileage of car. Connecting these dots allows buyers and sellers to determine fair value, even if a specific car's mileage is not in the dataset.
+* Fig 4.17 shows a single time series presented 4 different ways, each serving a different purpose.
+* Fig 4.21 presents another line graph, showing used car price against mileage of car. Connecting these dots allows buyers and sellers to determine fair value, even if a specific car's mileage is not in the dataset.
 
 Beware connecting the dots when the x axis represents an unordered categorical variable.
 
-  * Figs 4.22, 4.23, and 4.24 depict mountain heights for different continents. The connecting line can be misleading here. What it the graph were targeted at an audience that speaks a different language? Even alphabetical is not a well-defined ordering. Unless sorting on size, best to avoid connecting these dots (and even then one must be careful).
+* Figs 4.22, 4.23, and 4.24 depict mountain heights for different continents. The connecting line can be misleading here. What it the graph were targeted at an audience that speaks a different language? Even alphabetical is not a well-defined ordering. Unless sorting on size, best to avoid connecting these dots (and even then one must be careful).
 
 ## Do: convey groups clearly
 
@@ -145,12 +149,12 @@ Consider two quantitative variables, plus a third categorical variable. How to e
 
 If superposing, you have shape, filled-ness, and color at your disposal.
 
-  * Figs 6.6 and 6.7 explore using these singly or, often better, in combination.
+* Figs 6.6 and 6.7 explore using these singly or, often better, in combination.
 
 It is often better to avoid superposition and, instead, to put the groups into different facets.
 
-  * Fig 6.8 revisits the data from Figs 6.6 and 6.7, but using faceting. Gridlines can be very helpful to facilitate comparisons across facets.
-  * Figs 6.9 and 6.10 make this point for line charts.
+* Fig 6.8 revisits the data from Figs 6.6 and 6.7, but using faceting. Gridlines can be very helpful to facilitate comparisons across facets.
+* Figs 6.9 and 6.10 make this point for line charts.
 
 ### A tour of the Do's
 
@@ -158,15 +162,23 @@ We will look through another section (slides 48 - 62) of Karl Broman's excellent
 
 ## Resources {#effective-graphs-resources}
 
-* ["Creating More Effective Graphs"][robbins-effective-graphs] by [Naomi Robbins][naomi-robbins]  
-* The [R Graph Catalog][r-graph-catalog-github] presents the figures from ["Creating More Effective Graphs"][robbins-effective-graphs] as a visual quilt. Click on a figure to see the `ggplot2` code that makes it.  
-* Karl Broman's talk "How to display data badly"  
-  * Home on GitHub: https://github.com/kbroman/Talk_Graphs  
-  * The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)  
-* [`ggplot2`][ggplot2-web] written by [Hadley Wickham][hadley-github-index]  
-* [Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] [-@chang2013] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r]  
-* My [`ggplot2` tutorial][ggplot2-tutorial]  
-* Gelman et al.'s ["Let's Practice What We Preach"](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents) in The American Statistician [-@gelman2002].
+["Creating More Effective Graphs"][robbins-effective-graphs] by [Naomi Robbins][naomi-robbins] [-@robbins2012].   
+
+The [R Graph Catalog][r-graph-catalog-github] presents the figures from ["Creating More Effective Graphs"][robbins-effective-graphs] as a visual quilt. Click on a figure to see the `ggplot2` code that makes it.
+
+Karl Broman's talk "How to display data badly"  
+
+* Home on GitHub: https://github.com/kbroman/Talk_Graphs  
+* The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)     
+  
+[`ggplot2`][ggplot2-web] written by [Hadley Wickham][hadley-github-index].  
+
+[Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] [-@chang2013] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r].  
+
+Chapter \@ref(ggplot2-tutorial) - my [`ggplot2` tutorial][ggplot2-tutorial].
+
+Gelman et al.'s ["Let's Practice What We Preach"](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents) in The American Statistician [-@gelman2002].
+
 
 
 <!--JB:
@@ -187,5 +199,3 @@ high volume scatterplots
 
 ```{r links, child="links.md"}
 ```
-
-

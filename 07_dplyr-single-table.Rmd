@@ -1,28 +1,36 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Single table `dplyr` functions {#dplyr-single}
 
 <!--Original content: https://stat545.com/block010_dplyr-end-single-table.html-->
 
 ## Where were we?
 
-In the [introduction to dplyr](#dplyr-intro), we used two very important verbs and an operator:
+In Chapter \@ref(dplyr-intro), we used two very important verbs and an operator:
 
-  * `filter()` for subsetting data with row logic
-  * `select()` for subsetting data variable- or column-wise
-  * the pipe operator `%>%`, which feeds the LHS as the first argument to the expression on the RHS
+* `filter()` for subsetting data with row logic
+* `select()` for subsetting data variable- or column-wise
+* the pipe operator `%>%`, which feeds the LHS as the first argument to the expression on the RHS
   
-We also discussed dplyr's role inside the tidyverse and tibbles:
+We also discussed `dplyr`'s role inside the `tidyverse` and tibbles:
 
-  * dplyr is a core package in the [tidyverse][tidyverse-github] meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via `library(tidyverse)`.
-  * The tidyverse embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
+* `dplyr` is a core package in the [tidyverse][tidyverse-github] meta-package. Since we often make incidental usage of the others, we will load `dplyr` and the others via `library(tidyverse)`.
+* The `tidyverse` embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
 
 ## Load `dplyr` and `gapminder`
 
-I choose to load the tidyverse, which will load dplyr, among other packages we use incidentally below. Also load gapminder.
-
+I choose to load the `tidyverse`, which will load `dplyr`, among other packages we use incidentally below. 
 ```{r start_dplyr_single}
-library(gapminder)
 library(tidyverse)
 ```
+
+Also load `gapminder.`
+```{r message = FALSE, warning = FALSE}
+library(gapminder)
+```
+
 
 ## Create a copy of `gapminder`
 
@@ -65,14 +73,14 @@ Maybe it would be more meaningful to consumers of my tables and figures to stick
 
 I need to create a new variable that is `gdpPercap` divided by Canadian `gdpPercap`, taking care that I always divide two numbers that pertain to the same year.
 
-How I achieve:
+How I achieve this:
 
-  * Filter down to the rows for Canada.
-  * Create a new temporary variable in `my_gap`:
-    - Extract the `gdpPercap` variable from the Canadian data.
-    - Replicate it once per country in the dataset, so it has the right length.
-  * Divide raw `gdpPercap` by this Canadian figure.
-  * Discard the temporary variable of replicated Canadian `gdpPercap`.
+1. Filter down to the rows for Canada.
+1. Create a new temporary variable in `my_gap`:
+    i) Extract the `gdpPercap` variable from the Canadian data.
+    i) Replicate it once per country in the dataset, so it has the right length.
+1. Divide raw `gdpPercap` by this Canadian figure.
+1. Discard the temporary variable of replicated Canadian `gdpPercap`.
 
 ```{r}
 ctib <- my_gap %>%
@@ -149,8 +157,8 @@ I did NOT assign the post-rename object back to `my_gap` because that would make
 
 You've seen simple use of `select()`. There are two tricks you might enjoy:
 
-  1. `select()` can rename the variables you request to keep.
-  1. `select()` can be used with `everything()` to hoist a variable up to the front of the tibble.
+1. `select()` can rename the variables you request to keep.
+1. `select()` can be used with `everything()` to hoist a variable up to the front of the tibble.
   
 ```{r}
 my_gap %>%
@@ -165,13 +173,13 @@ my_gap %>%
 
 I have found ~~friends and family~~ collaborators love to ask seemingly innocuous questions like, "which country experienced the sharpest 5-year drop in life expectancy?". In fact, that is a totally natural question to ask. But if you are using a language that doesn't know about data, it's an incredibly annoying question to answer.
 
-dplyr offers powerful tools to solve this class of problem.
+`dplyr` offers powerful tools to solve this class of problem:
 
-  * `group_by()` adds extra structure to your dataset -- grouping information -- which lays the groundwork for computations within the groups.
-  * `summarize()` takes a dataset with $n$ observations, computes requested summaries, and returns a dataset with 1 observation.
-  * Window functions take a dataset with $n$ observations and return a dataset with $n$ observations.
-  * `mutate()` and `summarize()` will honor groups.
-  * You can also do very general computations on your groups with `do()`, though elsewhere in this course, I advocate for other approaches that I find more intuitive, using the `purrr` package.
+* `group_by()` adds extra structure to your dataset -- grouping information -- which lays the groundwork for computations within the groups.
+* `summarize()` takes a dataset with $n$ observations, computes requested summaries, and returns a dataset with 1 observation.
+* Window functions take a dataset with $n$ observations and return a dataset with $n$ observations.
+* `mutate()` and `summarize()` will honor groups.
+* You can also do very general computations on your groups with `do()`, though elsewhere in this course, I advocate for other approaches that I find more intuitive, using the [`purrr` package][purrr-web].
   
 Combined with the verbs you already know, these new tools allow you to solve an extremely diverse set of problems with relative ease.
 
@@ -185,14 +193,14 @@ my_gap %>%
   summarize(n = n())
 ```
 
-Let us pause here to think about the tidyverse. You could get these same frequencies using `table()` from base R.
+Let us pause here to think about the `tidyverse`. You could get these same frequencies using `table()` from base R.
 
 ```{r}
 table(gapminder$continent)
 str(table(gapminder$continent))
 ```
 
-But the object of class `table` that is returned makes downstream computation a bit fiddlier than you'd like. For example, it's too bad the continent levels come back only as *names* and not as a proper factor, with the original set of levels. This is an example of how the tidyverse smooths transitions where you want the output of step i to become the input of step i + 1.
+But the object of class `table` that is returned makes downstream computation a bit fiddlier than you'd like. For example, it's too bad the continent levels come back only as *names* and not as a proper factor, with the original set of levels. This is an example of how the tidyverse smooths transitions where you want the output of step `i` to become the input of step `i + 1`.
 
 The `tally()` function is a convenience function that knows to count rows. It honors groups.
 
@@ -230,9 +238,10 @@ my_gap %>%
   summarize(avg_lifeExp = mean(lifeExp))
 ```
 
-`summarize_at()` applies the same summary function(s) to multiple variables. Let's compute average and median life expectancy and GDP per capita by continent by year ... but only for 1952 and 2007.
+<!--TODO: summarize_at() is soft deprecated as of dplyr 0.8.0-->
+`summarize_at()` applies the same summary function(s) to multiple variables. Let's compute average and median life expectancy and GDP per capita by continent by year...but only for 1952 and 2007.
 
-```{r}
+```{r warning = FALSE}
 my_gap %>%
   filter(year %in% c(1952, 2007)) %>%
   group_by(continent, year) %>%
@@ -353,31 +362,29 @@ Ponder that for a while. The subject matter and the code. Mostly you're seeing w
 
 Break the code into pieces, starting at the top, and inspect the intermediate results. That's certainly how I was able to *write* such a thing. These commands do not [leap fully formed out of anyone's forehead][athena-zeus-forehead] -- they are built up gradually, with lots of errors and refinements along the way. I'm not even sure it's a great idea to do so much manipulation in one fell swoop. Is the statement above really hard for you to read? If yes, then by all means break it into pieces and make some intermediate objects. Your code should be easy to write and read when you're done.
 
-In later tutorials, we'll explore more of dplyr, such as operations based on two datasets.
+In later tutorials, we'll explore more of `dplyr`, such as operations based on two datasets.
 
 ## Resources
 
-`dplyr` official stuff
+`dplyr` official stuff:
 
-  * package home [on CRAN][dplyr-cran]
-    - note there are several vignettes, with the [introduction][dplyr-vignette-intro] being the most relevant right now
-    - the [one on window functions][dplyr-vignette-window-fxns] will also be interesting to you now
-  * development home [on GitHub][dplyr-github]
-  * [tutorial HW delivered][useR-2014-dropbox] (note this links to a DropBox folder) at useR! 2014 conference
-
+* Package home [on CRAN][dplyr-cran].
+  - Note there are several vignettes, with the [introduction][dplyr-vignette-intro] being the most relevant right now.
+  - The [one on window functions][dplyr-vignette-window-fxns] will also be interesting to you now.
+* Development home [on GitHub][dplyr-github].
+* [Tutorial HW delivered][useR-2014-dropbox] (note this links to a DropBox folder) at useR! 2014 conference.     
+    
 [RStudio Data Transformation Cheat Sheet][rstudio-dplyr-cheatsheet-download], covering `dplyr`. Remember you can get to these via *Help > Cheatsheets.* 
 
 [Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds] [@wickham2016].
 
+<!--TODO: This should probably be updated with something more recent-->
+[Excellent slides][tj-mahr-slides] on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
 
 <!--TODO: This should probably be updated with something more recent-->
-[Excellent slides][tj-mahr-slides]on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
+Blog post [Hands-on `dplyr` tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos.
 
-<!--TODO: This should probably be updated with something more recent-->
-Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos
-
-[Cheatsheet](#join-cheatsheet) I made for `dplyr` join functions (not relevant yet but soon)
-
+Chapter \@ref(join-cheatsheet): cheatsheet I made for `dplyr` join functions (not relevant yet but soon).
 
 ```{r links, child="links.md"}
 ```

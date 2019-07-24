@@ -1,4 +1,8 @@
-# Write your own R functions: Part 3 {#functions-part3}
+```{r include = FALSE}
+source("common.R")
+```
+
+# Write your own R functions, part 3 {#functions-part3}
 
 <!--Original content: https://stat545.com/block011_write-your-own-function-03.html-->
 
@@ -10,7 +14,7 @@ In this part, we tackle `NA`s, the special argument `...` and formal testing.
 
 ## Load the Gapminder data
 
-As usual, load the Gapminder data.
+As usual, load `gapminder`.
 
 ```{r start_func3}
 library(gapminder)
@@ -156,22 +160,14 @@ defaulting to NULL then checking is.null() and take it from there
 
 ## Resources
 
-Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]
-
-  * Section on [function arguments][adv-r-fxn-args]
-  
-Unit testing with `testthat`
-
-  * On [CRAN][testthat-cran], development on [GitHub][testthat-github], main [webpage][testthat-web]
-  
-  
-Wickham and Bryan's [R Packages][r-pkgs2] book [-@wickham-unpub]
-
-  * [Testing chapter](https://r-pkgs.org/tests.html)
-
-Wickham's [testthat: Get Started with Testing][testthat-article] article in The R Journal [-@wickham2011b]. Maybe this is completely superseded by the newer chapter above? Be aware that parts could be out of date, but I recall it was a helpful read.
+* Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]
+  + Section on [function arguments][adv-r-fxn-args]
+* Unit testing with `testthat`
+  + On [CRAN][testthat-cran], development on [GitHub][testthat-github], main [webpage][testthat-web]
+* Wickham and Bryan's [R Packages][r-pkgs2] book [-@wickham-unpub]
+  + [Testing chapter](https://r-pkgs.org/tests.html)
+* Wickham's [testthat: Get Started with Testing][testthat-article] article in The R Journal [-@wickham2011b]. Maybe this is completely superseded by the newer chapter above? Be aware that parts could be out of date, but I recall it was a helpful read.
 
 
 ```{r links, child="links.md"}
 ```
-

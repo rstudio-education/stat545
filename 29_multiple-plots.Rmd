@@ -1,6 +1,10 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Multiple plots on a page {#multiple-plots}
 
-<!--[Link to original content](http://stat545.com/block020_multiple-plots-on-a-page.html)-->
+<!--Original content: http://stat545.com/block020_multiple-plots-on-a-page.html-->
 
 <!--TODO: add patchwork package here?-->
 

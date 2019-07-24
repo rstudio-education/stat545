@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Writing figures to file {#save-figs}
 
 <!--Original content: https://stat545.com/block017_write-figure-to-file.html-->

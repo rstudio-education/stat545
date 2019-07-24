@@ -1,4 +1,8 @@
-# Write your own R functions: Part 1 {#functions-part1}
+```{r include = FALSE}
+source("common.R")
+```
+
+# Write your own R functions, part 1 {#functions-part1}
 
 <!--Original content: https://stat545.com/block011_write-your-own-function-01.html-->
 
@@ -10,7 +14,7 @@ Why are we covering this now, smack in the middle of data aggregation? Powerful 
 
 ## Load the Gapminder data
 
-As usual, load the Gapminder data.
+As usual, load `gapminder`.
 
 ```{r start_func1}
 library(gapminder)
@@ -157,9 +161,9 @@ mmm2(gapminder)
 ```
 
 In addition to a gratuitous apology, the error raised also contains two more pieces of helpful info:
-
-  * *Which* function threw the error.
-  * Hints on how to fix things: expected class of input vs actual class.
+  
+* *Which* function threw the error.
+* Hints on how to fix things: expected class of input vs actual class.
 
 If it is easy to do so, I highly recommend this template: "you gave me THIS, but I need THAT".
 
@@ -177,24 +181,24 @@ mmm2
 
 What we've accomplished:
 
-  * we've written our first function
-  * we are checking the validity of its input, argument `x`
-  * we've done a good amount of informal testing
+* We've written our first function.
+* We are checking the validity of its input, argument `x`.
+* We've done a good amount of informal testing.
   
-Where to next? In [part 2](#functions-part2), we generalize this function to take differences in other quantiles and learn how to set default values for arguments.
+Where to next? In [part 2](#functions-part2) we generalize this function to take differences in other quantiles and learn how to set default values for arguments.
 
 ## Resources
 
 Packages for runtime assertions (the last 3 seem to be under more active development than `assertthat`):
 
-  * `assertthat` on [CRAN][assertthat-cran] and [GitHub][assertthat-github] *the Hadleyverse option*
-  * `ensurer` on [CRAN][ensurer-cran] and [GitHub][ensurer-github] *general purpose, pipe-friendly*
-  * `assertr` on [CRAN][assertr-cran] and [GitHub][assertr-github] *explicitly data pipeline oriented*
-  * `assertive` on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] *rich set of built-in functions*
+* `assertthat` on [CRAN][assertthat-cran] and [GitHub][assertthat-github] - *the Hadleyverse option*
+* `ensurer` on [CRAN][ensurer-cran] and [GitHub][ensurer-github] - *general purpose, pipe-friendly*
+* `assertr` on [CRAN][assertr-cran] and [GitHub][assertr-github] - *explicitly data pipeline oriented*
+* `assertive` on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] - *rich set of built-in functions*
 
-Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]
+Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]:
 
-  * Section on [defensive programming][adv-r-defensive-programming]
+* Section on [defensive programming][adv-r-defensive-programming]
 
 
 ```{r links, child="links.md"}

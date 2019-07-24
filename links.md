@@ -39,6 +39,7 @@
 [tidyverse-web]: https://tidyverse.tidyverse.org
 [tidyverse-github]: https://github.com/hadley/tidyverse
 
+[dplyr-web]: https://dplyr.tidyverse.org
 [dplyr-cran]: https://CRAN.R-project.org/package=dplyr
 [dplyr-github]: https://github.com/hadley/dplyr
 [dplyr-vignette-intro]: https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
@@ -186,6 +187,8 @@
 [janitor-web]: http://sfirke.github.io/janitor/
 [janitor-cran]: https://CRAN.R-project.org/package=janitor
 [janitor-github]: https://github.com/sfirke/janitor
+
+[purrr-web]: https://purrr.tidyverse.org
 
 
 <!--Shiny links-->

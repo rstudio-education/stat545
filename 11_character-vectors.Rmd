@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Character vectors {#character-vectors}
 
 <!--Original content: https://stat545.com/block028_character-data.html-->
@@ -8,9 +12,9 @@ We've spent a lot of time working with big, beautiful data frames. That are clea
 
 But real life will be much nastier. You will bring data into R from the outside world and discover there are problems. You might think: how hard can it be to deal with character data? And the answer is: it can be very hard!
 
-  * [Stack Exchange outage][stackexchange-outage]
-  * [Regexes to validate/match email addresses][email-regex]
-  * [Fixing an Atom bug][fix-atom-bug]
+* [Stack Exchange outage][stackexchange-outage]
+* [Regexes to validate/match email addresses][email-regex]
+* [Fixing an Atom bug][fix-atom-bug]
 
 Here we discuss common remedial tasks for cleaning and transforming character data, also known as "strings". A data frame or tibble will consist of one or more *atomic vectors* of a certain class. This lesson deals with things you can do with vectors of class `character`.
 
@@ -20,47 +24,47 @@ I start with this because we cannot possibly do this topic justice in a short am
 
 ### Manipulating character vectors
 
-  * [`stringr` package][stringr-web]
-    - A core package in the tidyverse. It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
-    - Main functions start with `str_`. Auto-complete is your friend.
-    - Replacements for base functions re: string manipulation and regular expressions (see below).
-    - Main advantagse over base functions: greater consistency about inputs and outputs. Outputs are more ready for your next analytical task. 
-  * [`tidyr` package][tidyr-web]
-    - Especially useful for functions that split 1 character vector into many and *vice versa*: `separate()`, `unite()`, `extract()`.
-  * Base functions: `nchar()`, `strsplit()`, `substr()`, `paste()`, `paste0()`.
-  * The [`glue` package][glue-web] is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out glue.
+* [`stringr` package][stringr-web].
+  - A core package in the `tidyverse.` It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
+  - Main functions start with `str_`. Auto-complete is your friend.
+  - Replacements for base functions re: string manipulation and regular expressions (see below).
+  - Main advantages over base functions: greater consistency about inputs and outputs. Outputs are more ready for your next analytical task. 
+* [`tidyr` package][tidyr-web].
+  - Especially useful for functions that split one character vector into many and *vice versa*: `separate()`, `unite()`, `extract()`.
+* Base functions: `nchar()`, `strsplit()`, `substr()`, `paste()`, `paste0()`.
+* The [`glue` package][glue-web] is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out `glue`.
 
 ### Regular expressions resources
 
 A God-awful and powerful language for expressing patterns to match in text or for search-and-replace. Frequently described as "write only", because regular expressions are easier to write than to read/understand. And they are not particularly easy to write.
 
-  * We again prefer the [stringr package][stringr-cran] over base functions. Why?
-    - Wraps [stringi][stringi-cran], which is a great place to look if stringr isn't powerful enough.
-    - Standardized on [ICU regular expressions][icu-regex], so you can stop toggling `perl = TRUE/FALSE` at random.
-    - Results come back in a form that is much friendlier for downstream work.
-  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016] is a great resource.
-  * Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of stringr and uses example data that is easier to support long-term.
-    -  [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
-    - [2015 Regular expressions and character data in R](#regex2) by TA Kieran Samuk.
-  * RStudio Cheat Sheet on [Regular Expressions in R][rstudio-regex-cheatsheet]
-  * Regex testers
-    - [regex101.com][regex101]
-    - [regexr.com][regexr]
-  * [rex R package][rex-github]: make regular expression from human readable expressions
-  * Base functions: `grep()` and friends.
+* We again prefer the [`stringr` package][stringr-cran] over base functions. Why?
+  - Wraps [`stringi`][stringi-cran], which is a great place to look if `stringr` isn't powerful enough.
+  - Standardized on [ICU regular expressions][icu-regex], so you can stop toggling `perl = TRUE/FALSE` at random.
+  - Results come back in a form that is much friendlier for downstream work.
+* The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016] is a great resource.
+* Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of `stringr` and uses example data that is easier to support long-term.
+  -  [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
+  - [2015 Regular expressions and character data in R](#regex2) by TA Kieran Samuk.
+* RStudio Cheat Sheet on [Regular Expressions in R][rstudio-regex-cheatsheet].
+* Regex testers:
+  - [regex101.com][regex101]
+  - [regexr.com][regexr]
+* [`rex` R package][rex-github]: make regular expression from human readable expressions.
+* Base functions: `grep()` and friends.
 
 ### Character encoding resources
 
-  * [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science
-  * Screeds on the Minimum Everyone Needs to Know about encoding
-    - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
-    - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
-  * I've translated this blog post [Guide to fixing encoding problems in Ruby][encoding-probs-ruby] into R as the first step to developing a lesson: [Encoding in R](#character-encoding)
+* [Strings subsection of data import chapter][r4ds-readr-strings] in [R for Data Science][r4ds] [@wickham2016].
+* Screeds on the Minimum Everyone Needs to Know about encoding:
+  - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
+  - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
+* Chapter \@ref(character-encoding) - I've translated this blog post [Guide to fixing encoding problems in Ruby][encoding-probs-ruby] into R as the first step to developing a lesson.
 
 ### Character vectors that live in a data frame
 
-  * Certain operations are facilitated by `tidyr`. These are described below.
-  * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#vectors-tibbles)
+* Certain operations are facilitated by `tidyr`. These are described below.
+* For a general discussion of how to work on variables that live in a data frame, see Appendix \@ref(vectors-tibbles).
 
 ## Load the `tidyverse`, which includes `stringr`
 
@@ -72,16 +76,16 @@ library(tidyverse)
 
 Basic string manipulation tasks:
 
-  * Study a single character vector
-    - How long are the strings?
-    - Presence/absence of a literal string
-  * Operate on a single character vector
-    - Keep/discard elements that contain a literal string
-    - Split into two or more character vectors using a fixed delimiter    
-    - Snip out pieces of the strings based on character position
-    - Collapse into a single string
-  * Operate on two or more character vectors
-    - Glue them together element-wise to get a new character vector.
+* Study a single character vector
+  - How long are the strings?
+  - Presence/absence of a literal string
+* Operate on a single character vector
+  - Keep/discard elements that contain a literal string
+  - Split into two or more character vectors using a fixed delimiter    
+  - Snip out pieces of the strings based on character position
+  - Collapse into a single string
+* Operate on two or more character vectors
+  - Glue them together element-wise to get a new character vector.
 
 *`fruit`, `words`, and `sentences` are character vectors that ship with `stringr` for practicing.*
 
@@ -159,14 +163,14 @@ x
 
 ### Collapse a vector
 
-You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see next section).
+You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see the [next section](#catenate-vectors)).
 
 ```{r}
 head(fruit) %>% 
   str_c(collapse = ", ")
 ```
 
-### Create a character vector by catenating multiple vectors
+### Create a character vector by catenating multiple vectors {#catenate-vectors}
 
 If you have two or more character vectors of the same length, you can glue them together element-wise, to get a new vector of that length. Here are some ... awful smoothie flavors?
 
@@ -180,7 +184,7 @@ Element-wise catenation can be combined with collapsing.
 str_c(fruit[1:4], fruit[5:8], sep = " & ", collapse = ", ")
 ```
 
-If the to-be-combined vectors are variables in a data frame, you can use `tidyr::unite()` to make a single new variable from them
+If the to-be-combined vectors are variables in a data frame, you can use `tidyr::unite()` to make a single new variable from them.
 
 ```{r}
 fruit_df <- tibble(
@@ -225,7 +229,7 @@ knitr::include_graphics("img/regexbytrialanderror-big-smaller.png")
 
 ### Load `gapminder`
 
-The country names in the gapminder dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
+The country names in the `gapminder` dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
 
 ```{r}
 library(gapminder)
@@ -343,12 +347,13 @@ This will be more clear with examples!
 
 Here is routine, non-regex use of backslash `\` escapes in plain vanilla R strings. We intentionally use `cat()` instead of `print()` here.
 
-  * To escape quotes inside quotes:
+* To escape quotes inside quotes:
     ```{r}
     cat("Do you use \"airquotes\" much?")
     ```
-    Sidebar: eliminating the need for these escapes is exactly why people use double quotes inside single quotes and *vice versa*.
-  * To insert newline (`\n`) or tab (`\t`):
+    Sidebar: eliminating the need for these escapes is exactly why people use double quotes inside single quotes and *vice versa*.    
+    
+* To insert newline (`\n`) or tab (`\t`):
     ```{r}
     cat("before the newline\nafter the newline")
     cat("before the tab\tafter the tab")
@@ -358,7 +363,7 @@ Here is routine, non-regex use of backslash `\` escapes in plain vanilla R strin
 
 Examples of using escapes in regexes to match characters that would otherwise have a special interpretation.
 
-We know several Gapminder country names contain a period. How do we isolate them? Although it's tempting, this command `str_subset(countries, pattern = ".")` won't work!
+We know several `gapminder` country names contain a period. How do we isolate them? Although it's tempting, this command `str_subset(countries, pattern = ".")` won't work!
 
 ```{r}
 ## cheating using a POSIX class ;)
@@ -384,10 +389,8 @@ You can use parentheses inside regexes to define *groups* and you can refer to t
 
 For now, this lesson will refer you to other place to read up on this:
 
-  * STAT 545 [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
-  * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016].
-
-
+* STAT 545 [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
+* The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016].
 
 ```{r links, child="links.md"}
 ```

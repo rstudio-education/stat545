@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # R basics and workflows {#r-basics}
 
 <!--Original content:http://stat545.com/block002_hello-r-workspace-wd-project.html-->
@@ -8,9 +12,9 @@ Launch RStudio/R.
 
 Notice the default panes:
 
-  * Console (entire left)
-  * Environment/History (tabbed in upper right)
-  * Files/Plots/Packages/Help (tabbed in lower right)
+* Console (entire left)
+* Environment/History (tabbed in upper right)
+* Files/Plots/Packages/Help (tabbed in lower right)
 
 FYI: you can change the default location of the panes, among many other things: [Customizing RStudio][rstudio-customizing].
 
@@ -135,9 +139,8 @@ One day you will need to bring data from the outside world into R and send numer
 
 To handle these real life situations, you need to make two decisions:
 
-  * What about your analysis is "real", i.e. will you save it as your lasting record of what happened?
-
-  * Where does your analysis "live"?
+* What about your analysis is "real", i.e. will you save it as your lasting record of what happened?
+* Where does your analysis "live"?
 
 ### Workspace, .RData
 
@@ -188,7 +191,7 @@ __Although I do not recommend it__, in case you're curious, you can set R's work
 setwd("~/myCoolProject")
 ```
 
-__Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu: *Session* > *Set Working Directory* > *To Files Pane Location*. (You'll see even more options there). Or within the Files pane, choose "More" and "Set As Working Directory".
+__Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu: *Session > Set Working Directory > To Files Pane Location*. (You'll see even more options there). Or within the Files pane, choose "More" and "Set As Working Directory".
 
 But there's a better way. A way that also puts you on the path to managing your R work like an expert.
 
@@ -196,7 +199,7 @@ But there's a better way. A way that also puts you on the path to managing your 
 
 Keeping all the files associated with a project organized together -- input data, R scripts, analytical results, figures -- is such a wise and common practice that RStudio has built-in support for this via its [_projects_][rstudio-using-projects].
 
-Let's make one to use for the rest of this workshop/class. Do this: *File* > *New Project ...*. The directory name you choose here will be the project name. Call it whatever you want (or follow me for convenience).
+Let's make one to use for the rest of this workshop/class. Do this: *File > New Project...*. The directory name you choose here will be the project name. Call it whatever you want (or follow me for convenience).
 
 I created a directory and, therefore RStudio project, called `swc` in my `tmp` directory, FYI.
 
@@ -236,11 +239,11 @@ Restart RStudio. Notice that things, by default, restore to where we were earlie
 
 Change some things about your code. Top priority would be to set a sample size `n` at the top, e.g. `n <- 40`, and then replace all the hard-wired 40's with `n`. Change some other minor-but-detectable stuff, e.g. alter the sample size `n`, the slope of the line `b`,the color of the line ... whatever. Practice the different ways to re-run the code:
 
-  * Walk through line by line by keyboard shortcut (Command+Enter) or mouse (click "Run" in the upper right corner of editor pane).
+* Walk through line by line by keyboard shortcut (Command+Enter) or mouse (click "Run" in the upper right corner of editor pane).
   
-  * Source the entire document -- equivalent to entering `source('toy-line.r')` in the Console -- by keyboard shortcut (Shift+Command+S) or mouse (click "Source" in the upper right corner of editor pane or select from the mini-menu accessible from the associated down triangle).
+* Source the entire document -- equivalent to entering `source('toy-line.r')` in the Console -- by keyboard shortcut (Shift+Command+S) or mouse (click "Source" in the upper right corner of editor pane or select from the mini-menu accessible from the associated down triangle).
   
-  * Source with echo from the Source mini-menu.
+* Source with echo from the Source mini-menu.
   
 Visit your figure in an external viewer to verify that the PDF is changing as you expect.
 
@@ -256,21 +259,20 @@ Clean out the workspace, i.e. pretend like you've just revisited this project af
 
 This workflow will serve you well in the future:
 
-  * Create an RStudio project for an analytical project
-  * Keep inputs there (we'll soon talk about importing)
-  * Keep scripts there; edit them, run them in bits or as a whole from there
-  * Keep outputs there (like the PDF written above)
+* Create an RStudio project for an analytical project
+* Keep inputs there (we'll soon talk about importing)
+* Keep scripts there; edit them, run them in bits or as a whole from there
+* Keep outputs there (like the PDF written above)
 
 Avoid using the mouse for pieces of your analytical workflow, such as loading a dataset or saving a figure. Terribly important for reproducibility and for making it possible to retrospectively determine how a numerical table or PDF was actually produced (searching on local disk on filename, among `.R` files, will lead to the relevant script).
 
-Many long-time users never save the workspace, never save `.RData` files (I'm one of them), never save or consult the history. Once/if you get to that point, there are options available in RStudio to disable the loading of .RData and permanently suppress the prompt on exit to save the workspace (go to *Tools* > *Options* > *General*).
+Many long-time users never save the workspace, never save `.RData` files (I'm one of them), never save or consult the history. Once/if you get to that point, there are options available in RStudio to disable the loading of .RData and permanently suppress the prompt on exit to save the workspace (go to *Tools > Options > General*).
 
 For the record, when loading data into R and/or writing outputs to file, you can always specify the absolute path and thereby insulate yourself from the current working directory. This is rarely necessary when using RStudio projects properly.
 
 ```{r end_rbasics, include = FALSE}
 file.remove(c("avg_x.txt", "toy_line_plot.pdf"))
 ```
-
 
 ```{r links, child="links.md"}
 ```

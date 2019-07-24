@@ -1,10 +1,14 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # (PART) R as a programming language {-} 
 
 # R objects and indexing {#r-objects}
 
 <!--Original content: http://stat545.com/block004_basic-r-objects.html-->
 
-R objects (beyond data.frames) and indexing
+R objects (beyond data.frames) and indexing.
 
 > "Rigor and clarity are not synonymous" -- Larry Wasserman
 
@@ -79,11 +83,11 @@ mode(x)
 class(x)
 ```
 
-The most important atomic vector types are
+The most important atomic vector types are:
 
-  * __logical__: TRUE's AND FALSE's, easily coerced into 1's and 0's
-  * __numeric__: numbers and, yes, integers and double-precision floating point numbers are different but you can live happily for a long time without worrying about this
-  * __character__
+* __logical__: TRUE's AND FALSE's, easily coerced into 1's and 0's
+* __numeric__: numbers and, yes, integers and double-precision floating point numbers are different but you can live happily for a long time without worrying about this
+* __character__
 
 Let's create some simple vectors for more demos below.
 
@@ -110,12 +114,12 @@ as.numeric(z)
 
 We've said, and even seen, that square brackets are used to index a vector. There is great flexibility in what one can put inside the square brackets and it's worth understanding the many options. They are all useful, just in different contexts.
 
-Most common, useful ways to index a vector
+Most common, useful ways to index a vector:
 
-  * __logical vector__: keep elements associated with TRUE's, ditch the FALSE's
-  * __vector of positive integers__: specifying the keepers
-  * __vector of negative integers: specifying the losers
-  * __character vector__: naming the keepers
+* __logical vector__: keep elements associated with TRUE's, ditch the FALSE's
+* __vector of positive integers__: specifying the keepers
+* __vector of negative integers__: specifying the losers
+* __character vector__: naming the keepers
 
 ```{r}
 w
@@ -134,8 +138,8 @@ w[c('c', 'a', 'f')]
 
 Lists are basically über-vectors in R. It's like a vector, but with no requirement that the elements be of the same flavor. In data analysis, you won't make lists very often, at least not consciously, but you should still know about them. Why?
 
-  * data.frames are lists! They are a special case where each element is an atomic vector, all having the same length.
-  * many functions will return lists to you and you will want to extract goodies from them, such as the p-value for a hypothesis test or the estimated error variance in a regression model
+* data.frames are lists! They are a special case where each element is an atomic vector, all having the same length.
+* many functions will return lists to you and you will want to extract goodies from them, such as the p-value for a hypothesis test or the estimated error variance in a regression model
 
 Here we repeat an assignment from above, using `list()` instead of `c()` to combine things and you'll notice that the different flavors of the constituent parts are retained this time.
 ```{r}
@@ -217,7 +221,7 @@ mode(jDat)
 class(jDat)
 ```
 
-> Sidebar: What is `I()`, used when creating the variable $y$ in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the $v$ variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors).
+> Sidebar: What is `I()`, used when creating the variable $y$ in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the $v$ variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors-boss).
 
 
 data.frames really are lists! Double square brackets can be used to get individual variables. Single square brackets can be used to get one or more variables, returned as a data.frame (though `subset(..., select = ...))` is how I would more likely do in a data analysis).
@@ -302,15 +306,15 @@ jMat["row1", 2:3] <- c("HEY!", "THIS IS NUTS!")
 jMat
 ```
 
-Note that R can also work with vectors and matrices in the proper mathematical sense, i.e. perform matrix algebra. That is a separate topic. To get you started, read the help on `%*%` for matrix multiplication ...
+Note that R can also work with vectors and matrices in the proper mathematical sense, i.e. perform matrix algebra. That is a separate topic. To get you started, read the help on `%*%` for matrix multiplication....
 
 ## Creating arrays, e.g. matrices
 
-There are 3 main ways to create a matrix. It goes without saying that the inputs must comply with the requirement that all matrix elements are the same flavor. If that's not true, you risk an error or, worse, silent conversion to character.
+There are three main ways to create a matrix. It goes without saying that the inputs must comply with the requirement that all matrix elements are the same flavor. If that's not true, you risk an error or, worse, silent conversion to character.
 
-  * Filling a matrix with a vector
-  * Glueing vectors together as rows or columns
-  * Conversion of a data.frame
+* Filling a matrix with a vector
+* Glueing vectors together as rows or columns
+* Conversion of a data.frame
 
 Let's demonstrate. Here we fill a matrix with a vector, explore filling by rows and giving row and columns at creation. Notice that recycling happens here too, so if the input vector is not large enough, R will recycle it.
 
@@ -353,13 +357,13 @@ str(multiDat)
 str(multiMat)
 ```
 
-## Putting it all together ... implications for data.frames
+## Putting it all together...implications for data.frames
 
 This behind the scenes tour is still aimed at making you a better data analyst. Hopefully the slog through vectors, matrices, and lists will be redeemed by greater prowess at manipulating data.frames. Why should this be true?
 
-  * a data.frame is a *list*
-  * the list elements are the variables and they are *atomic vectors*
-  * data.frames are rectangular, like their matrix friends, so your intuition -- and even some syntax -- can be borrowed from the matrix world
+* a data.frame is a *list*
+* the list elements are the variables and they are *atomic vectors*
+* data.frames are rectangular, like their matrix friends, so your intuition -- and even some syntax -- can be borrowed from the matrix world
 
 A data.frame is a list that quacks like a matrix.
 
@@ -429,7 +433,7 @@ subset(jDat, subset = z)
 +-----------+---------------+-----------+-----------+
 ```
 
-Thinking about objects according to the flavors above will work fairly well for most purposes most of the time, at least when you're first getting started. Notice that most rows in the table are quite homogeneous, i.e. a logical vector is a logical vector is a logical vector. But the row pertaining to factors is an exception, which highlights the special nature of factors. (for more, go [here](#factors)).
+Thinking about objects according to the flavors above will work fairly well for most purposes most of the time, at least when you're first getting started. Notice that most rows in the table are quite homogeneous, i.e. a logical vector is a logical vector is a logical vector. But the row pertaining to factors is an exception, which highlights the special nature of factors. (for more, go [here](#factors-boss)).
 
 <!--JB:
 > JB note to self. Possible TO ADD but probably belongs in separate tutorial on changing and adding to data.frames: cbind and rbind with data.frames, transform(). do.call() tricks for data.frames. adding/removing variables to/from data.frames. Does this belong in earlier tutorial on the care and feeding of a data.frame? Fits in well with subset(), after all.
@@ -438,4 +442,3 @@ Thinking about objects according to the flavors above will work fairly well for 
 
 ```{r links, child="links.md"}
 ```
-

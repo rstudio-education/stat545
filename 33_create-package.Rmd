@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Write your own R package {#package-from-scratch}
 
 <!--Original content: http://stat545.com/packages06_foofactors-package.html-->

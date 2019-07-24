@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Dates and times {#date-time}
 
 <!--JB: *Under development ... really just a placeholder / collection of links*-->
@@ -95,8 +99,6 @@ Once you have dates, you might want to edit them in a non-annoying way:
 Eventually you will need to print this stuff in, say, a report.
 
 *I always use `format()` but assumed lubridate had something else/better. Am I missing something here? Probably. For now, read the help: `?format.POSIXct`.*
-
-
 
 
 ```{r links, child="links.md"}

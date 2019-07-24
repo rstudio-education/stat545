@@ -1,8 +1,7 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
+```{r include = FALSE}
+source("common.R")
+```
+
 # Writing and reading files {#import-export}
 
 <!--Original content: https://stat545.com/block002_hello-r-workspace-wd-project.html-->
@@ -17,8 +16,8 @@ How do you do this? What issues should you think about?
 
 Data import generally feels one of two ways:
 
-  * "Surprise me!" This is the attitude you must adopt when you first get a dataset. You are just happy to import without an error. You start to explore. You discover flaws in the data and/or the import. You address them. Lather, rinse, repeat.
-  * "Another day in paradise." This is the attitude when you bring in a tidy dataset you have maniacally cleaned in one or more cleaning scripts. There should be no surprises. You should express your expectations about the data in formal assertions at the very start of these downstream scripts.
+* "Surprise me!" This is the attitude you must adopt when you first get a dataset. You are just happy to import without an error. You start to explore. You discover flaws in the data and/or the import. You address them. Lather, rinse, repeat.
+* "Another day in paradise." This is the attitude when you bring in a tidy dataset you have maniacally cleaned in one or more cleaning scripts. There should be no surprises. You should express your expectations about the data in formal assertions at the very start of these downstream scripts.
   
 In the second case, and as the first cases progresses, you actually know a lot about how the data is / should be. My main import advice: **use the arguments of your import function to get as far as you can, as fast as possible**. Novice code often has a great deal of unnecessary post import fussing around. Read the docs for the import functions and take maximum advantage of the arguments to control the import.
 
@@ -26,8 +25,8 @@ In the second case, and as the first cases progresses, you actually know a lot a
 
 There will be many occasions when you need to write data from R. Two main examples:
 
-  * a tidy ready-to-analyze dataset that you heroically created from messy data
-  * a numerical result from data aggregation or modelling or statistical inference 
+* a tidy ready-to-analyze dataset that you heroically created from messy data
+* a numerical result from data aggregation or modelling or statistical inference 
 
 First tip: __today's outputs are tomorrow's inputs__. Think back on all the pain you have suffered importing data and don't inflict such pain on yourself!
 
@@ -45,7 +44,7 @@ library(tidyverse)
 
 ## Locate the Gapminder data
 
-We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package][fs-web].
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The `gapminder` package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [`fs` package][fs-web].
 
 ```{r}
 library(fs)
@@ -65,7 +64,7 @@ For full flexibility re: specifying the delimiter, you can always use `readr::re
 
 There's a similar convenience wrapper for comma-separated values, `read_csv()`.
 
-The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use readr.
+The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use `readr`.
 
 ```{r}
 gapminder <- gapminder %>%
@@ -78,7 +77,7 @@ str(gapminder)
 
 Default to `readr::read_delim()` and friends. Use the arguments!
 
-The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the  part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
+The Gapminder data is too clean and simple to show off the great features of `readr`, so I encourage you to check out the part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
 
 ## Compute something worthy of export
 
@@ -112,16 +111,16 @@ Let's look at the first few lines of `gap_life_exp.csv`. If you're following alo
 
 This is pretty decent looking, though there is no visible alignment or separation into columns. Had we used the base function `read.csv()`, we would be seeing rownames and lots of quotes, unless we had explicitly shut that down. Nicer default behavior is the main reason we are using `readr::write_csv()` over `write.csv()`.
 
-  * It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"][write-data-tweet]. If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
+* It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"][write-data-tweet]. If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
 
 ## Invertibility
 
-It turns out these self-imposed rules are often in conflict with one another
+It turns out these self-imposed rules are often in conflict with one another:
 
-  * Write to plain text files
-  * Break analysis into pieces: the output of script `i` is an input for script `i + 1`
-  * Be the boss of factors: order the levels in a meaningful, usually non-alphabetical way
-  * Avoid duplication of code and data
+* Write to plain text files
+* Break analysis into pieces: the output of script `i` is an input for script `i + 1`
+* Be the boss of factors: order the levels in a meaningful, usually non-alphabetical way
+* Avoid duplication of code and data
 
 Example: after performing the country-level summarization, we reorder the levels of the country factor, based on life expectancy. This reordering operation is conceptually important and must be embodied in R commands stored in a script. However, as soon as we write `gap_life_exp` to a plain text file, that meta-information about the countries is lost. Upon re-import with `read_delim()` and friends, we are back to alphabetically ordered factor levels. Any measure we take to avoid this loss immediately breaks another one of our rules.
 
@@ -131,7 +130,7 @@ I have toyed with the idea of writing import helper functions for a specific pro
 
 ## Reordering the levels of the country factor
 
-The topic of [factor level reordering is covered elsewhere](#factors), so let's Just. Do. It. I reorder the country factor levels according to the life expectancy summary we've already computed.
+The topic of factor level reordering is covered in Chapter \@ref(factors-boss), so let's Just. Do. It. I reorder the country factor levels according to the life expectancy summary we've already computed.
 
 ```{r}
 head(levels(gap_life_exp$country)) # alphabetical order

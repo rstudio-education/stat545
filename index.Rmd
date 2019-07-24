@@ -9,6 +9,10 @@ link-citations: yes
 description: "Data wrangling, exploration, and analysis with R."
 ---
 
+```{r include = FALSE}
+source("common.R")
+```
+
 # Data wrangling, exploration, and analysis with R {-}
 
 Learn how to:
@@ -24,7 +28,6 @@ This is a bookdown version of STAT 545 @ University of British Columbia, a cours
 Jenny Bryan ([jennybryan.org](https://jennybryan.org)), Software Engineer at [RStudio](https://www.rstudio.com/) on the [tidyverse](https://www.tidyverse.org/)/[r-lib](https://github.com/r-lib/) team. Main author.
 
 <!--TODO: Add STAT 545 TA Alum-->
-
 
 ## Colophon {-}
 

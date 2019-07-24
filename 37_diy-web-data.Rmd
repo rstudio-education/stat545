@@ -1,3 +1,7 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # DIY web data {#diy-web-data}
 
 <!--Original content: https://stat545.com/webdata03_activity.html-->

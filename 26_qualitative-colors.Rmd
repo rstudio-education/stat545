@@ -1,17 +1,21 @@
+```{r include = FALSE}
+source("common.R")
+```
+
 # Taking control of qualitative colors in `ggplot2` {#qualitative-colors}
 
 <!--Original content: https://stat545.com/block019_enforce-color-scheme.html-->
 
 ## Load packages and prepare the Gapminder data
 
-Bring in the usual Gapminder data but drop Oceania, which only has two countries.
+Load the `ggplot2` and `dplyr` packages and bring in the usual `gapminder` but drop Oceania, which only has two countries. 
 
 We also sort the country factor based on population and then sort the data as well. Why? In the bubble plots below, we don't want large countries to hide small countries. This is a case where, sadly, the row order of the data truly affects the visual output.
 
-```{r message=FALSE}
+```{r message = FALSE, warning = FALSE}
 library(ggplot2)
-library(gapminder)
 library(dplyr)
+library(gapminder)
 
 jdat <- gapminder %>% 
   filter(continent != "Oceania") %>% 
