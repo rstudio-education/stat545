@@ -12,7 +12,7 @@ set.seed(4561)
 
 *Ignore if you don't need this bit of support.*
 
-Now is the time to make sure you are working in an appropriate directory on your computer, probably through the use of an [RStudio Project](#rprojs). Enter `getwd()` in the Console to see current working directory or, in RStudio, this is displayed in the bar at the top of Console.
+Now is the time to make sure you are working in an appropriate directory on your computer, probably through the use of an [RStudio project](#rprojs). Enter `getwd()` in the Console to see current working directory or, in RStudio, this is displayed in the bar at the top of Console.
 
 You should clean out your workspace. In RStudio, click on the "Clear" broom icon from the Environment tab or use *Session > Clear Workspace*. You can also enter `rm(list = ls())` in the Console to accomplish same.
 
@@ -30,7 +30,7 @@ Whenever you have rectangular, spreadsheet-y data, your default data receptacle 
 
   * Data frames package related variables neatly together,
     - keeping them in sync vis-a-vis row order
-    - applying any filtering of observations uniformly.
+    - applying any filtering of observations uniformly
   * Most functions for inference, modelling, and graphing are happy to be passed a data frame via a `data =` argument. This has been true in base R for a long time.
   * The set of packages known as the [`tidyverse`][tidyverse-main-page] takes this one step further and explicitly prioritizes the processing of data frames. This includes popular packages like `dplyr` and `ggplot2`. In fact the tidyverse prioritizes a special flavor of data frame, called a "tibble."
 
@@ -102,7 +102,7 @@ dim(gapminder)
 nrow(gapminder)
 ```
 
-A statistical overview can be obtained with `summary()`
+A statistical overview can be obtained with `summary()`:
 
 ```{r}
 summary(gapminder)
@@ -168,7 +168,7 @@ table(gapminder$continent)
 barplot(table(gapminder$continent))
 ```
 
-In the figures below, we see how factors can be put to work in figures. The `continent` factor is easily mapped into "facets" or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered elsewhere so feel free to just sit back and enjoy these plots or blindly copy/paste.*
+In the figures below, we see how factors can be put to work in figures. The `continent` factor is easily mapped into "facets" or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered in Chapter \@ref(graphics-overview) so feel free to just sit back and enjoy these plots or blindly copy/paste.*
 
 ```{r factors-nice-for-plots, fig.show = 'hold', out.width = '49%'}
 ## we exploit the fact that ggplot2 was installed and loaded via the tidyverse

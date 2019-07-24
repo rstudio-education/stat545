@@ -2,7 +2,7 @@
 
 # (APPENDIX) Appendix {-}
 
-## General advice for getting unstuck
+# General advice for getting unstuck
 
 *Also see Jenny's [slide deck on {reprex}](https://speakerdeck.com/jennybc/reprex-reproducible-examples-with-r)*
 

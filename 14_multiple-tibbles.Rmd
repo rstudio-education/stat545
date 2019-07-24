@@ -9,9 +9,9 @@
 We've covered many topics on how to manipulate and reshape a single data frame:
 
   * [Basic care and feeding of data in R](#data-care): data frames (and tibbles) are awesome.
-  * [Introduction to dplyr](#dplyr-intro): filter, select, the pipe.
-  * [dplyr functions for a single dataset](#dplyr-single): single table verbs.
-  * [Tidy data using Lord of the Rings][tidydata-lotr]: tidy data, tidyr. *This actually kicks off with a row bind operation, discussed below.*
+  * [Introduction to `dplyr`](#dplyr-intro): filter, select, the pipe.
+  * [`dplyr` functions for a single dataset](#dplyr-single): single table verbs.
+  * [Tidy data using Lord of the Rings][tidydata-lotr]: tidy data, `tidyr.` *This actually kicks off with a row bind operation, discussed below.*
 
 But what if your data arrives in many pieces? There are many good (and bad) reasons why this might happen. How do you get it into one big beautiful tibble? These tasks break down into 3 main classes:
 
@@ -144,9 +144,9 @@ Bottom line: Row bind when you need to, but inspect the results re: coercion. Co
 
 ## Joins in `dplyr`
 
-Visit the [dplyr join cheatsheet](#join-cheatsheet) to see concrete examples of all the joins implemented in `dplyr`, based on comic characters and publishers.
+Visit the [`dplyr` join cheatsheet](#join-cheatsheet) to see concrete examples of all the joins implemented in `dplyr`, based on comic characters and publishers.
 
-The most recent release of gapminder includes a new data frame, `country_codes`, with country names and ISO codes. Therefore you can also use it to practice joins.
+The most recent release of `gapminder` includes a new data frame, `country_codes`, with country names and ISO codes. Therefore you can also use it to practice joins.
 
 ```{r end_multi_tibbles}
 gapminder %>% 

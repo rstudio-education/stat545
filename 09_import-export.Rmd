@@ -45,7 +45,7 @@ library(tidyverse)
 
 ## Locate the Gapminder data
 
-We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs package][fs-web].
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The `gapminder` package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [`fs` package][fs-web].
 
 ```{r}
 library(fs)
@@ -65,7 +65,7 @@ For full flexibility re: specifying the delimiter, you can always use `readr::re
 
 There's a similar convenience wrapper for comma-separated values, `read_csv()`.
 
-The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use readr.
+The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use `readr`.
 
 ```{r}
 gapminder <- gapminder %>%
@@ -78,7 +78,7 @@ str(gapminder)
 
 Default to `readr::read_delim()` and friends. Use the arguments!
 
-The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the  part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
+The Gapminder data is too clean and simple to show off the great features of `readr`, so I encourage you to check out the part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
 
 ## Compute something worthy of export
 

@@ -21,7 +21,7 @@ I start with this because we cannot possibly do this topic justice in a short am
 ### Manipulating character vectors
 
   * [`stringr` package][stringr-web]
-    - A core package in the tidyverse. It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
+    - A core package in the `tidyverse.` It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
     - Main functions start with `str_`. Auto-complete is your friend.
     - Replacements for base functions re: string manipulation and regular expressions (see below).
     - Main advantagse over base functions: greater consistency about inputs and outputs. Outputs are more ready for your next analytical task. 
@@ -46,7 +46,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
   * Regex testers
     - [regex101.com][regex101]
     - [regexr.com][regexr]
-  * [rex R package][rex-github]: make regular expression from human readable expressions
+  * [`rex` R package][rex-github]: make regular expression from human readable expressions
   * Base functions: `grep()` and friends.
 
 ### Character encoding resources
@@ -60,7 +60,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 ### Character vectors that live in a data frame
 
   * Certain operations are facilitated by `tidyr`. These are described below.
-  * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#vectors-tibbles)
+  * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#vectors-tibbles).
 
 ## Load the `tidyverse`, which includes `stringr`
 
@@ -159,14 +159,14 @@ x
 
 ### Collapse a vector
 
-You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see next section).
+You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see [next section](#catenate-vectors)).
 
 ```{r}
 head(fruit) %>% 
   str_c(collapse = ", ")
 ```
 
-### Create a character vector by catenating multiple vectors
+### Create a character vector by catenating multiple vectors {#catenate-vectors}
 
 If you have two or more character vectors of the same length, you can glue them together element-wise, to get a new vector of that length. Here are some ... awful smoothie flavors?
 
@@ -180,7 +180,7 @@ Element-wise catenation can be combined with collapsing.
 str_c(fruit[1:4], fruit[5:8], sep = " & ", collapse = ", ")
 ```
 
-If the to-be-combined vectors are variables in a data frame, you can use `tidyr::unite()` to make a single new variable from them
+If the to-be-combined vectors are variables in a data frame, you can use `tidyr::unite()` to make a single new variable from them.
 
 ```{r}
 fruit_df <- tibble(
@@ -225,7 +225,7 @@ knitr::include_graphics("img/regexbytrialanderror-big-smaller.png")
 
 ### Load `gapminder`
 
-The country names in the gapminder dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
+The country names in the `gapminder` dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
 
 ```{r}
 library(gapminder)

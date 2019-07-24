@@ -25,7 +25,6 @@ Jenny Bryan ([jennybryan.org](https://jennybryan.org)), Software Engineer at [RS
 
 <!--TODO: Add STAT 545 TA Alum-->
 
-
 ## Colophon {-}
 
 <!--TODO: Update website and github links when finalized-->
