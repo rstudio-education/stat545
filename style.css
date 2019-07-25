@@ -41,3 +41,46 @@ h1.title {
 .book .book-body .page-wrapper .page-inner section.normal strong {
   font-weight: 500;
 }
+
+/* Three columns */
+
+
+.three-column {
+  display: flex;
+}
+
+.col1-super {
+  width: 37%;
+  border-right-color: #FF7070;
+  border-right-style: solid;
+  border-right-size: .5px;
+}
+
+.col2-super {
+  width: 18.2%;
+  border-right-color: #FF7070;
+  border-right-style: solid;
+  border-right-size: .5px;
+}
+
+.col3-super {
+  width: 44.8%;
+}
+
+.col1-pub {
+  width: 18%;
+  border-right-color: #FF7070;
+  border-right-style: solid;
+  border-right-size: .5px;
+}
+
+.col2-pub {
+  width: 36%;
+  border-right-color: #FF7070;
+  border-right-style: solid;
+  border-right-size: .5px;
+}
+
+.col3-pub {
+  width: 46%;
+}

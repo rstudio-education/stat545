@@ -4,7 +4,7 @@ source("common.R")
 
 # (PART) All the graph things {-} 
 
-# Overview {-#graphics-overview}
+# Overview {-}
 
 <!--Original content:https://stat545.com/graph00_index.html-->
 

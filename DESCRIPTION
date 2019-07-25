@@ -27,8 +27,10 @@ Imports:
     rebird,
     geonames,
     gender,
-    XML
+    XML,
+    gt
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
-    r-lib/devtools
+    r-lib/devtools,
+    rstudio/gt

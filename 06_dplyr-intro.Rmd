@@ -178,7 +178,7 @@ And finally, the data is __always__ the very first argument of the verb function
 
 This set of deliberate design choices, together with the new pipe operator, produces a highly effective, low friction [domain-specific language][adv-r-dsl] for data analysis.
 
-Go to the Chapter, [`dplyr` functions for a single dataset](#dplyr-single), for more `dplyr`!
+Go to the next Chapter, [`dplyr` functions for a single dataset](#dplyr-single), for more `dplyr`!
 
 ## Resources
 

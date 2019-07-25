@@ -8,7 +8,7 @@ source("common.R")
 
 ## Where were we?
 
-In Chapter \@ref(dplyr-intro), we used two very important verbs and an operator:
+In Chapter \@ref(dplyr-intro), [Introduction to `dplyr`](#dplyr-intro), we used two very important verbs and an operator:
 
 * `filter()` for subsetting data with row logic
 * `select()` for subsetting data variable- or column-wise
@@ -22,6 +22,7 @@ We also discussed `dplyr`'s role inside the `tidyverse` and tibbles:
 ## Load `dplyr` and `gapminder`
 
 I choose to load the `tidyverse`, which will load `dplyr`, among other packages we use incidentally below. 
+
 ```{r start_dplyr_single}
 library(tidyverse)
 ```
@@ -172,6 +173,7 @@ my_gap %>%
 ## `group_by()` is a mighty weapon
 
 I have found ~~friends and family~~ collaborators love to ask seemingly innocuous questions like, "which country experienced the sharpest 5-year drop in life expectancy?". In fact, that is a totally natural question to ask. But if you are using a language that doesn't know about data, it's an incredibly annoying question to answer.
+
 
 `dplyr` offers powerful tools to solve this class of problem:
 

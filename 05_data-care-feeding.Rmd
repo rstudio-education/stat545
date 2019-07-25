@@ -172,7 +172,7 @@ table(gapminder$continent)
 barplot(table(gapminder$continent))
 ```
 
-In the figures below, we see how factors can be put to work in figures. The `continent` factor is easily mapped into "facets" or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered in Chapter \@ref(graphics-overview) so feel free to just sit back and enjoy these plots or blindly copy/paste.*
+In the figures below, we see how factors can be put to work in figures. The `continent` factor is easily mapped into "facets" or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered in Chapter \@ref(ggplot2-tutorial) so feel free to just sit back and enjoy these plots or blindly copy/paste.*
 
 ```{r factors-nice-for-plots, fig.show = 'hold', out.width = '49%'}
 ## we exploit the fact that ggplot2 was installed and loaded via the tidyverse

@@ -165,6 +165,7 @@ x
 
 You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see the [next section](#catenate-vectors)).
 
+
 ```{r}
 head(fruit) %>% 
   str_c(collapse = ", ")
@@ -195,7 +196,7 @@ fruit_df %>%
   unite("flavor_combo", fruit1, fruit2, sep = " & ")
 ```
 
-### Substring replacement
+### Substring replacement 
 
 You can replace a pattern with `str_replace()`. Here we use an explicit string-to-replace, but later we revisit with a regular expression.
 
