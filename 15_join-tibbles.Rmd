@@ -4,6 +4,28 @@
 
 Join (a.k.a. merge) two tables: `dplyr` join cheatsheet with comic characters and publishers.
 
+```{r include = FALSE}
+source("common.R")
+library(gt)
+
+# function to style the tables for display
+# used alongside CSS
+style_table <- function(data, table_title) {
+  data %>% 
+  gt() %>% 
+  tab_header(
+    title = table_title
+  ) %>% 
+  tab_options(
+    table.align = "left",
+    table.font.size = pct(80),
+    heading.title.font.size = pct(90),
+    column_labels.font.size = pct(80)
+  ) 
+}
+```
+
+
 ## Why the cheatsheet
 
 Examples for those of us who don't speak SQL so good. There are lots of [Venn diagrams re: SQL joins on the internet][google-sql-join], but I wanted R examples. Those diagrams also utterly fail to show what's really going on vis-a-vis rows AND columns.
@@ -20,21 +42,6 @@ Working with two small data frames, `superheroes` and `publishers`.
 
 ```{r start_joins, message = FALSE, warning = FALSE}
 library(tidyverse) ## dplyr provides the join functions
-library(gt)
-
-style_table <- function(data, table_title) {
-  data %>% 
-  gt() %>% 
-  tab_header(
-    title = table_title
-  ) %>% 
-  tab_options(
-    table.align = "left",
-    table.font.size = pct(80),
-    heading.title.font.size = pct(90),
-    column_labels.font.size = pct(80)
-  ) 
-}
 
 superheroes <- tibble::tribble(
        ~name, ~alignment,  ~gender,          ~publisher,
@@ -59,6 +66,23 @@ Sorry, cheat sheet does not illustrate "multiple match" situations terribly well
 
 Sub-plot: watch the row and variable order of the join results for a healthy reminder of why it's dangerous to rely on any of that in an analysis.
 
+```{r superheroes-table, include = FALSE}
+style_table(superheroes, "superheroes") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#bddeff"
+  )
+```
+
+```{r publishers-table, include = FALSE}
+style_table(publishers, "publishers") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#bdffde"
+  )
+```
+
+
 ## `inner_join(superheroes, publishers)`
 
 > `inner_join(x, y)`: Return all rows from `x` where there are matching values in `y`, and all columns from `x` and `y`. If there are multiple matches between `x` and `y`, all combination of the matches are returned. This is a mutating join.
@@ -72,18 +96,20 @@ We lose Hellboy in the join because, although he appears in `x = superheroes`, h
 <div class=three-column>
 
 <div class = col1-super>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes") 
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col2-super>
-```{r echo = FALSE}
-style_table(publishers, "publishers") 
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col3-super>
 ```{r echo = FALSE}
-style_table(ijsp, "inner_join(x = superheroes, y = publishers)")
+style_table(ijsp, "inner_join(x = superheroes, y = publishers)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 
@@ -102,18 +128,20 @@ We get a similar result as with `inner_join()` but the join result contains only
 <div class=three-column>
 
 <div class = col1-super>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col2-super>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col3-super>
 ```{r echo = FALSE}
-style_table(sjsp, "semi_join(x = superheroes, y = publishers)")
+style_table(sjsp, "semi_join(x = superheroes, y = publishers)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -131,18 +159,20 @@ We basically get `x = superheroes` back, but with the addition of variable `yr_f
 <div class=three-column>
 
 <div class = col1-super>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col2-super>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col3-super>
 ```{r echo = FALSE}
-style_table(ljsp, "left_join(x = superheroes, y = publishers)")
+style_table(ljsp, "left_join(x = superheroes, y = publishers)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -161,18 +191,20 @@ We keep __only__ Hellboy now (and do not get `yr_founded`).
 <div class=three-column>
 
 <div class = col1-super>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col2-super>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col3-super>
 ```{r echo = FALSE}
-style_table(ajsp, "anti_join(x = superheroes, y = publishers)")
+style_table(ajsp, "anti_join(x = superheroes, y = publishers)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -191,18 +223,20 @@ In a way, this does illustrate multiple matches, if you think about it from the 
 <div class=three-column>
 
 <div class = col1-pub>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col2-pub>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col3-pub>
 ```{r echo = FALSE}
-style_table(ijps, "inner_join(x = publishers, y = superheroes)")
+style_table(ijps, "inner_join(x = publishers, y = superheroes)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -220,18 +254,20 @@ Now the effects of switching the `x` and `y` roles is more clear. The result res
 <div class=three-column>
 
 <div class = col1-pub>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col2-pub>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col3-pub>
 ```{r echo = FALSE}
-style_table(sjps, "semi_join(x = publishers, y = superheroes)")
+style_table(sjps, "semi_join(x = publishers, y = superheroes)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -250,18 +286,20 @@ We get a similar result as with `inner_join()` but the publisher Image survives 
 <div class=three-column>
 
 <div class = col1-pub>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col2-pub>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col3-pub>
 ```{r echo = FALSE}
-style_table(ljps, "left_join(x = publishers, y = superheroes)")
+style_table(ljps, "left_join(x = publishers, y = superheroes)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -278,18 +316,20 @@ We keep __only__ publisher Image now (and the variables found in `x = publishers
 
 <div class=three-column>
 <div class = col1-pub>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col2-pub>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col3-pub>
 ```{r echo = FALSE}
-style_table(ajps, "anti_join(x = publishers, y = superheroes)")
+style_table(ajps, "anti_join(x = publishers, y = superheroes)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>
@@ -306,18 +346,20 @@ We get all rows of `x = superheroes` plus a new row from `y = publishers`, conta
 
 <div class=three-column>
 <div class = col1-sup>
-```{r echo = FALSE}
-style_table(superheroes, "superheroes")
+```{r ref.label="superheroes-table", echo = FALSE}
 ```
 </div>
 <div class = col2-sup>
-```{r echo = FALSE}
-style_table(publishers, "publishers")
+```{r ref.label="publishers-table", echo = FALSE}
 ```
 </div>
 <div class = col3-sup>
 ```{r echo = FALSE}
-style_table(fjsp, "full_join(x = superheroes, y = publishers)")
+style_table(fjsp, "full_join(x = superheroes, y = publishers)") %>% 
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    table.background.color = "#ffa3a3"
+  )
 ```
 </div>
 </div>

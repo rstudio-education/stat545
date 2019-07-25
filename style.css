@@ -68,7 +68,7 @@ h1.title {
 }
 
 .col1-pub {
-  width: 18.5%;
+  width: 18%;
   border-right-color: #FF7070;
   border-right-style: solid;
   border-right-size: .5px;
@@ -82,5 +82,5 @@ h1.title {
 }
 
 .col3-pub {
-  width: 45.5%;
+  width: 46%;
 }
