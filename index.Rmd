@@ -64,6 +64,7 @@ Here are some good resources to get your head in the right place.
     - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
     - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
 
+
 ## Colophon {-}
 
 <!--TODO: Update website and github links when finalized-->

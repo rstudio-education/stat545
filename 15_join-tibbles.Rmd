@@ -112,6 +112,7 @@ style_table(ijsp, "inner_join(x = superheroes, y = publishers)") %>%
   )
 ```
 </div>
+</div>
 
 
 ## `semi_join(superheroes, publishers)`

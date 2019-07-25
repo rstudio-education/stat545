@@ -4,20 +4,20 @@
 
 ## Where were we?
 
-In the [introduction to dplyr](#dplyr-intro), we used two very important verbs and an operator:
+In the [Introduction to `dplyr`](#dplyr-intro), we used two very important verbs and an operator:
 
   * `filter()` for subsetting data with row logic
   * `select()` for subsetting data variable- or column-wise
   * the pipe operator `%>%`, which feeds the LHS as the first argument to the expression on the RHS
   
-We also discussed dplyr's role inside the tidyverse and tibbles:
+We also discussed `dplyr`'s role inside the `tidyverse` and tibbles:
 
-  * dplyr is a core package in the [tidyverse][tidyverse-github] meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via `library(tidyverse)`.
-  * The tidyverse embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
+  * `dplyr` is a core package in the [tidyverse][tidyverse-github] meta-package. Since we often make incidental usage of the others, we will load `dplyr` and the others via `library(tidyverse)`.
+  * The `tidyverse` embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
 
 ## Load `dplyr` and `gapminder`
 
-I choose to load the tidyverse, which will load dplyr, among other packages we use incidentally below. Also load gapminder.
+I choose to load the `tidyverse`, which will load `dplyr`, among other packages we use incidentally below. Also load `gapminder.`
 
 ```{r start_dplyr_single}
 library(gapminder)
@@ -165,7 +165,7 @@ my_gap %>%
 
 I have found ~~friends and family~~ collaborators love to ask seemingly innocuous questions like, "which country experienced the sharpest 5-year drop in life expectancy?". In fact, that is a totally natural question to ask. But if you are using a language that doesn't know about data, it's an incredibly annoying question to answer.
 
-dplyr offers powerful tools to solve this class of problem.
+`dplyr` offers powerful tools to solve this class of problem.
 
   * `group_by()` adds extra structure to your dataset -- grouping information -- which lays the groundwork for computations within the groups.
   * `summarize()` takes a dataset with $n$ observations, computes requested summaries, and returns a dataset with 1 observation.
@@ -230,9 +230,10 @@ my_gap %>%
   summarize(avg_lifeExp = mean(lifeExp))
 ```
 
+<!--TODO: summarize_at() is soft deprecated as of dplyr 0.8.0-->
 `summarize_at()` applies the same summary function(s) to multiple variables. Let's compute average and median life expectancy and GDP per capita by continent by year ... but only for 1952 and 2007.
 
-```{r}
+```{r warning = FALSE}
 my_gap %>%
   filter(year %in% c(1952, 2007)) %>%
   group_by(continent, year) %>%
@@ -353,17 +354,17 @@ Ponder that for a while. The subject matter and the code. Mostly you're seeing w
 
 Break the code into pieces, starting at the top, and inspect the intermediate results. That's certainly how I was able to *write* such a thing. These commands do not [leap fully formed out of anyone's forehead][athena-zeus-forehead] -- they are built up gradually, with lots of errors and refinements along the way. I'm not even sure it's a great idea to do so much manipulation in one fell swoop. Is the statement above really hard for you to read? If yes, then by all means break it into pieces and make some intermediate objects. Your code should be easy to write and read when you're done.
 
-In later tutorials, we'll explore more of dplyr, such as operations based on two datasets.
+In later tutorials, we'll explore more of `dplyr`, such as operations based on two datasets.
 
 ## Resources
 
-`dplyr` official stuff
+`dplyr` official stuff:
 
-  * package home [on CRAN][dplyr-cran]
+  * Package home [on CRAN][dplyr-cran]
     - note there are several vignettes, with the [introduction][dplyr-vignette-intro] being the most relevant right now
     - the [one on window functions][dplyr-vignette-window-fxns] will also be interesting to you now
-  * development home [on GitHub][dplyr-github]
-  * [tutorial HW delivered][useR-2014-dropbox] (note this links to a DropBox folder) at useR! 2014 conference
+  * Development home [on GitHub][dplyr-github]
+  * [Tutorial HW delivered][useR-2014-dropbox] (note this links to a DropBox folder) at useR! 2014 conference
 
 [RStudio Data Transformation Cheat Sheet][rstudio-dplyr-cheatsheet-download], covering `dplyr`. Remember you can get to these via *Help > Cheatsheets.* 
 
@@ -371,12 +372,12 @@ In later tutorials, we'll explore more of dplyr, such as operations based on two
 
 
 <!--TODO: This should probably be updated with something more recent-->
-[Excellent slides][tj-mahr-slides]on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
+[Excellent slides][tj-mahr-slides] on pipelines and `dplyr` by TJ Mahr, talk given to the Madison R Users Group.
 
 <!--TODO: This should probably be updated with something more recent-->
-Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos
+Blog post [Hands-on `dplyr` tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos.
 
-[Cheatsheet](#join-cheatsheet) I made for `dplyr` join functions (not relevant yet but soon)
+[Cheatsheet](#join-cheatsheet) I made for `dplyr` join functions (not relevant yet but soon).
 
 
 ```{r links, child="links.md"}

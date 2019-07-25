@@ -1,6 +1,6 @@
 # Tidy data {#tidy-data}
 
-[Tidy data using Lord of the Rings][tidydata-lotr]: tidy data, tidyr.
+[Tidy data using Lord of the Rings][tidydata-lotr]: tidy data, `tidyr`.
 
 
 ```{r links, child="links.md"}
