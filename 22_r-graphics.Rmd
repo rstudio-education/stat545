@@ -1,10 +1,10 @@
-```{r include = FALSE}
-source("common.R")
-```
-
 # (PART) All the graph things {-} 
 
 # Overview {-}
+
+```{r include = FALSE}
+source("common.R")
+```
 
 <!--Original content:https://stat545.com/graph00_index.html-->
 

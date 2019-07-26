@@ -1,8 +1,8 @@
+# Table lookup {#lookup}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Table lookup {#lookup}
 
 <!--Original content:https://stat545.com/bit008_lookup.html-->
 

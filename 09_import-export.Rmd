@@ -1,8 +1,8 @@
+# Writing and reading files {#import-export}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Writing and reading files {#import-export}
 
 <!--Original content: https://stat545.com/block002_hello-r-workspace-wd-project.html-->
 

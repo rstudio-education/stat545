@@ -1,10 +1,10 @@
-```{r include = FALSE}
-source("common.R")
-```
-
 # (PART) Data Analysis 3 {-} 
 
 # When one tibble is not enough {#multiple-tibbles}
+
+```{r include = FALSE}
+source("common.R")
+```
 
 <!--Original content:https://stat545.com/block033_working-with-two-tables.html-->
 

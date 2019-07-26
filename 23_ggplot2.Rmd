@@ -1,8 +1,8 @@
+# `ggplot2` tutorial {#ggplot2-tutorial}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# `ggplot2` tutorial {#ggplot2-tutorial}
 
 <!--Original content: https://stat545.com/graph00_index.html-->
 
@@ -11,4 +11,3 @@ source("common.R")
 
 ```{r links, child="links.md"}
 ```
-

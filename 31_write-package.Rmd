@@ -1,7 +1,7 @@
+# Write your first R package {#first-package}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Write your first R package {#first-package}
 
 <script async class="speakerdeck-embed" data-id="2f5adff04cb5013256c03a03dde42de4" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script> <div style="margin-bottom:5px"> <strong> <a href="https://speakerdeck.com/jennybc/ubc-stat545-2015-writing-your-first-r-package" title="UBC STAT545 2015 Writing your first R package" target="_blank">UBC STAT545 2015 Writing your first R package</a> </strong> from <strong><a href="https://speakerdeck.com/jennybc" target="_blank">Jennifer Bryan</a></strong> </div>

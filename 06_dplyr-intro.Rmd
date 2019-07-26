@@ -1,8 +1,8 @@
+# Introduction to `dplyr` {#dplyr-intro}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Introduction to `dplyr` {#dplyr-intro}
 
 <!--Original content:https://stat545.com/block009_dplyr-intro.html-->
 

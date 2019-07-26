@@ -1,10 +1,10 @@
-```{r include = FALSE}
-source("common.R")
-```
-
 # (PART) Data Analysis 1 {-} 
 
 # Basic care and feeding of data in R {#basic-data-care}
+
+```{r include = FALSE}
+source("common.R")
+```
 
 <!--Original content: https://stat545.com/block006_care-feeding-data.html-->
 

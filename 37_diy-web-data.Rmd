@@ -1,8 +1,8 @@
+# DIY web data {#diy-web-data}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# DIY web data {#diy-web-data}
 
 <!--Original content: https://stat545.com/webdata03_activity.html-->
 <!--Original author: Andrew MacDonald-->
@@ -10,7 +10,6 @@ source("common.R")
 ## Interacting with an API
 
 In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs.  That is, they handled the creation of the request and the formatting of the output. Today we're going to look at (part of) what these functions were doing.
-
 
 ### Load the `tidyverse`
 

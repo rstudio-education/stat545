@@ -39,15 +39,14 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 See ["Building Shiny Apps" slides](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) by Dean Attali.
 
 
+# Building Shiny Apps {#shiny-tutorial}
+
 ```{r include = FALSE}
 source("common.R")
 ```
 
-# Building Shiny Apps {#shiny-tutorial}
-
 <!--Original content: http://stat545.com/shiny01_activity.html-->
 <!--Original Author: Dean Attali-->
-
 
 Shiny is a package from RStudio that can be used to build interactive web pages with R. While that may sound scary because of the words "web pages", it's geared to R users who have 0 experience with web development, and you do not need to know any HTML/CSS/JavaScript.
 

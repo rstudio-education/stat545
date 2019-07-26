@@ -1,8 +1,8 @@
+# Write your own R functions, part 2 {#functions-part2}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Write your own R functions, part 2 {#functions-part2}
 
 <!--Original content:https://stat545.com/block011_write-your-own-function-02.html-->
 

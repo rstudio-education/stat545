@@ -1,8 +1,8 @@
+# Test drive R Markdown {#r-markdown}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Test drive R Markdown {#r-markdown}
 
 <!--Original content: https://stat545.com/block007_first-use-rmarkdown.html-->
 
@@ -112,9 +112,11 @@ Write a single English sentence.
 
 Insert an empty R chunk, via the "Chunk" menu in upper right of source editor or with corresponding keyboard shortcut.
 
-    ```{r}
-    ## insert your brilliant WORKING code here
-    ```
+````
+`r ''````{r}
+## insert your brilliant WORKING code here
+```
+````
 
 Insert 1 to 3 lines of functioning code that begin the task at hand. "Walk through" and run those lines using the "Run" button or the corresponding keyboard shortcut. You MUST make sure your code actually works!
 

@@ -1,8 +1,8 @@
+# System preparation for package development {#system-prep}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# System preparation for package development {#system-prep}
 
 <!--Original content: https://stat545.com/packages01_system-prep.html-->
 
@@ -156,4 +156,3 @@ For Windows instructions, see the [`devtools` README][devtools-github].
 
 ```{r links, child="links.md"}
 ```
-

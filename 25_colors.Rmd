@@ -1,8 +1,8 @@
+# Using colors in R {#colors}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Using colors in R {#colors}
 
 <!--Original content:http://stat545.com/block018_colors.html-->
 
@@ -205,15 +205,13 @@ brewer.pal(n = 8, name = "Dark2")
 
 The leading `#` is just there by convention. Parse the hexadecimal string like so: `#rrggbb`, where `rr`, `gg`, and `bb` refer to color intensity in the red, green, and blue channels, respectively. Each is specified as a two-digit base 16 number, which is the meaning of "hexadecimal" (or "hex" for short). Here's a table relating base 16 numbers to the beloved base 10 system.
 
-```{r include = FALSE}
-library(xtable)
+```{r decimal-hexadecimal, echo = FALSE}
+library(knitr)
 foo <- t(cbind(hex = I(c(as.character(0:9), LETTERS[1:6])),
                decimal = I(as.character(0:15))))
-foo <- xtable(foo)
-```
+colnames(foo) <- seq(1:16)
 
-```{r results = 'asis', echo = FALSE}
-print(foo, type='html')
+kable(foo, booktabs = TRUE, caption = "Hexademical (base 16) to Decimal (base 10)")
 ```
 
 __Example:__ the first color in the palette is specified as "#1B9E77", so the intensity in the green channel is 9E. What does that mean?
@@ -224,22 +222,18 @@ Note that the lowest possible channel intensity is `00` = 0 and the highest is `
 
 Important special cases that help you stay oriented. Here are the saturated RGB colors, red, blue, and green:
 
-```{r include = FALSE}
+```{r hex-codes-rgb, echo = FALSE}
 foo <- data.frame(color_name = c("blue", "green", "red"),
                   hex = c("#0000FF", "#00FF00", "#FF0000"),
                   red = c(0, 0, 255),
                   green = c(0, 255, 0),
                   blue = c(255, 0, 0))
-foo <- xtable(foo, digits = 0)
-```
-
-```{r results = 'asis', echo = FALSE}
-print(foo, type='html', include.rownames = FALSE)
+kable(foo, booktabs = TRUE, caption = "Hex color codes for RGB colors")
 ```
 
 Here are shades of gray:
 
-```{r include = FALSE}
+```{r hex-codes-gray, echo = FALSE}
 j_intensity <- c(255, 171, 84, 0)
 foo <- data.frame(color_name = c("white, gray100", "gray67",
                                  "gray33", "black, gray0"),
@@ -247,11 +241,7 @@ foo <- data.frame(color_name = c("white, gray100", "gray67",
                   red = j_intensity,
                   green = j_intensity,
                   blue = j_intensity)
-foo <- xtable(foo, digits = 0)
-```
-
-```{r results = 'asis', echo = FALSE}
-print(foo, type = 'html', include.rownames = FALSE)
+kable(foo, booktabs = TRUE, caption = "Hex color codes for shades of gray")
 ```
 
 Note that everywhere you see "gray" above, you will get the same results if you substitute "grey". We see that white corresponds to maximum intensity in all channels and black to the minimum.
@@ -418,8 +408,8 @@ par(opar)
 * Zeileis et al.'s ["Escaping RGBland: Selecting Colors for Statistical Graphs"][escaping-rgbland-pdf] in [Computational Statistics & Data Analysis][escaping-rgbland-doi] [-@zeileis2009]. 
 * [Vignette][colorspace-vignette] for the [`colorspace`][colorspace-cran] package.
 * Earl F. Glynn (Stowers Institute for Medical Research):
-  + [Excellent resources][stowers-color-chart] for named colors, i.e. the ones available via `colors()`.
-  + Informative talk ["Using Color in R"][stowers-using-color-in-R], though features some questionable *use* of color itself.
+    + [Excellent resources][stowers-color-chart] for named colors, i.e. the ones available via `colors()`.
+    + Informative talk ["Using Color in R"][stowers-using-color-in-R], though features some questionable *use* of color itself.
 * Blog post [My favorite RGB color][favorite-rgb-color] on the Many World Theory blog.
 * Wickham's [ggplot2: Elegant Graphics for Data Analysis][elegant-graphics-springer] [-@wickham2009].
   + [Online docs (nice!)][ggplot2-reference] 

@@ -1,8 +1,8 @@
+# Dates and times {#date-time}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Dates and times {#date-time}
 
 <!--JB: *Under development ... really just a placeholder / collection of links*-->
 

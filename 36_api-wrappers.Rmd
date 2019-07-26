@@ -1,8 +1,8 @@
+# Use API-wrapping packages {#api-wrappers}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Use API-wrapping packages {#api-wrappers}
 
 <!--Original content: http://stat545.com/webdata02_activity.html-->
 <!--Original author: Andrew MacDonald-->

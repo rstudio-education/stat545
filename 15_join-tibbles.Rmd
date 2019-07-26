@@ -1,8 +1,8 @@
+# Join two tables {#join-cheatsheet}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Join two tables {#join-cheatsheet}
 
 <!--Original content: https://stat545.com/bit001_dplyr-cheatsheet.html--> 
 

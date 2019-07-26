@@ -1,8 +1,8 @@
+# Do's and don'ts of making effective graphics {#effective-graphs}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Do's and don'ts of making effective graphics {#effective-graphs}
 
 <!--Original content:https://stat545.com/block015_graph-dos-donts.html-->
 

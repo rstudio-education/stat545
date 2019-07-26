@@ -1,8 +1,8 @@
+# Single table `dplyr` functions {#dplyr-single}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Single table `dplyr` functions {#dplyr-single}
 
 <!--Original content: https://stat545.com/block010_dplyr-end-single-table.html-->
 

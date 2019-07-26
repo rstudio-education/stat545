@@ -1,8 +1,8 @@
+# Multiple plots on a page {#multiple-plots}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Multiple plots on a page {#multiple-plots}
 
 <!--Original content: http://stat545.com/block020_multiple-plots-on-a-page.html-->
 

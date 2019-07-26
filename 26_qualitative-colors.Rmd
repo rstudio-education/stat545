@@ -1,8 +1,8 @@
+# Taking control of qualitative colors in `ggplot2` {#qualitative-colors}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Taking control of qualitative colors in `ggplot2` {#qualitative-colors}
 
 <!--Original content: https://stat545.com/block019_enforce-color-scheme.html-->
 

@@ -1,8 +1,8 @@
+# Character encoding {#character-encoding}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Character encoding {#character-encoding}
 
 <!--TODO: *under development ... not clear where this is going*-->
 

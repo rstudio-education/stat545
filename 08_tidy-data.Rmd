@@ -1,8 +1,8 @@
+# Tidy data {#tidy-data}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Tidy data {#tidy-data}
 
 [Tidy data using Lord of the Rings][tidydata-lotr]: tidy data, `tidyr`.
 

@@ -1,10 +1,10 @@
-```{r include = FALSE}
-source("common.R")
-```
-
 # (PART) Get your R act together {-} 
 
 # Install R and RStudio {#install}
+
+```{r include = FALSE}
+source("common.R")
+```
 
 <!--Original content: http://stat545.com/block000_r-rstudio-install.html-->
 

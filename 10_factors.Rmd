@@ -1,10 +1,10 @@
-```{r include = FALSE}
-source("common.R")
-```
-
 # (PART) Data Analysis 2 {-} 
 
 # Be the boss of your factors {#factors-boss}
+
+```{r include = FALSE}
+source("common.R")
+```
 
 <!--Original content: https://stat545.com/block029_factors.html-->
 

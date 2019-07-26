@@ -1,8 +1,8 @@
+# Function-writing practicum {#functions-practicum}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Function-writing practicum {#functions-practicum}
 
 <!--Original content:https://stat545.com/block012_function-regress-lifeexp-on-year.html-->
 

@@ -1,8 +1,8 @@
+# R basics and workflows {#r-basics}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# R basics and workflows {#r-basics}
 
 <!--Original content:http://stat545.com/block002_hello-r-workspace-wd-project.html-->
 

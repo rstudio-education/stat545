@@ -1,10 +1,10 @@
-```{r include = FALSE}
-source("common.R")
-```
-
 # (PART) Version Control {-} 
 
 # Git, GitHub, and RStudio {#version-control}
+
+```{r include = FALSE}
+source("common.R")
+```
 
 Content now [here][happy-git]. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
 

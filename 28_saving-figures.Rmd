@@ -1,8 +1,8 @@
+# Writing figures to file {#save-figs}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Writing figures to file {#save-figs}
 
 <!--Original content: https://stat545.com/block017_write-figure-to-file.html-->
 
@@ -183,14 +183,14 @@ If you call up the help file for [`dev.off()`, `dev.print()`, and friends][rdocs
 
 Certain workflows are suited to interactive development and will break when played back non-interactively or at arm's length. Wake up and pay attention when you cross these lines:
 
-  * You package graph-producing code into a function or put it inside a loop or other iterative machine.
-  * You run an R script non-interactively, e.g. via `source()`, `Rscript`, or `R CMD batch`.
+* You package graph-producing code into a function or put it inside a loop or other iterative machine.
+* You run an R script non-interactively, e.g. via `source()`, `Rscript`, or `R CMD batch`.
 
 __Basic issue__: When working interactively, if you inspect the plot object `p` by entering `p` at the command line, the plot gets printed to screen. You're actually enjoying the result of `print(p)`, but it's easy to not realize this. To get the same result from code run non-interactively, you will need to call `print()` explicitly yourself.
 
 Here I wrap plotting commands inside a function. The function on the left will fail to produce a PNG, whereas the function on the right will produce a good PNG. Both assume the Gapminder data is present as `gapminder` and that `ggplot2` has been loaded.
 
-<table border = 1>
+<table>
 <tr>
 <td valign="top">
 ```r
@@ -228,13 +228,13 @@ It is worth noting here that the `ggsave()` workflow is not vulnerable to this g
 
 Some relevant threads on stackoverflow:
 
-  * [Using png not working when called within a function](https://stackoverflow.com/questions/9206110/using-png-function-not-working-when-called-within-a-function)
-  * [ggplot's qplot does not execute on sourcing](https://stackoverflow.com/questions/6675066/ggplots-qplot-does-not-execute-on-sourcing)
-  * [Save ggplot within a function](https://stackoverflow.com/questions/7034647/save-ggplot-within-a-function)
-  
+* [Using png not working when called within a function](https://stackoverflow.com/questions/9206110/using-png-function-not-working-when-called-within-a-function)
+* [ggplot's qplot does not execute on sourcing](https://stackoverflow.com/questions/6675066/ggplots-qplot-does-not-execute-on-sourcing)
+* [Save ggplot within a function](https://stackoverflow.com/questions/7034647/save-ggplot-within-a-function)
+
 ### Mysterious empty `Rplots.pdf` file
 
-*Note: [This has been fixed as of ggplot2 v2.0.0](https://github.com/tidyverse/ggplot2/issues/1326). Hallelujah! I will leave this here for a while, since old versions of a package like ggplot2 linger around for months and years.*
+*Note: [This has been fixed as of `ggplot2` v2.0.0](https://github.com/tidyverse/ggplot2/issues/1326). Hallelujah! I will leave this here for a while, since old versions of a package like `ggplot2` linger around for months and years.*
 
 When creating and writing figures from R running non-interactively, you can inadvertently trigger a request to query the active graphics device. For example, `ggsave()` might try to ascertain the physical size of the current device. But when running non-interactively there is often no such device available, which can lead to the unexpected creation of `Rplots.pdf` so this request can be fulfilled.
 
@@ -242,11 +242,11 @@ I don't know of a reliable way to suppress this behavior uniformly and I just pe
 
 Some relevant threads on stackoverflow:
 
-  * [How to stop R from creating empty Rplots.pdf file when using ggsave and Rscript](https://stackoverflow.com/questions/17348359/how-to-stop-r-from-creating-empty-rplots-pdf-file-when-using-ggsave-and-rscript)
+* [How to stop R from creating empty Rplots.pdf file when using ggsave and Rscript](https://stackoverflow.com/questions/17348359/how-to-stop-r-from-creating-empty-rplots-pdf-file-when-using-ggsave-and-rscript)
 
 ## Chunk name determines figure file name
 
-Coming full circle, we return to the topic of figures produced via an R chunk in an R Markdown file. If you are writing [GitHub-flavored markdown or keeping the intermediate markdown](#r-markdown-step3), your figures will also be saved to file. Rendering `foo.Rmd` will leave behind `foo.md`, maybe `foo.html`, and a directory `foo_files`, containing any figures created in the document. By default, they will have meaningless names, like `unnamed-chunk-7.png`. This makes it difficult to find specific figures, i.e. for unplanned use in another setting. However, if you name an R chunk, this name will be baked into the figure file name.
+Coming full circle, we return to the topic of figures produced via an R chunk in an R Markdown file. If you are writing [GitHub-flavored markdown or keeping the intermediate markdown](#r-markdown-step3), your figures will also be saved to file. Rendering `foo.Rmd` will leave behind `foo.md`, maybe `foo.html`, and a directory `foo_files`, containing any figures created in the document. By default, they will have meaningless names, like `unnamed-chunk-7.png`. This makes it difficult to find specific figures, e.g. for unplanned use in another setting. However, if you name an R chunk, this name will be baked into the figure file name.
 
 <!--JB: the "live" version of the chunk I include verbatim below -->
 ```{r scatterplot-lifeExp-vs-year, echo = FALSE, fig.show = "hide"}
@@ -254,12 +254,14 @@ p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
 p
 ```
 
-__Example:__ here's an R chunk called `scatterplot-lifeExp-vs-year`
+__Example:__ here's an R chunk called `scatterplot-lifeExp-vs-year`:
  
-    ```{r scatterplot-lifeExp-vs-year}
-    p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
-    p
-    ```
+````
+`r ''````{r scatterplot-lifeExp-vs-year}
+p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
+p
+```
+````
 
 And it will lead to the creation of a suitably named figure file (you may see other figures produced in the document as well):
 

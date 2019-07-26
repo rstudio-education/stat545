@@ -1,8 +1,8 @@
+# Character vectors {#character-vectors}
+
 ```{r include = FALSE}
 source("common.R")
 ```
-
-# Character vectors {#character-vectors}
 
 <!--Original content: https://stat545.com/block028_character-data.html-->
 
