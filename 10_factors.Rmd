@@ -93,7 +93,7 @@ h_gap$country %>%
   levels()
 ```
 
-Exercise: Filter the gapminder data down to rows where population is less than a quarter of a million, i.e. 250,000. Get rid of the unused factor levels for `country` and `continent` in different ways, such as:
+__Exercise:__ Filter the gapminder data down to rows where population is less than a quarter of a million, i.e. 250,000. Get rid of the unused factor levels for `country` and `continent` in different ways, such as:
 
 * `droplevels()`
 * `fct_drop()` inside `mutate()`
@@ -120,7 +120,7 @@ low_pop %>%
 By default, factor levels are ordered alphabetically. Which might as well be random, when you think about it! It is preferable to order the levels according to some principle:
 
 * Frequency. Make the most common level the first and so on.
-* Another variable. Order factor levels according to a summary statistic for another variable. Example: order Gapminder countries by life expectancy.
+* Another variable. Order factor levels according to a summary statistic for another variable. __Example:__ order Gapminder countries by life expectancy.
 
 First, let's order continent by frequency, forwards and backwards. This is often a great idea for tables and figures, esp. frequency barplots.
 
@@ -230,7 +230,7 @@ i_gap$country %>%
   fct_recode("USA" = "United States", "Oz" = "Australia") %>% levels()
 ```
 
-Exercise: Isolate the data for `"Australia"`, `"Korea, Dem. Rep."`, and `"Korea, Rep."` in the 2000x. Revalue the country factor levels to `"Oz"`, `"North Korea"`, and `"South Korea"`.
+__Exercise:__ Isolate the data for `"Australia"`, `"Korea, Dem. Rep."`, and `"Korea, Rep."` in the 2000x. Revalue the country factor levels to `"Oz"`, `"North Korea"`, and `"South Korea"`.
 
 ## Grow a factor
 
@@ -264,7 +264,7 @@ Umm, no. That is wrong on many levels! Use `fct_c()` to do this.
 fct_c(df1$country, df2$country)
 ```
 
-Exercise: Explore how different forms of row binding work behave here, in terms of the `country` variable in the result.
+__Exercise:__ Explore how different forms of row binding work behave here, in terms of the `country` variable in the result.
 
 ```{r end_factors}
 bind_rows(df1, df2)

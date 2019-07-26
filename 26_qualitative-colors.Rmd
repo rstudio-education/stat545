@@ -88,7 +88,7 @@ __Note:__ The order of `country_colors` is not alphabetical. The countries are a
 
 ## Prepare the color scheme for use with `ggplot2`
 
-In the Grammar of Graphics, a __scale__ controls the mapping from a variable in the data to an aesthetic. So far we've let the coloring / filling scale be determined automatically by ggplot2. But to use our custom color scheme, we need to take control of the mapping of the `country` factor into fill color in `geom_point()`.
+In a [grammar of graphics](https://vita.had.co.nz/papers/layered-grammar.html), a __scale__ controls the mapping from a variable in the data to an aesthetic [@wickham2010]. So far we've let the coloring / filling scale be determined automatically by `ggplot2.` But to use our custom color scheme, we need to take control of the mapping of the `country` factor into fill color in `geom_point()`.
 
 We will use `scale_fill_manual()`, a member of a family of functions for customization of the discrete scales. The main argument is `values =`, which is a vector of aesthetic values -- fill colors, in our case. If this vector has names, they will be consulted during the mapping. This is incredibly useful! This is why `country_colors` does **exactly that**. This saves us from any worry about the order of levels of the `country` factor, the row order of the data, or exactly which countries are being plotted.
 

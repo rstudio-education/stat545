@@ -27,7 +27,7 @@ If you have a pre-existing installation of R and/or RStudio, we __highly recomme
     update.packages(ask = FALSE, checkBuilt = TRUE)
     ```
 
-  Note: this will only look for updates on CRAN. So if you use a package that lives *only* on GitHub or if you want a development version from GitHub, you will need to  update manually, e.g. via `devtools::install_github()`.
+  __Note:__ this will only look for updates on CRAN. So if you use a package that lives *only* on GitHub or if you want a development version from GitHub, you will need to  update manually, e.g. via `devtools::install_github()`.
 
 ## Testing testing
 

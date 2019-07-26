@@ -283,7 +283,7 @@ knitr::include_graphics("img/gapminderhead.png")
 ```
 
 
-We have created a simple html table with the head of gapminder in it! We can get our data back by parsing this table into a dataframe again. Extracting data from html is called "scraping", and it is done with the R package `rvest`:
+We have created a simple html table with the head of gapminder in it! We can get our data back by parsing this table into a data frame again. Extracting data from html is called "scraping", and it is done with the R package `rvest`:
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("rvest")

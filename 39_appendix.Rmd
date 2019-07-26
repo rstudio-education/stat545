@@ -360,7 +360,7 @@ or like [this](https://gist.github.com/jennybc/402761e30b9be8023af9#file-yaml_fr
 ```
 
 In RStudio, when editing `.Rmd`, click on the gear next to "Knit HTML" for YAML authoring help
-For a quick, stand-alone document that doesn't fit neatly into a repository or project (yet), make it a [Gist](https://gist.github.com). Example: Hadley Wickham's [advice on what you need to do to become a data scientist](https://gist.github.com/hadley/820f09ded347c62c2864). Gists can contain multiple files, so you can still provide the R script or R Markdown source __and__ the resulting Markdown, as I've done in this write-up of [Twitter-sourced tips for cross-tabulation](https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb).
+For a quick, stand-alone document that doesn't fit neatly into a repository or project (yet), make it a [Gist](https://gist.github.com). __Example:__ Hadley Wickham's [advice on what you need to do to become a data scientist](https://gist.github.com/hadley/820f09ded347c62c2864). Gists can contain multiple files, so you can still provide the R script or R Markdown source __and__ the resulting Markdown, as I've done in this write-up of [Twitter-sourced tips for cross-tabulation](https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb).
 
 ### `README.md`
 

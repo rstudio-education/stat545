@@ -8,9 +8,9 @@ source("common.R")
 
 It is not always appropriate or sufficient for figures to exist *only* inside a dynamic report, such as an R Markdown document. You should know how to write key figures to file for downstream use in a variety of settings. 
 
-During development, you need the immediate feedback from seeing your figures appear in a screen device, such as the RStudio Plots pane. Once you're satisfied, make sure you have saved in an R script all of the commands to produce the figure. You want *everything*, nachos to cheesecake: data import, any manipulation that necessary, then plotting.
+During development, you need the immediate feedback from seeing your figures appear in a screen device, such as the RStudio Plots pane. Once you're satisfied, make sure you have all of the commands to produce the figure saved in an R script. You want *everything*, nachos to cheesecake: data import, any necessary manipulation, then plotting.
 
-Now what? How to preserve the figure in a file?
+Now what? How do you preserve the figure in a file?
 
 ## Step away from the mouse
 
@@ -28,7 +28,7 @@ This filename offers several properties to help you find the code that produced 
   
   * __Specificity__: Note how specific and descriptive the name of this figure file is; we didn't settle for the generic `fig08.pdf` or `scatterplot.pdf`. This makes the name at least somewhat unique, which will help you search your home directory for files containing part or all of this filename.
 
-* __Machine-readability__: Every modern OS provide a way to search your hard drive for a file with a specific name or containing a specific string. This will be easier if the name contains no spaces, punctuation, or other funny stuff. If you use conventional extensions, you can even narrow the search to files ending in `.R` or `.Rmd`.
+* __Machine-readability__: Every modern OS provides a way to search your hard drive for a file with a specific name or containing a specific string. This will be easier if the name contains no spaces, punctuation, or other funny stuff. If you use conventional extensions, you can even narrow the search to files ending in `.R` or `.Rmd`.
 
 All of these human practices will help you zero in on the R code you need, so you can modify, re-run, and reuse.
 
@@ -38,9 +38,9 @@ Read the [R help for `Devices`][rdocs-devices] to learn about graphics devices i
 
 It is very important to understand the difference between [vector graphics][wiki-vector-graphics] and [raster graphics][wiki-raster-graphics]. Vector graphics are represented in terms of shapes and lines, whereas raster graphics are pixel-based.
 
-  * __vector__ examples: PDF, postscript, SVG
+  * __Vector__ examples: PDF, postscript, SVG
     - Pros: re-size gracefully, good for print. SVG is where the web is heading, though we are not necessarily quite there yet. 
-  * __raster__ examples: PNG, JPEG, BMP, GIF 
+  * __Raster__ examples: PNG, JPEG, BMP, GIF 
     - Cons: look awful "blown up" ... in fact, look awful quite frequently
     - Pros: play very nicely with Microsoft Office products and the web. Files can be blessedly small!
   
@@ -48,7 +48,7 @@ Tough love: you will not be able to pick vector or raster or a single device and
 
 FWIW most of my figures exist as `pdf()`, `png()`, or both. Although it is not true yet, SVG will hopefully become the new standard, offering the resizability of vector graphics but with web-friendliness as well.
 
-Here are two good posts from the Revolutions Analytics blog with tips for saving figures to file:
+Here are two good posts from the [Revolutions Analytics blog](https://blog.revolutionanalytics.com) with tips for saving figures to file:
 
   * [10 tips for making your R graphics look their best][rgraphics-looks-tips]
   * [High-quality R graphics on the Web with SVG][rgraphics-svg-tips]
@@ -67,7 +67,7 @@ It makes a sensible decision about everything else. In particular, as long as yo
 
 ### Passing a plot object to `ggsave()`
 
-After the filename, the most common argument you will provide is `plot =`, which is the second argument by position. If you've been building up a plot with the typical `ggplot2` workflow, you will pass the resulting object to `ggsave()`. Example:
+After the filename, the most common argument you will provide is `plot =`, which is the second argument by position. If you've been building up a plot with the typical `ggplot2` workflow, you will pass the resulting object to `ggsave()`. __Example:__
 
 ```{r eval = FALSE}
 p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
@@ -90,36 +90,38 @@ library(gapminder)
 p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
 ```
 
-```{r eval = FALSE}
+```r
 p1 <- p + ggtitle("scale = 0.6")
 p2 <- p + ggtitle("scale = 2")
 
-ggsave("img/fig-io-practice-scale-0.3.png", p1, scale = 0.6)
+ggsave("img/fig-io-practice-scale-0.6.png", p1, scale = 0.6)
+#> Saving 4.2 x 3 in image
 ggsave("img/fig-io-practice-scale-2.png", p2, scale = 2)
+#> Saving 14 x 10 in image
 ```
 
-```{r exaggerated-scale, echo = FALSE, fig.cap = "Two versions of a figure with exaggerated values of `scale`", fig.show='hold', out.width='50%'}
-p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
-
-p + ggtitle("scale = 0.6")
-p + ggtitle("scale = 2")
+```{r exaggerated-scale, echo = FALSE, out.width = "50%", fig.show = "hold", fig.cap = "Two versions of a figure with exaggerated values of `scale`"}
+library(knitr)
+include_graphics(c("img/figures-io-p1.png", 
+                   "img/figures-io-p2.png"))
 ```
+
 
 __Via the `base_size` of the active theme__: The `base_size` of the [theme][ggplot2-theme-args] refers to the base font size. This is NOT a theme element that can be modified via `ggplot(...) + theme(...)`. Rather, it's an argument to various functions that set theme elements. Therefore, to get the desired effect you need to create a complete theme, specifying the desired `base_size`. By setting `base size < 12`, the default value, you shrink text elements and by setting `base_size > 12`, you make them larger. Figure \@ref(fig:exaggerated-base-size) shows two versions of a figure, with exaggerated values of `base_size`, to illustrate its effect. 
 
-```{r eval = FALSE}
+```r
 p3 <- p + ggtitle("base_size = 20") + theme_grey(base_size = 20)
 p4 <- p + ggtitle("base_size = 3") + theme_grey(base_size = 3)
 
 ggsave("img/fig-io-practice-base-size-20.png", p3)
+#> Saving 7 x 5 in image
 ggsave("img/fig-io-practice-base-size-3.png", p4)
+#> Saving 7 x 5 in image
 ```
 
-```{r exaggerated-base-size, echo = FALSE, fig.cap = "Two versions of a figure with exaggerated values of `base_size`", fig.show='hold', out.width='50%'}
-p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
-
-p + ggtitle("base_size = 20") + theme_grey(base_size = 20)
-p + ggtitle("base_size = 3") + theme_grey(base_size = 3)
+```{r exaggerated-base-size, echo = FALSE, out.width = "50%", fig.show = "hold", fig.cap = "Two versions of a figure with exaggerated values of `base_size`"}
+knitr::include_graphics(c("img/figures-io-p3.png", 
+                          "img/figures-io-p4.png"))
 ```
 
 *Thanks to [Casey Shannon](https://twitter.com/cashoes_) for tips about `scale =` and this [cheatsheet from Zev Ross][zev-ross-cheatsheet] for tips about `base_size`.*
@@ -137,7 +139,7 @@ theme_set(otheme)
 
 Recall that `ggsave()` is recommended if you're using `ggplot2`. But if you're using base graphics or `lattice`, here's generic advice for writing figures to file. To be clear, this *also* works for `ggplot2` graphs, but I can't think of any good reasons to NOT use `ggsave()`.
   
-Edit your source code in the following way: Precede the figure-making code by opening a graphics device and follow it with a command that closes the device. Here's an example:
+Edit your source code in the following way: precede the figure-making code by opening a graphics device and follow it with a command that closes the device. Here's an example:
 
 ```{r fig.keep = 'none'}
 pdf("test-fig-proper.pdf") # starts writing a PDF to file
@@ -145,13 +147,13 @@ plot(1:10)                    # makes the actual plot
 dev.off()                     # closes the PDF file
 ```
 
-You will see there's a new file in the working directory:
+You will see that there's a new file in the working directory:
 
 ```{r}
 list.files(pattern = "^test-fig*")
 ```
 
-If you run this code interactively, don't be surprised when you don't see the figure appear in your screen device. While you're sending graphics output to, e.g., the `pdf()` device, you'll be "flying blind", which is why it's important to work out the graphics commands in advance. This is like using `sink()`, which diverts the output you'd normally see in R Console.
+If you run this code interactively, don't be surprised when you don't see the figure appear in your screen device. While you're sending graphics output to, e.g. the `pdf()` device, you'll be "flying blind", which is why it's important to work out the graphics commands in advance. This is like using `sink()`, which diverts the output you'd normally see in R Console.
 
 Read the [R help for `Devices`][rdocs-devices] to learn about graphics devices in general and which are available on your system (*obviously requires that you read your local help*). If you need control over, e.g., width, height, or dpi, roll up your sleeves and use the arguments to the graphics device function you are using. There are many.
 
@@ -252,7 +254,7 @@ p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
 p
 ```
 
-Example: here's an R chunk called `scatterplot-lifeExp-vs-year`
+__Example:__ here's an R chunk called `scatterplot-lifeExp-vs-year`
  
     ```{r scatterplot-lifeExp-vs-year}
     p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()

@@ -145,7 +145,7 @@ head(fruit) %>%
   str_sub(1, 3)
 ```
 
-The `start` and `end` arguments are vectorised. Example: a sliding 3-character window.
+The `start` and `end` arguments are vectorised. __Example:__ a sliding 3-character window.
 
 ```{r}
 tibble(fruit) %>% 

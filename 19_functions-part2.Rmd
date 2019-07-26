@@ -152,7 +152,7 @@ qdiff3(gapminder$lifeExp, c(0.1, 0.9))
 
 ## Check the validity of arguments, again
 
-Exercise: upgrade our argument validity checks in light of the new argument `probs`.
+__Exercise:__ upgrade our argument validity checks in light of the new argument `probs`.
 
 ```{r}
 ## problems identified during class
