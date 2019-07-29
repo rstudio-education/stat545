@@ -142,7 +142,7 @@ Recall that `ggsave()` is recommended if you're using `ggplot2`. But if you're u
 Edit your source code in the following way: precede the figure-making code by opening a graphics device and follow it with a command that closes the device. Here's an example:
 
 ```{r fig.keep = 'none'}
-pdf("test-fig-proper.pdf") # starts writing a PDF to file
+pdf("test-fig-proper.pdf")    # starts writing a PDF to file
 plot(1:10)                    # makes the actual plot
 dev.off()                     # closes the PDF file
 ```
@@ -160,9 +160,8 @@ Read the [R help for `Devices`][rdocs-devices] to learn about graphics devices i
 If you are staring at a plot you just made on your screen, here's a handy short cut for writing a figure to file:
 
 ```{r dev-print-demo}
-plot(1:10)            # makes the actual plot
-dev.print(pdf,        # copies the plot to a the PDF file
-          "test-fig-quick-dirty.pdf")             
+plot(1:10)    # makes the actual plot
+dev.print(pdf, "test-fig-quick-dirty.pdf")    # copies the plot to a the PDF file
 ```
 
 You will see there's now another new file in the working directory:

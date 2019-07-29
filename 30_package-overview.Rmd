@@ -14,13 +14,13 @@ source("common.R")
   + Why make an R package?
   + How `devtools` creates a happy workflow.
 * Chapter \@ref(system-prep) - Prepare your system for package development
-  + Although we'll build a very simple package, we're still going to use the most modern and powerful tools for R package development. In theory, this could eventually involve compiling C/C++ code, which means you need what's called a *build environment*. Follow the link above for help preparing your system.
+  + Although we'll build a very simple package, we're still going to use the most modern and powerful tools for R package development. In theory, this could eventually involve compiling C/C++ code, which means you need what's called a *build environment*. See Chapter \@ref(system-prep) for help preparing your system.
 * Chapter \@ref(package-from-scratch) - Write your own R Package
   + In 2016 and 2015, we built the `foofactors` package, to make the care and feeding of factors less aggravating.
-  + In class example that shows how to
+  + In class example that shows how to:
     * Create a new R package
     * Accept help from `devtools` and RStudio
-    * Switch between developing your package package and test driving it
+    * Switch between developing your package and test driving it
     * Document functions and your overall package
     * Test your functions
     * Depend on another package
@@ -31,22 +31,24 @@ source("common.R")
 ## Resources {-}
 
 * [Writing R Extensions][cran-r-extensions], the One True Official Document on creating R packages.
-* [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan [-@wickham-unpub]. The above lessons follow it and the [`devtools`][devtools-web] package workflow quite faithfully (`devtools` on [CRAN][devtools-cran], on [GitHub][devtools-github]).
-* Hilary Parker's [blog post][parker-writing-r-packages] on the epiphany of writing her first R package
-  + "I was hit with that familiar feeling of the joy of optimization combined with the regret of past inefficiencies (joygret?). I wish I could go back in time and create the package the first moment I thought about it, and then use all the saved time to watch cat videos because that really would have been more productive."
-  + the glorious result: <https://github.com/hilaryparker/cats>
-  + see some usage in the [R Graph Catalog][r-graph-catalog-github] *hint: filter for chapter "other"*
-* Karl Broman's [guide to writing an R package][broman-r-packages]
-* Karl Broman covers package development in his course [Tools for Reproducible Research][broman-tools4rr]
-* Jeff Leek's [guide to writing R packages][leeks-r-packages]
+* [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan [-@wickham-unpub]. Chapter \@ref(system-prep) and Chapter \@ref(package-from-scratch) follow it and the [`devtools`][devtools-web] package workflow quite faithfully (`devtools` on [CRAN][devtools-cran], on [GitHub][devtools-github]).
+* Hilary Parker's [blog post][parker-writing-r-packages] on the epiphany of writing her first R package.
+  
+  >I was hit with that familiar feeling of the joy of optimization combined with the regret of past inefficiencies (joygret?). I wish I could go back in time and create the package the first moment I thought about it, and then use all the saved time to watch cat videos because that really would have been more productive.
+  
+  + The glorious result: <https://github.com/hilaryparker/cats>
+  + See some usage in the [R Graph Catalog][r-graph-catalog-github]. *Hint: filter for chapter "other".*
+* Karl Broman's [guide to writing an R package][broman-r-packages].
+* Karl Broman covers package development in his course [Tools for Reproducible Research][broman-tools4rr].
+* Jeff Leek's [guide to writing R packages][leeks-r-packages].
 * Some blog posts accompanying `devtools` releases highlight useful helper functions for package developers:
   + [v1.6 October 2014][devtools-1-6]
   + [v1.8 May 2015][devtools-1-8]
   + [v1.9.1 September 2015][devtools-1-9-1]
   + The RStudio [Package Development with `devtools` Cheat Sheet][devtools-cheatsheet] is also super helpful. Remember links to the cheat sheets are always available from RStudio *Help > Cheatsheets*.
-* [Building and Maintaining R Packages with devtools and roxygen2][build-maintain-r-packages], blog post by Jacob Montgomery and Ryan T. Moore
-* [Writing Package Vignettes][murdoch-package-vignette-slides], slides for a November 2013 talk by Duncan Murdoch
-* [Roxygen vignette on Generating Rd files][roxygen2-vignette]
+* [Building and Maintaining R Packages with devtools and roxygen2][build-maintain-r-packages], blog post by Jacob Montgomery and Ryan T. Moore.
+* [Writing Package Vignettes][murdoch-package-vignette-slides], slides for a November 2013 talk by Duncan Murdoch.
+* [Roxygen vignette on Generating Rd files][roxygen2-vignette].
 * Wickham's [testthat: Get Started with Testing][testthat-article] article in The R Journal [-@wickham2011b]. *This may no longer be correct in every last detail, due to evolution of `testthat`, but it still makes an excellent, readable introduction to unit testing in R (packages)*.
 * [How R Searches and Finds Stuff][how-r-searches] is a fairly technical blog post for understanding the R search path, but also gives some great explanations on some differences between `Imports` vs `Depends` and why `Imports` is safer.
 

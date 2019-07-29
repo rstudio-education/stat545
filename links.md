@@ -236,10 +236,11 @@
 [r-pkgs2-namespace]: https://r-pkgs.org/namespace.html
 [r-pkgs2-vignettes]: https://r-pkgs.org/vignettes.html
 [r-pkgs2-release]: https://r-pkgs.org/release.html
+[r-pkgs2-r-code]: https://r-pkgs.org/r.html#r
 
 [r-graphics-cookbook]: http://shop.oreilly.com/product/0636920023135.do
 
-[cookbook-for-r]: http://www.cookbook-r.com <!--just a web based book, no physical book/citation-->
+[cookbook-for-r]: http://www.cookbook-r.com 
 [cookbook-for-r-graphs]: http://www.cookbook-r.com/Graphs/
 [cookbook-for-r-multigraphs]: http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 

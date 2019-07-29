@@ -9,11 +9,11 @@
 
 Many people have written packages that enhance Shiny in some way or add extra functionality. Here is a list of several popular packages that people often use together with Shiny:
 
-* [`shinythemes`][shinythemes-web]: Easily alter the appearance of your app (on [CRAN][shinythemes-cran])
-* [`shinyjs`][shinyjs-web]: Enhance user experience in Shiny apps using JavaScript functions without knowing JavaScript (on [CRAN][shinyjs-cran], on [GitHub][shinyjs-github])
-* [`leaflet`][leaflet-web]: Add interactive maps to your apps (on [CRAN][leaflet-cran], on [GitHub][leaflet-github])
-* [`ggvis`][ggvis-web]: Similar to ggplot2, but the plots are focused on being web-based and are more interactive (on [CRAN][ggvis-cran])
-* [`shinydashboard`][shinydashboard-web]: Gives you tools to create visual “dashboards” (on [CRAN][shinydashboard-cran], on [GitHub][shinydashboard-github])
+* [`shinythemes`][shinythemes-web]: Easily alter the appearance of your app ([CRAN][shinythemes-cran])
+* [`shinyjs`][shinyjs-web]: Enhance user experience in Shiny apps using JavaScript functions without knowing JavaScript ([CRAN][shinyjs-cran]; [GitHub][shinyjs-github])
+* [`leaflet`][leaflet-web]: Add interactive maps to your apps ([CRAN][leaflet-cran]; [GitHub][leaflet-github])
+* [`ggvis`][ggvis-web]: Similar to ggplot2, but the plots are focused on being web-based and are more interactive ([CRAN][ggvis-cran])
+* [`shinydashboard`][shinydashboard-web]: Gives you tools to create visual “dashboards” ([CRAN][shinydashboard-cran]; [GitHub][shinydashboard-github])
 
 
 ## Resources {-}

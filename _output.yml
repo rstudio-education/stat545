@@ -1,7 +1,7 @@
 bookdown::gitbook:
   css: style.css
   split_bib: FALSE
-  split_by: rmd
+  split_by: chapter
   config:
     toc:
       collapse: section
