@@ -239,7 +239,23 @@ foo <- data.frame(color_name = c("blue", "green", "red"),
 foo %>%
   gt(rowname_col = "color_name") %>% 
   tab_options(column_labels.font.weight = "bold") %>% 
-  tab_stubhead(label = "color_name")
+  tab_stubhead(label = "color_name") %>%
+  tab_style(
+    style = cell_text(color = "white"),
+    locations = cells_data()
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#0000FF"),
+    locations = cells_data(rows = hex == "#0000FF")
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#00FF00"),
+    locations = cells_data(rows = hex == "#00FF00")
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#FF0000"),
+    locations = cells_data(rows = hex == "#FF0000")
+  ) 
 ```
 
 Here are shades of gray:
@@ -256,7 +272,27 @@ foo <- data.frame(color_name = c("white, gray100", "gray67",
 foo %>%
   gt(rowname_col = "color_name") %>% 
   tab_options(column_labels.font.weight = "bold") %>% 
-  tab_stubhead(label = "color_name")
+  tab_stubhead(label = "color_name") %>% 
+    tab_style(
+    style = cell_text(color = "white"),
+    locations = cells_data(rows = hex != "#FFFFFF")
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#FFFFFF"),
+    locations = cells_data(rows = hex == "#FFFFFF")
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#ABABAB"),
+    locations = cells_data(rows = hex == "#ABABAB")
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#545454"),
+    locations = cells_data(rows = hex == "#545454")
+  ) %>% 
+  tab_style(
+    style = cell_fill(color = "#000000"),
+    locations = cells_data(rows = hex == "#000000")
+  ) 
 ```
 
 Note that everywhere you see "gray" above, you will get the same results if you substitute "grey". We see that white corresponds to maximum intensity in all channels and black to the minimum.
