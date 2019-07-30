@@ -72,7 +72,7 @@ Copies and excerpts of your data clutter your workspace, invite mistakes, and so
 
 Reality can also lie somewhere in between. You will find the workflows presented below can help you accomplish your goals with minimal creation of temporary, intermediate objects.
 
-## Use `filter()` to subset data row-wise.
+## Use `filter()` to subset data row-wise
 
 `filter()` takes logical expressions and returns the rows for which all are `TRUE`.
 
