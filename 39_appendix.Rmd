@@ -6,12 +6,12 @@
 source("common.R")
 ```
 
-## Regular expression in R {#regex1}
+## Regular expressions in R {#regex1}
 
 * __Rendered__: https://stat545.com/block022_regular-expression.html
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block022_regular-expression.rmd
   
-## Regular expression and character data {#regex2}
+## Regular expressions and character data {#regex2}
 
 * __Rendered__: https://stat545.com/block027_regular-expressions.html
 * __Raw__:  https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block027_regular-expressions.Rmd
@@ -23,13 +23,13 @@ source("common.R")
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block031_vector-tibble-relations.Rmd
 
 
-## Computing by groups within `data.frames` with `dplyr` and `broom` {#dplyr-do}
+## Computing by groups within data.frames with `dplyr` and `broom` {#dplyr-do}
 
 * __Rendered__: https://stat545.com/block023_dplyr-do.html
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block023_dplyr-do.rmd
   
   
-## Computing by groups within `data.frames` with `plyr` {#plyr-ddply}
+## Computing by groups within data.frames with `plyr` {#plyr-ddply}
 
 * __Rendered__: https://stat545.com/block013_plyr-ddply.html
 * __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block013_plyr-ddply.rmd
@@ -61,7 +61,7 @@ My *modus operandi*: start with something that works and add features in small i
 
 ### Context: writing a function factory
 
-I have an R package [`googlesheets`][googlesheets-github] that gets Google Sheets in and out of R. Lately we've had alot of trouble with  `Internal Server Error (HTTP 500)`, which, as you might expect, is an error on the Google server side. All you can do as a user is try, try again. But this is a showstopper for unattended scripts or multi-step operations, like building and checking the package. A single error renders lots of other work moot, which is completely infuriating.
+I have an R package [`googlesheets`][googlesheets-github] that gets Google Sheets in and out of R. Lately we've had a lot of trouble with  `Internal Server Error (HTTP 500)`, which, as you might expect, is an error on the Google server side. All you can do as a user is try, try again. But this is a showstopper for unattended scripts or multi-step operations, like building and checking the package. A single error renders lots of other work moot, which is completely infuriating.
 
 I want to catch these errors and automatically retry the request after an appropriate delay.
 
@@ -101,8 +101,8 @@ My problem is different. My input is a *function*, not an exponent like 2 or 3. 
 
 The simplest thing I could think of that sort of looks like my problem:
 
-  * the factory takes a function as input
-  * it returns a function that executes the input function twice, with whatever inputs that function had in the first place
+* The factory takes a function as input.
+* It returns a function that executes the input function twice, with whatever inputs that function had in the first place.
   
 ```{r}
 call_me_twice <- function(f) {
@@ -135,9 +135,9 @@ I won't lie, I'm pleasantly surprised this worked. Morale boost.
 
 I need a placeholder for the HTTP verbs with these qualities:
 
-  * takes some input
-  * generates a non-deterministic status
-  * returns a list with the input, status, and some content
+* Takes some input.
+* Generates a non-deterministic status.
+* Returns a list with the input, status, and some content.
 
 ```{r}
 VERB <- function(url = "URL!")
@@ -161,7 +161,7 @@ VERB_twice <- call_me_twice(VERB)
 replicate(5, VERB_twice())
 ```
 
-Hmmmm ... I only see one output per call of `VERB_twice()`. But why? Is it because `VERB()` is only getting called once? That means I've screwed up. Or is `VERB()` getting called twice but I'm only seeing evidence of the second call?
+Hmmmm...I only see one output per call of `VERB_twice()`. But why? Is it because `VERB()` is only getting called once? That means I've screwed up. Or is `VERB()` getting called twice but I'm only seeing evidence of the second call?
 
 ### A better faux VERB
 
@@ -270,7 +270,7 @@ VERB_5("A group of owls is called a Parliament.")
 
 And we have drawn some f\*cking owls, with retries!
 
-```{r echo = FALSE, out.width = "50%", fig.cap = "From [buzzfeed](https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr05/7/10/enhanced-22024-1394207918-30.jpg)"}
+```{r echo = FALSE, out.width = "50%", fig.cap = "From [BuzzFeed](https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr05/7/10/enhanced-22024-1394207918-30.jpg)"}
 knitr::include_graphics("https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr05/7/10/enhanced-22024-1394207918-30.jpg")
 ```
 
@@ -285,7 +285,7 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## How to obtain a bunch of GitHub issues or pull requests with R {#gh-package}
 
-[Using dplyr + purrr + tidyr](https://github.com/jennybc/analyze-github-stuff-with-r) to analyze data about GitHub repos via the [`gh` package][gh-github]
+[Using `dplyr` + `purrr` + `tidyr`](https://github.com/jennybc/analyze-github-stuff-with-r) to analyze data about GitHub repos via the [`gh` package][gh-github]
 
 ## How to tame XML with nested data frames and `purrr` {#tame-google-sheets}
 
@@ -324,7 +324,7 @@ This is a note about cool things GitHub can do with various file types, if they 
 
 You will quickly discover that GitHub renders Markdown files very nicely. By clicking on `foo.md`, you'll get a decent preview of `foo.html`. Yay!
 
-Aggressively exploit this handy feature. Make Markdown your default format for narrative text files and use them liberally to embed notes to yourself and others in a repository hosted on Github. It's an easy way to get pseudo-webpages inside a project "for free". You may never even compile these files to HTML explicitly; in many cases, the HTML preview offered by GitHub is all you ever need.
+Aggressively exploit this handy feature. Make Markdown your default format for narrative text files and use them liberally to embed notes to yourself and others in a repository hosted on GitHub. It's an easy way to get pseudo-webpages inside a project "for free". You may never even compile these files to HTML explicitly; in many cases, the HTML preview offered by GitHub is all you ever need.
 
 What does this mean for R Markdown files? **Keep intermediate Markdown.** Commit both `foo.Rmd` and `foo.md`, even if you choose to `.gitignore` the final `foo.html`. As of [September 2014](https://github.com/github/markup/pull/343), GitHub renders R Markdown files nicely, like Markdown, and with proper syntax highlighting, which is great. But, of course, the code blocks just sit there un-executed, so my advice about keeping intermediate Markdown still holds. You want YAML frontmatter that looks something like [this](https://gist.github.com/jennybc/402761e30b9be8023af9#file-yaml_frontmatter_rmd_keep_md-yml) for `.Rmd`:
 
@@ -360,7 +360,9 @@ or like [this](https://gist.github.com/jennybc/402761e30b9be8023af9#file-yaml_fr
 ```
 
 In RStudio, when editing `.Rmd`, click on the gear next to "Knit HTML" for YAML authoring help
-For a quick, stand-alone document that doesn't fit neatly into a repository or project (yet), make it a [Gist](https://gist.github.com). __Example:__ Hadley Wickham's [advice on what you need to do to become a data scientist](https://gist.github.com/hadley/820f09ded347c62c2864). Gists can contain multiple files, so you can still provide the R script or R Markdown source __and__ the resulting Markdown, as I've done in this write-up of [Twitter-sourced tips for cross-tabulation](https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb).
+For a quick, stand-alone document that doesn't fit neatly into a repository or project (yet), make it a [Gist](https://gist.github.com). 
+
+__Example:__ Hadley Wickham's [advice on what you need to do to become a data scientist](https://gist.github.com/hadley/820f09ded347c62c2864). Gists can contain multiple files, so you can still provide the R script or R Markdown source __and__ the resulting Markdown, as I've done in this write-up of [Twitter-sourced tips for cross-tabulation](https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb).
 
 ### `README.md`
 
@@ -368,13 +370,14 @@ You probably already know that GitHub renders `README.md` at the top-level of yo
 
 Implication: for any logical group of files or mini project-within-your-project, create a sub-directory in your repository. And then create a `README.md` file to annotate these files, collect relevant links, etc. Now when you navigate to the sub-directory on GitHub the nicely rendered `README.md` will simply appear.
 
-Some repositories consist solely of `README.md`. Examples: Jeff Leek's write-ups on [How to share data with a statistician](https://github.com/jtleek/datasharing) or [Developing R packages](https://github.com/jtleek/rpackages). I am becoming a bigger fan of `README`-only repos than gists because repo issues trigger notifications, whereas comments on gists do not.
+Some repositories consist solely of `README.md`. __Examples:__ Jeff Leek's write-ups on [How to share data with a statistician](https://github.com/jtleek/datasharing) or [Developing R packages](https://github.com/jtleek/rpackages). I am becoming a bigger fan of `README`-only repos than gists because repo issues trigger notifications, whereas comments on gists do not.
 
 If you've got a directory full of web-friendly figures, such as PNGs, you can use [code like this](https://gist.github.com/jennybc/0239f65633e09df7e5f4) to generate a `README.md` for a quick DIY gallery, as Karl Broman has done with [his FruitSnacks](https://github.com/kbroman/FruitSnacks/blob/master/PhotoGallery.md). I have also used this device to share Keynote slides on GitHub (*mea culpa!*). Export them as PNGs images and throw 'em into a README gallery: slides on [file organization](https://github.com/Reproducible-Science-Curriculum/rr-organization1/tree/27883c8fc4cdd4dcc6a8232f1fe5c726e96708a0/slides/organization-slides) and some on [file naming](https://github.com/Reproducible-Science-Curriculum/rr-organization1/tree/27883c8fc4cdd4dcc6a8232f1fe5c726e96708a0/slides/naming-slides).
 
 ### Finding stuff
 
 OK these are pure GitHub tips but if you've made it this far, you're obviously a keener.
+
 * Press `t` to activate [the file finder](https://github.com/blog/793-introducing-the-file-finder) whenever you're in a repo's file and directory view. AWESOME, especially when there are files tucked into lots of subdirectories.
 * Press `y` to [get a permanent link](https://help.github.com/articles/getting-permanent-links-to-files/) when you're viewing a specific file. Watch what changes in the URL. This is important if you are about to *link* to a file or [to specific lines](http://stackoverflow.com/questions/23821235/how-to-link-to-specific-line-number-on-github). Otherwise your links will break easily in the future. If the file is deleted or renamed or if lines get inserted or deleted, your links will no longer point to what you intended. Use `y` to get links that include a specific commit in the URL.
 
@@ -388,12 +391,12 @@ No one wants to look at that. ~~You can provide this URL to [rawgit.com](http://
 
 ~~You can form two different types of URLs with [rawgit.com](http://rawgit.com):~~
 
-  * ~~For sharing low-traffic, temporary examples or demos with small numbers of people, do this:~~
-    - ~~<https://rawgit.com/STAT545-UBC/STAT545-UBC.github.io/master/bit003_api-key-env-var.html>~~
-    - ~~Basically: replace `https://github.com/` with `https://rawgit.com/`~~
-  * ~~For use on production websites with any amount of traffic, do this:~~
-    - ~~<https://cdn.rawgit.com/STAT545-UBC/STAT545-UBC.github.io/master/bit003_api-key-env-var.html>~~
-    - ~~Basically: replace `https://github.com/` with `https://cdn.rawgit.com/`~~
+* ~~For sharing low-traffic, temporary examples or demos with small numbers of people, do this:~~
+  - ~~<https://rawgit.com/STAT545-UBC/STAT545-UBC.github.io/master/bit003_api-key-env-var.html>~~
+  - ~~Basically: replace `https://github.com/` with `https://rawgit.com/`~~
+* ~~For use on production websites with any amount of traffic, do this:~~
+  - ~~<https://cdn.rawgit.com/STAT545-UBC/STAT545-UBC.github.io/master/bit003_api-key-env-var.html>~~
+  - ~~Basically: replace `https://github.com/` with `https://cdn.rawgit.com/`~~
 
 *2018-10-09 update: RawGit [announced](https://rawgit.com/) that it is in a sunset phase and will soon shut down. They recommended: [jsDelivr](https://www.jsdelivr.com/rawgit), [GitHub Pages](https://pages.github.com/), [CodeSandbox](https://codesandbox.io/), and [unpkg](https://unpkg.com/#/) as alternatives.*
 
@@ -426,8 +429,8 @@ PNG is the "no brainer" format in which to store figures for the web. But many o
 
 Examples:
 
-  * [This PNG figure](https://github.com/jennybc/STAT545A/blob/master/hw06_scaffolds/01_justR/stripplot_wordsByRace_The_Fellowship_Of_The_Ring.png) just shows up in the browser
-  * A different figure [stored as PDF](https://github.com/jennybc/ggplot2-tutorial/blob/master/gapminder-country-colors.pdf) ~~produces the dreaded, annoying "View Raw" speed bump. You'll have to click through and, on my OS + browser, wait for the PDF to appear in an external PDF viewer.~~ *2015-06-19 update: since I first wrote this GitHub has [elevated its treament of PDFs](https://github.com/blog/1974-pdf-viewing) so YAY. It's slow but it works.*
+* [This PNG figure](https://github.com/jennybc/STAT545A/blob/master/hw06_scaffolds/01_justR/stripplot_wordsByRace_The_Fellowship_Of_The_Ring.png) just shows up in the browser
+* A different figure [stored as PDF](https://github.com/jennybc/ggplot2-tutorial/blob/master/gapminder-country-colors.pdf) ~~produces the dreaded, annoying "View Raw" speed bump. You'll have to click through and, on my OS + browser, wait for the PDF to appear in an external PDF viewer.~~ *2015-06-19 update: since I first wrote this GitHub has [elevated its treatment of PDFs](https://github.com/blog/1974-pdf-viewing) so YAY. It's slow but it works.*
   
 Hopefully we are moving towards a world where you can have "web friendly" and "vector" at the same time, without undue headaches. As of [October 2014](https://github.com/blog/1902-svg-viewing-diffing), GitHub provides enhanced viewing and diffing of SVGs. So don't read this advice as discouraging SVGs. Make them! But consider keeping a PNG around as emergency back up for now.
   
@@ -441,9 +444,10 @@ Go look in your downloads folder!
 
 ### Links and embedded figures
 
-* To link to another page in your repo, just use a relative link: `[admin](courseAdmin/)` will link to the `courseAdmin/` directory inside the current directory. `[admin](/courseAdmin/)` will link to the top-level `courseAdmin/` directory from any where in the repo
-
-* The same idea also works for images. `![](image.png)` will include `image.png` located in the current directory
+* To link to another page in your repo, just use a relative link: 
+  + `[admin](courseAdmin/)` will link to the `courseAdmin/` directory inside the current directory. 
+  + `[admin](/courseAdmin/)` will link to the top-level `courseAdmin/` directory from any where in the repo.
+* The same idea also works for images. `![](image.png)` will include `image.png` located in the current directory.
 
 ### Let people correct you on the internet
 
@@ -483,22 +487,22 @@ This is a lesson on tidying data. Specifically, what to do when a conceptual var
 
 Data used: words spoken by characters of different races and gender in the Lord of the Rings movie trilogy
 
-  * [directory of this lesson](https://github.com/datacarpentry/datacarpentry/tree/master/lessons/tidy-data) in the Data Carpentry GitHub repo
-  * [01-intro](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/01-intro.md) shows untidy and tidy data. Then we demonstrate how tidy data is more useful for analysis and visualization. Includes references, resources, and exercises.
-  * [02-tidy](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/02-tidy.md) shows __how__ to tidy data, using `gather()` from the `tidyr` package. Includes references, resources, and exercises.
-  * [03-tidy-bonus-content](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/03-tidy-bonus-content.md) is not part of the lesson but may be useful as learners try to apply the principles of tidy data in more general settings. Includes links to packages used.
+* [Directory of this lesson](https://github.com/datacarpentry/datacarpentry/tree/master/lessons/tidy-data) in the Data Carpentry GitHub repo.
+* [01-intro](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/01-intro.md) shows untidy and tidy data. Then we demonstrate how tidy data is more useful for analysis and visualization. Includes references, resources, and exercises.
+* [02-tidy](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/02-tidy.md) shows __how__ to tidy data, using `gather()` from the `tidyr` package. Includes references, resources, and exercises.
+* [03-tidy-bonus-content](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/tidy-data/03-tidy-bonus-content.md) is not part of the lesson but may be useful as learners try to apply the principles of tidy data in more general settings. Includes links to packages used.
 
 Learner-facing dependencies:
 
-* files in the `tidy-data` sub-directory of the Data Carpentry `data` directory
-* `tidyr` package (only true dependency)
-* `ggplot2` is used for illustration but is not mission critical 
-* `dplyr` and `reshape2` are used in the bonus content
+* Files in the `tidy-data` sub-directory of the Data Carpentry `data` directory.
+* `tidyr` package (only true dependency).
+* `ggplot2` is used for illustration but is not mission critical. 
+* `dplyr` and `reshape2` are used in the bonus content.
 
 Instructor dependencies:
 
 * `curl` if you execute the code to grab the Lord of the Rings data used in examples from GitHub. Note that the files are also included in the `datacarpentry/data/tidy-data` directory, so data download is avoidable.
-* `rmarkdown`, `knitr`, and `xtable` if you want to compile the `Rmd` to `md` and `html`
+* `rmarkdown`, `knitr`, and `xtable` if you want to compile the `Rmd` to `md` and `html`.
 
 
 

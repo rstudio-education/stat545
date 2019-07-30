@@ -23,7 +23,7 @@ There are many ways to obtain data from the internet; let's consider four catego
 In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
 
 * Use `read.csv` or `readr::read_csv` to read the data straight into R.
-* Use the command line program `curl` to do that work, and place it in a `Makefile` or shell script (see Chapter \@ref(automation-overview) for more on this).
+* Use the command line program `curl` to do that work, and place it in a `Makefile` or shell script (see the [section on `make`](#automation-overview) for more on this).
 
 The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, the World Value Survey makes several datasets available as Excel sheets. The safest option here is to download the `.xls` file, then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
 
