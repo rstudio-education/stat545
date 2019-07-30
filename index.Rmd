@@ -96,12 +96,12 @@ session <- devtools::session_info()
 session$platform
 ```
 
+Along with these packages:
 
 ```{r message = FALSE, warning = FALSE, echo = FALSE}
 session$packages %>% 
   select(package, loadedversion, date, source) %>% 
   DT::datatable(rownames = FALSE,
-                style = 'bootstrap',
                 class = 'cell-border stripe',
                 filter = list(position = 'top'),
                 options = list(pageLength = nrow(session$packages), 
