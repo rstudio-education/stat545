@@ -27,7 +27,8 @@ Imports:
     gender,
     XML,
     gt,
-    DT
+    DT,
+    htmltools
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
