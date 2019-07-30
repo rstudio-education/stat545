@@ -10,7 +10,6 @@ This section closely tracks with content from the book [R Packages][r-pkgs2] by 
 
 
 ```{r, include = FALSE}
-source("common.R")
 knitr::opts_chunk$set(cache = FALSE, error = TRUE, warning = FALSE)
 
 ## do you want to see how this sausage is made?
