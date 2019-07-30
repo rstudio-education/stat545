@@ -203,15 +203,22 @@ Instead of small positive integers and Crayola-style names, a more general and m
 brewer.pal(n = 8, name = "Dark2")
 ```
 
-The leading `#` is just there by convention. Parse the hexadecimal string like so: `#rrggbb`, where `rr`, `gg`, and `bb` refer to color intensity in the red, green, and blue channels, respectively. Each is specified as a two-digit base 16 number, which is the meaning of "hexadecimal" (or "hex" for short). Here's a table relating base 16 numbers to the beloved base 10 system.
+The leading `#` is just there by convention. Parse the hexadecimal string like so: `#rrggbb`, where `rr`, `gg`, and `bb` refer to color intensity in the red, green, and blue channels, respectively. Each is specified as a two-digit base 16 number, which is the meaning of "hexadecimal" (or "hex" for short). 
 
-```{r decimal-hexadecimal, echo = FALSE}
-library(knitr)
+Here's a table relating base 16 numbers to the beloved base 10 system.
+
+```{r decimal-hexadecimal, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gt)
+
 foo <- t(cbind(hex = I(c(as.character(0:9), LETTERS[1:6])),
                decimal = I(as.character(0:15))))
 colnames(foo) <- seq(1:16)
 
-kable(foo, booktabs = TRUE, caption = "Hexademical (base 16) to Decimal (base 10)")
+foo %>% 
+  as_tibble(rownames = "system") %>% 
+  gt(rowname_col = "system") %>% 
+  tab_options(column_labels.font.weight = "bold")
 ```
 
 __Example:__ the first color in the palette is specified as "#1B9E77", so the intensity in the green channel is 9E. What does that mean?
@@ -222,18 +229,22 @@ Note that the lowest possible channel intensity is `00` = 0 and the highest is `
 
 Important special cases that help you stay oriented. Here are the saturated RGB colors, red, blue, and green:
 
-```{r hex-codes-rgb, echo = FALSE}
+```{r hex-codes-rgb, echo = FALSE, warning = FALSE, message = FALSE}
 foo <- data.frame(color_name = c("blue", "green", "red"),
                   hex = c("#0000FF", "#00FF00", "#FF0000"),
                   red = c(0, 0, 255),
                   green = c(0, 255, 0),
                   blue = c(255, 0, 0))
-kable(foo, booktabs = TRUE, caption = "Hex color codes for RGB colors")
+
+foo %>%
+  gt(rowname_col = "color_name") %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  tab_stubhead(label = "color_name")
 ```
 
 Here are shades of gray:
 
-```{r hex-codes-gray, echo = FALSE}
+```{r hex-codes-gray, echo = FALSE, warning = FALSE, message = FALSE}
 j_intensity <- c(255, 171, 84, 0)
 foo <- data.frame(color_name = c("white, gray100", "gray67",
                                  "gray33", "black, gray0"),
@@ -241,7 +252,11 @@ foo <- data.frame(color_name = c("white, gray100", "gray67",
                   red = j_intensity,
                   green = j_intensity,
                   blue = j_intensity)
-kable(foo, booktabs = TRUE, caption = "Hex color codes for shades of gray")
+
+foo %>%
+  gt(rowname_col = "color_name") %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  tab_stubhead(label = "color_name")
 ```
 
 Note that everywhere you see "gray" above, you will get the same results if you substitute "grey". We see that white corresponds to maximum intensity in all channels and black to the minimum.
