@@ -42,45 +42,14 @@ h1.title {
   font-weight: 500;
 }
 
-/* Three columns */
+/* tables */
 
-
-.three-column {
-  display: flex;
+.book .book-body .page-wrapper .page-inner section.normal table td,
+.book .book-body .page-wrapper .page-inner section.normal table th {
+ padding: 0px 1px;
+ border: 0px;
 }
 
-.col1-super {
-  width: 37%;
-  border-right-color: #FF7070;
-  border-right-style: solid;
-  border-right-size: .5px;
-}
-
-.col2-super {
-  width: 18.2%;
-  border-right-color: #FF7070;
-  border-right-style: solid;
-  border-right-size: .5px;
-}
-
-.col3-super {
-  width: 44.8%;
-}
-
-.col1-pub {
-  width: 18%;
-  border-right-color: #FF7070;
-  border-right-style: solid;
-  border-right-size: .5px;
-}
-
-.col2-pub {
-  width: 36%;
-  border-right-color: #FF7070;
-  border-right-style: solid;
-  border-right-size: .5px;
-}
-
-.col3-pub {
-  width: 46%;
+.book .book-body .page-wrapper .page-inner section.normal table tr {
+ background-color: inherit !important;
 }
