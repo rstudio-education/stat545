@@ -16,6 +16,10 @@ twitter-handle: jennybryan
 
 ```{r include = FALSE}
 source("common.R")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+library(tidyverse)
+library(devtools)
+library(DT)
 ```
 
 Learn how to:
@@ -24,7 +28,14 @@ Learn how to:
 * make all of that reproducible, reusable, and shareable
 * using R
 
-This is a bookdown version of STAT 545 @ University of British Columbia, a course in data wrangling, exploration, and analysis with R. The contents are from the [original STAT 545 website](http://stat545.com), which is created by [this repository on GitHub](https://github.com/STAT545-UBC/STAT545-UBC.github.io). 
+This is a bookdown version of STAT 545 @ University of British Columbia, a course in data wrangling, exploration, and analysis with R. 
+
+> "The STAT 545 course became notable as an early example of a data science course taught in a statistics program. It is also notable for its focus on teaching using modern R packages, Git and GitHub, its extensive sharing of teaching materials openly online, and its strong emphasis on practical data cleaning, exploration, and visualization skills, rather than algorithms and theory." 
+>  
+> --- [Wikipedia](https://en.wikipedia.org/wiki/Jenny_Bryan)
+
+
+The contents of this course come from the [original STAT 545 website](http://stat545.com), which is created by [this repository on GitHub](https://github.com/STAT545-UBC/STAT545-UBC.github.io). 
 
 ## Contributors {-}
 
@@ -79,17 +90,27 @@ This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http:
 
 This version of the book was built with:
 
-```{r message = FALSE}
-library(devtools)
-session_info()
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+session <- devtools::session_info()
+
+session$platform
+```
+
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+session$packages %>% 
+  select(package, loadedversion, date, source) %>% 
+  DT::datatable(rownames = FALSE,
+                style = 'bootstrap',
+                class = 'cell-border stripe',
+                filter = list(position = 'top'),
+                options = list(pageLength = nrow(session$packages), 
+                           autoWidth = TRUE,
+                           bInfo = FALSE,
+                           paging = FALSE))
 ```
 
 ## License {-}
-
-<!--TODO: I was only able to get the font-awesome icons in the menu and in the text to render when I include the chunk below. There must be a better way to do this. -->
-```{r setup, include=FALSE}
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-```
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
