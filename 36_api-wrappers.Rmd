@@ -130,7 +130,7 @@ ebirdgeo(species = 'Buteo lagopus')
 
 
 
-### Searching geographic info: `geonames`
+### Searching geographic info: `geonames` {#geonames}
 
 ```{r message = FALSE}
 # install.packages("geonames")
@@ -213,7 +213,7 @@ nrow(rio_portuguese)
 
 
 
-### Searching the Public Library of Science: `rplos`
+### Searching the Public Library of Science: `rplos` {#plos-one}
 
 [PLOS ONE](https://journals.plos.org/plosone/) is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. 
 

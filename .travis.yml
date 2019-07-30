@@ -26,7 +26,3 @@ deploy:
     on:
       all_branches: true
       condition: $TRAVIS_BRANCH != "master"
-      
-apt_packages:
-  - libudunits2-dev
-  - gdal-bin

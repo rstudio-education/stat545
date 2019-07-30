@@ -13,6 +13,8 @@ In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapp
 
 ### Load the `tidyverse`
 
+We will be using the functions from the [`tidyverse`][tidyverse-main-page] throughout this chapter, so go ahead and load `tidyverse` package now.
+
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
 ```
@@ -21,77 +23,126 @@ library(tidyverse)
 
 First we're going to examine the structure of API requests via the [Open Movie Database](http://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDb, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
 
+<!--TODO: Will frequently get an "Error: Daily request limit reached" message when using the demo. Seems to be an issue on their end: https://github.com/omdbapi/OMDb-API/issues/124 Maybe remove this exercise from the chapter to avoid problems?-->
+
 **Exercise:** determine the shape of an API request. Scroll down to the "Examples" section on the OMDb site and play around with the parameters. Take a look at the resulting API call and the query you get back.
 
-Here's what we get when we enter `title = "the Martian"` and `year = 2015`
+Here's what we see for `title = Interstellar`, `year = 2014`, `plot = full`, and `response = JSON`:
 
-```{r web-data-omdb, echo = FALSE, fig.cap = "Example OMDb Query"}
+```{r omdb-demo-json, echo = FALSE, fig.cap = "Example OMDb Query in JSON", out.width = "100%"}
 library(knitr)
-knitr::include_graphics("img/ombd.png")
+knitr::include_graphics("img/omdb-demo-json.png")
 ```
 
-
-Let's experiment with different values of the `title` and `year` fields. Notice the pattern in the request. For example, for `title = "Interstellar"` and `year = 2014`, we get:
+The request URL is:
 
 ```http
-http://www.omdbapi.com/?t=Interstellar&y=2014&plot=short&r=xml
+http://www.omdbapi.com/?t=Interstellar&y=2014&plot=full
 ```
 
-Try pasting this link into the browser. Also experiment with changing `response` from `JSON` to `XML`.
+Notice the pattern in the request. Let's try changing the response field from JSON to XML.
 
-How can we create the same request in R?
+```{r omdb-demo-xml, echo = FALSE, fig.cap = "Example OMDb Query in XML", out.width = "100%"}
+library(knitr)
+knitr::include_graphics("img/omdb-demo-xml.png")
+```
+
+Now the request URL is:
+
+```http
+http://www.omdbapi.com/?t=Interstellar&y=2014&plot=full&r=xml
+```
+
+Try pasting these URLs into your browser. You should see this if you tried the first URL:
+
+```JSON
+{"Response":"False","Error":"No API key provided."}
+```
+
+...and this if you tried the second URL (where `r=xml`):
+
+```XML
+<root response="False">
+  <error>No API key provided.</error>
+</root>
+```
+
+This tells us that we need an API key to access the OMDb API. We used an API key to access the PLOS ONE API in the [previous chapter](#plos-one) and stored the key in our `.Renviron` file using `Sys.setenv()`. We will store our key for the OMDb API in our `.Renviron` file again, but this time do so by using the helper function `edit_r_environ()` from the [`usethis`][usethis-web] package. Follow these steps:
+
+1. Visit this URL and request your free API key: <https://www.omdbapi.com/apikey.aspx>
+2. Check your email and follow the instructions to activate your key.
+3. Install/load the `usethis` package and run `edit_r_environ()` in the R Console:
+
+```{r message = FALSE, warning = FALSE, eval = FALSE}
+# install.packages("usethis")
+library(usethis)
+edit_r_environ()
+```
+
+4. Add `OMDB_API_KEY=<your-secret-key>` on a new line, press enter to add a blank line at the end (important!), save the file, and close it.  
+5. Restart R.
+
+You can now access your OMDb API key with `Sys.getenv("OMDB_API_KEY")`. We can use this to easily add our API key to the request URL.
+
+How can we recreate the same request URLs in R? We could use `str_c()` from the `stringr` package to paste together the base URL, parameter labels, and parameter values:
 
 ```{r}
-request <- str_c("http://www.omdbapi.com/?t=", "Interstellar", "&", 
+request <- str_c("http://www.omdbapi.com/?",
+                 "t=", "Interstellar", "&", 
                  "y=", "2014", "&", 
                  "plot=", "short", "&", 
-                 "r=", "xml")
+                 "r=", "xml", "&",
+                 "apikey=", "mysecretkey")
 request
 ```
 
 This works, but it's a bit ungainly. Let's try to abstract that into a function (see Chapters \@ref(functions-part1), \@ref(functions-part2), \@ref(functions-part3), and \@ref(functions-practicum) for a review on writing functions in R):
 
 ```{r}
-omdb <- function(Title, Year, Plot, Format){
+omdb <- function(title, year, plot, format, api_key){
   baseurl <- "http://www.omdbapi.com/?"
-  params <- c("t=", "y=", "plot=", "r=")
-  values <- c(Title, Year, Plot, Format)
-  param_values <- Map(paste0, params, values)
-  args <- paste0(param_values, collapse = "&")
-  paste0(baseurl, args)
+  params <- c("apikey=", "t=", "y=", "plot=", "r=")
+  values <- c(api_key, title, year, plot, format)
+  param_values <- map2(params, values, str_c)
+  args <- str_c(param_values, collapse = "&")
+  str_c(baseurl, args)
 }
-omdb("Interstellar", "2014", "short", "xml")
+
+omdb(title = "Interstellar", year = "2014", plot = "short", format = "xml", 
+     api_key = "mysecretkey")
 ```
 
-Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R:
+Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [`curl`][curl-cran] package. Install/load the `curl` package first.
 
-<!--TODO: The following code chunks are broken; OMDb requires an API key now-->
 ```{r message = FALSE, warning = FALSE}
+# install.packages("curl")
 library(curl)
 ```
 
-```{r eval = FALSE}
-request_interstellar <- omdb("Interstellar", "2014", "short", "xml")
-con <-  curl(request_interstellar)
+Using `curl` to get the data in XML format:
+```{r warning = FALSE} 
+request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY"))
+
+con <-  curl(request_xml)
 answer_xml <- readLines(con)
 close(con)
 answer_xml
 ```
 
-```{r message = FALSE, warning = FALSE}
-library(jsonlite)
-```
+Using `curl` to get the data in JSON format:
+```{r warning = FALSE}
+request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                     format = "json", api_key = Sys.getenv("OMDB_API_KEY"))
 
-```{r warning = FALSE, eval = FALSE}
-request_interstellar <- omdb("Interstellar", "2014", "short", "json")
-con <-  curl(request_interstellar)
+
+con <-  curl(request_json)
 answer_json <- readLines(con)
 close(con)
-answer_json %>% 
-  prettify
+answer_json  
 ```
 
-We have a form of data that is obviously structured. What is it?
+We have two forms of data that are obviously structured. What are they?
 
 ## Intro to JSON and XML
 
@@ -131,62 +182,66 @@ And here is XML (also from [this site](https://zapier.com/learn/apis/chapter-3-d
 ```
 
 You can see that both of these data structures are quite easy to read. They are "self-describing". In other words, they tell you how they are meant to be read.
-There are easy means of taking these data types and creating R objects. Our JSON response above can be parsed using `jsonlite::fromJSON()`:
+There are easy means of taking these data types and creating R objects. 
 
-```{r eval = FALSE}
+Our JSON response above can be parsed using `jsonlite::fromJSON()`. First install/load the `jsonlite` package.
+
+```{r message = FALSE, warning = FALSE}
+# install.packages("jsonlite")
+library(jsonlite)
+```
+
+Parsing our JSON response with `fromJSON()`:
+```{r}
 answer_json %>% 
   fromJSON()
 ```
 
-The output is a named list. A familiar and friendly R structure. Because data frames are lists, and because this list has no nested lists-within-lists, we can coerce it very simply:
+The output is a named list. A familiar and friendly R structure. Because data frames are lists and because this list has no nested lists-within-lists, we can coerce it very simply:
 
-```{r results = 'asis', eval = FALSE}
+```{r}
 answer_json %>% 
   fromJSON() %>% 
-  as.data.frame() %>% 
-  kable()
+  as_tibble() %>% 
+  glimpse()
 ```
 
-A similar process exists for XML formats using `XML::xmlParse()`:
+We can use the [`xml2`][xml2-web] package to wrangle our XML response.
 
 ```{r message = FALSE, warning = FALSE}
-library(XML)
+# install.packages("xml2")
+library(xml2)
 ```
 
-```{r eval = FALSE}
-ans_xml_parsed <- xmlParse(answer_xml)
-ans_xml_parsed
+Parsing our XML response with `read_xml()`:
+
+```{r}
+(xml_parsed <- read_xml(answer_xml))
 ```
 
-Not exactly the response we were hoping for! This shows us some of the XML document's structure: 
+Not exactly the result we were hoping for! However, this does tell us about the XML document's structure: 
 
-* A `<root>` node with a single child, `<movie>`. 
-* The information we want is all stored as attributes.
+* It has a `<root>` node, which has a single child node, `<movie>`. 
+* The information we want is all stored as attributes (e.g. title, year, etc.).
 
-From [XML and Web Technologies for Data Sciences with R](https://link.springer.com/book/10.1007%2F978-1-4614-7900-0) by Nolan & Lang [-@nolan2013]:
+The `xml2` package has various functions to assist in navigating through XML. We can use the `xml_children()` function to extract all of the children nodes (i.e. the single child, `<movie>`):
 
-> The `xmlRoot()` function returns an object of class `XMLInternalElementNode`. This is a regular
-XML node and not specific to the root node, i.e., all XML nodes will appear in R with this class
-or a more specific class. An object of class `XMLInternalElementNode` has four fields: `name`,
-`attributes`, `children` and `value`, which we access with the methods `xmlName()`, `xmlAttrs()`, `xmlChildren()`, and `xmlValue()`.
-
-| field | method |
-|:-----:|:------:|
-| name  | `xmlName()` |
-| attributes | `xmlAttrs()` |
-| children  | `xmlChildren()` |
-| value    | `xmlValue()`|
-
-
-```{r eval = FALSE}
-ans_xml_parsed_root <- xmlRoot(ans_xml_parsed)[["movie"]]  # could also use [[1]]
-ans_xml_parsed_root
-ans_xml_attrs <- xmlAttrs(ans_xml_parsed_root)
-ans_xml_attrs
+```{r}
+(contents <- xml_contents(xml_parsed))
 ```
 
-```{r results = 'asis', eval = FALSE}
-kable(data.frame(t(ans_xml_attrs)))
+The `xml_attrs()` function "retrieves all attribute values as a named character vector". Let's use this to extract the information that we want from the `<movie>` node:
+
+```{r}
+(attrs <- xml_attrs(contents)[[1]])
+```
+
+We can transform this named character vector into a data frame with the help of `dplyr::bind_rows()`:
+
+```{r}
+attrs %>% 
+  bind_rows() %>% 
+  glimpse()
 ```
 
 ## Introducing the easy way: `httr`
@@ -216,42 +271,45 @@ HTTP is the foundation for APIs; understanding how it works is the key to intera
 library(httr)
 ```
 
-
-```{r eval = FALSE}
-interstellar_json <- omdb("Interstellar", "2014", "short", "json")
-response_json <- GET(interstellar_json)
+Using `httr` to get the data in JSON format:
+```{r}
+request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                     format = "json", api_key = Sys.getenv("OMDB_API_KEY"))
+response_json <- GET(request_json)
 content(response_json, as = "parsed", type = "application/json")
 ```
 
-```{r eval = FALSE}
-interstellar_xml <- omdb("Interstellar", "2014", "short", "xml")
-response_xml <- GET(interstellar_xml)
+Using `httr` to get the data in XML format:
+```{r}
+request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY"))
+
+response_xml <- GET(request_xml)
 content(response_xml, as = "parsed")
 ```
 
 `httr` also gives us access to lots of useful information about the quality of our response. For example, the header:
 
-```{r eval = FALSE}
+```{r}
 headers(response_xml)
 ```
 
 And also a handy means to extract specifically the HTTP status code:
 
-```{r eval = FALSE}
+```{r}
 status_code(response_xml)
 ```
 
-In fact, we didn't need to create `omdb()` at all. `httr` provides a straightforward means of making an HTTP request:
+In fact, we didn't need to create `omdb()` at all. `httr` provides a straightforward means of making an HTTP request with the `query` argument:
 
-```{r eval = FALSE}
-the_martian <- GET("http://www.omdbapi.com/?", query = list(t = "The Martian", 
-                                                            y = 2015, 
-                                                            plot = "short", 
-                                                            r = "json"))
+```{r}
+the_martian <- GET("http://www.omdbapi.com/?", 
+                   query = list(t = "The Martian", y = 2015, plot = "short", 
+                                r = "json", apikey = Sys.getenv("OMDB_API_KEY")))
 content(the_martian)
 ```
 
-We get the same answer as before! With `httr`, we are able to pass in the named arguments to the API call as a named list. We are also able to use spaces in movie names; `httr` encodes these in the URL before making the GET request.
+With `httr`, we are able to pass in the named arguments to the API call as a named list. We are also able to use spaces in movie names; `httr` encodes these in the URL before making the GET request.
 
 It is very good to [learn your HTTP status codes](https://www.flickr.com/photos/girliemac/sets/72157628409467125).  
 

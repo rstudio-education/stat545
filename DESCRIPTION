@@ -25,7 +25,7 @@ Imports:
     rebird,
     geonames,
     gender,
-    XML,
+    xml2,
     gt,
     DT,
     htmltools

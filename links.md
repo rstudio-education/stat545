@@ -189,7 +189,7 @@
 [janitor-github]: https://github.com/sfirke/janitor
 
 [purrr-web]: https://purrr.tidyverse.org
-
+[curl-cran]: https://CRAN.R-project.org/package=curl
 
 <!--Shiny links-->
 [shinydashboard-web]: https://rstudio.github.io/shinydashboard/
