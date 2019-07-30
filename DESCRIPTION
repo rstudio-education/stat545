@@ -26,7 +26,8 @@ Imports:
     geonames,
     gender,
     XML,
-    gt
+    gt,
+    DT
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
