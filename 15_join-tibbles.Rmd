@@ -8,7 +8,7 @@ source("common.R")
 
 Join (a.k.a. merge) two tables: `dplyr` join cheatsheet with comic characters and publishers.
 
-```{r include = FALSE}
+```{r gt-table-making-functions, include = FALSE}
 library(gt)
 
 # function to style the tables for display
@@ -26,7 +26,38 @@ style_table <- function(data, table_title) {
     column_labels.font.size = pct(90),
     table.width = "100%",
     row.striping.include_table_body = TRUE
-  ) 
+  )
+}
+
+get_col_widths <- function(super_first = TRUE) {
+  if (super_first == TRUE) {
+    col_left <- 38; col_mid <- 18; col_right <- (100 - col_left - col_mid)
+  } else {
+    col_left <- 18; col_mid <- 38; col_right <- (100 - col_left - col_mid)
+  }
+  gt_col_widths <- list(col_left_width = col_left, 
+                        col_mid_width = col_mid, 
+                        col_right_width = col_right)
+  return(gt_col_widths)
+}
+  
+make_three_gt <- function(gt_left, gt_mid, gt_right, ...) {
+  gt_col_widths <- get_col_widths(...)
+  htmltools::withTags(
+  table(style = "width: 100%; border: 0px;",
+    tr(
+      td(style = glue::glue("width: {gt_col_widths[[1]]}%; vertical-align: top;"),
+        gt:::as.tags.gt_tbl(gt_left)
+      ),
+      td(style = glue::glue("width: {gt_col_widths[[2]]}%; vertical-align: top;"),
+        gt:::as.tags.gt_tbl(gt_mid)
+      ),
+      td(style = glue::glue("width: {gt_col_widths[[3]]}%; vertical-align: top;"),
+        gt:::as.tags.gt_tbl(gt_right)
+      )
+    )
+  )
+)
 }
 ```
 
@@ -85,45 +116,6 @@ pub_gt <- style_table(publishers, "publishers") %>%
   )
 ```
 
-```{r include = FALSE}
-super_first_table <- function(gt_col1, gt_col2, gt_col3){
-  htmltools::withTags(
-  table(style = "width: 100%; border: 0px;",
-    tr(
-      td(style = "width: 38%; vertical-align: top;",
-        gt:::as.tags.gt_tbl(gt_col1)
-      ),
-      td(style = "width: 18%; vertical-align: top;",
-        gt:::as.tags.gt_tbl(gt_col2)
-      ),
-      td(style = "width: 44%; vertical-align: top;",
-        gt:::as.tags.gt_tbl(gt_col3)
-      )
-    )
-  )
-)
-}
-
-pub_first_table <- function(gt_col1, gt_col2, gt_col3){
-  htmltools::withTags(
-  table(style = "width: 100%; border: 0px;",
-    tr(
-      td(style = "width: 18%; vertical-align: top;",
-        gt:::as.tags.gt_tbl(gt_col1)
-      ),
-      td(style = "width: 38%; vertical-align: top;",
-        gt:::as.tags.gt_tbl(gt_col2)
-      ),
-      td(style = "width: 44%; vertical-align: top;",
-        gt:::as.tags.gt_tbl(gt_col3)
-      )
-    )
-  )
-)
-}
-```
-
-
 ## `inner_join(superheroes, publishers)`
 
 > `inner_join(x, y)`: Return all rows from `x` where there are matching values in `y`, and all columns from `x` and `y`. If there are multiple matches between `x` and `y`, all combination of the matches are returned. This is a mutating join.
@@ -139,8 +131,9 @@ ijsp_gt <- style_table(ijsp, "inner_join(x = superheroes, y = publishers)")
 ```
 
 ```{r echo = FALSE}
-super_first_table(super_gt, pub_gt, ijsp_gt)
+make_three_gt(super_gt, pub_gt, ijsp_gt)
 ```
+
 
 
 ## `semi_join(superheroes, publishers)`
@@ -158,7 +151,7 @@ sjsp_gt <- style_table(sjsp, "semi_join(x = superheroes, y = publishers)")
 ```
 
 ```{r echo = FALSE}
-super_first_table(super_gt, pub_gt, sjsp_gt)
+make_three_gt(super_gt, pub_gt, sjsp_gt)
 ```
 
 
@@ -177,7 +170,7 @@ ljsp_gt <- style_table(ljsp, "left_join(x = superheroes, y = publishers)")
 ```
 
 ```{r echo = FALSE}
-super_first_table(super_gt, pub_gt, ljsp_gt)
+make_three_gt(super_gt, pub_gt, ljsp_gt)
 ```
 
 
@@ -196,7 +189,7 @@ ajsp_gt <- style_table(ajsp, "anti_join(x = superheroes, y = publishers)")
 ```
 
 ```{r echo = FALSE}
-super_first_table(super_gt, pub_gt, ajsp_gt)
+make_three_gt(super_gt, pub_gt, ajsp_gt)
 ```
 
 
@@ -215,7 +208,7 @@ ijps_gt <- style_table(ijps, "inner_join(x = publishers, y = superheroes)")
 ```
 
 ```{r echo = FALSE}
-pub_first_table(pub_gt, super_gt, ijps_gt)
+make_three_gt(pub_gt, super_gt, ijps_gt, super_first = FALSE)
 ```
 
 
@@ -234,7 +227,7 @@ sjps_gt <- style_table(sjps, "semi_join(x = publishers, y = superheroes)")
 ```
 
 ```{r echo = FALSE}
-pub_first_table(pub_gt, super_gt, sjps_gt)
+make_three_gt(pub_gt, super_gt, sjps_gt, super_first = FALSE)
 ```
 
 
@@ -253,7 +246,7 @@ ljps_gt <- style_table(ljps, "left_join(x = publishers, y = superheroes)")
 ```
 
 ```{r echo = FALSE}
-pub_first_table(pub_gt, super_gt, ljps_gt)
+make_three_gt(pub_gt, super_gt, ljps_gt, super_first = FALSE)
 ```
 
 ## `anti_join(publishers, superheroes)`
@@ -271,7 +264,7 @@ ajps_gt <- style_table(ajps, "anti_join(x = publishers, y = superheroes)")
 ```
 
 ```{r echo = FALSE}
-pub_first_table(pub_gt, super_gt, ajps_gt)
+make_three_gt(pub_gt, super_gt, ajps_gt, super_first = FALSE)
 ```
 
 ## `full_join(superheroes, publishers)`
@@ -289,7 +282,7 @@ fjsp_gt <- style_table(fjsp, "full_join(x = superheroes, y = publishers)")
 ```
 
 ```{r echo = FALSE}
-super_first_table(super_gt, pub_gt, fjsp_gt)
+make_three_gt(super_gt, pub_gt, fjsp_gt)
 ```
 
 ```{r links, child="links.md"}
