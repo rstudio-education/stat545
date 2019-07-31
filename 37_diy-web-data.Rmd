@@ -2,6 +2,7 @@
 
 ```{r include = FALSE}
 source("common.R")
+Sys.setenv(OMDB_API_KEY = "<your-secret-key>") 
 ```
 
 <!--Original content: https://stat545.com/webdata03_activity.html-->
@@ -25,12 +26,18 @@ First we're going to examine the structure of API requests via the [Open Movie D
 
 <!--TODO: Will frequently get an "Error: Daily request limit reached" message when using the demo. Seems to be an issue on their end: https://github.com/omdbapi/OMDb-API/issues/124 Maybe remove this exercise from the chapter to avoid problems?-->
 
-**Exercise:** determine the shape of an API request. Scroll down to the "Examples" section on the OMDb site and play around with the parameters. Take a look at the resulting API call and the query you get back.
+**Exercise:** determine the shape of an API request. Scroll down to the ["Examples" section](http://www.omdbapi.com/#examples) on the OMDb site and play around with the parameters. Take a look at the resulting API call and the query you get back.
 
-Here's what we see for `title = Interstellar`, `year = 2014`, `plot = full`, and `response = JSON`:
+If we enter the following parameters:
+
++ `title = Interstellar`, 
++ `year = 2014`, 
++ `plot = full`, 
++ `response = JSON`
+
+Here is what we see:
 
 ```{r omdb-demo-json, echo = FALSE, fig.cap = "Example OMDb Query in JSON", out.width = "100%"}
-library(knitr)
 knitr::include_graphics("img/omdb-demo-json.png")
 ```
 
@@ -43,7 +50,6 @@ http://www.omdbapi.com/?t=Interstellar&y=2014&plot=full
 Notice the pattern in the request. Let's try changing the response field from JSON to XML.
 
 ```{r omdb-demo-xml, echo = FALSE, fig.cap = "Example OMDb Query in XML", out.width = "100%"}
-library(knitr)
 knitr::include_graphics("img/omdb-demo-xml.png")
 ```
 
@@ -70,47 +76,53 @@ Try pasting these URLs into your browser. You should see this if you tried the f
 This tells us that we need an API key to access the OMDb API. We used an API key to access the PLOS ONE API in the [previous chapter](#plos-one) and stored the key in our `.Renviron` file using `Sys.setenv()`. We will store our key for the OMDb API in our `.Renviron` file again, but this time do so by using the helper function `edit_r_environ()` from the [`usethis`][usethis-web] package. Follow these steps:
 
 1. Visit this URL and request your free API key: <https://www.omdbapi.com/apikey.aspx>
-2. Check your email and follow the instructions to activate your key.
-3. Install/load the `usethis` package and run `edit_r_environ()` in the R Console:
+1. Check your email and follow the instructions to activate your key.
+1. Install/load the `usethis` package and run `edit_r_environ()` in the R Console:
 
-```{r message = FALSE, warning = FALSE, eval = FALSE}
-# install.packages("usethis")
-library(usethis)
-edit_r_environ()
-```
+    ```{r message = FALSE, warning = FALSE, eval = FALSE}
+    # install.packages("usethis")
+    library(usethis)
+    edit_r_environ()
+    ```
 
-4. Add `OMDB_API_KEY=<your-secret-key>` on a new line, press enter to add a blank line at the end (important!), save the file, and close it.  
-5. Restart R.
+1. Add `OMDB_API_KEY=<your-secret-key>` on a new line, press enter to add a blank line at the end (important!), save the file, and close it. 
+    + Note that we use `<your-secret-key>` as a placeholder here and throughout these instructions. Your actual API key will look something like: `p319s0aa` (no quotes or other characters like `<` or `>` should go on the right of the `=` sign).
+1. Restart R.
+1. You can now access your OMDb API key from the R console and save it as an object:
+    ```{r}
+    Sys.getenv("OMDB_API_KEY")
+    # save it as an object
+    movie_key <- Sys.getenv("OMDB_API_KEY")
+    ```
 
-You can now access your OMDb API key with `Sys.getenv("OMDB_API_KEY")`. We can use this to easily add our API key to the request URL.
+We can use this to easily add our API key to the request URL.
 
-How can we recreate the same request URLs in R? We could use `str_c()` from the `stringr` package to paste together the base URL, parameter labels, and parameter values:
+How can we recreate the same request URLs in R? We could use the [`glue` package](https://glue.tidyverse.org/) to paste together the base URL, parameter labels, and parameter values:
 
 ```{r}
-request <- str_c("http://www.omdbapi.com/?",
-                 "t=", "Interstellar", "&", 
-                 "y=", "2014", "&", 
-                 "plot=", "short", "&", 
-                 "r=", "xml", "&",
-                 "apikey=", "mysecretkey")
+request <- glue::glue("http://www.omdbapi.com/?t=Interstellar&y=2014&plot=short&r=xml&apikey={movie_key}")
 request
 ```
 
-This works, but it's a bit ungainly. Let's try to abstract that into a function (see Chapters \@ref(functions-part1), \@ref(functions-part2), \@ref(functions-part3), and \@ref(functions-practicum) for a review on writing functions in R):
+This works, but it only works for movie titled `Interstellar` from 2014 where we want the short plot and the xml format. Let's try to pull out more variables and paste them in with `glue`:
 
 ```{r}
-omdb <- function(title, year, plot, format, api_key){
-  baseurl <- "http://www.omdbapi.com/?"
-  params <- c("apikey=", "t=", "y=", "plot=", "r=")
-  values <- c(api_key, title, year, plot, format)
-  param_values <- map2(params, values, str_c)
-  args <- str_c(param_values, collapse = "&")
-  str_c(baseurl, args)
-}
-
-omdb(title = "Interstellar", year = "2014", plot = "short", format = "xml", 
-     api_key = "mysecretkey")
+glue::glue("http://www.omdbapi.com/?t={title}&y={year}&plot={plot}&r={format}&apikey={api_key}",
+           title = "Interstellar",
+           year = "2014",
+           plot = "short",
+           format = "xml",
+           api_key = movie_key)
 ```
+
+We could go even further and make this into a function called `omdb` that we can reuse more easily.
+
+```{r}
+omdb <- function(title, year, plot, format, api_key) {
+  glue::glue("http://www.omdbapi.com/?t={title}&y={year}&plot={plot}&r={format}&apikey={api_key}")
+}
+```
+
 
 Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [`curl`][curl-cran] package. Install/load the `curl` package first.
 
@@ -120,9 +132,9 @@ library(curl)
 ```
 
 Using `curl` to get the data in XML format:
-```{r warning = FALSE} 
+```{r fake-xml-req, eval = FALSE} 
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY"))
+                    format = "xml", api_key = movie_key)
 
 con <-  curl(request_xml)
 answer_xml <- readLines(con)
@@ -130,13 +142,33 @@ close(con)
 answer_xml
 ```
 
+```{r real-xml-req, echo = FALSE, warning = FALSE}
+request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
+
+con <- curl(request_xml)
+answer_xml <- readLines(con)
+close(con)
+answer_xml
+```
+
+
 Using `curl` to get the data in JSON format:
-```{r warning = FALSE}
+```{r fake-json-req, eval = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                     format = "json", api_key = Sys.getenv("OMDB_API_KEY"))
+                     format = "json", api_key = movie_key)
 
+con <- curl(request_json)
+answer_json <- readLines(con)
+close(con)
+answer_json  
+```
 
-con <-  curl(request_json)
+```{r real-json-req, echo = FALSE, warning = FALSE}
+request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                     format = "json", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
+
+con <- curl(request_json)
 answer_json <- readLines(con)
 close(con)
 answer_json  
@@ -272,17 +304,32 @@ library(httr)
 ```
 
 Using `httr` to get the data in JSON format:
-```{r}
+```{r fake-httr-json, eval = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                     format = "json", api_key = Sys.getenv("OMDB_API_KEY"))
+                     format = "json", api_key = movie_key)
+response_json <- GET(request_json)
+content(response_json, as = "parsed", type = "application/json")
+```
+
+```{r real-httr-json, echo = FALSE, warning = FALSE}
+request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                     format = "json", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
 response_json <- GET(request_json)
 content(response_json, as = "parsed", type = "application/json")
 ```
 
 Using `httr` to get the data in XML format:
-```{r}
+```{r fake-httr-xml, eval = FALSE}
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY"))
+                    format = "xml", api_key = movie_key)
+
+response_xml <- GET(request_xml)
+content(response_xml, as = "parsed")
+```
+
+```{r real-httr-xml, echo = FALSE}
+request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
+                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
 
 response_xml <- GET(request_xml)
 content(response_xml, as = "parsed")
@@ -302,10 +349,17 @@ status_code(response_xml)
 
 In fact, we didn't need to create `omdb()` at all. `httr` provides a straightforward means of making an HTTP request with the `query` argument:
 
-```{r}
+```{r fake-json-get, eval = FALSE}
 the_martian <- GET("http://www.omdbapi.com/?", 
                    query = list(t = "The Martian", y = 2015, plot = "short", 
-                                r = "json", apikey = Sys.getenv("OMDB_API_KEY")))
+                                r = "json", apikey = movie_key))
+content(the_martian)
+```
+
+```{r real-json-get, echo = FALSE, warning = FALSE}
+the_martian <- GET("http://www.omdbapi.com/?", 
+                   query = list(t = "The Martian", y = 2015, plot = "short", 
+                                r = "json", apikey = Sys.getenv("OMDB_API_KEY_REAL")))
 content(the_martian)
 ```
 
@@ -345,10 +399,9 @@ Let's make a simple HTML table and then parse it.
 `r xfun::file_string('supporting-docs/scraping.Rmd')`
 ````
 
-Then knit the document and click "View in Browser". It should look like this:
+Knit the document and click "View in Browser". It should look like this:
 
-```{r echo = FALSE, fig.cap = "A simple HTML table", out.width = "100%"}
-knitr::include_graphics("img/gapminderhead.png")
+```{r child = 'supporting-docs/scraping.Rmd'}
 ```
 
 
@@ -428,6 +481,11 @@ https://airport.api.aero/airport/distance/YVR/LAX?user_key={yourkey}
 ```
 
 Do you need just the US airports? [This API does that](https://github.com/Federal-Aviation-Administration/ASWS) (also see [this](https://www.fly.faa.gov/flyfaa/usmap.jsp)) and is free.
+
+```{r include = FALSE}
+Sys.unsetenv("OMDB_API_KEY")
+```
+
 
 
 ```{r links, child="links.md"}
