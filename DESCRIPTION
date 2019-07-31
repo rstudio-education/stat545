@@ -37,4 +37,5 @@ Remotes:
     r-lib/usethis,
     r-lib/devtools,
     rstudio/gt,
-    yihui/xfun
+    yihui/xfun,
+    ropensci/genderdata
