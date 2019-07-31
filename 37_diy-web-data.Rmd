@@ -73,6 +73,8 @@ Try pasting these URLs into your browser. You should see this if you tried the f
 </root>
 ```
 
+### Create an OMDb API Key
+
 This tells us that we need an API key to access the OMDb API. We will store our key for the OMDb API in our `.Renviron` file using the helper function `edit_r_environ()` from the [`usethis`][usethis-web] package. Follow these steps:
 
 1. Visit this URL and request your free API key: <https://www.omdbapi.com/apikey.aspx>
@@ -110,6 +112,52 @@ This tells us that we need an API key to access the OMDb API. We will store our 
     movie_key <- Sys.getenv("OMDB_API_KEY_FAKE")
     ```
 
+#### Alternative strategy for keeping keys: `.Rprofile`
+
+**Remember to protect your key! It is important for your privacy. You know, like a key.**
+
+Now we follow the rOpenSci [tutorial on API keys](https://github.com/ropensci/rOpenSci/wiki/Installation-and-use-of-API-keys):
+
+* ___Add `.Rprofile` to your `.gitignore` !!___
+* Make a `.Rprofile` file ([windows tips](http://cran.r-project.org/bin/windows/rw-FAQ.html#What-are-HOME-and-working-directories_003f); [mac tips](http://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#The-R-Console)).
+* Write the following in it:
+
+```{r eval = FALSE}
+options(OMBD_API_KEY = "YOUR_KEY")
+```
+
+* Restart R (i.e. reopen your RStudio project).
+
+This code adds another element to the list of options, which you can see by calling `options()`. Part of the work done by `rplos::searchplos()` and friends is to go and obtain the value of this option with the function `getOption("OMBD_API_KEY")`.  This indicates two things: 
+
+1. Spelling is important when you set the option in your `.Rprofile`
+2. You can do a similar process for an arbitrary package or key. For example:
+
+```{r eval = FALSE}
+## in .Rprofile
+options("this_is_my_key" = XXXX)
+## later, in the R script:
+key <- getOption("this_is_my_key")
+```
+
+This is a simple means to keep your keys private, especially if you are sharing the same authentication across several projects.
+
+
+#### A few timely reminders about your `.Rprofile`
+
+```r
+print("This is Andrew's Rprofile and you can't have it!")
+options(OMBD_API_KEY = "XXXXXXXXX")
+```
+
+* It must end with a blank line!
+* It lives in the project's working directory, i.e. the location of your `.Rproj`.
+* It must be gitignored.
+
+Remember that using `.Rprofile` makes your code un-reproducible.  In this case, that is exactly what we want!  
+
+
+### Recreate the request URL in R
 
 How can we recreate the same request URLs in R? We could use the [`glue` package](https://glue.tidyverse.org/) to paste together the base URL, parameter labels, and parameter values:
 
@@ -118,7 +166,7 @@ request <- glue::glue("http://www.omdbapi.com/?t=Interstellar&y=2014&plot=short&
 request
 ```
 
-This works, but it only works for movie titled `Interstellar` from 2014 where we want the short plot and the xml format. Let's try to pull out more variables and paste them in with `glue`:
+This works, but it only works for movie titled `Interstellar` from 2014 where we want the short plot and the XML format. Let's try to pull out more variables and paste them in with `glue`:
 
 ```{r}
 glue::glue("http://www.omdbapi.com/?t={title}&y={year}&plot={plot}&r={format}&apikey={api_key}",
@@ -136,6 +184,8 @@ omdb <- function(title, year, plot, format, api_key) {
   glue::glue("http://www.omdbapi.com/?t={title}&y={year}&plot={plot}&r={format}&apikey={api_key}")
 }
 ```
+
+### Get data using `curl`
 
 
 Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [`curl`][curl-cran] package. Install/load the `curl` package first.
@@ -227,8 +277,9 @@ And here is XML (also from [this site](https://zapier.com/learn/apis/chapter-3-d
 </order>
 ```
 
-You can see that both of these data structures are quite easy to read. They are "self-describing". In other words, they tell you how they are meant to be read.
-There are easy means of taking these data types and creating R objects. 
+You can see that both of these data structures are quite easy to read. They are "self-describing". In other words, they tell you how they are meant to be read. There are easy means of taking these data types and creating R objects. 
+
+### Parsing the JSON response with `jsonlite`
 
 Our JSON response above can be parsed using `jsonlite::fromJSON()`. First install/load the `jsonlite` package.
 
@@ -251,6 +302,8 @@ answer_json %>%
   as_tibble() %>% 
   glimpse()
 ```
+
+### Parsing the XML response using `xml2`
 
 We can use the [`xml2`][xml2-web] package to wrangle our XML response.
 
