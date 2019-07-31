@@ -2,7 +2,7 @@
 
 ```{r include = FALSE}
 source("common.R")
-Sys.setenv(OMDB_API_KEY = "<your-secret-key>") 
+Sys.setenv(OMDB_API_KEY_FAKE = "<your-secret-key>") 
 ```
 
 <!--Original content: https://stat545.com/webdata03_activity.html-->
@@ -73,7 +73,7 @@ Try pasting these URLs into your browser. You should see this if you tried the f
 </root>
 ```
 
-This tells us that we need an API key to access the OMDb API. We used an API key to access the PLOS ONE API in the [previous chapter](#plos-one) and stored the key in our `.Renviron` file using `Sys.setenv()`. We will store our key for the OMDb API in our `.Renviron` file again, but this time do so by using the helper function `edit_r_environ()` from the [`usethis`][usethis-web] package. Follow these steps:
+This tells us that we need an API key to access the OMDb API. We will store our key for the OMDb API in our `.Renviron` file using the helper function `edit_r_environ()` from the [`usethis`][usethis-web] package. Follow these steps:
 
 1. Visit this URL and request your free API key: <https://www.omdbapi.com/apikey.aspx>
 1. Check your email and follow the instructions to activate your key.
@@ -89,13 +89,27 @@ This tells us that we need an API key to access the OMDb API. We used an API key
     + Note that we use `<your-secret-key>` as a placeholder here and throughout these instructions. Your actual API key will look something like: `p319s0aa` (no quotes or other characters like `<` or `>` should go on the right of the `=` sign).
 1. Restart R.
 1. You can now access your OMDb API key from the R console and save it as an object:
-    ```{r}
+    ```{r fake-get-fake-key, eval = FALSE}
     Sys.getenv("OMDB_API_KEY")
+    ```
+    
+    ```{r real-see-fake-key, echo = FALSE}
+    Sys.getenv("OMDB_API_KEY_FAKE")
+    ```
+    
+    
+1. We can use this to easily add our API key to the request URL. Let's make this API key an object we can refer to as `movie_key`:
+
+    ```{r}
     # save it as an object
     movie_key <- Sys.getenv("OMDB_API_KEY")
     ```
+    
+    ```{r save-fake-key, echo = FALSE}
+    # save it as an object
+    movie_key <- Sys.getenv("OMDB_API_KEY_FAKE")
+    ```
 
-We can use this to easily add our API key to the request URL.
 
 How can we recreate the same request URLs in R? We could use the [`glue` package](https://glue.tidyverse.org/) to paste together the base URL, parameter labels, and parameter values:
 
@@ -137,17 +151,17 @@ request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short",
                     format = "xml", api_key = movie_key)
 
 con <-  curl(request_xml)
-answer_xml <- readLines(con)
+answer_xml <- readLines(con, warn = FALSE)
 close(con)
 answer_xml
 ```
 
-```{r real-xml-req, echo = FALSE, warning = FALSE}
+```{r real-xml-req, echo = FALSE}
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
+                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY"))
 
 con <- curl(request_xml)
-answer_xml <- readLines(con)
+answer_xml <- readLines(con, warn = FALSE)
 close(con)
 answer_xml
 ```
@@ -159,17 +173,17 @@ request_json <- omdb(title = "Interstellar", year = "2014", plot = "short",
                      format = "json", api_key = movie_key)
 
 con <- curl(request_json)
-answer_json <- readLines(con)
+answer_json <- readLines(con, warn = FALSE)
 close(con)
 answer_json  
 ```
 
-```{r real-json-req, echo = FALSE, warning = FALSE}
+```{r real-json-req, echo = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                     format = "json", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
+                     format = "json", api_key = Sys.getenv("OMDB_API_KEY"))
 
 con <- curl(request_json)
-answer_json <- readLines(con)
+answer_json <- readLines(con, warn = FALSE)
 close(con)
 answer_json  
 ```
@@ -313,7 +327,7 @@ content(response_json, as = "parsed", type = "application/json")
 
 ```{r real-httr-json, echo = FALSE, warning = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                     format = "json", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
+                     format = "json", api_key = Sys.getenv("OMDB_API_KEY"))
 response_json <- GET(request_json)
 content(response_json, as = "parsed", type = "application/json")
 ```
@@ -329,7 +343,7 @@ content(response_xml, as = "parsed")
 
 ```{r real-httr-xml, echo = FALSE}
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
-                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY_REAL"))
+                    format = "xml", api_key = Sys.getenv("OMDB_API_KEY"))
 
 response_xml <- GET(request_xml)
 content(response_xml, as = "parsed")
@@ -359,7 +373,7 @@ content(the_martian)
 ```{r real-json-get, echo = FALSE, warning = FALSE}
 the_martian <- GET("http://www.omdbapi.com/?", 
                    query = list(t = "The Martian", y = 2015, plot = "short", 
-                                r = "json", apikey = Sys.getenv("OMDB_API_KEY_REAL")))
+                                r = "json", apikey = Sys.getenv("OMDB_API_KEY")))
 content(the_martian)
 ```
 
@@ -455,7 +469,7 @@ glimpse(research)
 * Make sure you've obtained ONLY what you want! Scroll over the whole page to ensure that SelectorGadget hasn't found too many things.
 * If you are having trouble parsing, try selecting a smaller subset of the thing you are seeking (e.g. being more precise).
 
-**MOST IMPORTANTLY** confirm that there is NO rOpenSci package and NO API before you [spend hours scraping](https://rpubs.com/aammd/kivascrape) (the [API was right here](http://build.kiva.org/)).
+**MOST IMPORTANTLY** confirm that there is NO [rOpenSci package](https://ropensci.org/packages/) and NO API before you [spend hours scraping](https://rpubs.com/aammd/kivascrape) (the [API was right here](http://build.kiva.org/)).
 
 ## Extras
 
