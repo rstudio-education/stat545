@@ -29,9 +29,11 @@ Imports:
     gt,
     DT,
     htmltools,
-    glue
+    glue,
+    xfun
 Remotes:  
     r-lib/fs,
     r-lib/usethis,
     r-lib/devtools,
-    rstudio/gt
+    rstudio/gt,
+    yihui/xfun
