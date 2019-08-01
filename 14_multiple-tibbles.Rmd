@@ -1,4 +1,4 @@
-# (PART) Data Analysis 3 {-} 
+# (PART) Data analysis 3 {-} 
 
 # When one tibble is not enough {#multiple-tibbles}
 

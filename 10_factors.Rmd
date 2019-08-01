@@ -1,4 +1,4 @@
-# (PART) Data Analysis 2 {-} 
+# (PART) Data analysis 2 {-} 
 
 # Be the boss of your factors {#factors-boss}
 

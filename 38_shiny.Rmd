@@ -39,7 +39,7 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 See ["Building Shiny Apps" slides](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) by Dean Attali.
 
 
-# Building Shiny Apps {#shiny-tutorial}
+# Building Shiny apps {#shiny-tutorial}
 
 ```{r include = FALSE}
 source("common.R")

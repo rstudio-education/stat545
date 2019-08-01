@@ -1,4 +1,4 @@
-# (PART) Data Analysis 1 {-} 
+# (PART) Data analysis 1 {-} 
 
 # Basic care and feeding of data in R {#basic-data-care}
 
@@ -219,21 +219,21 @@ plot(lifeExp ~ log(gdpPercap), gapminder, subset = year == 2007)
 
 ## Recap
 
-Use data frames!!!
+* Use data frames!!!
 
-Use the [`tidyverse`][tidyverse-web]!!! This will provide a special type of data frame called a "tibble" that has nice default printing behavior, among other benefits.
+* Use the [`tidyverse`][tidyverse-web]!!! This will provide a special type of data frame called a "tibble" that has nice default printing behavior, among other benefits.
 
-When in doubt, `str()` something or print something.
+* When in doubt, `str()` something or print something.
 
-Always understand the basic extent of your data frames: number of rows and columns.
+* Always understand the basic extent of your data frames: number of rows and columns.
 
-Understand what flavor the variables are.
+* Understand what flavor the variables are.
 
-Use factors!!! But with intention and care.
+* Use factors!!! But with intention and care.
 
-Do basic statistical and visual sanity checking of each variable.
+* Do basic statistical and visual sanity checking of each variable.
 
-Refer to variables by name, e.g., `gapminder$lifeExp`, not by column number. Your code will be more robust and readable.
+* Refer to variables by name, e.g., `gapminder$lifeExp`, not by column number. Your code will be more robust and readable.
 
 
 ```{r links, child="links.md"}

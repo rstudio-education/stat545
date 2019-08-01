@@ -16,6 +16,7 @@ The official R Markdown documentation is [here][rmarkdown].
 
 ## Step 0: Software installation and configuration
 
+<!--TODO: Assumes that they've already set up Git but this chapter comes before the version control chapter. How should we handle this?-->
 We assume the following:
 
 * You've already [installed Git][hg-install-git] and (probably) [a Git client][hg-git-client].

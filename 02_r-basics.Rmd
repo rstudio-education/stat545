@@ -142,7 +142,7 @@ To handle these real life situations, you need to make two decisions:
 * What about your analysis is "real", i.e. will you save it as your lasting record of what happened?
 * Where does your analysis "live"?
 
-### Workspace, .RData
+### Workspace, `.RData`
 
 As a beginning R user, it's OK to consider your workspace "real". _Very soon_, I urge you to evolve to the next level, where you consider your saved R scripts as "real". (In either case, of course the input data is very much real and requires preservation!) With the input data and the R code you used, you can reproduce
 _everything_. You can make your analysis fancier. You can get to the bottom of puzzling results and discover and fix bugs in your code. You can reuse the code to conduct similar analyses in new projects. You can remake a figure with different aspect ratio or save is as TIFF instead of PDF. You are ready to take questions. You are ready for the future.

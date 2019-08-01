@@ -124,39 +124,47 @@ eagle %>%
 ```
 
 `rebird` **knows where you are**:
-```{r eval =FALSE}
+```{r eval = FALSE}
 ebirdgeo(species = 'Buteo lagopus')
 ```
 
 ### Searching geographic info: `geonames` {#geonames}
 
-```{r message = FALSE}
+[rOpenSci](https://ropensci.org) has a package called [`geonames`](https://docs.ropensci.org/geonames/) for accessing the [GeoNames API](https://www.geonames.org). First, install the `geonames` package from CRAN and load it. 
+
+```{r message = FALSE, warning = FALSE}
 # install.packages("geonames")
 library(geonames)
 ```
 
-There are three things we need to do to be able to use this package to access the GeoNames API:
+The [`geonames` package website](https://docs.ropensci.org/geonames/) tells us that there are a few things we need to do before we can use `geonames` to access the GeoNames API:
 
-1. Go to [the GeoNames site](https://www.geonames.org/login) and register an account. 
-2. Click [here to enable the free web service](http://www.geonames.org/enablefreewebservice).
-3. Tell R your GeoNames username. 
+1. Go to [the GeoNames site](https://www.geonames.org/login) and create a new user account. 
+1. Check your email and follow the instructions to activate your account. 
+1. Click [here] to enable the free web services for your account (Note! You must be logged into your GeoNames account already for the link to work).
+1. Tell R your GeoNames username. 
 
-For the last step, you could run this line in R...
-
+To do the last step, we could run this line in R...
 ```r 
 options(geonamesUsername="my_user_name")
 ``` 
+...but this is insecure. We don't want to risk committing this line and pushing it to our public GitHub page! 
 
-...but this is insecure. We don't want to risk committing this line and pushing it to our public GitHub page! Instead, you should create a file in the same place as your `.Rproj` file. Name this file `.Rprofile` and add the following line to that file:
+Instead, we can add this line to our `.Rprofile` so it will be hidden. One way to edit your `.Rprofile` is with the helper function `edit_r_profile()` from the [`usethis`][usethis-web] package. Install/load the `usethis` package and run `edit_r_profile()` in the R Console:
 
-```r 
-options(geonamesUsername="my_user_name")
-``` 
+```{r message = FALSE, warning = FALSE, eval = FALSE}
+# install.packages("usethis")
+library(usethis)
+edit_r_profile()
+```
 
-**Important**: Make sure your `.Rprofile` ends with a blank line!
+This will open up your `.Rprofile` file. Add `options(geonamesUsername="my_user_name")` on a new line (replace "my_user_name" with your GeoNames username). 
+
+**Important**: Make sure your `.Rprofile` ends with a blank line! 
+
+Save the file, close it, and restart R. Now we're ready to start using `geonames` to search the GeoNames API. 
 
 (Also see the [Cache credentials for HTTPS](https://happygitwithr.com/credential-caching.html) chapter of [Happy Git and GitHub for the useR](https://happygitwithr.com).)
-
 
 #### Using GeoNames
 

@@ -1,4 +1,4 @@
-# (PART) Version Control {-} 
+# (PART) Version control {-} 
 
 # Git, GitHub, and RStudio {#version-control}
 
