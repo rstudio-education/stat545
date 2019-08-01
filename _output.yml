@@ -1,4 +1,6 @@
 bookdown::gitbook:
+  includes:
+    in_header: header.html
   css: style.css
   split_bib: FALSE
   split_by: chapter
