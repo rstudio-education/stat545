@@ -8,7 +8,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">Stat545</a></li>
+        <li><a href="./">STAT 545</a></li>
       after: |
         <li><center>
           <a rel="license" href="./index.html#license">

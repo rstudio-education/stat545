@@ -1,5 +1,5 @@
 --- 
-title: "Stat545"
+title: "STAT 545"
 subtitle: "Data wrangling, exploration, and analysis with R"
 author: "Jenny Bryan and the STAT 545 TAs"
 site: bookdown::bookdown_site
@@ -7,12 +7,12 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Stat545: Data wrangling, exploration, and analysis with R."
+description: "STAT 545: Data wrangling, exploration, and analysis with R."
 github-repo: rstudio-education/stat545-reboot
 twitter-handle: jennybryan
 ---
 
-# Welcome to Stat545 {-}
+# Welcome to STAT 545 {-}
 
 ```{r include = FALSE}
 source("common.R")

@@ -53,7 +53,7 @@ library(fs)
 
 ## Bring rectangular data in
 
-The workhorse data import function of readr is `read_delim()`. Here we'll use a variant, `read_tsv()`, that anticipates tab-delimited data:
+The workhorse data import function of `readr` is `read_delim()`. Here we'll use a variant, `read_tsv()`, that anticipates tab-delimited data:
 
 ```{r}
 gapminder <- read_tsv(gap_tsv)
@@ -64,7 +64,7 @@ For full flexibility re: specifying the delimiter, you can always use `readr::re
 
 There's a similar convenience wrapper for comma-separated values, `read_csv()`.
 
-The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use `readr`.
+The most noticeable difference between the `readr` functions and base is that `readr` does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use `readr`.
 
 ```{r}
 gapminder <- gapminder %>%
@@ -95,7 +95,7 @@ The `gap_life_exp` data frame is an example of an intermediate result that we wa
 
 ## Write rectangular data out
 
-The workhorse export function for rectangular data in readr is `write_delim()` and friends. Let's use `write_csv()` to get a comma-delimited file.
+The workhorse export function for rectangular data in `readr` is `write_delim()` and friends. Let's use `write_csv()` to get a comma-delimited file.
 
 ```{r}
 write_csv(gap_life_exp, "gap_life_exp.csv")
