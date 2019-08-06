@@ -21,16 +21,23 @@ This bookdown book is a *work in progress*. We'll update this `README` and the r
 
 ## Required packages
 
+```r
+pkg_list <- c("bookdown", "dichromat", "DT", "gapminder", "gender", "geonames",
+              "git2r", "glue", "gridExtra", "htmltools", "httr", "knitr", 
+              "RColorBrewer", "rebird", "rmarkdown", "roxygen2", "rplos",
+              "rvest", "testthat", "tidyverse", "units", "viridis", "xml2",
+              "r-lib/fs", "r-lib/usethis", "r-lib/devtools", 
+              "ropensci/genderdata", "rstudio/gt", "yihui/xfun")
+```
 
-Remote packages:
+Here's one way to install the needed packages (only the ones that you don't already have) using the [`pak` package][pak-web]:
 
-* r-lib/fs,
-* r-lib/usethis,
-* r-lib/devtools,
-* rstudio/gt,
-* yihui/xfun,
-* ropensci/genderdata
+```r
+if (!require("pak")) install.packages("pak")
+pak::pkg_install(pkg_list)
+```
 
+<!--TODO: Add a second option using the `renv` package. -->
 
 
     
