@@ -18,8 +18,6 @@ Imports:
     roxygen2 (>= 6.1.1.9000),
     viridis,
     RColorBrewer,
-    units,
-    udunits2,
     rvest,
     httr,
     rplos,
