@@ -1,7 +1,51 @@
 # (PART) All the graph things {-} 
 
-# R graphics landscape {#r-graphics}
+# Overview {-}
 
-note currently a placeholder with slides only
+```{r include = FALSE}
+source("common.R")
+```
 
-R graphics landscape *[slides](https://speakerdeck.com/jennybc/ggplot2-tutorial)*
+<!--Original content:https://stat545.com/graph00_index.html-->
+
+We work on visualization throughout the course. Here are the bits in rough order of presentation.
+
+* Chapter \@ref(graphics-slides) - R graphics landscape slides
+  - Why we prefer `ggplot2` (or `lattice`) over base R graphics
+  - The underappreciated importance of data.frames, tidy data, and factor management to graphics
+  - Basic jargon of `ggplot2`
+* Chapter \@ref(ggplot2-tutorial) - Learning `ggplot2` by using it
+  - My [`ggplot2` tutorial][ggplot2-tutorial] gives indicative code and all resulting figures 
+  - Scatterplots, stripplots, distributions, bars, themes, managing a color scheme, bubble and line plots
+* Chapter \@ref(effective-graphs) - Do's and don'ts of making effective graphs
+  - Effective = easy for audience to decode numerical info
+  - Our ability to decode position along common axis >> area, angle, color, etc. 
+* Colors 
+  - Chapter \@ref(colors) - Using colors in R
+  - Chapter \@ref(qualitative-colors) Taking control of qualitative colors in `ggplot2`
+* Practical pro tips, i.e. a return to mechanics
+  - Chapter \@ref(secrets) - Secrets of happy graphing life: data.frames! tidy data! factors!
+  - Chapter \@ref(save-figs) - Writing figures to file
+  - Chapter \@ref(multiple-plots) - Multiple plots on a page
+
+
+<!--TODO: The R Graph Catalog link and the ugrad.stat.ubc.ca link are both broken. Find a replacement? Currently links all point to github repo-->
+
+<!--JB:
+* The [R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/) presents a visual, clickable index of 100+ figures
+    - mostly from Naomi Robbins' book ["Creating More Effective Graphs"](http://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123)
+    - see figure and the exact `ggplot2` code to produce it, side-by-side
+    - code for all figures and app itself is on [GitHub](https://github.com/jennybc/r-graph-catalog)
+* underappreciated basics: density plots, high-volume scatterplots good stuff here: http://www.ugrad.stat.ubc.ca/~stat540/seminars/seminar03_graphics-ggplot2.html
+-->
+
+
+
+# R graphics landscape {#graphics-slides}
+
+
+<script async class="speakerdeck-embed" data-id="f5ebca79660c4c3eb05b5bfbe1018545" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script> <div style="margin-bottom:5px"> <strong> <a href="https://speakerdeck.com/jennybc/ggplot2-tutorial" title="hello ggplot2" target="_blank">hello ggplot2!</a> </strong> from <strong><a href="https://speakerdeck.com/jennybc" target="_blank">Jennifer Bryan</a></strong> </div>
+
+
+```{r links, child="links.md"}
+```

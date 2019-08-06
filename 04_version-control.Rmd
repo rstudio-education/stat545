@@ -1,28 +1,31 @@
-# (PART) Version Control {-} 
+# (PART) Version control {-} 
 
 # Git, GitHub, and RStudio {#version-control}
 
-Content now here: http://happygitwithr.com. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
+```{r include = FALSE}
+source("common.R")
+```
+
+Content now [here][happy-git]. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
 
 ## Claim your private STAT 545 repository
 
-[Link to original content](http://stat545.com/git08_claim-stat545-repo.html)
+<!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
+<!--TODO: update this section, assumes that there is an active STAT 545 organization-->
 
 ### Prerequisites
 
 We assume the following: 
 
-  * You've already installed Git and (possibly) a Git client.
-  * You've already registered a free GitHub account.
-  * You've already introduced yourself to Git.
-  * You've confirmed that you can push to / pull from GitHub from the command line.
-  * You've already installed R and RStudio.
-  * You've proven that you can push to / pull from GitHub from RStudio.
-  * You are no longer being challenged for your GitHub username and password because your credentials have been cached or you've set up SSH keys.
+* You've already installed Git and (possibly) a Git client.
+* You've already registered a free GitHub account.
+* You've already introduced yourself to Git.
+* You've confirmed that you can push to / pull from GitHub from the command line.
+* You've already installed R and RStudio.
+* You've proven that you can push to / pull from GitHub from RStudio.
+* You are no longer being challenged for your GitHub username and password because your credentials have been cached or you've set up SSH keys.
   
-Instructions for all of this are here:
-
-<http://happygitwithr.com>
+Instructions for all of this are [here][happy-git].
 
 ### Outline
 
@@ -40,14 +43,14 @@ Copy the HTTPS URL. It will be something like this:
 https://github.com/STAT545-UBC/jennifer_bryan
 ```
 
-In RStudio, start a new Project:
+In RStudio, start a new project:
 
-  * *File > New Project > Version Control > Git*. In the "repository URL" paste the URL of your new GitHub repository.
-  * Take charge of -- or at least notice! -- the local directory for the Project. This will be the main folder for your coursework. This will create a new sub-directory, which will be all of these things:
-    - a directory on your computer
-    - a Git repository, linked to a remote GitHub repository
-    - an RStudio Project
-  * Create the Project ... you should get a pre-existing skeleton `README.md` that I created for you.
+* *File > New Project > Version Control > Git*. In the "repository URL" paste the URL of your new GitHub repository.
+* Take charge of -- or at least notice! -- the local directory for the project. This will be the main folder for your coursework. This will create a new sub-directory, which will be all of these things:
+  - a directory on your computer
+  - a Git repository, linked to a remote GitHub repository
+  - an RStudio project
+* Create the project ... you should get a pre-existing skeleton `README.md` that I created for you.
 
 Make some local changes, e.g. edit or add files.
 
@@ -57,4 +60,8 @@ Pull from GitHub (I'm just trying to help you establish this habit).
 
 Push to GitHub.
 
-Repeat *ad nauseum* as you do your coursework.
+Repeat *ad nauseam* as you do your coursework.
+
+
+```{r links, child="links.md"}
+```

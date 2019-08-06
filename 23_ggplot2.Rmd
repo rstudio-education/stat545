@@ -1,3 +1,13 @@
-# ggplot2 tutorial {#ggplot2}
+# `ggplot2` tutorial {#ggplot2-tutorial}
 
-[`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial), heavy on code and examples
+```{r include = FALSE}
+source("common.R")
+```
+
+<!--Original content: https://stat545.com/graph00_index.html-->
+
+[`ggplot2` tutorial][ggplot2-tutorial], heavy on code and examples.
+
+
+```{r links, child="links.md"}
+```

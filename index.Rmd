@@ -1,24 +1,49 @@
 --- 
-title: "Stat545"
-author: "Jenny Bryan et al."
-date: "`r Sys.Date()`"
+title: "STAT 545"
+subtitle: "Data wrangling, exploration, and analysis with R"
+author: "Jenny Bryan and the STAT 545 TAs"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is beginning..."
+description: "STAT 545: Data wrangling, exploration, and analysis with R."
+github-repo: rstudio-education/stat545-reboot
+twitter-handle: jennybryan
 ---
 
-# Stat545 {-}
+# Welcome to STAT 545 {-}
 
-## What this is
+```{r include = FALSE}
+source("common.R")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+library(tidyverse)
+library(devtools)
+library(DT)
+```
 
-## Who is this for
+Learn how to:
 
-## Who are we
+* explore, groom, visualize, and analyze data
+* make all of that reproducible, reusable, and shareable
+* using R
 
-## General advice for getting unstuck
+This is a bookdown version of STAT 545 @ University of British Columbia, a course in data wrangling, exploration, and analysis with R. 
+
+> "The STAT 545 course became notable as an early example of a data science course taught in a statistics program. It is also notable for its focus on teaching using modern R packages, Git and GitHub, its extensive sharing of teaching materials openly online, and its strong emphasis on practical data cleaning, exploration, and visualization skills, rather than algorithms and theory." 
+>  
+> --- [Wikipedia](https://en.wikipedia.org/wiki/Jenny_Bryan)
+
+
+The contents of this course come from the [original STAT 545 website](http://stat545.com), which is created by [this repository on GitHub](https://github.com/STAT545-UBC/STAT545-UBC.github.io). 
+
+## Contributors {-}
+
+Jenny Bryan ([jennybryan.org](https://jennybryan.org)), Software Engineer at [RStudio](https://www.rstudio.com/) on the [tidyverse](https://www.tidyverse.org/)/[r-lib](https://github.com/r-lib/) team. Main author.
+
+<!--TODO: Add STAT 545 TA Alum-->
+
+## General advice for getting unstuck {-#unstuck}
 
 *Also see Jenny's [slide deck on {reprex}](https://speakerdeck.com/jennybc/reprex-reproducible-examples-with-r)*
 
@@ -26,35 +51,108 @@ What to do when you are stuck ...
 
 Help yourself or, __maybe__, ~~drag others into your hell~~ ask for help. The links below contain excellent self-help advice.
 
-While you are getting started, I recommend you [seek help within the STAT545 community](help-STAT545.html) first, before, e.g. posting to external forums. We are more cuddly.
+<!--TODO: Update STAT545 community link / replace with an alternative resource-->
+
+While you are getting started, I recommend you [seek help within the STAT545 community](http://stat545.com/index.html) first, before, e.g. posting to external forums. We are more cuddly.
 
 Here are some good resources to get your head in the right place.
 
-  * [Google is your friend](http://xkcd.com/627/). Google is your friend. Google is your friend.
-  
-    - E.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!
+* [Google is your friend](http://xkcd.com/627/). Google is your friend. Google is your friend.
 
-  * This stackoverflow thread [How to make a great R reproducible example?](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610) is fantastic. I find that, in the process of preparing my great reproducible example, I [answer my own question](http://htmlpreview.github.io/?https://gist.githubusercontent.com/jennybc/58466fd018823302f398/raw/4c7059558e1525b482f1ee794a5828ca8999bf98/2014-07-25_wrapper-graphics-dev-open-close.html) 90% of the time. YMMV. So it is a useful exercise even if you aren't ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. __Highly recommended!__
-  
-  * Search [stackoverflow](http://stackoverflow.com) and include the `[r]` tag. Or the `[ggplot2]` tag. Or the `[plyr]` tag. You get the idea.
+  - e.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!    
+    
+* This stackoverflow thread [How to make a great R reproducible example?](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610) is fantastic. I find that, in the process of preparing my great reproducible example, I [answer my own question](http://htmlpreview.github.io/?https://gist.githubusercontent.com/jennybc/58466fd018823302f398/raw/4c7059558e1525b482f1ee794a5828ca8999bf98/2014-07-25_wrapper-graphics-dev-open-close.html) 90% of the time. YMMV. So it is a useful exercise even if you aren't ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. __Highly recommended!__
 
-  * Check out [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) (see the 9th circle: "Unhelpfully seeking help").
-  
+* Search [stackoverflow](http://stackoverflow.com) and include the `[r]` tag. Or the `[ggplot2]` tag. Or the `[dplyr]` tag. You get the idea.
+
+* Check out [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) (see the 9th circle: "Unhelpfully seeking help").
+
   > If someone has the wit and knowledge to answer your question, they probably have other things they would like to do. Making your message clear, concise and user-friendly gives you the best hope of at least one of those strangers diverting their attention away from their life towards your problem.
   
-  * Read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) by Eric Raymond and Rick Moen. You'll need a slightly thick skin, but they speak truth.
+* Read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) by Eric Raymond and Rick Moen. You'll need a slightly thick skin, but they speak truth.
   
   > ... demonstrate the kind of attitude that leads to competence: alert, thoughtful, observant, willing to be an active partner in developing a solution
   
-  * Read the [R-help posting guide](http://www.r-project.org/posting-guide.html). *But don't rush to post any questions there!*
+* Read the [R-help posting guide](http://www.r-project.org/posting-guide.html). *But don't rush to post any questions there!*
 
-  * More links via [How to Ask Questions](https://github.com/ireapps/scraping-class/blob/master/notes/how-to-ask-questions.md) from a web-scraping class
-  
-    - [How to Ask for Programming Help](http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/)
-    - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
-    - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
+* More links via [How to Ask Questions](https://github.com/ireapps/first-web-scraper/blob/cb622d99305b872ebcb7bbc01fa7a97ba1cd8a4a/notes/how-to-ask-questions.md) from a web-scraping class
+
+  - [How to Ask for Programming Help](http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/)
+  - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
+  - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
+
+## Colophon {-}
+
+<!--TODO: Update website and github links when finalized-->
+
+This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://gracious-allen-b2d17f.netlify.com) is hosted with [netlify](https://www.netlify.com), and automatically updated after every commit by [travis-ci](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545-reboot).
 
 
+This version of the book was built with:
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+session <- devtools::session_info()
+
+session$platform
+```
+
+Along with these packages:
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+session$packages %>% 
+  select(package, loadedversion, date, source) %>% 
+  DT::datatable(rownames = FALSE,
+                class = 'cell-border stripe',
+                filter = list(position = 'top'),
+                options = list(pageLength = nrow(session$packages), 
+                           autoWidth = TRUE,
+                           bInfo = FALSE,
+                           paging = FALSE))
+```
+
+## License {-}
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+<center>
+<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i>
+</center>
+
+*This is a human-readable summary of (and not a substitute for) the license.
+Please see <https://creativecommons.org/licenses/by/4.0/legalcode> for the full legal text.*
+
+**You are free to:**
+
+- **Share**---copy and redistribute the material in any medium or
+  format
+
+- **Remix**---remix, transform, and build upon the material for any
+  purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the
+license terms.
+
+**Under the following terms:**
+
+- **Attribution**---You must give appropriate credit, provide a link
+  to the license, and indicate if changes were made. You may do so in
+  any reasonable manner, but not in any way that suggests the licensor
+  endorses you or your use.
+
+- **No additional restrictions**---You may not apply legal terms or
+  technological measures that legally restrict others from doing
+  anything the license permits.
+
+**Notices:**
+
+You do not have to comply with the license for elements of the
+material in the public domain or where your use is permitted by an
+applicable exception or limitation.
+
+No warranties are given. The license may not give you all of the
+permissions necessary for your intended use. For example, other rights
+such as publicity, privacy, or moral rights may limit how you use the
+material.
 
 ```{r include = FALSE}
 # automatically create a bib database for R packages

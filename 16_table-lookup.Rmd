@@ -1,12 +1,16 @@
 # Table lookup {#lookup}
 
-[Table look up](bit008_lookup.html)
+```{r include = FALSE}
+source("common.R")
+```
 
-I try to use [dplyr joins](bit001_dplyr-cheatsheet.html) for most tasks that combine data from two tibbles. But sometimes you just need good old "table lookup". Party like it's Microsoft Excel `LOOKUP()` time!
+<!--Original content:https://stat545.com/bit008_lookup.html-->
 
-## Load gapminder and the tidyverse
+I try to use [`dplyr` joins](#join-cheatsheet) for most tasks that combine data from two tibbles. But sometimes you just need good old "table lookup". Party like it's Microsoft Excel `LOOKUP()` time!
 
-```{r start_lookup}
+## Load `gapminder` and the `tidyverse`
+
+```{r start_lookup, message = FALSE, warning = FALSE}
 library(gapminder)
 library(tidyverse)
 ```
@@ -26,7 +30,7 @@ mini_gap
 
 ## Dorky national food example.
 
-Make a lookup table of national foods. Or at least the stereotype. Yes I have intentionally kept Mexico in mini-Gapminder and neglected to put Mexico here.
+Make a lookup table of national foods. Or at least the stereotype. Yes, I have intentionally kept Mexico in mini-Gapminder and neglected to put Mexico here.
 
 ```{r}
 food <- tribble(
@@ -50,7 +54,7 @@ match(x = mini_gap$country, table = food$country)
 
 In table lookup, there is always a value variable `y` that you plan to index with the `match(x, table)` result.  It often lives together with `table` in a data frame; they should certainly be the same length and synced up with respect to row order.
 
-But first ...
+But first...
 
 I get `x` and `table` backwards some non-negligible percentage of the time. So I store the match indices and index the data frame where `table` lives with it. Add `x` as a column and eyeball-o-metrically assess that all is well.
 
@@ -109,3 +113,6 @@ mini_gap %>%
 
 When your key variable is character (and not a factor), you can skip this step.
 
+
+```{r links, child="links.md"}
+```

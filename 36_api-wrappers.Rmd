@@ -1,0 +1,297 @@
+# Use API-wrapping packages {#api-wrappers}
+
+```{r include = FALSE}
+source("common.R")
+```
+
+<!--Original content: http://stat545.com/webdata02_activity.html-->
+<!--Original author: Andrew MacDonald-->
+
+## Introduction
+
+**All this and more is described at the [rOpenSci repository of R tools for interacting with the internet]( https://github.com/ropensci/webservices).**
+
+There are many ways to obtain data from the internet; let's consider four categories:
+
+* *Click-and-download* - on the internet as a "flat" file, such as CSV, XLS.
+* *Install-and-play* - an API for which someone has written a handy R package.
+* *API-query* - published with an unwrapped API.
+* *Scraping* - implicit in an HTML website.
+
+## Click-and-Download
+
+In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
+
+* Use `read.csv` or `readr::read_csv` to read the data straight into R.
+* Use the command line program `curl` to do that work, and place it in a `Makefile` or shell script (see the [section on `make`](#automation-overview) for more on this).
+
+The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, the World Value Survey makes several datasets available as Excel sheets. The safest option here is to download the `.xls` file, then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
+
+### From rOpenSci web services page:
+
+From rOpenSci's [CRAN Task View: Web Technologies and Services](https://github.com/ropensci/webservices):
+
+* `downloader::download()` for SSL.
+* `curl::curl()` for SSL.
+* `httr::GET` data read this way needs to be parsed later with `read.table()`.
+* `rio::import()` can "read a number of common data formats directly from an `https://` URL".  Isn't that very similar to the previous?
+
+
+What about packages that install data?
+
+## Data supplied on the web
+
+Many times, the data that you want is not already organized into one or a few tables that you can read directly into R. More frequently, you find this data is given in the form of an API. **A**pplication **P**rogramming **I**nterfaces (APIs) are descriptions of the kind of requests that can be made of a certain piece of software, and descriptions of the kind of answers that are returned. 
+
+Many sources of data -- databases, websites, services -- have made all (or part) of their data available via APIs over the internet. Computer programs ("clients") can make requests of the server, and the server will respond by sending data (or an error message). This client can be many kinds of other programs or websites, including R running from your laptop.
+
+## Install-and-play
+
+Many common web services and APIs have been "wrapped", i.e. R functions have been written around them which send your query to the server and format the response.
+
+Why would we want this?
+
+* Provenance
+* Reproducible
+* Updating
+* Ease
+* Scaling
+
+### Load the `tidyverse`
+
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+```
+
+### Sightings of birds: `rebird`
+
+[`rebird`](https://github.com/ropensci/rebird) is an R interface for the [eBird](http://ebird.org/content/ebird/) database. eBird lets birders upload sightings of birds, and allows everyone access to those data. `rebird` is on CRAN.
+
+```{r message = FALSE}
+# install.packages("rebird")
+library(rebird)
+```
+
+
+#### Search birds by geography
+
+The eBird website categorizes some popular locations as "Hotspots". These are areas where there are both lots of birds and lots of birders. One such location is at Iona Island, near Vancouver. You can see data for this Hotspot at [http://ebird.org/ebird/hotspot/L261851](http://ebird.org/ebird/hotspot/L261851).
+
+At that link, you will see a page like this:
+
+```{r ebird-iona-island, echo = FALSE, fig.cap = "Iona Island", out.width = "80%"}
+library(knitr)
+knitr::include_graphics("img/Iona_island.png")
+```
+
+
+The data already looks to be organized in a data frame! `rebird` allows us to read these data directly into R (the ID code for Iona Island is **"L261851"**).
+
+<!--TODO: The following chunks are broken; ebird now requires an API key.-->
+```{r eval = FALSE}
+ebirdhotspot(locID = "L261851") %>%
+  head() %>%
+  kable()
+```
+
+We can use the function `ebirdgeo` to get a list for an area (note that South and West are negative):
+
+```{r results = 'asis', eval = FALSE}
+vanbirds <- ebirdgeo(lat = 49.2500, lng = -123.1000)
+vanbirds %>%
+  head() %>%
+  kable()
+```
+
+**Note**: Check the defaults on this function (e.g. radius of circle, time of year).
+
+We can also search by "region", which refers to short codes which serve as common shorthands for different political units. For example, France is represented by the letters **FR**.
+
+```{r eval = FALSE}
+frenchbirds <- ebirdregion("FR")
+frenchbirds %>%
+  head() %>%
+  kable()
+```
+
+Find out *when* a bird has been seen in a certain place! Choosing a name from `vanbirds` above (the Bald Eagle):
+
+```{r eval = FALSE}
+eagle <- ebirdgeo(species = 'Haliaeetus leucocephalus', lat = 42, lng = -76)
+eagle %>%
+  head() %>%
+  kable()
+```
+
+`rebird` **knows where you are**:
+```{r eval = FALSE}
+ebirdgeo(species = 'Buteo lagopus')
+```
+
+### Searching geographic info: `geonames` {#geonames}
+
+[rOpenSci](https://ropensci.org) has a package called [`geonames`](https://docs.ropensci.org/geonames/) for accessing the [GeoNames API](https://www.geonames.org). First, install the `geonames` package from CRAN and load it. 
+
+```{r message = FALSE, warning = FALSE}
+# install.packages("geonames")
+library(geonames)
+```
+
+The [`geonames` package website](https://docs.ropensci.org/geonames/) tells us that there are a few things we need to do before we can use `geonames` to access the GeoNames API:
+
+1. Go to [the GeoNames site](https://www.geonames.org/login) and create a new user account. 
+1. Check your email and follow the instructions to activate your account. 
+1. Click [here] to enable the free web services for your account (Note! You must be logged into your GeoNames account already for the link to work).
+1. Tell R your GeoNames username. 
+
+To do the last step, we could run this line in R...
+```r 
+options(geonamesUsername="my_user_name")
+``` 
+...but this is insecure. We don't want to risk committing this line and pushing it to our public GitHub page! 
+
+Instead, we can add this line to our `.Rprofile` so it will be hidden. One way to edit your `.Rprofile` is with the helper function `edit_r_profile()` from the [`usethis`][usethis-web] package. Install/load the `usethis` package and run `edit_r_profile()` in the R Console:
+
+```{r message = FALSE, warning = FALSE, eval = FALSE}
+# install.packages("usethis")
+library(usethis)
+edit_r_profile()
+```
+
+This will open up your `.Rprofile` file. Add `options(geonamesUsername="my_user_name")` on a new line (replace "my_user_name" with your GeoNames username). 
+
+**Important**: Make sure your `.Rprofile` ends with a blank line! 
+
+Save the file, close it, and restart R. Now we're ready to start using `geonames` to search the GeoNames API. 
+
+(Also see the [Cache credentials for HTTPS](https://happygitwithr.com/credential-caching.html) chapter of [Happy Git and GitHub for the useR](https://happygitwithr.com).)
+
+#### Using GeoNames
+
+What can we do? We can get access to lots of geographical information via the various [GeoNames WebServices](http://www.geonames.org/export/ws-overview.html).
+
+```{r, eval = FALSE}
+countryInfo <- GNcountryInfo()
+```
+
+```{r eval = FALSE}
+glimpse(countryInfo)
+```
+
+
+This `countryInfo` dataset is very helpful for accessing the rest of the data because it gives us the standardized codes for country and language.  
+
+#### Remixing `geonames` and `rebird`:
+
+What are the cities of France?
+
+```{r eval = FALSE}
+francedata <- countryInfo %>%
+  filter(countryName == "France")
+```
+
+```{r eval = FALSE}
+frenchcities <-	with(francedata, GNcities(north = north, east = east, 
+                                          south = south, west = west, 
+                                          maxRows = 500))
+```
+
+```{r eval = FALSE}
+glimpse(frenchcities)
+```
+
+
+### Wikipedia searching 
+
+We can use `geonames` to search for georeferenced Wikipedia articles. Here are those within 20 km of Rio de Janerio, comparing results for English-language Wikipedia (`lang = "en"`) and Portuguese-language Wikipedia (`lang = "pt"`):
+
+```{r, eval = FALSE}
+rio_english <- GNfindNearbyWikipedia(lat = -22.9083, lng = -43.1964,
+                                     radius = 20, lang = "en", maxRows = 500)
+rio_portuguese <- GNfindNearbyWikipedia(lat = -22.9083, lng = -43.1964,
+                                        radius = 20, lang = "pt", maxRows = 500)
+```
+
+```{r eval = FALSE}
+nrow(rio_english)
+nrow(rio_portuguese)
+```
+
+
+
+### Searching the Public Library of Science: `rplos` {#plos-one}
+
+[PLOS ONE](https://journals.plos.org/plosone/) is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. rOpenSci has a package called `rplos` that we can use to interact with the [PLOS API](http://api.plos.org). They have a nice tutorial on the rOpenSci website that you can see [here](https://ropensci.org/tutorials/rplos_tutorial.html). First, install/load the `rplos` package from CRAN.
+
+```{r message = FALSE, warning = FALSE}
+# install.packages("rplos")
+library(rplos)
+```
+
+#### Searching PLOS ONE
+
+Let's follow along with the [`rOpenSci` tutorial](https://ropensci.org/tutorials/rplos_tutorial.html) and do some searches:
+
+```{r}
+searchplos(q= "Helianthus", fl= "id", limit = 5)
+```
+
+```{r}
+searchplos("materials_and_methods:France", fl = "title, materials_and_methods")
+```
+
+```{r}
+searchplos("materials_and_methods:study site", fl = "title, materials_and_methods")
+```
+
+```{r}
+searchplos("*:*", fl = "id")
+```
+
+Here is a list of [options for the search](http://api.plos.org/solr/search-fields/) or you can run `data(plosfields)` followed by `plosfields` in the R Console.
+
+
+#### Take a highbrow look!
+
+The `highplos()` function does "highlighted searches on PLOS Journals full-text content". 
+
+```{r}
+highlighted <- highplos(q='alcohol', hl.fl = 'abstract', rows=10)
+```
+
+We can then pass this output to `highbrow()`, which will open up our default browser where we can browse the highlighted fragments. When we run `highbrow(highlighted)` in our R Console this is what we see in our browser:
+
+```{r echo = FALSE, fig.cap = "Example rplos highlights", out.width = "100%"}
+knitr::include_graphics("img/rplos-highbrow.png")
+```
+
+#### Plots over time
+
+We can use the `plot_throughtime()` function to visualize the results of a search over time. 
+
+
+```{r}
+plot_throughtime(terms = "phylogeny", limit = 200)
+```
+
+
+### Is it a boy or a girl? `gender` throughout US history
+
+The `gender` package allows you access to data on the gender of names in the US. Because names change gender over the years, the probability of a name belonging to a man or a woman also depends on the *year*. 
+
+First, install/load the `gender` package from CRAN. You may be prompted to also install the companion package, `genderdata`. Go ahead and say yes. If you don't see this message no need to worry, it is a one-time install. 
+
+```{r}
+# install.packages("gender")
+library(gender)
+```
+
+Let's do some searches for the name Kelsey.
+```{r}
+gender("Kelsey")
+gender("Kelsey", years = 1940)
+```
+
+
+```{r links, child="links.md"}
+```

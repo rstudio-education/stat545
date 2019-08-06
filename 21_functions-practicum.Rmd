@@ -1,26 +1,30 @@
 # Function-writing practicum {#functions-practicum}
 
-[Function-writing Practicum](block012_function-regress-lifeexp-on-year.html): fit a linear model and return estimated coefficients
+```{r include = FALSE}
+source("common.R")
+```
+
+<!--Original content:https://stat545.com/block012_function-regress-lifeexp-on-year.html-->
 
 ## Overview
 
-We recently learned how to write our own R functions ([Part 1](block011_write-your-own-function-01.html), [Part 2](block011_write-your-own-function-02.html), [Part 3](block011_write-your-own-function-03.html)).
+We recently learned how to write our own R functions ([part 1](#functions-part1), [part 2](#functions-part2), [part 3](#functions-part3)).
 
 Now we use that knowledge to write another useful function, within the context of the Gapminder data:
 
-  * Input: a data.frame that contains (at least) a life expectancy variable `lifeExp` and a variable for year `year`
-  * Output: a vector of estimated intercept and slope, from a linear regression of `lifeExp` on `year`
+* Input: a data.frame that contains (at least) a life expectancy variable `lifeExp` and a variable for year `year`
+* Output: a vector of estimated intercept and slope, from a linear regression of `lifeExp` on `year`
   
 The ultimate goal is to apply this function to the Gapminder data for a specific country. We will eventually scale up to *all* countries using external machinery, e.g., the `dplyr::group_by()` + `dplyr::do()`.
 
 ## Load the Gapminder data
 
-As usual, load the Gapminder excerpt. Load `ggplot2` because we'll make some plots and `dplyr` too.
+As usual, load `gapminder`. Load `ggplot2` because we'll make some plots and load `dplyr` too.
 
-```{r}
+```{r message = FALSE}
 library(gapminder)
 library(ggplot2)
-suppressPackageStartupMessages(library(dplyr))
+library(dplyr)
 ```
 
 ## Get data to practice with
@@ -42,7 +46,7 @@ p + geom_point() + geom_smooth(method = "lm", se = FALSE)
 
 ## Get some code that works
 
-Fit the regression
+Fit the regression:
 ```{r}
 j_fit <- lm(lifeExp ~ year, j_dat)
 coef(j_fit)
@@ -59,7 +63,7 @@ coef(j_fit)
 
 There are two things above that might prompt questions.
 
-First, how did I know to get the estimated coefficients from a fitted model via `coef()`? Years of experience. But how might a novice learn such things? Read [the documentation for `lm()`](http://www.rdocumentation.org/packages/stats/functions/lm), in this case. The "See also" section advises us about many functions that can operate on fitted linear model objects, including, but by no means limited to, `coef()`. Read [the documentation on `coef()`](http://www.rdocumentation.org/packages/stats/functions/coef) too.
+First, how did I know to get the estimated coefficients from a fitted model via `coef()`? Years of experience. But how might a novice learn such things? Read [the documentation for `lm()`][rdocs-lm], in this case. The "See also" section advises us about many functions that can operate on fitted linear model objects, including, but by no means limited to, `coef()`. Read [the documentation on `coef()`][rdocs-coef] too.
 
 Second, what am I doing here: `lm(lifeExp ~ I(year - 1952))`? I want the intercept to correspond to 1952 and an easy way to accomplish that is to create a new predictor on the fly: year minus 1952. The way I achieve that in the model formula, `I(year - 1952)`, uses the `I()` function which "inhibits interpretation/conversion of objects". By protecting the expression `year - 1952`, I ensure it is interpreted in the obvious arithmetical way.
 
@@ -118,4 +122,8 @@ le_lin_fit(gapminder %>% filter(country == "Zimbabwe"))
 
 Yes.
 
-Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. Let's move on to [the exciting part](http://stat545-ubc.github.io/block023_dplyr-do.html), which is scaling this up to __all__ countries.
+Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. Let's move on to [the exciting part](#dplyr-do), which is scaling this up to __all__ countries.
+
+
+```{r links, child="links.md"}
+```

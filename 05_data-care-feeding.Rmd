@@ -1,6 +1,12 @@
-# (PART) Data Analysis 1 {-} 
+# (PART) Data analysis 1 {-} 
 
-# Basic care and feeding of data in R {#data-care}
+# Basic care and feeding of data in R {#basic-data-care}
+
+```{r include = FALSE}
+source("common.R")
+```
+
+<!--Original content: https://stat545.com/block006_care-feeding-data.html-->
 
 ```{r start_data_analysis, echo = FALSE}
 set.seed(4561)
@@ -10,7 +16,7 @@ set.seed(4561)
 
 *Ignore if you don't need this bit of support.*
 
-Now is the time to make sure you are working in an appropriate directory on your computer, probably through the use of an [RStudio Project](block002_hello-r-workspace-wd-project.html). Enter `getwd()` in the Console to see current working directory or, in RStudio, this is displayed in the bar at the top of Console.
+Now is the time to make sure you are working in an appropriate directory on your computer, probably through the use of an [RStudio project](#rprojs). Enter `getwd()` in the Console to see current working directory or, in RStudio, this is displayed in the bar at the top of Console.
 
 You should clean out your workspace. In RStudio, click on the "Clear" broom icon from the Environment tab or use *Session > Clear Workspace*. You can also enter `rm(list = ls())` in the Console to accomplish same.
 
@@ -18,25 +24,25 @@ Now restart R. This will ensure you don't have any packages loaded from previous
 
 Why do we do this? So that the code you write is complete and re-runnable. If you return to a clean slate often, you will root out hidden dependencies where one snippet of code only works because it relies on objects created by code saved elsewhere or, much worse, never saved at all. Similarly, an aggressive clean slate approach will expose any usage of packages that have not been explicitly loaded. 
 
-Finally, open a new R script and develop and run your code from there. In RStudio, use *File > New File > R Script*. Save this script with a name ending in `.r` or `.R`, containing no spaces or other funny stuff, and that evokes whatever it is we're doing today. Example: `cm004_data-care-feeding.r`.
+Finally, open a new R script and develop and run your code from there. In RStudio, use *File > New File > R Script*. Save this script with a name ending in `.r` or `.R`, containing no spaces or other funny stuff, and that evokes whatever it is we're doing today. __Example:__ `cm004_data-care-feeding.r`.
 
-Another great idea is to do this in an R Markdown document. See [Test drive R Markdown](block007_first-use-rmarkdown.html) for a refresher.
+Another great idea is to do this in an R Markdown document. See [Test drive R Markdown](#r-markdown) for a refresher.
 
 ## Data frames are awesome
 
 Whenever you have rectangular, spreadsheet-y data, your default data receptacle in R is a data frame. Do not depart from this without good reason. Data frames are awesome because...
 
-  * Data frames package related variables neatly together,
-    - keeping them in sync vis-a-vis row order
-    - applying any filtering of observations uniformly.
-  * Most functions for inference, modelling, and graphing are happy to be passed a data frame via a `data =` argument. This has been true in base R for a long time.
-  * The set of packages known as the [`tidyverse`](https://github.com/hadley/tidyverse) takes this one step further and explicitly prioritizes the processing of data frames. This includes popular packages like `dplyr` and `ggplot2`. In fact the tidyverse prioritizes a special flavor of data frame, called a "tibble."
+* Data frames package related variables neatly together,
+  - keeping them in sync vis-a-vis row order
+  - applying any filtering of observations uniformly
+* Most functions for inference, modelling, and graphing are happy to be passed a data frame via a `data =` argument. This has been true in base R for a long time.
+* The set of packages known as the [`tidyverse`][tidyverse-main-page] takes this one step further and explicitly prioritizes the processing of data frames. This includes popular packages like `dplyr` and `ggplot2`. In fact the tidyverse prioritizes a special flavor of data frame, called a "tibble."
 
-Data frames -- unlike general arrays or, specifically, matrices in R -- can hold variables of different flavors, such as character data (subject ID or name), quantitative data (white blood cell count), and categorical information (treated vs. untreated). If you use homogenous structures, like matrices, for data analysis, you  are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can't put character data, such as subject name, into the numeric matrix that holds white blood cell count. This fragmentation is a Bad Idea.
+Data frames -- unlike general arrays or, specifically, matrices in R -- can hold variables of different flavors, such as character data (subject ID or name), quantitative data (white blood cell count), and categorical information (treated vs. untreated). If you use homogeneous structures, like matrices, for data analysis, you  are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can't put character data, such as subject name, into the numeric matrix that holds white blood cell count. This fragmentation is a Bad Idea.
 
 ## Get the Gapminder data
 
-We will work with some of the data from the [Gapminder project](http://www.gapminder.org). I've released this as an R package, so we can install it from CRAN like so:
+We will work with some of the data from the [Gapminder project][gapminder-web]. I've released this as an [R package][gapminder-cran], so we can install it from CRAN like so:
 
 ```{r eval = FALSE}
 install.packages("gapminder")
@@ -52,7 +58,7 @@ library(gapminder)
 
 By loading the `gapminder` package, we now have access to a data frame by the same name. Get an overview of this with `str()`, which displays the structure of an object.
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 str(gapminder)
 ```
 
@@ -60,7 +66,7 @@ str(gapminder)
 
 We could print the `gapminder` object itself to screen. However, if you've used R before, you might be reluctant to do this, because large datasets just fill up your Console and provide very little insight.
 
-This is the first big win for **tibbles**. The [`tidyverse`](https://github.com/hadley/tidyverse) offers a special case of R's default data frame: the "tibble", which is a nod to the actual class of these objects, `tbl_df`.
+This is the first big win for **tibbles**. The [`tidyverse`][tidyverse-web] offers a special case of R's default data frame: the "tibble", which is a nod to the actual class of these objects, `tbl_df`.
 
 If you have not already done so, install the `tidyverse` meta-package now:
 
@@ -100,7 +106,7 @@ dim(gapminder)
 nrow(gapminder)
 ```
 
-A statistical overview can be obtained with `summary()`
+A statistical overview can be obtained with `summary()`:
 
 ```{r}
 summary(gapminder)
@@ -114,7 +120,7 @@ plot(lifeExp ~ gdpPercap, gapminder)
 plot(lifeExp ~ log(gdpPercap), gapminder)
 ```
 
-<!-- This is a non-sequitur here ... where came from originally?
+<!--JB: This is a non-sequitur here ... where came from originally?
 > Sidebar on equals: A single equal sign `=` is most commonly used to specify values of arguments when calling functions in R, e.g. `group = continent`. It can be used for assignment but we advise against that, in favor of `<-`. A double equal sign `==` is a binary comparison operator, akin to less than `<` or greater than `>`, returning the logical value `TRUE` in the case of equality and `FALSE` otherwise. Although you may not yet understand exactly why, `subset = country == "Colombia"` restricts operation -- scatterplotting, in above examples -- to observations where the country is Colombia.
 -->
 
@@ -124,7 +130,7 @@ Let's go back to the result of `str()` to talk about what a data frame is.
 str(gapminder)
 ```
 
-A data frame is a special case of a *list*, which is used in R to hold just about anything. Data frames are a special case where the length of each list component is the same. Data frames are superior to matrices in R because they can hold vectors of different flavors, e.g. numeric, character, and categorical data can be stored together. This comes up alot!
+A data frame is a special case of a *list*, which is used in R to hold just about anything. Data frames are a special case where the length of each list component is the same. Data frames are superior to matrices in R because they can hold vectors of different flavors, e.g. numeric, character, and categorical data can be stored together. This comes up a lot!
 
 ## Look at the variables inside a data frame
 
@@ -158,7 +164,7 @@ The __levels__ of the factor `continent` are "Africa", "Americas", etc. and this
 str(gapminder$continent)
 ```
 
-This [Janus](http://en.wikipedia.org/wiki/Janus)-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you resolve to learn how to [properly care and feed for factors](block014_factors.html). The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
+This [Janus][wiki-janus]-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you resolve to learn how to [properly care and feed for factors](#factors-boss). The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
 
 Here we count how many observations are associated with each continent and, as usual, try to portray that info visually. This makes it much easier to quickly see that African countries are well represented in this dataset.
 ```{r tabulate-continent}
@@ -166,7 +172,7 @@ table(gapminder$continent)
 barplot(table(gapminder$continent))
 ```
 
-In the figures below, we see how factors can be put to work in figures. The `continent` factor is easily mapped into "facets" or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered elsewhere so feel free to just sit back and enjoy these plots or blindly copy/paste.*
+In the figures below, we see how factors can be put to work in figures. The `continent` factor is easily mapped into "facets" or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered in Chapter \@ref(ggplot2-tutorial) so feel free to just sit back and enjoy these plots or blindly copy/paste.*
 
 ```{r factors-nice-for-plots, fig.show = 'hold', out.width = '49%'}
 ## we exploit the fact that ggplot2 was installed and loaded via the tidyverse
@@ -180,7 +186,7 @@ p + geom_point(alpha = (1/3), size = 3) + facet_wrap(~ continent) +
   geom_smooth(lwd = 1.5, se = FALSE)
 ```
 
-<!---
+<!---JB:
 EXERCISES I have used and let languish.
 Let's get the data for just 2007.
 How many rows?
@@ -213,18 +219,22 @@ plot(lifeExp ~ log(gdpPercap), gapminder, subset = year == 2007)
 
 ## Recap
 
-Use data frames!!!
+* Use data frames!!!
 
-Use the [`tidyverse`](https://github.com/hadley/tidyverse)!!! This will provide a special type of data frame called a "tibble" that has nice default printing behavior, among other benefits.
+* Use the [`tidyverse`][tidyverse-web]!!! This will provide a special type of data frame called a "tibble" that has nice default printing behavior, among other benefits.
 
-When in doubt, `str()` something or print something.
+* When in doubt, `str()` something or print something.
 
-Always understand the basic extent of your data frames: number of rows and columns.
+* Always understand the basic extent of your data frames: number of rows and columns.
 
-Understand what flavor the variables are.
+* Understand what flavor the variables are.
 
-Use factors!!! But with intention and care.
+* Use factors!!! But with intention and care.
 
-Do basic statistical and visual sanity checking of each variable.
+* Do basic statistical and visual sanity checking of each variable.
 
-Refer to variables by name, e.g., `gapminder$lifeExp`, not by column number. Your code will be more robust and readable.
+* Refer to variables by name, e.g., `gapminder$lifeExp`, not by column number. Your code will be more robust and readable.
+
+
+```{r links, child="links.md"}
+```

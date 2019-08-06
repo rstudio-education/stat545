@@ -1,6 +1,10 @@
 # R basics and workflows {#r-basics}
 
-[Link to original content](http://stat545.com/block002_hello-r-workspace-wd-project.html)
+```{r include = FALSE}
+source("common.R")
+```
+
+<!--Original content:http://stat545.com/block002_hello-r-workspace-wd-project.html-->
 
 ## Basics of working with R at the command line and RStudio goodies
 
@@ -8,15 +12,15 @@ Launch RStudio/R.
 
 Notice the default panes:
 
-  * Console (entire left)
-  * Environment/History (tabbed in upper right)
-  * Files/Plots/Packages/Help (tabbed in lower right)
+* Console (entire left)
+* Environment/History (tabbed in upper right)
+* Files/Plots/Packages/Help (tabbed in lower right)
 
-FYI: you can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
+FYI: you can change the default location of the panes, among many other things: [Customizing RStudio][rstudio-customizing].
 
 Go into the Console, where we interact with the live R process.
 
-Make an assignment and then inspect the object you just created.
+Make an assignment and then inspect the object you just created:
 
 ```{r start_rbasics}
 x <- 3 * 4
@@ -33,9 +37,9 @@ You will make lots of assignments and the operator `<-` is a pain to type. Don't
 
 Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
 
-RStudio offers many handy [keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts). Also, Alt+Shift+K brings up a keyboard shortcut reference card.
+RStudio offers many handy [keyboard shortcuts][rstudio-key-shortcuts]. Also, Alt+Shift+K brings up a keyboard shortcut reference card.
 
-Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words](http://en.wikipedia.org/wiki/Snake_case) in names.
+Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words][wiki-snake-case] in names.
 
 ```
 i_use_snake_case
@@ -43,14 +47,14 @@ other.people.use.periods
 evenOthersUseCamelCase
 ```
 
-Make another assignment
+Make another assignment:
 ```{r}
 this_is_a_really_long_name <- 2.5
 ```
 
 To inspect this, try out RStudio's completion facility: type the first few characters, press TAB, add characters until you disambiguate, then press return.
 
-Make another assignment
+Make another assignment:
 ```{r}
 jenny_rocks <- 2 ^ 3
 ```
@@ -63,7 +67,7 @@ jeny_rocks
 
 Implicit contract with the computer / scripting language: Computer will do tedious computation for you. In return, you will be completely precise in your instructions. Typos matter. Case matters. Get better at typing.
 
-R has a mind-blowing collection of built-in functions that are accessed like so
+R has a mind-blowing collection of built-in functions that are accessed like so:
 
 ```{r eval = FALSE, tidy = FALSE}
 functionName(arg1 = val1, arg2 = val2, and so on)
@@ -111,7 +115,7 @@ objects()
 ls()
 ```
 
-If you want to remove the object named `y`, you can do this
+If you want to remove the object named `y`, you can do this:
 
 ```{r}
 rm(y)
@@ -135,28 +139,27 @@ One day you will need to bring data from the outside world into R and send numer
 
 To handle these real life situations, you need to make two decisions:
 
-  * What about your analysis is "real", i.e. you will save it as your lasting record of what happened?
+* What about your analysis is "real", i.e. will you save it as your lasting record of what happened?
+* Where does your analysis "live"?
 
-  * Where does your analysis "live"?
-
-### Workspace, .RData
+### Workspace, `.RData`
 
 As a beginning R user, it's OK to consider your workspace "real". _Very soon_, I urge you to evolve to the next level, where you consider your saved R scripts as "real". (In either case, of course the input data is very much real and requires preservation!) With the input data and the R code you used, you can reproduce
 _everything_. You can make your analysis fancier. You can get to the bottom of puzzling results and discover and fix bugs in your code. You can reuse the code to conduct similar analyses in new projects. You can remake a figure with different aspect ratio or save is as TIFF instead of PDF. You are ready to take questions. You are ready for the future.
 
-If you regard your workspace as "real" (saving and reloading all the time), if you need to redo analysis ... you're going to either redo a lot of typing (making mistakes all the way) or will have to mine your R history for the commands you used. Rather than [becoming an expert on managing the R history](https://support.rstudio.com/hc/en-us/articles/200526217-Command-History), a better use of your time and psychic energy is to keep your "good" R code in a script for future reuse.
+If you regard your workspace as "real" (saving and reloading all the time), if you need to redo analysis ... you're going to either redo a lot of typing (making mistakes all the way) or will have to mine your R history for the commands you used. Rather than [becoming an expert on managing the R history][rstudio-command-history], a better use of your time and psychic energy is to keep your "good" R code in a script for future reuse.
 
 Because it can be useful sometimes, note the commands you've recently run appear in the History pane.
 
 But you don't have to choose right now and the two strategies are not incompatible. Let's demo the save / reload the workspace approach.
 
-Upon quitting R, you have to decide if you want to save your workspace, for potential restoration the next time you launch R. Depending on your set up, R or your IDE, eg RStudio, will probably prompt you to make this decision.
+Upon quitting R, you have to decide if you want to save your workspace, for potential restoration the next time you launch R. Depending on your set up, R or your IDE, e.g. RStudio, will probably prompt you to make this decision.
 
-Quit R/Rstudio, either from the menu, using a keyboard shortcut, or by typing `q()` in the Console. You'll get a prompt like this:
+Quit R/RStudio, either from the menu, using a keyboard shortcut, or by typing `q()` in the Console. You'll get a prompt like this:
 
 > Save workspace image to ~/.Rdata?
 
-_Note where the workspace image is to be saved_ and then click `Save`.
+_Note where the workspace image is to be saved_ and then click "Save".
 
 Using your favorite method, visit the directory where image was saved and verify there is a file named `.RData`. You will also see a file `.Rhistory`, holding the commands submitted in your recent session.
 
@@ -188,30 +191,27 @@ __Although I do not recommend it__, in case you're curious, you can set R's work
 setwd("~/myCoolProject")
 ```
 
-__Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu: Session --> Set Working Directory --> To Files Pane Location. (You'll see even more options there). Or within the Files pane, choose __More__ and __Set As
-Working Directory__.
+__Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu: *Session > Set Working Directory > To Files Pane Location*. (You'll see even more options there). Or within the Files pane, choose "More" and "Set As Working Directory".
 
 But there's a better way. A way that also puts you on the path to managing your R work like an expert.
 
-## RStudio projects
+## RStudio projects {#rprojs}
 
-Keeping all the files associated with a project organized together -- input data, R scripts, analytical results, figures -- is such a wise and common practice that RStudio has built-in support for this via its _projects_.
+Keeping all the files associated with a project organized together -- input data, R scripts, analytical results, figures -- is such a wise and common practice that RStudio has built-in support for this via its [_projects_][rstudio-using-projects].
 
-[Using Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-
-Let's make one to use for the rest of this workshop/class. Do this: File > New Project .... The directory name you choose here will be the project name. Call it whatever you want (or follow me for convenience).
+Let's make one to use for the rest of this workshop/class. Do this: *File > New Project...*. The directory name you choose here will be the project name. Call it whatever you want (or follow me for convenience).
 
 I created a directory and, therefore RStudio project, called `swc` in my `tmp` directory, FYI.
 
-<!-- https://github.com/yihui/knitr/issues/277 -->
+<!--JB: https://github.com/yihui/knitr/issues/277 -->
 
-```{r eval = FALSE}
+```r
 setwd("~/tmp/swc")
 ```
 
 Now check that the "home" directory for your project is the working directory of our current R process:
 
-```{r eval = FALSE}
+```r
 getwd()
 ```
 _I can't print my output here because this document itself does not reside in the RStudio Project we just created._
@@ -237,13 +237,13 @@ Quit RStudio. Inspect the folder associated with your project if you wish. Maybe
 
 Restart RStudio. Notice that things, by default, restore to where we were earlier, e.g. objects in the workspace, the command history, which files are open for editing, where we are in the file system browser, the working directory for the R process, etc. These are all Good Things.
 
-Change some things about your code. Top priority would be to set a sample size `n` at the top, e.g. `n <- 40`, and then replace all the hard-wired 40's with `n`. Change some other minor-but-detectable stuff, i.e. alter the sample size `n`, the slope of the line `b`,the color of the line ... whatever. Practice the different ways to re-run the code:
+Change some things about your code. Top priority would be to set a sample size `n` at the top, e.g. `n <- 40`, and then replace all the hard-wired 40's with `n`. Change some other minor-but-detectable stuff, e.g. alter the sample size `n`, the slope of the line `b`,the color of the line ... whatever. Practice the different ways to re-run the code:
 
-  * Walk through line by line by keyboard shortcut (command + enter) or mouse (click Run in the upper right corner of editor pane).
+* Walk through line by line by keyboard shortcut (Command+Enter) or mouse (click "Run" in the upper right corner of editor pane).
   
-  * Source the entire document -- equivalent to entering `source('toy-line.r')` in the Console -- by keyboard shortcut (shift command S) or mouse (click Source in the upper right corner of editor pane or select from the mini-menu accessible from the associated down triangle).
+* Source the entire document -- equivalent to entering `source('toy-line.r')` in the Console -- by keyboard shortcut (Shift+Command+S) or mouse (click "Source" in the upper right corner of editor pane or select from the mini-menu accessible from the associated down triangle).
   
-  * Source with echo from the Source mini-menu.
+* Source with echo from the Source mini-menu.
   
 Visit your figure in an external viewer to verify that the PDF is changing as you expect.
 
@@ -253,24 +253,26 @@ In your favorite OS-specific way, search your files for `toy_line_plot.pdf` and 
 
 It is traditional to save R scripts with a `.R` or `.r` suffix. Follow this convention unless you have some extraordinary reason not to. 
 
-Comments start with one or more `#` symbols. Use them. RStudio helps you (de)comment selected lines with Ctrl+Shift+C (windows and linux) or Command+Shift+C (mac).
+Comments start with one or more `#` symbols. Use them. RStudio helps you (de)comment selected lines with Ctrl+Shift+C (Windows and Linux) or Command+Shift+C (Mac).
 
-Clean out the workspace, ie pretend like you've just revisited this project after a long absence.  The broom icon or `rm(list = ls())`. Good idea to do this, restart R (available from the Session menu), re-run your analysis to truly check that the code you're saving is complete and correct (or at least rule out obvious problems!).
+Clean out the workspace, i.e. pretend like you've just revisited this project after a long absence.  The broom icon or `rm(list = ls())`. Good idea to do this, restart R (available from the Session menu), re-run your analysis to truly check that the code you're saving is complete and correct (or at least rule out obvious problems!).
 
 This workflow will serve you well in the future:
 
-  * Create an RStudio project for an analytical project
-  * Keep inputs there (we'll soon talk about importing)
-  * Keep scripts there; edit them, run them in bits or as a whole from there
-  * Keep outputs there (like the PDF written above)
+* Create an RStudio project for an analytical project
+* Keep inputs there (we'll soon talk about importing)
+* Keep scripts there; edit them, run them in bits or as a whole from there
+* Keep outputs there (like the PDF written above)
 
-Avoid using the mouse for pieces of your analytical workflow, such as loading a dataset or saving a figure. Terribly important for reproducility and for making it possible to retrospectively determine how a numerical table or PDF was actually produced (searching on local disk on filename, among `.R` files, will lead to the relevant script).
+Avoid using the mouse for pieces of your analytical workflow, such as loading a dataset or saving a figure. Terribly important for reproducibility and for making it possible to retrospectively determine how a numerical table or PDF was actually produced (searching on local disk on filename, among `.R` files, will lead to the relevant script).
 
-Many long-time users never save the workspace, never save `.RData` files (I'm one of them), never save or consult the history. Once/if you get to that point, there are options available in RStudio to disable the loading of .RData and permanently suppress the prompt on exit to save the workspace (go to Tools->Options->General).
+Many long-time users never save the workspace, never save `.RData` files (I'm one of them), never save or consult the history. Once/if you get to that point, there are options available in RStudio to disable the loading of .RData and permanently suppress the prompt on exit to save the workspace (go to *Tools > Options > General*).
 
-For the record, when loading data into R and/or writing outputs to file, you can always specify the absolute path and thereby insulate yourself from the current working directory. This is rarely necessary when using RStudio Projects properly.
+For the record, when loading data into R and/or writing outputs to file, you can always specify the absolute path and thereby insulate yourself from the current working directory. This is rarely necessary when using RStudio projects properly.
 
 ```{r end_rbasics, include = FALSE}
 file.remove(c("avg_x.txt", "toy_line_plot.pdf"))
 ```
 
+```{r links, child="links.md"}
+```

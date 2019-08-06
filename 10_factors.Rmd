@@ -1,14 +1,20 @@
-# (PART) Data Analysis 2 {-} 
+# (PART) Data analysis 2 {-} 
 
-# Be the boss of your factors {#factors}
+# Be the boss of your factors {#factors-boss}
+
+```{r include = FALSE}
+source("common.R")
+```
+
+<!--Original content: https://stat545.com/block029_factors.html-->
 
 ## Factors: where they fit in
 
-We've spent alot of time working with big, beautiful data frames, like the Gapminder data. But we also need to manage the individual variables housed within.
+We've spent a lot of time working with big, beautiful data frames, like the Gapminder data. But we also need to manage the individual variables housed within.
 
 Factors are the variable type that useRs love to hate. It is how we store truly categorical information in R. The values a factor can take on are called the **levels**. For example, the levels of the factor `continent` in Gapminder are are "Africa", "Americas", etc. and this is what's usually presented to your eyeballs by R. In general, the levels are friendly human-readable character strings, like "male/female" and "control/treated". But *never ever ever* forget that, under the hood, R is really storing integer codes 1, 2, 3, etc.
 
-This [Janus](http://en.wikipedia.org/wiki/Janus)-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you learn how to be the boss of your factors. The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
+This [Janus][wiki-janus]-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you learn how to be the boss of your factors. The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
 
 **The worst kind of factor is the stealth factor.** The variable that you think of as character, but that is actually a factor (numeric!!). This is a classic R gotcha. Check your variable types explicitly when things seem weird. It happens to the best of us.
 
@@ -16,19 +22,26 @@ Where do stealth factors come from? Base R has a burning desire to turn characte
 
 Good articles about how the factor fiasco came to be:
 
-  * [stringsAsFactors: An unauthorized biography](http://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/) by Roger Peng
-  * [stringsAsFactors = <sigh>](http://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh) by Thomas Lumley
+* [stringsAsFactors: An unauthorized biography][bio-strings-as-factors] by Roger Peng
+* [stringsAsFactors = \<sigh\>][blog-strings-as-factors] by Thomas Lumley
 
-## The forcats package
+## The `forcats` package
 
-forcats is a core package in the tidyverse. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
+[`forcats`][forcats-web] is a core package in the tidyverse. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
 
 Currently this lesson will be mostly code vs prose. See the previous lesson for more discussion during the transition.
 
-## Load tidyverse, forcats, gapminder
+## Load `forcats` and `gapminder`
+
+I choose to load the `tidyverse`, which will load `forcats`, among other packages we use incidentally below. 
 
 ```{r start_factors}
 library(tidyverse)
+```
+
+Also load `gapminder`.
+
+```{r message = FALSE, warning = FALSE}
 library(gapminder)
 ```
 
@@ -80,11 +93,11 @@ h_gap$country %>%
   levels()
 ```
 
-Exercise: Filter the gapminder data down to rows where population is less than a quarter of a million, i.e. 250,000. Get rid of the unused factor levels for `country` and `continent` in different ways, such as:
+__Exercise:__ Filter the gapminder data down to rows where population is less than a quarter of a million, i.e. 250,000. Get rid of the unused factor levels for `country` and `continent` in different ways, such as:
 
-  * `droplevels()`
-  * `fct_drop()` inside `mutate()`
-  * `fct_dopr()` with `mutate_at()` or `mutate_if()`
+* `droplevels()`
+* `fct_drop()` inside `mutate()`
+* `fct_dopr()` with `mutate_at()` or `mutate_if()`
 
 ```{r, eval = FALSE, include = FALSE}
 low_pop <- gapminder %>% 
@@ -102,12 +115,12 @@ low_pop %>%
   summarize(max_pop = max(pop))
 ```
 
-## Change order of the levels, principled
+## Change order of the levels, principled {#reorder-factors}
 
 By default, factor levels are ordered alphabetically. Which might as well be random, when you think about it! It is preferable to order the levels according to some principle:
 
-  * Frequency. Make the most common level the first and so on.
-  * Another variable. Order factor levels according to a summary statistic for another variable. Example: order Gapminder countries by life expectancy.
+* Frequency. Make the most common level the first and so on.
+* Another variable. Order factor levels according to a summary statistic for another variable. __Example:__ order Gapminder countries by life expectancy.
 
 First, let's order continent by frequency, forwards and backwards. This is often a great idea for tables and figures, esp. frequency barplots.
 
@@ -145,7 +158,7 @@ p <- ggplot(gap_tmp, aes(x = continent)) +
 p
 ```
 
-Now we order `country` by another variable, forwards and backwards. This other variable is usually quantitative and you will order the factor accoding to a grouped summary. The factor is the grouping variable and the default summarizing function is `median()` but you can specify something else.
+Now we order `country` by another variable, forwards and backwards. This other variable is usually quantitative and you will order the factor according to a grouped summary. The factor is the grouping variable and the default summarizing function is `median()` but you can specify something else.
 
 ```{r}
 ## order countries by median life expectancy
@@ -217,7 +230,7 @@ i_gap$country %>%
   fct_recode("USA" = "United States", "Oz" = "Australia") %>% levels()
 ```
 
-Exercise: Isolate the data for `"Australia"`, `"Korea, Dem. Rep."`, and `"Korea, Rep."` in the 2000x. Revalue the country factor levels to `"Oz"`, `"North Korea"`, and `"South Korea"`.
+__Exercise:__ Isolate the data for `"Australia"`, `"Korea, Dem. Rep."`, and `"Korea, Rep."` in the 2000x. Revalue the country factor levels to `"Oz"`, `"North Korea"`, and `"South Korea"`.
 
 ## Grow a factor
 
@@ -251,9 +264,13 @@ Umm, no. That is wrong on many levels! Use `fct_c()` to do this.
 fct_c(df1$country, df2$country)
 ```
 
-Exercise: Explore how different forms of row binding work behave here, in terms of the `country` variable in the result.
+__Exercise:__ Explore how different forms of row binding work behave here, in terms of the `country` variable in the result.
 
 ```{r end_factors}
 bind_rows(df1, df2)
 rbind(df1, df2)
+```
+
+
+```{r links, child="links.md"}
 ```
