@@ -191,8 +191,6 @@
 [purrr-web]: https://purrr.tidyverse.org
 [curl-cran]: https://CRAN.R-project.org/package=curl
 
-[pak-web]: https://pak.r-lib.org/index.html
-
 <!--Shiny links-->
 [shinydashboard-web]: https://rstudio.github.io/shinydashboard/
 [shinydashboard-cran]: https://CRAN.R-project.org/package=shinydashboard

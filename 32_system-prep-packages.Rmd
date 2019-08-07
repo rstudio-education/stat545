@@ -42,7 +42,6 @@ During `Rtools` installation you will get to a window asking you to "Select Addi
 *Are we going to recommend making sure Git Bash is NOT on `PATH`? See [#230](https://github.com/STAT545-UBC/Discussion/issues/230#issuecomment-155236031).*
 
 ```{r echo = FALSE, fig.cap = "`Rtools` installation", out.width = "65%"}
-library(knitr)
 knitr::include_graphics("img/rtools-install.png")
 ```
 
