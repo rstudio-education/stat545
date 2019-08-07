@@ -240,7 +240,6 @@ You will automate this pipeline using `make`!
 <!--TO DO (JB): remake the figure to say words.txt not words.tsv and the new words downloading strategy -->
 
 ```{r echo = FALSE, fig.cap = "Dependency graph of the pipeline", out.width = "50%"}
-library(knitr)
 knitr::include_graphics("supporting-docs/automation01_slides/images/activity.png")
 ```
 
