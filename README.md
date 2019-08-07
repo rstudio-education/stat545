@@ -18,7 +18,6 @@ This bookdown book is a *work in progress*. We'll update this `README` and the r
     
     Next, add `OMDB_API_KEY=<your-key>` on a new line, replacing `<your-key>` with your OMDb key. (Make sure to have your `.Renviron` file end on a new line!)
     
-
 ## Required packages
 
 ```r
