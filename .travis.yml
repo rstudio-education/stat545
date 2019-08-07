@@ -1,6 +1,6 @@
 language: r
 cran: https://cran.rstudio.com
-# cache: packages
+cache: packages
 
 before_install:
   - nvm install stable
