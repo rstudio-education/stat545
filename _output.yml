@@ -12,11 +12,12 @@ bookdown::gitbook:
       after: |
         <li><center>
           <a rel="license" href="./index.html#license">
-            License: CC-BY<br>
+            License: CC-BY-SA<br>
             <i class = "fab fa-creative-commons fa-2x"></i>
             <i class = "fab fa-creative-commons-by fa-2x"></i>
-          </a></center>
-        </li>
+            <i class = "fab fa-creative-commons-sa fa-2x"></i>
+          </a>
+        </li></center>
     download: ["rmd", "epub"]
     edit: https://github.com/rstudio-education/stat545-reboot/edit/master/%s
     sharing:
