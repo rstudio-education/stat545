@@ -1,12 +1,16 @@
 --- 
 title: "STAT 545"
 subtitle: "Data wrangling, exploration, and analysis with R"
-author: "Jenny Bryan and the STAT 545 TAs"
+author: 
+- Jenny Bryan 
+- The STAT 545 Teaching Assistants
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+favicon: assets/favicon.ico
+cover-image: assets/stat545-blue.png
 description: "STAT 545: Data wrangling, exploration, and analysis with R."
 github-repo: rstudio-education/stat545-reboot
 twitter-handle: jennybryan

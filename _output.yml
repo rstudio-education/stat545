@@ -1,22 +1,22 @@
 bookdown::gitbook:
   includes:
     in_header: header.html
-  css: style.css
+  css: [assets/fonts.css, assets/style.css]
   split_bib: FALSE
   split_by: chapter
   config:
     toc:
       collapse: section
       before: |
-        <li><a href="./">STAT 545</a></li>
+        <li class="toc-logo"><a href="./"><img src="assets/stat545-blue.png" style="border-radius: 50%;" ></a></li>
       after: |
         <li><center>
           <a rel="license" href="./index.html#license">
             License: CC-BY<br>
             <i class = "fab fa-creative-commons fa-2x"></i>
             <i class = "fab fa-creative-commons-by fa-2x"></i>
-          </a></center>
-        </li>
+          </a>
+        </li></center>
     download: ["rmd", "epub"]
     edit: https://github.com/rstudio-education/stat545-reboot/edit/master/%s
     sharing:

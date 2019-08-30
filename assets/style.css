@@ -1,0 +1,179 @@
+/*@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Prata&display=swap');*/
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+
+/*------------- Body and header text---------------- */
+
+.book.font-family-1 {
+  font-family: 'Muli', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Prata', serif;
+  color: #2f5275;
+}
+
+.title {
+  font-family: 'Prata', serif;
+  font-size: 3em !important;
+  color: #5699cc;
+}
+
+.subtitle {
+  font-family: 'Prata', serif;
+  color: #2c6793 !important;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal em {
+  font-style: normal !important;
+}
+
+.author {
+  color: #2c6793 !important;
+}
+
+
+/*--- LOGO ---*/
+    
+    .toc-logo {
+      width: 200px !important;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .toc-logo img {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .summary > li:first-child {
+      height: auto !important; 
+    }
+    
+
+/*-----Body Links-------*/
+
+.book .book-body .page-wrapper .page-inner section.normal a {
+  color: #3f88ca;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:hover {
+ color: #1f5386; /* darker color when hovering */
+ text-decoration: none;
+}
+    
+    
+/* The next two rules make the horizontal line go straight across in top navbar */
+
+.summary > li:first-child {
+	height: 50px;
+	padding-top: 10px;
+	border-bottom: 1px solid rgba(0,0,0,.07);
+}
+
+.book .book-summary ul.summary li.divider {
+	height: 0px;
+}
+
+/* -----------Section anchors -------------*/
+
+.book .book-body .page-wrapper .page-inner section.normal {
+  overflow: visible !important; /*so anchor link doesn't get cut off */
+}
+
+a.anchor {
+  margin-left: -30px;
+  padding-right: 3px;
+  display:inline-block;
+  width: 30px;
+  height: 30px;
+  /*visibility: hidden;*/
+  background-image: url(https://image.flaticon.com/icons/svg/34/34735.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 20px 20px !important;
+  background-position: center bottom !important;
+  opacity: 0;
+}
+
+
+.hasAnchor:hover a.anchor, a.anchor:hover {
+  /*visibility: visible;*/
+  opacity: 0.6;
+}
+
+@media (max-width: 1144px) { /* don't show anchor link on small screens */
+  .hasAnchor:hover a.anchor {
+    visibility: hidden;
+  }
+}
+
+
+/*TOC */
+
+/*------------ TOC --------------*/
+
+.book .book-summary {
+  background: white;
+  border-right: none;
+}
+
+.summary{
+    font-family: 'Muli', sans-serif;
+    }
+
+/* all TOC list items, basically */
+    .book .book-summary ul.summary li a, 
+    .book .book-summary ul.summary li span {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 15px;
+      padding-right: 15px;
+      color: #2f5175;
+    }
+
+    .summary a:hover {
+      color: #778ca5 !important;
+    } 
+
+    .book .book-summary ul.summary li.active>a { /*active TOC links*/
+      color: #5699cc !important;
+      border-left: solid 4px;
+      border-color: #5699cc;
+      padding-left: 11px !important;
+    } 
+    
+    li.appendix span, li.part span { /* for TOC part names */
+      margin-top: 1em;
+      color: #778ca5;
+      opacity: 1 !important;
+      text-transform: uppercase;
+    }
+    
+    .part + li[data-level=""] { /* grabs first .chapter immediately after .part...but only those ch without numbers */
+      text-transform: uppercase;
+    }
+
+
+/* CODE */
+
+.book .book-body .page-wrapper .page-inner section.normal code, 
+.book .book-body .page-wrapper .page-inner section.normal pre {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1em;
+}
