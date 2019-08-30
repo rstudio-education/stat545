@@ -80,7 +80,6 @@ The eBird website categorizes some popular locations as "Hotspots". These are ar
 At that link, you will see a page like this:
 
 ```{r ebird-iona-island, echo = FALSE, fig.cap = "Iona Island", out.width = "80%"}
-library(knitr)
 knitr::include_graphics("img/Iona_island.png")
 ```
 

@@ -46,7 +46,6 @@ set.seed(328)
 ```
 
 ```{r draw-an-owl, echo = FALSE, fig.cap = '"How to draw an owl" from [imgur](http://imgur.com/gallery/RadSf)"', out.width = "50%"}
-library(knitr)
 knitr::include_graphics("img/how-to-draw-an-own-imgur.jpg")
 ```
 
