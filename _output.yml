@@ -1,4 +1,5 @@
 bookdown::gitbook:
+  highlight: tango
   includes:
     in_header: header.html
   css: [assets/fonts.css, assets/style.css]
