@@ -9,7 +9,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li class="toc-logo"><a href="./"><img src="assets/stat545-blue.png" style="border-radius: 50%;" ></a></li>
+        <li class="toc-logo"><a href="./"><img src="assets/stat545-logo.png" style="border-radius: 50%;" ></a></li>
       after: |
         <li><center>
           <a rel="license" href="./index.html#license">
