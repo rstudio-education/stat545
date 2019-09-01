@@ -1,5 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Prata&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i|Prata|Source+Code+Pro&display=swap');
 
 p.caption {
   color: #777;
@@ -14,6 +13,13 @@ pre {
 }
 pre code {
   white-space: inherit;
+}
+
+/*------------- Chapter border bottoms---------------- */
+
+/* line goes all the way across full chapter title */
+.level1 h1 {
+  border-bottom: 3px solid #bed3ec;
 }
 
 
@@ -170,10 +176,24 @@ a.anchor {
     }
 
 
-/* CODE */
+/*------------- CODE --------------*/
 
 .book .book-body .page-wrapper .page-inner section.normal code, 
 .book .book-body .page-wrapper .page-inner section.normal pre {
   font-family: 'Source Code Pro', monospace;
   font-size: 1em;
+}
+
+.sourceCode pre {
+  margin: 0 !important; /* makes space above and below symmetrical*/
+}
+
+/*------------- BLOCK QUOTES --------------*/
+
+blockquote > p:last-child {
+  text-align: right;
+}
+
+blockquote > p:first-child {
+  text-align: inherit;
 }
