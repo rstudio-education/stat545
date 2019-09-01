@@ -8,7 +8,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "STAT 545: Data wrangling, exploration, and analysis with R."
-github-repo: rstudio-education/stat545-reboot
+github-repo: rstudio-education/stat545
 twitter-handle: jennybryan
 ---
 
@@ -35,7 +35,7 @@ This is a bookdown version of STAT 545 @ University of British Columbia, a cours
 > --- [Wikipedia](https://en.wikipedia.org/wiki/Jenny_Bryan)
 
 
-The contents of this course come from the [original STAT 545 website](http://stat545.com), which is created by [this repository on GitHub](https://github.com/STAT545-UBC/STAT545-UBC.github.io). 
+The contents of this course come from the [original STAT 545 website](https://STAT545-UBC.github.io/STAT545-UBC.github.io/), which is created by [this repository on GitHub](https://github.com/STAT545-UBC/STAT545-UBC.github.io). 
 
 ## Contributors {-}
 
@@ -85,7 +85,7 @@ Here are some good resources to get your head in the right place.
 
 <!--TODO: Update website and github links when finalized-->
 
-This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://gracious-allen-b2d17f.netlify.com) is hosted with [netlify](https://www.netlify.com), and automatically updated after every commit by [travis-ci](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545-reboot).
+This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://gracious-allen-b2d17f.netlify.com) is hosted with [netlify](https://www.netlify.com), and automatically updated after every commit by [travis-ci](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545).
 
 
 This version of the book was built with:

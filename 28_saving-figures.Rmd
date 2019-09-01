@@ -265,7 +265,7 @@ p
 And it will lead to the creation of a suitably named figure file (you may see other figures produced in the document as well):
 
 ```{r eval = FALSE}
-book_figs <- fs::path("_bookdown_files", "stat545-reboot_files", "figure-html")
+book_figs <- fs::path("_bookdown_files", "stat545_files", "figure-html")
 fs::dir_ls(book_figs, regexp = "scatterplot-lifeExp")
 ```
 

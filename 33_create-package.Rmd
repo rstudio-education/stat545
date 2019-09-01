@@ -852,7 +852,7 @@ Now you need to edit `vignettes/foofactors-vignette.Rmd`. At the very least, do 
 * List yourself as author or remove that line.
 * Remove the boilerplate content and throw in some usage. Even early on, just mine your examples or tests for something to throw in here. It is better than nothing.
 
-The vignette source can be seen here: [foofactors-vignette.Rmd](https://raw.githubusercontent.com/rstudio-education/stat545-reboot/master/supporting-docs/foofactors-vignette.Rmd)
+The vignette source can be seen here: [foofactors-vignette.Rmd](https://raw.githubusercontent.com/rstudio-education/stat545/master/supporting-docs/foofactors-vignette.Rmd)
 
 ```{r copy-vignette, asis = TRUE, echo = FALSE, comment = NA, include = debug}
 vignette_path <- path("vignettes", "foofactors-vignette.Rmd")
