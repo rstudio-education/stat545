@@ -5,8 +5,8 @@ cache: packages
 before_install:
   - nvm install stable
   - npm i netlify-cli -g
-  - export DEPLOY_MSG="${TRAVIS_COMMIT:0:7} ${TRAVIS_COMMIT_MESSAGE:0:70}"
-
+  - export COMMIT_MSG=$(echo "$TRAVIS_COMMIT_MESSAGE" | head -n1)
+  - export DEPLOY_MSG="${TRAVIS_COMMIT:0:7} ${COMMIT_MSG:0:50}"
 env:
   - NETLIFY_SITE_ID=82ff5a18-8a13-4f25-b688-230b04bc5664
   # NETLIFY_AUTH_TOKEN set in travis settings
