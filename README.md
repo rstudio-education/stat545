@@ -20,12 +20,14 @@ This bookdown book is a *work in progress*. We'll update this `README` and the r
     
 ## Required packages
 
+<!--TODO: Change pkg_list to not be static, maybe use renv::dependencies(path = "DESCRIPTION")?-->
+
 ```{r eval = FALSE}
 pkg_list <- c("bookdown", "devtools", "dichromat", "DT", "fs", "gapminder",
               "gender", "geonames", "git2r", "glue", "gridExtra",  "htmltools",
               "httr", "knitr", "RColorBrewer", "rebird", "rmarkdown", "rplos", 
               "rvest", "testthat", "tidyverse", "usethis", "viridis", "xfun", 
-              "xml2", "ropensci/genderdata", "rstudio/gt")
+              "xml2", "ropensci/genderdata", "rstudio/gt", "rstudio/renv@46f1123")
 ```
 
 Here's one way to install the needed packages (only the ones that you don't already have) using the [`pak` package](https://pak.r-lib.org/index.html).

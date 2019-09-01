@@ -87,7 +87,11 @@ This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http:
 This version of the book was built with:
 
 ```{r message = FALSE, warning = FALSE, echo = FALSE}
-session <- devtools::session_info()
+# needed because new_session is set to true in _bookdown.yml
+all_pkgs <- renv::dependencies(path = "DESCRIPTION") %>% 
+  pull(Package) 
+
+session <- devtools::session_info(pkgs = all_pkgs)
 
 session$platform
 ```

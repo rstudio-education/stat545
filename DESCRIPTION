@@ -29,7 +29,9 @@ Imports:
     DT,
     htmltools,
     glue,
-    xfun
+    xfun,
+    renv
 Remotes:  
     rstudio/gt,
-    ropensci/genderdata
+    ropensci/genderdata,
+    rstudio/renv@46f1123
