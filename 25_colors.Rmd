@@ -38,7 +38,7 @@ When you change a graphical parameter via `par()`, the original values are retur
 
 Big picture, it is best practice to restore the original, default state of hidden things that affect an R session. This is polite if you plan to inflict your code on others. Even if you live on an R desert island, this practice will prevent you from creating maddening little puzzles for yourself to solve in the middle of the night before a deadline.
 
-Because of the way figures are handled by `knitr`, it is more complicated to change the default plotting symbol throughout an R Markdown document. To see how I've done it, check out a hidden chunk around here in the [source of this page](https://github.com/rstudio-education/stat545-reboot/blob/master/25_colors.Rmd).
+Because of the way figures are handled by `knitr`, it is more complicated to change the default plotting symbol throughout an R Markdown document. To see how I've done it, check out a hidden chunk around here in the [source of this page](https://github.com/rstudio-education/stat545/blob/master/25_colors.Rmd).
 
 
 ```{r include = FALSE}

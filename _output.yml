@@ -19,7 +19,7 @@ bookdown::gitbook:
           </a>
         </li></center>
     download: ["rmd", "epub"]
-    edit: https://github.com/rstudio-education/stat545-reboot/edit/master/%s
+    edit: https://github.com/rstudio-education/stat545/edit/master/%s
     sharing:
       github: yes
       facebook: no

@@ -454,12 +454,12 @@ They love that!
 
 You can create a link that takes people directly to an editing interface in the browser. Behind the scenes, assuming the clicker is signed into GitHub but is not you, this will create a fork in their account and send you a pull request. When I click the link below, I am able to actually commit directly to `master` for this repo.
 
-[CLICK HERE to suggest an edit to this page!](https://github.com/rstudio-education/stat545-reboot/edit/master/39_appendix.Rmd)
+[CLICK HERE to suggest an edit to this page!](https://github.com/rstudio-education/stat545/edit/master/39_appendix.Rmd)
 
 Here's what that link looks like in the Markdown source:
 
 ```
-[CLICK HERE to suggest an edit to this page!](https://github.com/rstudio-education/stat545-reboot/edit/master/39_appendix.Rmd)
+[CLICK HERE to suggest an edit to this page!](https://github.com/rstudio-education/stat545/edit/master/39_appendix.Rmd)
 ```
 
 and here it is with placeholders:
