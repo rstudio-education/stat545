@@ -12,6 +12,8 @@ link-citations: yes
 description: "STAT 545: Data wrangling, exploration, and analysis with R."
 github-repo: rstudio-education/stat545
 twitter-handle: jennybryan
+cover-image: assets/stat545-logo.png
+favicon: assets/favicon.ico
 ---
 
 # Welcome to STAT 545 {-}
@@ -40,9 +42,9 @@ The contents of this book came from the [original STAT 545 website](https://STAT
 
 ## Colophon {-}
 
-<!--TODO: Update website and github links when finalized-->
+This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://stat545-book.netlify.com) is hosted with [netlify](https://www.netlify.com), and automatically updated after every commit by [travis-ci](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545).
 
-This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://gracious-allen-b2d17f.netlify.com) is hosted with [netlify](https://www.netlify.com), and automatically updated after every commit by [travis-ci](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545).
+The [STAT 545 logo](assets/stat545-logo.png) and the book style was designed by [Desirée De Leon](https://desiree.rbind.io/).
 
 
 This version of the book was built with:
