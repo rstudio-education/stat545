@@ -20,9 +20,14 @@ This bookdown book is a *work in progress*. We'll update this `README` and the r
     
 ## Required packages
 
+
+### Use `pak` to install any missing packages
+
+Here's one way to install the needed packages (only the ones that you don't already have) using the [`pak` package](https://pak.r-lib.org/index.html).
+
 <!--TODO: Change pkg_list to not be static, maybe use renv::dependencies(path = "DESCRIPTION")?-->
 
-```{r eval = FALSE}
+```r
 pkg_list <- c("bookdown", "devtools", "dichromat", "DT", "fs", "gapminder",
               "gender", "geonames", "git2r", "glue", "gridExtra",  "htmltools",
               "httr", "knitr", "RColorBrewer", "rebird", "rmarkdown", "rplos", 
@@ -30,11 +35,38 @@ pkg_list <- c("bookdown", "devtools", "dichromat", "DT", "fs", "gapminder",
               "xml2", "ropensci/genderdata", "rstudio/gt", "rstudio/renv@46f1123")
 ```
 
-Here's one way to install the needed packages (only the ones that you don't already have) using the [`pak` package](https://pak.r-lib.org/index.html).
 
-```{r eval = FALSE}
+```r
 # install.packages("pak")
 pak::pkg_install(pkg_list)
 ```
 
-<!--TODO: Add a second option using the `renv` package.-->
+### Use `renv` to recreate our project library
+
+Another option is to use the [`renv` package](https://rstudio.github.io/renv/index.html) to replicate our exact project library. `renv` will create a private, project-specific library that is separate from your personal package library. This would be a good option if, for example, you have a specific version of a package installed that you don't want to mess with.
+
+The `renv` package is still in the development stage so these instructions may change. See the [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html) page for more information on what `renv` is doing behind the scenes. 
+
+Once you have a local copy of this project (either via fork/clone or downloading a zip file), follow these steps:
+
+1. Install the development version of the `renv` package (the same version we used to take a "snapshot" of our project library):
+   
+    ```r
+    if (!requireNamespace("remotes"))
+      install.packages("remotes")
+  
+    remotes::install_github("rstudio/renv@e0a0c13")
+    ```
+    
+    
+    `* Project '~/Downloads/stat545-add-renv' loaded. [renv 0.7.0-21]`
+
+  
+  Preview the book by either `bookdown::serve_book()` or *Addins* > *Preview Book*. If you go with the latter you will be prompted to install `miniUI` 
+<!-- 
+GL: How I created the lockfile
+
+1. renv::init() -- creates initial lockfile, adds three files: renv/, renv.lock, and .Rprofile
+2. renv::deactivate() -- removes .Rprofile, "turns off" renv
+
+-->
