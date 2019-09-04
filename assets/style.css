@@ -45,12 +45,16 @@ h1, h2, h3, h4 {
   color: #2c6793 !important;
 }
 
-.book .book-body .page-wrapper .page-inner section.normal em {
+.subtitle em {
   font-style: normal !important;
 }
 
 .author {
   color: #2c6793 !important;
+}
+
+p.author em {
+  font-style: normal !important;
 }
 
 
