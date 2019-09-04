@@ -8,31 +8,27 @@ source("common.R")
 
 ## Regular expressions in R {#regex1}
 
-* __Rendered__: https://stat545.com/block022_regular-expression.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block022_regular-expression.rmd
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block022_regular-expression.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block022_regular-expression.rmd))
+
   
 ## Regular expressions and character data {#regex2}
 
-* __Rendered__: https://stat545.com/block027_regular-expressions.html
-* __Raw__:  https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block027_regular-expressions.Rmd
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block027_regular-expressions.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block027_regular-expressions.Rmd))
 
 
 ## Vectors versus tibbles {#vectors-tibbles}
 
-* __Rendered__: https://stat545.com/block031_vector-tibble-relations.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block031_vector-tibble-relations.Rmd
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block031_vector-tibble-relations.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block031_vector-tibble-relations.Rmd))
 
 
 ## Computing by groups within data.frames with `dplyr` and `broom` {#dplyr-do}
 
-* __Rendered__: https://stat545.com/block023_dplyr-do.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block023_dplyr-do.rmd
-  
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block023_dplyr-do.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block023_dplyr-do.rmd))
+
   
 ## Computing by groups within data.frames with `plyr` {#plyr-ddply}
 
-* __Rendered__: https://stat545.com/block013_plyr-ddply.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block013_plyr-ddply.rmd
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block013_plyr-ddply.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block013_plyr-ddply.rmd))
 
 
 # Short random things {#random}
