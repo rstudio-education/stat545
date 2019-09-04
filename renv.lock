@@ -466,6 +466,16 @@
       "Source": "CRAN",
       "Hash": "908d95ccbfd1dd274073ef07a7c93934"
     },
+    "miniUI": {
+      "Package": "miniUI",
+      "Version": "0.1.1.1",
+      "Source": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "miniUI",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "0.1.1.1",
+      "Hash": "53236ac4d8dcc50446bbb83c45e024cd"
+    },
     "modelr": {
       "Package": "modelr",
       "Version": "0.1.5",
@@ -696,6 +706,16 @@
       "Source": "CRAN",
       "Hash": "40ccee5dc2b97e197648525aefcfd0ba"
     },
+    "servr": {
+      "Package": "servr",
+      "Version": "0.15",
+      "Source": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "servr",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "0.15",
+      "Hash": "adcd3bbb5259abaf5d4dd667b5dbd62b"
+    },  
     "sessioninfo": {
       "Package": "sessioninfo",
       "Version": "1.1.1",
@@ -870,3 +890,5 @@
     }
   }
 }
+
+
