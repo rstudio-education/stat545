@@ -188,6 +188,10 @@ a.anchor {
   margin: 0 !important; /* makes space above and below symmetrical*/
 }
 
+.sourceCode {
+  margin-bottom: 0.85em; /* adds same amount of margin beneath chunk as a <p> would */
+}
+
 /*------------- BLOCK QUOTES --------------*/
 
 blockquote > p:last-child {
