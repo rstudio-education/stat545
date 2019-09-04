@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content:https://stat545.com/block011_write-your-own-function-02.html-->
+<!--Original content: https://stat545.com/block011_write-your-own-function-02.html-->
 
 ## Where were we? Where are we going?
 

@@ -292,7 +292,7 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## Make browsing your GitHub repos more rewarding {#github-browsability}
 
-<!--Original content: http://stat545.com/bit006_github-browsability-wins.html)-->
+<!--Original content: http://stat545.com/bit006_github-browsability-wins.html-->
 
 *The unreasonable effectiveness of GitHub browsability*
 

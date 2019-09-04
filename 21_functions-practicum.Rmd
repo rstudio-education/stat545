@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content:https://stat545.com/block012_function-regress-lifeexp-on-year.html-->
+<!--Original content: https://stat545.com/block012_function-regress-lifeexp-on-year.html-->
 
 ## Overview
 
