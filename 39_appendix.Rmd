@@ -476,9 +476,13 @@ AFAIK, to do that in a slick automatic way across an entire repo/site, you need 
 
 ## Store an API key as an environment variable {#store-api-key}
 
+<!--Original content: https://stat545.com/bit003_api-key-env-var.html-->
+
 This can be found [here](https://happygitwithr.com/credential-caching.html).
 
 ## Data Carpentry lesson on tidy data {#data-carp-tidy-data}
+
+<!--Original content: https://stat545.com/bit002_tidying-lotr-data.html-->
 
 *A lesson I contributed to [Data Carpentry](https://software-carpentry.org/blog/2014/05/our-first-data-carpentry-workshop.html) on tidying data.*
 
