@@ -72,4 +72,9 @@ bookdown_urls <- paired_nodes %>%
   select(-comment)
 
 
+# TODO: fix automation slides link, currently links out to the github.io stat545 site.
+bookdown_urls <- bookdown_urls %>% 
+  filter(bookdown_path != "automation-slides.html")
+
+
 write_csv(bookdown_urls, "admin/bookdown_chp_urls.csv")
