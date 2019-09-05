@@ -9,6 +9,8 @@ library(commonmark)
 library(rvest)
 library(stringr)
 library(tidyr)
+library(glue)
+library(fs)
 
 # helper-functions --------------------------------------------------------
 rmd_to_html <- function(rmd){
@@ -31,8 +33,7 @@ make_node_df <- function(nodeset){
 }
 # -----------------------------------------------------------------------------
 
-
-chapters_rmd <- list.files(path = ".", pattern = "[[:digit:]]{2}_.*\\.Rmd") %>% 
+chapters_rmd <- dir_ls(regexp = "[[:digit:]]{2}_.*\\.Rmd") %>% 
   discard(~ .x == "40_references.Rmd")
 
 chapters_html <- map(chapters_rmd, rmd_to_html)
@@ -60,10 +61,10 @@ paired_nodes <- nodes %>%
 bookdown_urls <- paired_nodes %>% 
   # clean up bookdown ref urls
   mutate(h1 = str_extract(h1, "(?<=\\{-?#).+(?=\\})"),
-         h1 = str_c(h1, ".html")) %>% 
+         h1 = glue("{h1}.html")) %>% 
   mutate(h2 = str_extract(h2, "(?<=\\{).+(?=\\})"),
          h2 = if_else(is.na(h2), "", h2)) %>% 
-  mutate(bookdown_path = str_c(h1, h2)) %>% 
+  mutate(bookdown_path = glue("{h1}{h2}")) %>% 
   select(-h1, -h2) %>% 
   
   # clean up stat545 urls
