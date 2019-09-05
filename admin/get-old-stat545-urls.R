@@ -27,7 +27,7 @@ paths <- vapply(stat545, "[[", "", "path")
 stat545_urls <- tibble(
   old_url = "https://stat545.com/", 
   new_url = "https://STAT545-UBC.github.io/STAT545-UBC.github.io/",
-  path = paths
+  stat545_path = paths
 )
 
 
