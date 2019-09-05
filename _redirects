@@ -1,602 +1,256 @@
-/webdata02_activity.html	/api-wrappers.html
-/automation04_make-activity.html	/automating-pipeline.html
-/automation00_index.html	/automation-overview.html
-/block006_care-feeding-data.html	/basic-data-care.html
-/block032_character-encoding.html	/character-encoding.html
-/block028_character-data.html	/character-vectors.html
-/block018_colors.html	/colors.html
-/webdata03_activity.html	/diy-web-data.html
-/block009_dplyr-intro.html	/dplyr-intro.html
-/block010_dplyr-end-single-table.html	/dplyr-single.html
-/block015_graph-dos-donts.html	/effective-graphs.html
-/block029_factors.html	/factors-boss.html
-/block011_write-your-own-function-01.html	/functions-part1.html
-/block011_write-your-own-function-02.html	/functions-part2.html
-/block011_write-your-own-function-03.html	/functions-part3.html
-/block012_function-regress-lifeexp-on-year.html	/functions-practicum.html
-/graph00_index.html	/graphics-overview.html
-/block026_file-out-in.html	/import-export.html
-/block000_r-rstudio-install.html	/install.html
-/bit001_dplyr-cheatsheet.html	/join-cheatsheet.html
-/bit008_lookup.html	/lookup.html
-/automation03_make-test-drive.html	/make-test-drive.html
-/automation02_windows.html	/make-windows.html
-/block020_multiple-plots-on-a-page.html	/multiple-plots.html
-/block033_working-with-two-tables.html	/multiple-tibbles.html
-/packages06_foofactors-package.html	/package-from-scratch.html
-/packages00_index.html	/package-overview.html
-/block019_enforce-color-scheme.html	/qualitative-colors.html
-/block002_hello-r-workspace-wd-project.html	/r-basics.html
-/block007_first-use-rmarkdown.html	/r-markdown.html
-/block004_basic-r-objects.html	/r-objects.html
-/bit002_tidying-lotr-data.html	/random.html#data-carp-tidy-data
-/bit007_draw-the-rest-of-the-owl.html	/random.html#draw-the-owl
-/bit006_github-browsability-wins.html	/random.html#github-browsability
-/bit003_api-key-env-var.html	/random.html#store-api-key
-/block017_write-figure-to-file.html	/save-figs.html
-/block016_secrets-happy-graphing.html	/secrets.html
-/shiny00_index.html	/shiny-slides.html
-/shiny01_activity.html	/shiny-tutorial.html
-/packages01_system-prep.html	/system-prep.html
-/git08_claim-stat545-repo.html	/version-control.html#claim-stat545-repo
-/webdata01_slides.html	/web-data-slides.html
-/.gitignore	https://STAT545-UBC.github.io/STAT545-UBC.github.io//.gitignore
-/.nojekyll	https://STAT545-UBC.github.io/STAT545-UBC.github.io//.nojekyll
-/111Scraping_Workthrough.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//111Scraping_Workthrough.Rmd
-/111Scraping_Workthrough.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//111Scraping_Workthrough.html
-/111Scraping_Workthrough.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//111Scraping_Workthrough.md
-/404.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//404.html
-/404.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//404.md
-/CNAME	https://STAT545-UBC.github.io/STAT545-UBC.github.io//CNAME
-/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io//Makefile
-/README.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//README.md
-/ScrapingWorkthrough.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//ScrapingWorkthrough.md
-/_output.yaml	https://STAT545-UBC.github.io/STAT545-UBC.github.io//_output.yaml
-/automation00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation00_index.md
-/automation01_slides/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/Makefile
-/automation01_slides/README.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/README.md
-/automation01_slides/article/.gitignore	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/article/.gitignore
-/automation01_slides/article/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/article/Makefile
-/automation01_slides/article/article.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/article/article.Rmd
-/automation01_slides/article/figure.gv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/article/figure.gv
-/automation01_slides/article/figure.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/article/figure.png
-/automation01_slides/bcl-data.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/bcl-data.csv
-/automation01_slides/images/UniqTag-md.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/UniqTag-md.png
-/automation01_slides/images/UniqTag-pdf.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/UniqTag-pdf.png
-/automation01_slides/images/activity.gv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/activity.gv
-/automation01_slides/images/activity.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/activity.png
-/automation01_slides/images/article.gv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/article.gv
-/automation01_slides/images/article.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/article.png
-/automation01_slides/images/cc-by.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/cc-by.png
-/automation01_slides/images/pipeline.gv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/pipeline.gv
-/automation01_slides/images/pipeline.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/pipeline.png
-/automation01_slides/images/sjackman.jpg	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/sjackman.jpg
-/automation01_slides/images/stat540diffmethleuk.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/stat540diffmethleuk.png
-/automation01_slides/images/workflow-rmd-md.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/images/workflow-rmd-md.png
-/automation01_slides/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/index.html
-/automation01_slides/reveal.js/css/print/pdf.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/css/print/pdf.css
-/automation01_slides/reveal.js/css/reveal.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/css/reveal.min.css
-/automation01_slides/reveal.js/css/theme/simple.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/css/theme/simple.css
-/automation01_slides/reveal.js/css/theme/sky.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/css/theme/sky.css
-/automation01_slides/reveal.js/js/reveal.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/js/reveal.min.js
-/automation01_slides/reveal.js/lib/js/classList.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/lib/js/classList.js
-/automation01_slides/reveal.js/lib/js/head.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/lib/js/head.min.js
-/automation01_slides/reveal.js/plugin/notes/notes.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/plugin/notes/notes.js
-/automation01_slides/reveal.js/plugin/zoom-js/zoom.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/reveal.js/plugin/zoom-js/zoom.js
-/automation01_slides/slides.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/slides.md
-/automation01_slides/slides.revealjs	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation01_slides/slides.revealjs
-/automation02_windows.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation02_windows.md
-/automation03_make-test-drive.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation03_make-test-drive.md
-/automation04_make-activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation04_make-activity.md
-/automation10_holding-area/01_automation-example_just-r/00_download-data.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/01_automation-example_just-r/00_download-data.R
-/automation10_holding-area/01_automation-example_just-r/01_filter-reorder-plot.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/01_automation-example_just-r/01_filter-reorder-plot.R
-/automation10_holding-area/01_automation-example_just-r/02_aggregate-plot.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/01_automation-example_just-r/02_aggregate-plot.R
-/automation10_holding-area/01_automation-example_just-r/Makefile.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/01_automation-example_just-r/Makefile.R
-/automation10_holding-area/01_automation-example_just-r/README.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/01_automation-example_just-r/README.md
-/automation10_holding-area/01_automation-example_just-r/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/01_automation-example_just-r/index.html
-/automation10_holding-area/02_automation-example_r-and-make/00_download-data.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/02_automation-example_r-and-make/00_download-data.R
-/automation10_holding-area/02_automation-example_r-and-make/01_filter-reorder-plot.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/02_automation-example_r-and-make/01_filter-reorder-plot.R
-/automation10_holding-area/02_automation-example_r-and-make/02_aggregate-plot.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/02_automation-example_r-and-make/02_aggregate-plot.R
-/automation10_holding-area/02_automation-example_r-and-make/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/02_automation-example_r-and-make/Makefile
-/automation10_holding-area/02_automation-example_r-and-make/README.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/02_automation-example_r-and-make/README.md
-/automation10_holding-area/02_automation-example_r-and-make/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/02_automation-example_r-and-make/index.html
-/automation10_holding-area/03_automation-example_render-without-rstudio/00_download-data.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/00_download-data.R
-/automation10_holding-area/03_automation-example_render-without-rstudio/01_filter-reorder-plot.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/01_filter-reorder-plot.R
-/automation10_holding-area/03_automation-example_render-without-rstudio/02_aggregate-plot.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/02_aggregate-plot.R
-/automation10_holding-area/03_automation-example_render-without-rstudio/03_lotr-report.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/03_lotr-report.Rmd
-/automation10_holding-area/03_automation-example_render-without-rstudio/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/Makefile
-/automation10_holding-area/03_automation-example_render-without-rstudio/README.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/README.md
-/automation10_holding-area/03_automation-example_render-without-rstudio/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/03_automation-example_render-without-rstudio/index.html
-/automation10_holding-area/activity/.gitignore	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/activity/.gitignore
-/automation10_holding-area/activity/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/activity/Makefile
-/automation10_holding-area/activity/histogram.r	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/activity/histogram.r
-/automation10_holding-area/activity/report.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//automation10_holding-area/activity/report.rmd
-/bit001_dplyr-cheatsheet.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit001_dplyr-cheatsheet.md
-/bit001_dplyr-cheatsheet.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit001_dplyr-cheatsheet.rmd
-/bit002_tidying-lotr-data.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit002_tidying-lotr-data.md
-/bit003_api-key-env-var.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit003_api-key-env-var.md
-/bit003_api-key-env-var.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit003_api-key-env-var.rmd
-/bit004_stat545-use-of-github.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit004_stat545-use-of-github.html
-/bit004_stat545-use-of-github.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit004_stat545-use-of-github.md
-/bit004_stat545-use-of-github.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit004_stat545-use-of-github.rmd
-/bit005_hw07-hw05-comparing-dataframes.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit005_hw07-hw05-comparing-dataframes.Rmd
-/bit005_hw07-hw05-comparing-dataframes.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit005_hw07-hw05-comparing-dataframes.html
-/bit005_hw07-hw05-comparing-dataframes.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit005_hw07-hw05-comparing-dataframes.md
-/bit006_github-browsability-wins.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit006_github-browsability-wins.Rmd
-/bit006_github-browsability-wins.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit006_github-browsability-wins.md
-/bit007_draw-the-rest-of-the-owl.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit007_draw-the-rest-of-the-owl.Rmd
-/bit007_draw-the-rest-of-the-owl.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit007_draw-the-rest-of-the-owl.md
-/bit008_lookup.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit008_lookup.Rmd
-/bit008_lookup.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//bit008_lookup.md
-/block000_r-rstudio-install.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block000_r-rstudio-install.md
-/block002_hello-r-workspace-wd-project.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block002_hello-r-workspace-wd-project.md
-/block002_hello-r-workspace-wd-project.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block002_hello-r-workspace-wd-project.rmd
-/block002_hello-r-workspace-wd-project_files/figure-html/toy-line-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block002_hello-r-workspace-wd-project_files/figure-html/toy-line-1.png
-/block002_post-project.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block002_post-project.R
-/block002_pre-project.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block002_pre-project.R
-/block002_toy-line.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block002_toy-line.R
-/block004_basic-r-objects.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block004_basic-r-objects.md
-/block004_basic-r-objects.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block004_basic-r-objects.rmd
-/block006_care-feeding-data.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data.md
-/block006_care-feeding-data.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data.rmd
-/block006_care-feeding-data_files/figure-html/factors-nice-for-plots-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/factors-nice-for-plots-1.png
-/block006_care-feeding-data_files/figure-html/factors-nice-for-plots-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/factors-nice-for-plots-2.png
-/block006_care-feeding-data_files/figure-html/factors-nice-for-plots-3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/factors-nice-for-plots-3.png
-/block006_care-feeding-data_files/figure-html/factors-nice-for-plots-4.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/factors-nice-for-plots-4.png
-/block006_care-feeding-data_files/figure-html/first-plots-base-R-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/first-plots-base-R-1.png
-/block006_care-feeding-data_files/figure-html/first-plots-base-R-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/first-plots-base-R-2.png
-/block006_care-feeding-data_files/figure-html/first-plots-base-R-3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/first-plots-base-R-3.png
-/block006_care-feeding-data_files/figure-html/histogram-lifeExp-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/histogram-lifeExp-1.png
-/block006_care-feeding-data_files/figure-html/just-colombia-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/just-colombia-1.png
-/block006_care-feeding-data_files/figure-html/tabulate-continent-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block006_care-feeding-data_files/figure-html/tabulate-continent-1.png
-/block007_first-use-rmarkdown.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block007_first-use-rmarkdown.md
-/block009_dplyr-intro.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block009_dplyr-intro.md
-/block009_dplyr-intro.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block009_dplyr-intro.rmd
-/block010_dplyr-end-single-table.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block010_dplyr-end-single-table.md
-/block010_dplyr-end-single-table.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block010_dplyr-end-single-table.rmd
-/block011_write-your-own-function-01.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-01.md
-/block011_write-your-own-function-01.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-01.rmd
-/block011_write-your-own-function-02.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-02.md
-/block011_write-your-own-function-02.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-02.rmd
-/block011_write-your-own-function-03.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-03.md
-/block011_write-your-own-function-03.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-03.rmd
-/block011_write-your-own-function-CHALLENGE-SEGUE.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function-CHALLENGE-SEGUE.rmd
-/block011_write-your-own-function.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function.html
-/block011_write-your-own-function.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function.md
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-191.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-191.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-192.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-192.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-193.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-193.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-194.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-194.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-271.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-271.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-272.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-272.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-273.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-273.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-274.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-274.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-281.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-281.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-282.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-282.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-283.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-283.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-284.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-284.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-291.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-291.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-292.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-292.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-293.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-293.png
-/block011_write-your-own-function_files/figure-html/unnamed-chunk-294.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block011_write-your-own-function_files/figure-html/unnamed-chunk-294.png
-/block012_function-regress-lifeexp-on-year.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block012_function-regress-lifeexp-on-year.md
-/block012_function-regress-lifeexp-on-year.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block012_function-regress-lifeexp-on-year.rmd
-/block012_function-regress-lifeexp-on-year_files/figure-html/first-example-scatterplot-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block012_function-regress-lifeexp-on-year_files/figure-html/first-example-scatterplot-1.png
-/block012_function-regress-lifeexp-on-year_files/figure-html/second-example-scatterplot-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block012_function-regress-lifeexp-on-year_files/figure-html/second-example-scatterplot-1.png
-/block013_plyr-ddply.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block013_plyr-ddply.html
-/block013_plyr-ddply.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block013_plyr-ddply.md
-/block013_plyr-ddply.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block013_plyr-ddply.rmd
-/block014_factors.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors.html
-/block014_factors.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors.md
-/block014_factors.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors.rmd
-/block014_factors_files/figure-html/alpha-order-silly-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/alpha-order-silly-1.png
-/block014_factors_files/figure-html/alpha-order-silly-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/alpha-order-silly-2.png
-/block014_factors_files/figure-html/continent-reorder-exercise-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/continent-reorder-exercise-1.png
-/block014_factors_files/figure-html/continent-reorder-exercise-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/continent-reorder-exercise-2.png
-/block014_factors_files/figure-html/factor-order-example-after-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/factor-order-example-after-1.png
-/block014_factors_files/figure-html/factor-order-example-after-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/factor-order-example-after-2.png
-/block014_factors_files/figure-html/factor-order-example-before-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/factor-order-example-before-1.png
-/block014_factors_files/figure-html/factor-order-example-before-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block014_factors_files/figure-html/factor-order-example-before-2.png
-/block015_graph-dos-donts.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block015_graph-dos-donts.md
-/block015_graph-dos-donts.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block015_graph-dos-donts.rmd
-/block016_secrets-happy-graphing.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block016_secrets-happy-graphing.md
-/block016_secrets-happy-graphing.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block016_secrets-happy-graphing.rmd
-/block016_secrets-happy-graphing_files/figure-html/data-in-situ-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block016_secrets-happy-graphing_files/figure-html/data-in-situ-1.png
-/block016_secrets-happy-graphing_files/figure-html/data_frame-love-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block016_secrets-happy-graphing_files/figure-html/data_frame-love-1.png
-/block016_secrets-happy-graphing_files/figure-html/japan-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block016_secrets-happy-graphing_files/figure-html/japan-1.png
-/block017_write-figure-to-file.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block017_write-figure-to-file.md
-/block017_write-figure-to-file.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block017_write-figure-to-file.rmd
-/block017_write-figure-to-file_files/figure-html/dev-print-demo-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block017_write-figure-to-file_files/figure-html/dev-print-demo-1.png
-/block017_write-figure-to-file_files/figure-html/scatterplot-lifeExp-vs-year-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block017_write-figure-to-file_files/figure-html/scatterplot-lifeExp-vs-year-1.png
-/block018_colors.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors.md
-/block018_colors.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors.rmd
-/block018_colors_files/figure-html/dichromat-colorschemes-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/dichromat-colorschemes-1.png
-/block018_colors_files/figure-html/unnamed-chunk-12-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-12-1.png
-/block018_colors_files/figure-html/unnamed-chunk-13-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-13-1.png
-/block018_colors_files/figure-html/unnamed-chunk-14-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-14-1.png
-/block018_colors_files/figure-html/unnamed-chunk-15-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-15-1.png
-/block018_colors_files/figure-html/unnamed-chunk-6-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-6-1.png
-/block018_colors_files/figure-html/unnamed-chunk-7-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-7-1.png
-/block018_colors_files/figure-html/unnamed-chunk-7-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-7-2.png
-/block018_colors_files/figure-html/unnamed-chunk-8-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-8-1.png
-/block018_colors_files/figure-html/unnamed-chunk-8-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-8-2.png
-/block018_colors_files/figure-html/unnamed-chunk-9-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block018_colors_files/figure-html/unnamed-chunk-9-1.png
-/block019_enforce-color-scheme.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme.md
-/block019_enforce-color-scheme.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme.rmd
-/block019_enforce-color-scheme_files/figure-html/scatterplot-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-1.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-continent-fill-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-continent-fill-1.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-continent-fill-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-continent-fill-2.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-country-fill-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-country-fill-1.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-country-fill-final-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-country-fill-final-1.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-obnoxious-points-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-obnoxious-points-1.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-population-area-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-population-area-1.png
-/block019_enforce-color-scheme_files/figure-html/scatterplot-population-area-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block019_enforce-color-scheme_files/figure-html/scatterplot-population-area-2.png
-/block020_multiple-plots-on-a-page.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block020_multiple-plots-on-a-page.md
-/block020_multiple-plots-on-a-page.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block020_multiple-plots-on-a-page.rmd
-/block020_multiple-plots-on-a-page_files/figure-html/arrangeGrob-demo-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block020_multiple-plots-on-a-page_files/figure-html/arrangeGrob-demo-1.png
-/block021_data-manipulation-capstone.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block021_data-manipulation-capstone.html
-/block021_data-manipulation-capstone.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block021_data-manipulation-capstone.md
-/block021_data-manipulation-capstone.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block021_data-manipulation-capstone.rmd
-/block022_regular-expression.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block022_regular-expression.html
-/block022_regular-expression.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block022_regular-expression.md
-/block022_regular-expression.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block022_regular-expression.rmd
-/block023_dplyr-do.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do.html
-/block023_dplyr-do.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do.md
-/block023_dplyr-do.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do.rmd
-/block023_dplyr-do_files/figure-html/unnamed-chunk-10-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-10-1.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-10-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-10-2.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-11-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-11-1.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-11-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-11-2.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-12-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-12-1.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-13-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-13-1.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-16-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-16-1.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-16-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-16-2.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-16-3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-16-3.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-17-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-17-1.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-17-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-17-2.png
-/block023_dplyr-do_files/figure-html/unnamed-chunk-17-3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block023_dplyr-do_files/figure-html/unnamed-chunk-17-3.png
-/block024_group-nest-split-map.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map.Rmd
-/block024_group-nest-split-map.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map.html
-/block024_group-nest-split-map.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map.md
-/block024_group-nest-split-map_files/figure-html/intercept-slope-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map_files/figure-html/intercept-slope-1.png
-/block024_group-nest-split-map_files/figure-html/intercept-slope-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map_files/figure-html/intercept-slope-2.png
-/block024_group-nest-split-map_files/figure-html/intercept-slope-density-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map_files/figure-html/intercept-slope-density-1.png
-/block024_group-nest-split-map_files/figure-html/intercept-slope-density-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block024_group-nest-split-map_files/figure-html/intercept-slope-density-2.png
-/block025_lm-poly.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block025_lm-poly.html
-/block025_lm-poly.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block025_lm-poly.md
-/block025_lm-poly.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block025_lm-poly.rmd
-/block025_lm-poly_files/figure-html/unnamed-chunk-5-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block025_lm-poly_files/figure-html/unnamed-chunk-5-1.png
-/block025_lm-poly_files/figure-html/unnamed-chunk-5-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block025_lm-poly_files/figure-html/unnamed-chunk-5-2.png
-/block025_lm-poly_files/figure-html/unnamed-chunk-9-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block025_lm-poly_files/figure-html/unnamed-chunk-9-1.png
-/block026_file-out-in.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block026_file-out-in.md
-/block026_file-out-in.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block026_file-out-in.rmd
-/block027_regular-expressions.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block027_regular-expressions.Rmd
-/block027_regular-expressions.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block027_regular-expressions.html
-/block027_regular-expressions.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block027_regular-expressions.md
-/block027_regular-expressions_files/figure-html/unnamed-chunk-26-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block027_regular-expressions_files/figure-html/unnamed-chunk-26-1.png
-/block027_regular-expressions_files/figure-html/unnamed-chunk-27-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block027_regular-expressions_files/figure-html/unnamed-chunk-27-1.png
-/block028_character-data.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block028_character-data.Rmd
-/block028_character-data.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block028_character-data.md
-/block029_factors.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors.Rmd
-/block029_factors.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors.md
-/block029_factors_files/figure-html/alpha-order-silly-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/alpha-order-silly-1.png
-/block029_factors_files/figure-html/alpha-order-silly-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/alpha-order-silly-2.png
-/block029_factors_files/figure-html/legends-made-for-humans-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/legends-made-for-humans-1.png
-/block029_factors_files/figure-html/legends-made-for-humans-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/legends-made-for-humans-2.png
-/block029_factors_files/figure-html/unnamed-chunk-5-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/unnamed-chunk-5-1.png
-/block029_factors_files/figure-html/unnamed-chunk-5-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/unnamed-chunk-5-2.png
-/block029_factors_files/figure-html/unnamed-chunk-5-3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/unnamed-chunk-5-3.png
-/block029_factors_files/figure-html/unnamed-chunk-8-1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/unnamed-chunk-8-1.png
-/block029_factors_files/figure-html/unnamed-chunk-8-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block029_factors_files/figure-html/unnamed-chunk-8-2.png
-/block030_date-times.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block030_date-times.Rmd
-/block030_date-times.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block030_date-times.html
-/block030_date-times.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block030_date-times.md
-/block031_vector-tibble-relations.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block031_vector-tibble-relations.Rmd
-/block031_vector-tibble-relations.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block031_vector-tibble-relations.html
-/block031_vector-tibble-relations.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block031_vector-tibble-relations.md
-/block032_character-encoding.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block032_character-encoding.Rmd
-/block032_character-encoding.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block032_character-encoding.md
-/block033_working-with-two-tables.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block033_working-with-two-tables.Rmd
-/block033_working-with-two-tables.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block033_working-with-two-tables.md
-/block034_useR-encoding-case-study.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block034_useR-encoding-case-study.Rmd
-/block034_useR-encoding-case-study.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block034_useR-encoding-case-study.html
-/block034_useR-encoding-case-study.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//block034_useR-encoding-case-study.md
-/course-admin/class-meetings/class-meetings-2014.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/class-meetings/class-meetings-2014.csv
-/course-admin/class-meetings/class-meetings-2015.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/class-meetings/class-meetings-2015.csv
-/course-admin/class-meetings/class-meetings.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/class-meetings/class-meetings.csv
-/course-admin/history/STAT545-enrollment-over-time.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time.html
-/course-admin/history/STAT545-enrollment-over-time.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time.md
-/course-admin/history/STAT545-enrollment-over-time.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time.rmd
-/course-admin/history/STAT545-enrollment-over-time_files/figure-html/enrollment-over-time-simple.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time_files/figure-html/enrollment-over-time-simple.png
-/course-admin/history/STAT545-enrollment-over-time_files/figure-html/enrollment-over-time.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time_files/figure-html/enrollment-over-time.png
-/course-admin/history/STAT545-enrollment-over-time_files/figure-html/pie-and-barchart1.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time_files/figure-html/pie-and-barchart1.png
-/course-admin/history/STAT545-enrollment-over-time_files/figure-html/pie-and-barchart2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-enrollment-over-time_files/figure-html/pie-and-barchart2.png
-/course-admin/history/STAT545-registered-students-all-time-anonymized.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-registered-students-all-time-anonymized.csv
-/course-admin/history/STAT545-three-credit-proposal.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/STAT545-three-credit-proposal.md
-/course-admin/history/note-to-alums.txt	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/note-to-alums.txt
-/course-admin/history/notes-to-self.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/notes-to-self.md
-/course-admin/history/shiny-server-requirements.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//course-admin/history/shiny-server-requirements.md
-/faq.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//faq.html
-/faq.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//faq.md
-/favicon.ico	https://STAT545-UBC.github.io/STAT545-UBC.github.io//favicon.ico
-/font-awesome-test.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//font-awesome-test.Rmd
-/font-awesome-test.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//font-awesome-test.html
-/font-awesome-test.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//font-awesome-test.md
-/gapminderDataFiveYear.tsv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//gapminderDataFiveYear.tsv
-/gapminderDataFiveYear.txt	https://STAT545-UBC.github.io/STAT545-UBC.github.io//gapminderDataFiveYear.txt
-/gapminderDataFiveYear_dirty.txt	https://STAT545-UBC.github.io/STAT545-UBC.github.io//gapminderDataFiveYear_dirty.txt
-/git00_index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git00_index.html
-/git00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git00_index.md
-/git01_git-install.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git01_git-install.html
-/git01_git-install.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git01_git-install.md
-/git02_git-clients.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git02_git-clients.html
-/git02_git-clients.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git02_git-clients.md
-/git03_rstudio-meet-git.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git03_rstudio-meet-git.html
-/git03_rstudio-meet-git.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git03_rstudio-meet-git.md
-/git04_introduce-self-to-git.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git04_introduce-self-to-git.html
-/git04_introduce-self-to-git.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git04_introduce-self-to-git.md
-/git05_github-connection.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git05_github-connection.html
-/git05_github-connection.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git05_github-connection.md
-/git06_credential-caching.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git06_credential-caching.html
-/git06_credential-caching.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git06_credential-caching.md
-/git07_git-github-rstudio.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git07_git-github-rstudio.html
-/git07_git-github-rstudio.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git07_git-github-rstudio.md
-/git08_claim-stat545-repo.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git08_claim-stat545-repo.md
-/git09_shell.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git09_shell.html
-/git09_shell.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git09_shell.md
-/git66_rstudio-git-github-hell.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git66_rstudio-git-github-hell.html
-/git66_rstudio-git-github-hell.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//git66_rstudio-git-github-hell.md
-/graph00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//graph00_index.md
-/help-general.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//help-general.html
-/help-general.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//help-general.md
-/img/Gapminder_shiny_app_screenshot_first_text.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_screenshot_first_text.png
-/img/Gapminder_shiny_app_screenshot_first_text_centered_header.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_screenshot_first_text_centered_header.png
-/img/Gapminder_shiny_app_screenshot_first_text_header.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_screenshot_first_text_header.png
-/img/Gapminder_shiny_app_select_box_from_gapminder_data.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_select_box_from_gapminder_data.png
-/img/Gapminder_shiny_app_select_box_generated_from_gapminder_data.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_select_box_generated_from_gapminder_data.png
-/img/Gapminder_shiny_app_select_test_box.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_select_test_box.png
-/img/Gapminder_shiny_app_showcase_mode.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_showcase_mode.png
-/img/Gapminder_shiny_app_table_filtered_by_country.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_table_filtered_by_country.png
-/img/Gapminder_shiny_app_with_raw_table.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_with_raw_table.png
-/img/Gapminder_shiny_app_year_slider_widget.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_year_slider_widget.png
-/img/Gapminder_shiny_app_year_slider_widget_fixed_formatting.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Gapminder_shiny_app_year_slider_widget_fixed_formatting.png
-/img/Shiny-run-app-options-screenshot.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Shiny-run-app-options-screenshot.png
-/img/Shiny-run-app-screenshot-circled.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Shiny-run-app-screenshot-circled.png
-/img/Shiny-run-app-screenshot.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Shiny-run-app-screenshot.png
-/img/Shiny_app_publish_button.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/Shiny_app_publish_button.png
-/img/evil-mouse.jpg	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/evil-mouse.jpg
-/img/fig-io-practice-base-size-20.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/fig-io-practice-base-size-20.png
-/img/fig-io-practice-base-size-3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/fig-io-practice-base-size-3.png
-/img/fig-io-practice-scale-0.3.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/fig-io-practice-scale-0.3.png
-/img/fig-io-practice-scale-2.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/fig-io-practice-scale-2.png
-/img/ggplot2book-fig6.6.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/ggplot2book-fig6.6.pdf
-/img/ggplot2book-fig6.6.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/ggplot2book-fig6.6.png
-/img/how-to-draw-an-own-imgur.jpg	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/how-to-draw-an-own-imgur.jpg
-/img/jenny2012-headshot.jpg	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/jenny2012-headshot.jpg
-/img/less-is-more-darkhorse-analytics.gif	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/less-is-more-darkhorse-analytics.gif
-/img/r.col.black.bkgd.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/r.col.black.bkgd.pdf
-/img/r.col.white.bkgd.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/r.col.white.bkgd.pdf
-/img/r.pch.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/r.pch.pdf
-/img/regexbytrialanderror-big-smaller.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/regexbytrialanderror-big-smaller.png
-/img/rstudio-vs-devtools-create-for-new-pkg.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/rstudio-vs-devtools-create-for-new-pkg.png
-/img/rstudio-vs-devtools-create-for-new-pkg.tiff	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/rstudio-vs-devtools-create-for-new-pkg.tiff
-/img/rtools-install.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/rtools-install.png
-/img/screenshot-empty-repo.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/screenshot-empty-repo.png
-/img/screenshot-github-dashboard-switch.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/screenshot-github-dashboard-switch.png
-/img/screenshot-github-student-fresh-dashboard.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/screenshot-github-student-fresh-dashboard.png
-/img/screenshot-issues-button.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/screenshot-issues-button.png
-/img/screenshot-new-repo-with-readme.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/screenshot-new-repo-with-readme.png
-/img/shiny-addinputs.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-addinputs.png
-/img/shiny-addplot.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-addplot.png
-/img/shiny-inputs.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-inputs.png
-/img/shiny-layout.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-layout.png
-/img/shiny-publish.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-publish.png
-/img/shiny-runapp.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-runapp.png
-/img/shiny-stopapp.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/shiny-stopapp.png
-/img/spotify-howtobuildmvp.gif	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/spotify-howtobuildmvp.gif
-/img/stat-545.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//img/stat-545.png
-/include/before_body.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/before_body.html
-/include/clean-slate.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/clean-slate.html
-/include/clean-slate.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/clean-slate.md
-/include/google_analytics.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/google_analytics.html
-/include/in_header.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/in_header.html
-/include/license-footer.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/license-footer.html
-/include/nav-and-clean-slate.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/nav-and-clean-slate.html
-/include/nav-test.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/nav-test.html
-/include/nav.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/nav.html
-/include/nothing.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//include/nothing.html
-/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//index.html
-/index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//index.md
-/libs/bootstrap-3.3.1/css/bootstrap-theme.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/bootstrap-theme.css
-/libs/bootstrap-3.3.1/css/bootstrap-theme.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/bootstrap-theme.min.css
-/libs/bootstrap-3.3.1/css/bootstrap.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/bootstrap.css
-/libs/bootstrap-3.3.1/css/bootstrap.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/bootstrap.min.css
-/libs/bootstrap-3.3.1/css/cerulean.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/cerulean.min.css
-/libs/bootstrap-3.3.1/css/cosmo.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/cosmo.min.css
-/libs/bootstrap-3.3.1/css/flatly.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/flatly.min.css
-/libs/bootstrap-3.3.1/css/fonts/Lato.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/Lato.ttf
-/libs/bootstrap-3.3.1/css/fonts/LatoBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/LatoBold.ttf
-/libs/bootstrap-3.3.1/css/fonts/LatoItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/LatoItalic.ttf
-/libs/bootstrap-3.3.1/css/fonts/NewsCycle.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/NewsCycle.ttf
-/libs/bootstrap-3.3.1/css/fonts/NewsCycleBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/NewsCycleBold.ttf
-/libs/bootstrap-3.3.1/css/fonts/OpenSans.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/OpenSans.ttf
-/libs/bootstrap-3.3.1/css/fonts/OpenSansBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/OpenSansBold.ttf
-/libs/bootstrap-3.3.1/css/fonts/OpenSansBoldItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/OpenSansBoldItalic.ttf
-/libs/bootstrap-3.3.1/css/fonts/OpenSansItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/OpenSansItalic.ttf
-/libs/bootstrap-3.3.1/css/fonts/Raleway.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/Raleway.ttf
-/libs/bootstrap-3.3.1/css/fonts/RalewayBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/RalewayBold.ttf
-/libs/bootstrap-3.3.1/css/fonts/SourceSansPro.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/SourceSansPro.ttf
-/libs/bootstrap-3.3.1/css/fonts/SourceSansProBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/SourceSansProBold.ttf
-/libs/bootstrap-3.3.1/css/fonts/SourceSansProLight.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/SourceSansProLight.ttf
-/libs/bootstrap-3.3.1/css/fonts/Ubuntu.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/fonts/Ubuntu.ttf
-/libs/bootstrap-3.3.1/css/journal.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/journal.min.css
-/libs/bootstrap-3.3.1/css/readable.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/readable.min.css
-/libs/bootstrap-3.3.1/css/spacelab.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/spacelab.min.css
-/libs/bootstrap-3.3.1/css/united.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/css/united.min.css
-/libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.eot	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.eot
-/libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.svg	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.svg
-/libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.ttf
-/libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.woff	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/fonts/glyphicons-halflings-regular.woff
-/libs/bootstrap-3.3.1/js/bootstrap.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/js/bootstrap.js
-/libs/bootstrap-3.3.1/js/bootstrap.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/js/bootstrap.min.js
-/libs/bootstrap-3.3.1/shim/html5shiv.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/shim/html5shiv.min.js
-/libs/bootstrap-3.3.1/shim/respond.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.1/shim/respond.min.js
-/libs/bootstrap-3.3.5/css/bootstrap-theme.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/bootstrap-theme.css
-/libs/bootstrap-3.3.5/css/bootstrap-theme.css.map	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/bootstrap-theme.css.map
-/libs/bootstrap-3.3.5/css/bootstrap-theme.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/bootstrap-theme.min.css
-/libs/bootstrap-3.3.5/css/bootstrap.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/bootstrap.css
-/libs/bootstrap-3.3.5/css/bootstrap.css.map	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/bootstrap.css.map
-/libs/bootstrap-3.3.5/css/bootstrap.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/bootstrap.min.css
-/libs/bootstrap-3.3.5/css/cerulean.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/cerulean.min.css
-/libs/bootstrap-3.3.5/css/cosmo.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/cosmo.min.css
-/libs/bootstrap-3.3.5/css/darkly.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/darkly.min.css
-/libs/bootstrap-3.3.5/css/flatly.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/flatly.min.css
-/libs/bootstrap-3.3.5/css/fonts/Lato.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/Lato.ttf
-/libs/bootstrap-3.3.5/css/fonts/LatoBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/LatoBold.ttf
-/libs/bootstrap-3.3.5/css/fonts/LatoItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/LatoItalic.ttf
-/libs/bootstrap-3.3.5/css/fonts/NewsCycle.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/NewsCycle.ttf
-/libs/bootstrap-3.3.5/css/fonts/NewsCycleBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/NewsCycleBold.ttf
-/libs/bootstrap-3.3.5/css/fonts/OpenSans.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/OpenSans.ttf
-/libs/bootstrap-3.3.5/css/fonts/OpenSansBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/OpenSansBold.ttf
-/libs/bootstrap-3.3.5/css/fonts/OpenSansBoldItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/OpenSansBoldItalic.ttf
-/libs/bootstrap-3.3.5/css/fonts/OpenSansItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/OpenSansItalic.ttf
-/libs/bootstrap-3.3.5/css/fonts/OpenSansLight.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/OpenSansLight.ttf
-/libs/bootstrap-3.3.5/css/fonts/OpenSansLightItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/OpenSansLightItalic.ttf
-/libs/bootstrap-3.3.5/css/fonts/Raleway.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/Raleway.ttf
-/libs/bootstrap-3.3.5/css/fonts/RalewayBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/RalewayBold.ttf
-/libs/bootstrap-3.3.5/css/fonts/Roboto.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/Roboto.ttf
-/libs/bootstrap-3.3.5/css/fonts/RobotoBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/RobotoBold.ttf
-/libs/bootstrap-3.3.5/css/fonts/RobotoLight.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/RobotoLight.ttf
-/libs/bootstrap-3.3.5/css/fonts/RobotoMedium.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/RobotoMedium.ttf
-/libs/bootstrap-3.3.5/css/fonts/SourceSansPro.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/SourceSansPro.ttf
-/libs/bootstrap-3.3.5/css/fonts/SourceSansProBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/SourceSansProBold.ttf
-/libs/bootstrap-3.3.5/css/fonts/SourceSansProItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/SourceSansProItalic.ttf
-/libs/bootstrap-3.3.5/css/fonts/SourceSansProLight.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/SourceSansProLight.ttf
-/libs/bootstrap-3.3.5/css/fonts/Ubuntu.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/fonts/Ubuntu.ttf
-/libs/bootstrap-3.3.5/css/journal.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/journal.min.css
-/libs/bootstrap-3.3.5/css/lumen.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/lumen.min.css
-/libs/bootstrap-3.3.5/css/paper.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/paper.min.css
-/libs/bootstrap-3.3.5/css/readable.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/readable.min.css
-/libs/bootstrap-3.3.5/css/sandstone.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/sandstone.min.css
-/libs/bootstrap-3.3.5/css/simplex.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/simplex.min.css
-/libs/bootstrap-3.3.5/css/spacelab.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/spacelab.min.css
-/libs/bootstrap-3.3.5/css/united.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/united.min.css
-/libs/bootstrap-3.3.5/css/yeti.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/css/yeti.min.css
-/libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot
-/libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.svg	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.svg
-/libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.ttf
-/libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff
-/libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff2	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff2
-/libs/bootstrap-3.3.5/js/bootstrap.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/js/bootstrap.js
-/libs/bootstrap-3.3.5/js/bootstrap.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/js/bootstrap.min.js
-/libs/bootstrap-3.3.5/js/npm.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/js/npm.js
-/libs/bootstrap-3.3.5/shim/html5shiv.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/shim/html5shiv.min.js
-/libs/bootstrap-3.3.5/shim/respond.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/bootstrap-3.3.5/shim/respond.min.js
-/libs/highlight/default.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlight/default.css
-/libs/highlight/highlight.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlight/highlight.js
-/libs/highlight/textmate.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlight/textmate.css
-/libs/highlightjs-1.1/default.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlightjs-1.1/default.css
-/libs/highlightjs-1.1/highlight.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlightjs-1.1/highlight.js
-/libs/highlightjs-1.1/textmate.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlightjs-1.1/textmate.css
-/libs/highlightjs-9.12.0/default.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlightjs-9.12.0/default.css
-/libs/highlightjs-9.12.0/highlight.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlightjs-9.12.0/highlight.js
-/libs/highlightjs-9.12.0/textmate.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/highlightjs-9.12.0/textmate.css
-/libs/jquery-1.11.0/jquery.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jquery-1.11.0/jquery.min.js
-/libs/jquery-1.11.3/jquery.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jquery-1.11.3/jquery.min.js
-/libs/jqueryui-1.11.4/README	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/README
-/libs/jqueryui-1.11.4/images/ui-icons_444444_256x240.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/images/ui-icons_444444_256x240.png
-/libs/jqueryui-1.11.4/images/ui-icons_555555_256x240.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/images/ui-icons_555555_256x240.png
-/libs/jqueryui-1.11.4/images/ui-icons_777620_256x240.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/images/ui-icons_777620_256x240.png
-/libs/jqueryui-1.11.4/images/ui-icons_777777_256x240.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/images/ui-icons_777777_256x240.png
-/libs/jqueryui-1.11.4/images/ui-icons_cc0000_256x240.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/images/ui-icons_cc0000_256x240.png
-/libs/jqueryui-1.11.4/images/ui-icons_ffffff_256x240.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/images/ui-icons_ffffff_256x240.png
-/libs/jqueryui-1.11.4/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/index.html
-/libs/jqueryui-1.11.4/jquery-ui.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.css
-/libs/jqueryui-1.11.4/jquery-ui.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.js
-/libs/jqueryui-1.11.4/jquery-ui.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.min.css
-/libs/jqueryui-1.11.4/jquery-ui.min.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.min.js
-/libs/jqueryui-1.11.4/jquery-ui.structure.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.structure.css
-/libs/jqueryui-1.11.4/jquery-ui.structure.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.structure.min.css
-/libs/jqueryui-1.11.4/jquery-ui.theme.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.theme.css
-/libs/jqueryui-1.11.4/jquery-ui.theme.min.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/jqueryui-1.11.4/jquery-ui.theme.min.css
-/libs/local/fonts/OpenSans.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/local/fonts/OpenSans.ttf
-/libs/local/fonts/OpenSansBold.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/local/fonts/OpenSansBold.ttf
-/libs/local/fonts/OpenSansBoldItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/local/fonts/OpenSansBoldItalic.ttf
-/libs/local/fonts/OpenSansItalic.ttf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/local/fonts/OpenSansItalic.ttf
-/libs/local/main.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/local/main.css
-/libs/local/nav.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/local/nav.css
-/libs/navigation-1.0/codefolding.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation-1.0/codefolding.js
-/libs/navigation-1.0/tabsets.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation-1.0/tabsets.js
-/libs/navigation-1.1/codefolding.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation-1.1/codefolding.js
-/libs/navigation-1.1/sourceembed.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation-1.1/sourceembed.js
-/libs/navigation-1.1/tabsets.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation-1.1/tabsets.js
-/libs/navigation/codefolding.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation/codefolding.js
-/libs/navigation/tabsets.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/navigation/tabsets.js
-/libs/tocify-1.9.1/jquery.tocify.css	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/tocify-1.9.1/jquery.tocify.css
-/libs/tocify-1.9.1/jquery.tocify.js	https://STAT545-UBC.github.io/STAT545-UBC.github.io//libs/tocify-1.9.1/jquery.tocify.js
-/packages00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages00_index.md
-/packages01_system-prep.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages01_system-prep.Rmd
-/packages01_system-prep.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages01_system-prep.md
-/packages02_activity.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages02_activity.html
-/packages02_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages02_activity.md
-/packages03_activity_part2.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages03_activity_part2.html
-/packages03_activity_part2.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages03_activity_part2.md
-/packages04_foofactors-package-01.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages04_foofactors-package-01.Rmd
-/packages04_foofactors-package-01.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages04_foofactors-package-01.html
-/packages04_foofactors-package-01.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages04_foofactors-package-01.md
-/packages05_foofactors-package-02.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages05_foofactors-package-02.Rmd
-/packages05_foofactors-package-02.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages05_foofactors-package-02.html
-/packages05_foofactors-package-02.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages05_foofactors-package-02.md
-/packages05_foofactors-package-README.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages05_foofactors-package-README.Rmd
-/packages05_foofactors-package-vignette.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages05_foofactors-package-vignette.Rmd
-/packages06_foofactors-README.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages06_foofactors-README.Rmd
-/packages06_foofactors-package.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages06_foofactors-package.Rmd
-/packages06_foofactors-package.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages06_foofactors-package.md
-/packages06_foofactors-vignette.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//packages06_foofactors-vignette.Rmd
-/peer-review03_coding_style.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//peer-review03_coding_style.Rmd
-/people-help-wanted.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//people-help-wanted.html
-/people-help-wanted.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//people-help-wanted.md
-/people.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//people.html
-/people.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//people.md
-/r_package_data/arena_team.tsv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//r_package_data/arena_team.tsv
-/regex_files/news_tweets.txt	https://STAT545-UBC.github.io/STAT545-UBC.github.io//regex_files/news_tweets.txt
-/rstudio-workbench.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//rstudio-workbench.png
-/shiny00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny00_index.md
-/shiny01_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny01_activity.md
-/shiny01_slides_2014.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny01_slides_2014.pdf
-/shiny_supp/2015/Shiny.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2015/Shiny.pdf
-/shiny_supp/2015/bcl-data.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2015/bcl-data.csv
-/shiny_supp/2015/bcl-full-version-app/app.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2015/bcl-full-version-app/app.R
-/shiny_supp/2015/bcl-full-version-app/data/bcl.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2015/bcl-full-version-app/data/bcl.csv
-/shiny_supp/2015/bdl-data-raw.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2015/bdl-data-raw.csv
-/shiny_supp/2015/process-data.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2015/process-data.R
-/shiny_supp/2016/Building Shiny apps - an interactive tutorial.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2016/Building Shiny apps - an interactive tutorial.pdf
-/shiny_supp/2016/bcl-data.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2016/bcl-data.csv
-/shiny_supp/2016/bcl-full-version-app/app.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2016/bcl-full-version-app/app.R
-/shiny_supp/2016/bcl-full-version-app/data/bcl.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2016/bcl-full-version-app/data/bcl.csv
-/shiny_supp/2016/bdl-data-raw.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2016/bdl-data-raw.csv
-/shiny_supp/2016/process-data.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//shiny_supp/2016/process-data.R
-/static/img/stat545-logo-s.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//static/img/stat545-logo-s.png
-/syllabus.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//syllabus.Rmd
-/syllabus.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//syllabus.html
-/syllabus.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//syllabus.md
-/topics.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//topics.html
-/topics.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//topics.md
-/useR-2019-accepted-talks.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io//useR-2019-accepted-talks.csv
-/webdata-supp/GapminderHead.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/GapminderHead.Rmd
-/webdata-supp/GapminderHead.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/GapminderHead.html
-/webdata-supp/Iona_island.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/Iona_island.png
-/webdata-supp/countryInfo.rds	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/countryInfo.rds
-/webdata-supp/francebirds.rds	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/francebirds.rds
-/webdata-supp/frenchcities.rds	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/frenchcities.rds
-/webdata-supp/gapminderhead.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/gapminderhead.png
-/webdata-supp/ombd.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/ombd.png
-/webdata-supp/pubs.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/pubs.png
-/webdata-supp/rio_english.rds	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/rio_english.rds
-/webdata-supp/rio_portuguese.rds	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/rio_portuguese.rds
-/webdata-supp/webdata02_activity.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata-supp/webdata02_activity.R
-/webdata02_activity.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata02_activity.Rmd
-/webdata02_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata02_activity.md
-/webdata02_activity_files/figure-html/unnamed-chunk-22.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata02_activity_files/figure-html/unnamed-chunk-22.png
-/webdata03_activity.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata03_activity.Rmd
-/webdata03_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io//webdata03_activity.md
+/webdata02_activity.html	/api-wrappers.html	301
+/automation04_make-activity.html	/automating-pipeline.html	301
+/automation00_index.html	/automation-overview.html	301
+/block006_care-feeding-data.html	/basic-data-care.html	301
+/block032_character-encoding.html	/character-encoding.html	301
+/block028_character-data.html	/character-vectors.html	301
+/block018_colors.html	/colors.html	301
+/webdata03_activity.html	/diy-web-data.html	301
+/block009_dplyr-intro.html	/dplyr-intro.html	301
+/block010_dplyr-end-single-table.html	/dplyr-single.html	301
+/block015_graph-dos-donts.html	/effective-graphs.html	301
+/block029_factors.html	/factors-boss.html	301
+/block011_write-your-own-function-01.html	/functions-part1.html	301
+/block011_write-your-own-function-02.html	/functions-part2.html	301
+/block011_write-your-own-function-03.html	/functions-part3.html	301
+/block012_function-regress-lifeexp-on-year.html	/functions-practicum.html	301
+/graph00_index.html	/graphics-overview.html	301
+/block026_file-out-in.html	/import-export.html	301
+/block000_r-rstudio-install.html	/install.html	301
+/bit001_dplyr-cheatsheet.html	/join-cheatsheet.html	301
+/bit008_lookup.html	/lookup.html	301
+/automation03_make-test-drive.html	/make-test-drive.html	301
+/automation02_windows.html	/make-windows.html	301
+/block020_multiple-plots-on-a-page.html	/multiple-plots.html	301
+/block033_working-with-two-tables.html	/multiple-tibbles.html	301
+/packages06_foofactors-package.html	/package-from-scratch.html	301
+/packages00_index.html	/package-overview.html	301
+/block019_enforce-color-scheme.html	/qualitative-colors.html	301
+/block002_hello-r-workspace-wd-project.html	/r-basics.html	301
+/block007_first-use-rmarkdown.html	/r-markdown.html	301
+/block004_basic-r-objects.html	/r-objects.html	301
+/bit002_tidying-lotr-data.html	/random.html#data-carp-tidy-data	301
+/bit007_draw-the-rest-of-the-owl.html	/random.html#draw-the-owl	301
+/bit006_github-browsability-wins.html	/random.html#github-browsability	301
+/bit003_api-key-env-var.html	/random.html#store-api-key	301
+/block017_write-figure-to-file.html	/save-figs.html	301
+/block016_secrets-happy-graphing.html	/secrets.html	301
+/shiny00_index.html	/shiny-slides.html	301
+/shiny01_activity.html	/shiny-tutorial.html	301
+/packages01_system-prep.html	/system-prep.html	301
+/git08_claim-stat545-repo.html	/version-control.html#claim-stat545-repo	301
+/webdata01_slides.html	/web-data-slides.html	301
+/.gitignore	https://STAT545-UBC.github.io/STAT545-UBC.github.io/.gitignore	301
+/.nojekyll	https://STAT545-UBC.github.io/STAT545-UBC.github.io/.nojekyll	301
+/111Scraping_Workthrough.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/111Scraping_Workthrough.Rmd	301
+/111Scraping_Workthrough.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/111Scraping_Workthrough.html	301
+/111Scraping_Workthrough.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/111Scraping_Workthrough.md	301
+/404.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/404.html	301
+/404.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/404.md	301
+/CNAME	https://STAT545-UBC.github.io/STAT545-UBC.github.io/CNAME	301
+/Makefile	https://STAT545-UBC.github.io/STAT545-UBC.github.io/Makefile	301
+/README.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/README.md	301
+/ScrapingWorkthrough.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/ScrapingWorkthrough.md	301
+/_output.yaml	https://STAT545-UBC.github.io/STAT545-UBC.github.io/_output.yaml	301
+/automation00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/automation00_index.md	301
+/automation01_slides/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/automation01_slides/:splat	301
+/automation02_windows.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/automation02_windows.md	301
+/automation03_make-test-drive.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/automation03_make-test-drive.md	301
+/automation04_make-activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/automation04_make-activity.md	301
+/automation10_holding-area/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/automation10_holding-area/:splat	301
+/bit001_dplyr-cheatsheet.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit001_dplyr-cheatsheet.md	301
+/bit001_dplyr-cheatsheet.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit001_dplyr-cheatsheet.rmd	301
+/bit002_tidying-lotr-data.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit002_tidying-lotr-data.md	301
+/bit003_api-key-env-var.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit003_api-key-env-var.md	301
+/bit003_api-key-env-var.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit003_api-key-env-var.rmd	301
+/bit004_stat545-use-of-github.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit004_stat545-use-of-github.html	301
+/bit004_stat545-use-of-github.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit004_stat545-use-of-github.md	301
+/bit004_stat545-use-of-github.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit004_stat545-use-of-github.rmd	301
+/bit005_hw07-hw05-comparing-dataframes.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit005_hw07-hw05-comparing-dataframes.Rmd	301
+/bit005_hw07-hw05-comparing-dataframes.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit005_hw07-hw05-comparing-dataframes.html	301
+/bit005_hw07-hw05-comparing-dataframes.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit005_hw07-hw05-comparing-dataframes.md	301
+/bit006_github-browsability-wins.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit006_github-browsability-wins.Rmd	301
+/bit006_github-browsability-wins.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit006_github-browsability-wins.md	301
+/bit007_draw-the-rest-of-the-owl.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit007_draw-the-rest-of-the-owl.Rmd	301
+/bit007_draw-the-rest-of-the-owl.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit007_draw-the-rest-of-the-owl.md	301
+/bit008_lookup.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit008_lookup.Rmd	301
+/bit008_lookup.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/bit008_lookup.md	301
+/block000_r-rstudio-install.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block000_r-rstudio-install.md	301
+/block002_hello-r-workspace-wd-project.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block002_hello-r-workspace-wd-project.md	301
+/block002_hello-r-workspace-wd-project.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block002_hello-r-workspace-wd-project.rmd	301
+/block002_hello-r-workspace-wd-project_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block002_hello-r-workspace-wd-project_files/:splat	301
+/block002_post-project.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block002_post-project.R	301
+/block002_pre-project.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block002_pre-project.R	301
+/block002_toy-line.R	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block002_toy-line.R	301
+/block004_basic-r-objects.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block004_basic-r-objects.md	301
+/block004_basic-r-objects.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block004_basic-r-objects.rmd	301
+/block006_care-feeding-data.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block006_care-feeding-data.md	301
+/block006_care-feeding-data.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block006_care-feeding-data.rmd	301
+/block006_care-feeding-data_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block006_care-feeding-data_files/:splat	301
+/block007_first-use-rmarkdown.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block007_first-use-rmarkdown.md	301
+/block009_dplyr-intro.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block009_dplyr-intro.md	301
+/block009_dplyr-intro.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block009_dplyr-intro.rmd	301
+/block010_dplyr-end-single-table.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block010_dplyr-end-single-table.md	301
+/block010_dplyr-end-single-table.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block010_dplyr-end-single-table.rmd	301
+/block011_write-your-own-function-01.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-01.md	301
+/block011_write-your-own-function-01.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-01.rmd	301
+/block011_write-your-own-function-02.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-02.md	301
+/block011_write-your-own-function-02.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-02.rmd	301
+/block011_write-your-own-function-03.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-03.md	301
+/block011_write-your-own-function-03.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-03.rmd	301
+/block011_write-your-own-function-CHALLENGE-SEGUE.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function-CHALLENGE-SEGUE.rmd	301
+/block011_write-your-own-function.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function.html	301
+/block011_write-your-own-function.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function.md	301
+/block011_write-your-own-function_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block011_write-your-own-function_files/:splat	301
+/block012_function-regress-lifeexp-on-year.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block012_function-regress-lifeexp-on-year.md	301
+/block012_function-regress-lifeexp-on-year.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block012_function-regress-lifeexp-on-year.rmd	301
+/block012_function-regress-lifeexp-on-year_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block012_function-regress-lifeexp-on-year_files/:splat	301
+/block013_plyr-ddply.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block013_plyr-ddply.html	301
+/block013_plyr-ddply.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block013_plyr-ddply.md	301
+/block013_plyr-ddply.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block013_plyr-ddply.rmd	301
+/block014_factors.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block014_factors.html	301
+/block014_factors.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block014_factors.md	301
+/block014_factors.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block014_factors.rmd	301
+/block014_factors_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block014_factors_files/:splat	301
+/block015_graph-dos-donts.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block015_graph-dos-donts.md	301
+/block015_graph-dos-donts.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block015_graph-dos-donts.rmd	301
+/block016_secrets-happy-graphing.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block016_secrets-happy-graphing.md	301
+/block016_secrets-happy-graphing.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block016_secrets-happy-graphing.rmd	301
+/block016_secrets-happy-graphing_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block016_secrets-happy-graphing_files/:splat	301
+/block017_write-figure-to-file.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block017_write-figure-to-file.md	301
+/block017_write-figure-to-file.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block017_write-figure-to-file.rmd	301
+/block017_write-figure-to-file_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block017_write-figure-to-file_files/:splat	301
+/block018_colors.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block018_colors.md	301
+/block018_colors.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block018_colors.rmd	301
+/block018_colors_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block018_colors_files/:splat	301
+/block019_enforce-color-scheme.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block019_enforce-color-scheme.md	301
+/block019_enforce-color-scheme.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block019_enforce-color-scheme.rmd	301
+/block019_enforce-color-scheme_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block019_enforce-color-scheme_files/:splat	301
+/block020_multiple-plots-on-a-page.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block020_multiple-plots-on-a-page.md	301
+/block020_multiple-plots-on-a-page.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block020_multiple-plots-on-a-page.rmd	301
+/block020_multiple-plots-on-a-page_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block020_multiple-plots-on-a-page_files/:splat	301
+/block021_data-manipulation-capstone.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block021_data-manipulation-capstone.html	301
+/block021_data-manipulation-capstone.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block021_data-manipulation-capstone.md	301
+/block021_data-manipulation-capstone.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block021_data-manipulation-capstone.rmd	301
+/block022_regular-expression.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block022_regular-expression.html	301
+/block022_regular-expression.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block022_regular-expression.md	301
+/block022_regular-expression.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block022_regular-expression.rmd	301
+/block023_dplyr-do.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block023_dplyr-do.html	301
+/block023_dplyr-do.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block023_dplyr-do.md	301
+/block023_dplyr-do.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block023_dplyr-do.rmd	301
+/block023_dplyr-do_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block023_dplyr-do_files/:splat	301
+/block024_group-nest-split-map.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block024_group-nest-split-map.Rmd	301
+/block024_group-nest-split-map.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block024_group-nest-split-map.html	301
+/block024_group-nest-split-map.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block024_group-nest-split-map.md	301
+/block024_group-nest-split-map_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block024_group-nest-split-map_files/:splat	301
+/block025_lm-poly.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block025_lm-poly.html	301
+/block025_lm-poly.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block025_lm-poly.md	301
+/block025_lm-poly.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block025_lm-poly.rmd	301
+/block025_lm-poly_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block025_lm-poly_files/:splat	301
+/block026_file-out-in.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block026_file-out-in.md	301
+/block026_file-out-in.rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block026_file-out-in.rmd	301
+/block027_regular-expressions.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block027_regular-expressions.Rmd	301
+/block027_regular-expressions.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block027_regular-expressions.html	301
+/block027_regular-expressions.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block027_regular-expressions.md	301
+/block027_regular-expressions_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block027_regular-expressions_files/:splat	301
+/block028_character-data.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block028_character-data.Rmd	301
+/block028_character-data.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block028_character-data.md	301
+/block029_factors.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block029_factors.Rmd	301
+/block029_factors.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block029_factors.md	301
+/block029_factors_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block029_factors_files/:splat	301
+/block030_date-times.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block030_date-times.Rmd	301
+/block030_date-times.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block030_date-times.html	301
+/block030_date-times.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block030_date-times.md	301
+/block031_vector-tibble-relations.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block031_vector-tibble-relations.Rmd	301
+/block031_vector-tibble-relations.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block031_vector-tibble-relations.html	301
+/block031_vector-tibble-relations.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block031_vector-tibble-relations.md	301
+/block032_character-encoding.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block032_character-encoding.Rmd	301
+/block032_character-encoding.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block032_character-encoding.md	301
+/block033_working-with-two-tables.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block033_working-with-two-tables.Rmd	301
+/block033_working-with-two-tables.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block033_working-with-two-tables.md	301
+/block034_useR-encoding-case-study.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block034_useR-encoding-case-study.Rmd	301
+/block034_useR-encoding-case-study.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block034_useR-encoding-case-study.html	301
+/block034_useR-encoding-case-study.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/block034_useR-encoding-case-study.md	301
+/course-admin/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/course-admin/:splat	301
+/faq.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/faq.html	301
+/faq.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/faq.md	301
+/favicon.ico	https://STAT545-UBC.github.io/STAT545-UBC.github.io/favicon.ico	301
+/font-awesome-test.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/font-awesome-test.Rmd	301
+/font-awesome-test.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/font-awesome-test.html	301
+/font-awesome-test.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/font-awesome-test.md	301
+/gapminderDataFiveYear.tsv	https://STAT545-UBC.github.io/STAT545-UBC.github.io/gapminderDataFiveYear.tsv	301
+/gapminderDataFiveYear.txt	https://STAT545-UBC.github.io/STAT545-UBC.github.io/gapminderDataFiveYear.txt	301
+/gapminderDataFiveYear_dirty.txt	https://STAT545-UBC.github.io/STAT545-UBC.github.io/gapminderDataFiveYear_dirty.txt	301
+/git00_index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git00_index.html	301
+/git00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git00_index.md	301
+/git01_git-install.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git01_git-install.html	301
+/git01_git-install.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git01_git-install.md	301
+/git02_git-clients.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git02_git-clients.html	301
+/git02_git-clients.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git02_git-clients.md	301
+/git03_rstudio-meet-git.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git03_rstudio-meet-git.html	301
+/git03_rstudio-meet-git.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git03_rstudio-meet-git.md	301
+/git04_introduce-self-to-git.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git04_introduce-self-to-git.html	301
+/git04_introduce-self-to-git.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git04_introduce-self-to-git.md	301
+/git05_github-connection.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git05_github-connection.html	301
+/git05_github-connection.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git05_github-connection.md	301
+/git06_credential-caching.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git06_credential-caching.html	301
+/git06_credential-caching.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git06_credential-caching.md	301
+/git07_git-github-rstudio.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git07_git-github-rstudio.html	301
+/git07_git-github-rstudio.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git07_git-github-rstudio.md	301
+/git08_claim-stat545-repo.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git08_claim-stat545-repo.md	301
+/git09_shell.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git09_shell.html	301
+/git09_shell.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git09_shell.md	301
+/git66_rstudio-git-github-hell.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git66_rstudio-git-github-hell.html	301
+/git66_rstudio-git-github-hell.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/git66_rstudio-git-github-hell.md	301
+/graph00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/graph00_index.md	301
+/help-general.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/help-general.html	301
+/help-general.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/help-general.md	301
+/img/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/img/:splat	301
+/include/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/include/:splat	301
+/index.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/index.html	301
+/index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/index.md	301
+/libs/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/libs/:splat	301
+/packages00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages00_index.md	301
+/packages01_system-prep.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages01_system-prep.Rmd	301
+/packages01_system-prep.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages01_system-prep.md	301
+/packages02_activity.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages02_activity.html	301
+/packages02_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages02_activity.md	301
+/packages03_activity_part2.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages03_activity_part2.html	301
+/packages03_activity_part2.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages03_activity_part2.md	301
+/packages04_foofactors-package-01.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages04_foofactors-package-01.Rmd	301
+/packages04_foofactors-package-01.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages04_foofactors-package-01.html	301
+/packages04_foofactors-package-01.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages04_foofactors-package-01.md	301
+/packages05_foofactors-package-02.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages05_foofactors-package-02.Rmd	301
+/packages05_foofactors-package-02.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages05_foofactors-package-02.html	301
+/packages05_foofactors-package-02.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages05_foofactors-package-02.md	301
+/packages05_foofactors-package-README.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages05_foofactors-package-README.Rmd	301
+/packages05_foofactors-package-vignette.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages05_foofactors-package-vignette.Rmd	301
+/packages06_foofactors-README.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages06_foofactors-README.Rmd	301
+/packages06_foofactors-package.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages06_foofactors-package.Rmd	301
+/packages06_foofactors-package.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages06_foofactors-package.md	301
+/packages06_foofactors-vignette.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages06_foofactors-vignette.Rmd	301
+/peer-review03_coding_style.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/peer-review03_coding_style.Rmd	301
+/people-help-wanted.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/people-help-wanted.html	301
+/people-help-wanted.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/people-help-wanted.md	301
+/people.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/people.html	301
+/people.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/people.md	301
+/r_package_data/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/r_package_data/:splat	301
+/regex_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/regex_files/:splat	301
+/rstudio-workbench.png	https://STAT545-UBC.github.io/STAT545-UBC.github.io/rstudio-workbench.png	301
+/shiny00_index.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/shiny00_index.md	301
+/shiny01_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/shiny01_activity.md	301
+/shiny01_slides_2014.pdf	https://STAT545-UBC.github.io/STAT545-UBC.github.io/shiny01_slides_2014.pdf	301
+/shiny_supp/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/shiny_supp/:splat	301
+/static/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/static/:splat	301
+/syllabus.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/syllabus.Rmd	301
+/syllabus.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/syllabus.html	301
+/syllabus.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/syllabus.md	301
+/topics.html	https://STAT545-UBC.github.io/STAT545-UBC.github.io/topics.html	301
+/topics.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/topics.md	301
+/useR-2019-accepted-talks.csv	https://STAT545-UBC.github.io/STAT545-UBC.github.io/useR-2019-accepted-talks.csv	301
+/webdata-supp/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/webdata-supp/:splat	301
+/webdata02_activity.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/webdata02_activity.Rmd	301
+/webdata02_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/webdata02_activity.md	301
+/webdata02_activity_files/*	https://STAT545-UBC.github.io/STAT545-UBC.github.io/webdata02_activity_files/:splat	301
+/webdata03_activity.Rmd	https://STAT545-UBC.github.io/STAT545-UBC.github.io/webdata03_activity.Rmd	301
+/webdata03_activity.md	https://STAT545-UBC.github.io/STAT545-UBC.github.io/webdata03_activity.md	301
