@@ -1,43 +1,44 @@
-title,ref_label,base_url,html_file
-Install R and RStudio ,{#install},http://stat545.com/,block000_r-rstudio-install.html
-R basics and workflows ,{#r-basics},http://stat545.com/,block002_hello-r-workspace-wd-project.html
-Test drive R Markdown ,{#r-markdown},https://stat545.com/,block007_first-use-rmarkdown.html
-"Git, GitHub, and RStudio ",{#version-control},https://stat545.com/,git08_claim-stat545-repo.html
-Basic care and feeding of data in R ,{#basic-data-care},https://stat545.com/,block006_care-feeding-data.html
-Introduction to dplyr ,{#dplyr-intro},https://stat545.com/,block009_dplyr-intro.html
-Single table dplyr functions ,{#dplyr-single},https://stat545.com/,block010_dplyr-end-single-table.html
-Writing and reading files ,{#import-export},http://stat545.com/,block026_file-out-in.html
-Be the boss of your factors ,{#factors-boss},https://stat545.com/,block029_factors.html
-Character vectors ,{#character-vectors},https://stat545.com/,block028_character-data.html
-Character encoding ,{#character-encoding},https://stat545.com/,block032_character-encoding.html
-When one tibble is not enough ,{#multiple-tibbles},https://stat545.com/,block033_working-with-two-tables.html
-Join two tables ,{#join-cheatsheet},https://stat545.com/,bit001_dplyr-cheatsheet.html
-Table lookup ,{#lookup},https://stat545.com/,bit008_lookup.html
-R objects and indexing ,{#r-objects},http://stat545.com/,block004_basic-r-objects.html
-"Write your own R functions, part 1 ",{#functions-part1},https://stat545.com/,block011_write-your-own-function-01.html
-"Write your own R functions, part 2 ",{#functions-part2},https://stat545.com/,block011_write-your-own-function-02.html
-"Write your own R functions, part 3 ",{#functions-part3},https://stat545.com/,block011_write-your-own-function-03.html
-Function-writing practicum ,{#functions-practicum},https://stat545.com/,block012_function-regress-lifeexp-on-year.html
-Overview ,{-#graphics-overview},https://stat545.com/,graph00_index.html
-ggplot2 tutorial ,{#ggplot2-tutorial},https://stat545.com/,graph00_index.html
-Do's and don'ts of making effective graphics ,{#effective-graphs},https://stat545.com/,block015_graph-dos-donts.html
-Using colors in R ,{#colors},http://stat545.com/,block018_colors.html
-Taking control of qualitative colors in ggplot2 ,{#qualitative-colors},https://stat545.com/,block019_enforce-color-scheme.html
-Secrets of a happy graphing life ,{#secrets},https://stat545.com/,block016_secrets-happy-graphing.html
-Writing figures to file ,{#save-figs},https://stat545.com/,block017_write-figure-to-file.html
-Multiple plots on a page ,{#multiple-plots},http://stat545.com/,block020_multiple-plots-on-a-page.html
-Overview ,{-#package-overview},https://stat545.com/,packages00_index.html
-System preparation for package development ,{#system-prep},https://stat545.com/,packages01_system-prep.html
-Write your own R package ,{#package-from-scratch},http://stat545.com/,packages06_foofactors-package.html
-Overview ,{-#automation-overview},https://stat545.com/,automation00_index.html
-Why and how we automate data analyses + examples ,{#automation-slides},http://stat545.com/,automation01_slides/index.html
-make: special considerations for Windows ,{#make-windows},http://stat545.com/,automation02_windows.html
-Automation: test drive make ,{#make-test-drive},http://stat545.com/,automation03_make-test-drive.html
-Automating data-analysis pipelines ,{#automating-pipeline},http://stat545.com/,automation04_make-activity.html
-Slides ,{#web-data-slides},https://stat545.com/,webdata02_activity.html
-Use API-wrapping packages ,{#api-wrappers},http://stat545.com/,webdata02_activity.html
-DIY web data ,{#diy-web-data},https://stat545.com/,webdata03_activity.html
-Slides ,{#shiny-slides},http://stat545.com/,shiny00_index.html
-Building Shiny apps ,{#shiny-tutorial},http://stat545.com/,shiny01_activity.html
-"Draw the rest of the owl, a pep talk for building off simple examples ",{#draw-the-owl},http://stat545.com/,bit007_draw-the-rest-of-the-owl.html
-Make browsing your GitHub repos more rewarding ,{#github-browsability},http://stat545.com/,bit006_github-browsability-wins.html
+bookdown_path,stat545_path
+automating-pipeline.html,automation04_make-activity.html
+make-test-drive.html,automation03_make-test-drive.html
+basic-data-care.html,block006_care-feeding-data.html
+factors-boss.html,block029_factors.html
+shiny-tutorial.html,shiny01_activity.html
+character-encoding.html,block032_character-encoding.html
+character-vectors.html,block028_character-data.html
+diy-web-data.html,webdata03_activity.html
+effective-graphs.html,block015_graph-dos-donts.html
+functions-practicum.html,block012_function-regress-lifeexp-on-year.html
+version-control.html#claim-stat545-repo,git08_claim-stat545-repo.html
+install.html,block000_r-rstudio-install.html
+dplyr-intro.html,block009_dplyr-intro.html
+join-cheatsheet.html,bit001_dplyr-cheatsheet.html
+make-windows.html,automation02_windows.html
+multiple-plots.html,block020_multiple-plots-on-a-page.html
+automation-overview.html,automation00_index.html
+graphics-overview.html,graph00_index.html
+package-overview.html,packages00_index.html
+r-basics.html,block002_hello-r-workspace-wd-project.html
+r-objects.html,block004_basic-r-objects.html
+secrets.html,block016_secrets-happy-graphing.html
+random.html#draw-the-owl,bit007_draw-the-rest-of-the-owl.html
+random.html#github-browsability,bit006_github-browsability-wins.html
+random.html#store-api-key,bit003_api-key-env-var.html
+random.html#data-carp-tidy-data,bit002_tidying-lotr-data.html
+dplyr-single.html,block010_dplyr-end-single-table.html
+shiny-slides.html,shiny00_index.html
+web-data-slides.html,webdata01_slides.html
+system-prep.html,packages01_system-prep.html
+lookup.html,bit008_lookup.html
+qualitative-colors.html,block019_enforce-color-scheme.html
+r-markdown.html,block007_first-use-rmarkdown.html
+api-wrappers.html,webdata02_activity.html
+colors.html,block018_colors.html
+multiple-tibbles.html,block033_working-with-two-tables.html
+automation-slides.html,automation01_slides/index.html
+functions-part1.html,block011_write-your-own-function-01.html
+functions-part2.html,block011_write-your-own-function-02.html
+functions-part3.html,block011_write-your-own-function-03.html
+package-from-scratch.html,packages06_foofactors-package.html
+import-export.html,block026_file-out-in.html
+save-figs.html,block017_write-figure-to-file.html

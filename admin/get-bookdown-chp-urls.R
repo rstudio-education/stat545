@@ -1,6 +1,6 @@
 # Link the cross-reference labels for bookdown chapters (if they exist) with 
 # content that was on the old stat545.com. Creates a csv that links the 
-# bookdown reference links to the old stat545.com url.
+# bookdown html paths to the old stat545.com site.
 
 library(readr)
 library(dplyr)
@@ -18,42 +18,58 @@ rmd_to_html <- function(rmd){
   return(html)
 }
 
-filter_nodes <- function(htmls) {
-  nodeset <- htmls %>% 
-    html_nodes(xpath = '//h1 | //h2 | //comment()[contains(., "Original content")]') %>% 
-    xml_text() %>% 
-    discard(!str_detect(., "(\\.html)|(\\{-?#)"))
+filter_nodes <- function(html) {
+  nodes <- html %>% 
+    html_nodes(xpath = '//h1 | //h2 | //comment()[contains(., "Original content")]')
+}
+
+make_node_df <- function(nodeset){
+  nodes_df <- tibble(
+    name = html_name(nodeset),
+    text = xml_text(nodeset)
+  )
 }
 # -----------------------------------------------------------------------------
+
 
 chapters_rmd <- list.files(path = ".", pattern = "[[:digit:]]{2}_.*\\.Rmd") %>% 
   discard(~ .x == "40_references.Rmd")
 
 chapters_html <- map(chapters_rmd, rmd_to_html)
 
-filtered_nodes <- chapters_html %>% 
+nodes <- chapters_html %>% 
   map(filter_nodes) %>% 
-  flatten_chr()
+  map(make_node_df) %>% 
+  bind_rows()
 
-paired_nodes <- tibble(
-  header = filtered_nodes, 
-  url = filtered_nodes[-1] %>% 
-    append(NA_character_)
-  )
+
+paired_nodes <- nodes %>% 
+  mutate(index = row_number()) %>% 
+  spread(name, text) %>% 
+  
+  select(index, h1, h2, comment) %>% 
+  fill(h1) %>% 
+  
+  group_by(h1) %>% 
+  fill(h2) %>% 
+  ungroup() %>% 
+  
+  filter(!is.na(comment)) %>% 
+  select(-index)
 
 bookdown_urls <- paired_nodes %>% 
-  filter(str_detect(header, "\\{-?#") & str_detect(url, "http")) %>% 
-  mutate(title = str_extract(header, ".+(?=\\{)"),
-         ref_label = str_extract(header, "\\{-?#.+\\}")) %>% 
-  select(-header) %>% 
-  mutate(url = str_extract(url, "(?<=Original content: ).+"),
-         base_url = str_extract(url, ".+\\.com/"),
-         html_file = str_extract(url, "(?<=\\.com/).+")) %>% 
-  select(-url)
+  # clean up bookdown ref urls
+  mutate(h1 = str_extract(h1, "(?<=\\{-?#).+(?=\\})"),
+         h1 = str_c(h1, ".html")) %>% 
+  mutate(h2 = str_extract(h2, "(?<=\\{).+(?=\\})"),
+         h2 = if_else(is.na(h2), "", h2)) %>% 
+  mutate(bookdown_path = str_c(h1, h2)) %>% 
+  select(-h1, -h2) %>% 
   
-  
+  # clean up stat545 urls
+  filter(str_detect(comment, "http(s?)://stat545.com")) %>% 
+  mutate(stat545_path = str_extract(comment, "(?<=http(s?)://stat545.com/).*")) %>% 
+  select(-comment)
+
 
 write_csv(bookdown_urls, "admin/bookdown_chp_urls.csv")
-
-
-
