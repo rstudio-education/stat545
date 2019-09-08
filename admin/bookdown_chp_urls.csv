@@ -6,6 +6,7 @@ factors-boss.html,block029_factors.html
 shiny-tutorial.html,shiny01_activity.html
 character-encoding.html,block032_character-encoding.html
 character-vectors.html,block028_character-data.html
+date-time.html,block030_date-times.html
 diy-web-data.html,webdata03_activity.html
 effective-graphs.html,block015_graph-dos-donts.html
 functions-practicum.html,block012_function-regress-lifeexp-on-year.html
@@ -18,6 +19,7 @@ multiple-plots.html,block020_multiple-plots-on-a-page.html
 automation-overview.html,automation00_index.html
 graphics-overview.html,graph00_index.html
 package-overview.html,packages00_index.html
+shiny-overview.html,shiny00_index.html
 r-basics.html,block002_hello-r-workspace-wd-project.html
 r-objects.html,block004_basic-r-objects.html
 secrets.html,block016_secrets-happy-graphing.html
@@ -26,7 +28,6 @@ random.html#github-browsability,bit006_github-browsability-wins.html
 random.html#store-api-key,bit003_api-key-env-var.html
 random.html#data-carp-tidy-data,bit002_tidying-lotr-data.html
 dplyr-single.html,block010_dplyr-end-single-table.html
-shiny-slides.html,shiny00_index.html
 web-data-slides.html,webdata01_slides.html
 system-prep.html,packages01_system-prep.html
 lookup.html,bit008_lookup.html
