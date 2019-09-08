@@ -2,6 +2,8 @@
 
 # Overview {-#shiny-overview}
 
+<!--Original content: http://stat545.com/shiny00_index.html-->
+
 * Chapter \@ref(shiny-slides) - Slides to accompany Chapter \@ref(shiny-tutorial).
 * Chapter \@ref(shiny-tutorial) - Shiny tutorial with hands-on activity to build [this app](https://daattali.com/shiny/bcl/) using the BC Liquor Store dataset.
 
@@ -33,8 +35,6 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 
 
 # Slides {#shiny-slides}
-
-<!--Original content: http://stat545.com/shiny00_index.html-->
 
 See ["Building Shiny Apps" slides](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) by Dean Attali.
 

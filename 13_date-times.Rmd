@@ -6,7 +6,7 @@ source("common.R")
 
 <!--JB: *Under development ... really just a placeholder / collection of links*-->
 
-<!--Original content: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block030_date-times.Rmd--> 
+<!--Original content: https://stat545.com/block030_date-times.html--> 
 
 ## Date-time vectors: where they fit in
 
