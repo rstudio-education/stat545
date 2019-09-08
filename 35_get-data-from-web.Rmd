@@ -1,11 +1,11 @@
 # (PART) Get data from the web {-} 
 
-# Slides
+# Slides {#web-data-slides}
 
 ```{r include = FALSE}
 source("common.R")
 ```
 
-<!--Original content: https://stat545.com/webdata02_activity.html-->
+<!--Original content: https://stat545.com/webdata01_slides.html-->
 
 See ["Getting data from the web - R packages" slides](supporting-docs/webdata01_slides.html) by Andrew MacDonald.

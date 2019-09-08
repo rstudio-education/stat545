@@ -1,6 +1,7 @@
 language: r
 cran: https://cran.rstudio.com
-cache: packages
+cache: 
+  packages: true
 
 before_install:
   - nvm install stable
@@ -12,7 +13,8 @@ env:
   # NETLIFY_AUTH_TOKEN set in travis settings
 
 script:
-- Rscript -e 'bookdown::render_book("index.Rmd")'
+  - Rscript -e 'bookdown::render_book("index.Rmd")'
+  - cp _redirects _book/_redirects # netlify redirects file
 
 deploy:
   - provider: script

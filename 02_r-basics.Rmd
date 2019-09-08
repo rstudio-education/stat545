@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content:http://stat545.com/block002_hello-r-workspace-wd-project.html-->
+<!--Original content: http://stat545.com/block002_hello-r-workspace-wd-project.html-->
 
 ## Basics of working with R at the command line and RStudio goodies
 

@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content:http://stat545.com/block018_colors.html-->
+<!--Original content: http://stat545.com/block018_colors.html-->
 
 <!--TODO: The link below is broken. Found it listed [here](https://www.showmeshiny.com/r-graph-catalog/) which links this [repo](https://github.com/jennybc/r-graph-catalog) as the source code
 
