@@ -8,7 +8,7 @@ source("common.R")
 
 Content now [here][happy-git]. Install Git, install a Git client or GUI, establish pull/push connection from computer to GitHub in the shell, establish GitHub connection via RStudio, credential caching, troubleshooting.
 
-## Claim your private STAT 545 repository
+## Claim your private STAT 545 repository {#claim-stat545-repo}
 
 <!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
 <!--TODO: update this section, assumes that there is an active STAT 545 organization-->

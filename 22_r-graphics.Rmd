@@ -1,12 +1,12 @@
 # (PART) All the graph things {-} 
 
-# Overview {-}
+# Overview {-#graphics-overview}
 
 ```{r include = FALSE}
 source("common.R")
 ```
 
-<!--Original content:https://stat545.com/graph00_index.html-->
+<!--Original content: https://stat545.com/graph00_index.html-->
 
 We work on visualization throughout the course. Here are the bits in rough order of presentation.
 

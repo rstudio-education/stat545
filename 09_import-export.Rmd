@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content: https://stat545.com/block002_hello-r-workspace-wd-project.html-->
+<!--Original content: http://stat545.com/block026_file-out-in.html-->
 
 ## File I/O overview
 

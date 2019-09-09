@@ -6,7 +6,7 @@
 source("common.R")
 ```
 
-<!--Original content:https://stat545.com/packages00_index.html-->
+<!--Original content: https://stat545.com/packages00_index.html-->
 
 * Chapter \@ref(first-package) - Writing your first R package slides
   + What is an R package?

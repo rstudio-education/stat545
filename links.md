@@ -5,6 +5,8 @@
 [r-proj]: https://www.r-project.org
 [stat-545]: https://stat545.com
 [software-carpentry]: https://software-carpentry.org
+[cran-r-extensions]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html
+
 
 <!--RStudio Links-->
 [rstudio-preview]: https://www.rstudio.com/products/rstudio/download/preview/
@@ -253,18 +255,16 @@
 
 
 <!--R Documentation-->
-[rdocs-extremes]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Extremes
-[rdocs-range]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/range
-[rdocs-quantile]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/quantile
-[rdocs-c]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/c
-[rdocs-list]: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/list
-[rdocs-lm]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/lm
-[rdocs-coef]: https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/coef
-[rdocs-devices]: https://www.rdocumentation.org/packages/grDevices/versions/3.6.0/topics/Devices
-[rdocs-ggsave]: https://www.rdocumentation.org/packages/ggplot2/versions/3.2.0/topics/ggsave
-[rdocs-dev]: https://www.rdocumentation.org/packages/grDevices/versions/3.6.0/topics/dev
-[cran-r-extensions]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html
-
+[rdocs-extremes]: https://rdrr.io/r/base/Extremes.html
+[rdocs-range]: https://rdrr.io/r/base/range.html
+[rdocs-quantile]: https://rdrr.io/r/stats/quantile.html
+[rdocs-c]: https://rdrr.io/r/base/c.html
+[rdocs-list]: https://rdrr.io/r/base/list.html
+[rdocs-lm]: https://rdrr.io/r/stats/lm.html
+[rdocs-coef]: https://rdrr.io/r/stats/coef.html
+[rdocs-devices]: https://rdrr.io/r/grDevices/Devices.html
+[rdocs-ggsave]: https://rdrr.io/cran/ggplot2/man/ggsave.html
+[rdocs-dev]: https://rdrr.io/r/grDevices/dev.html
 
 
 <!--Wikipedia Links-->

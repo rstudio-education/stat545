@@ -1,4 +1,4 @@
-# Write your first R package {#first-package}
+# Write your first R package {#package-slides}
 
 ```{r include = FALSE}
 source("common.R")

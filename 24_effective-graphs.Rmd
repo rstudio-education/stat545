@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content:https://stat545.com/block015_graph-dos-donts.html-->
+<!--Original content: https://stat545.com/block015_graph-dos-donts.html-->
 
 <!--JB:
 *In 2015, this was mercifully replaced by a [guest lecture from UBC colleague Tamara Munzner](http://stat545-ubc.github.io/cm014_viz-design-munzner.html). The content below would be better with links to specific figures from Naomi Robbins' book, but the Shiny app does not make that possible. Or perhaps I should just embed my versions of them.*

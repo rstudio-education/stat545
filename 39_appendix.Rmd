@@ -6,33 +6,51 @@
 source("common.R")
 ```
 
-## Regular expressions in R {#regex1}
-
-* __Rendered__: https://stat545.com/block022_regular-expression.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block022_regular-expression.rmd
-  
-## Regular expressions and character data {#regex2}
-
-* __Rendered__: https://stat545.com/block027_regular-expressions.html
-* __Raw__:  https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block027_regular-expressions.Rmd
-
-
 ## Vectors versus tibbles {#vectors-tibbles}
 
-* __Rendered__: https://stat545.com/block031_vector-tibble-relations.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block031_vector-tibble-relations.Rmd
-
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block031_vector-tibble-relations.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block031_vector-tibble-relations.Rmd)). *Last updated 10/2016*.
 
 ## Computing by groups within data.frames with `dplyr` and `broom` {#dplyr-do}
 
-* __Rendered__: https://stat545.com/block023_dplyr-do.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block023_dplyr-do.rmd
-  
-  
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block023_dplyr-do.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block023_dplyr-do.rmd)). *Last updated 10/2016*.
+
+## Be the boss of your factors (2015)
+
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block014_factors.html>
+([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block014_factors.rmd)). *Last updated 10/2016*.
+
+
+## Regular expressions and character data {#regex2}
+
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block027_regular-expressions.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block027_regular-expressions.Rmd)). *Last updated 11/2015*.
+
+
+## Write your own R package, part 1 (2014)
+
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages02_activity.html>
+([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/packages02_activity.md)). *Last updated 11/2015*.
+
+
+## Write your own R package, part 2 (2014)
+
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/packages03_activity_part2.html>
+([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/packages03_activity_part2.md)). *Last updated 11/2015*.
+
+
 ## Computing by groups within data.frames with `plyr` {#plyr-ddply}
 
-* __Rendered__: https://stat545.com/block013_plyr-ddply.html
-* __Raw__: https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/block013_plyr-ddply.rmd
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block013_plyr-ddply.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block013_plyr-ddply.rmd)). *Last updated 10/2015*.
+
+
+## Wrapping lm
+
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block025_lm-poly.html>
+([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block025_lm-poly.rmd)). *Last updated 10/2015*.
+
+
+## Regular expressions in R {#regex1}
+
+See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block022_regular-expression.html> ([Raw](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/98ca77ce155b2dbc3878b33635ddebd867041e4c/block022_regular-expression.rmd)). *Last updated 09/2015*.
 
 
 # Short random things {#random}
@@ -292,7 +310,7 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## Make browsing your GitHub repos more rewarding {#github-browsability}
 
-<!--Original content: http://stat545.com/bit006_github-browsability-wins.html)-->
+<!--Original content: http://stat545.com/bit006_github-browsability-wins.html-->
 
 *The unreasonable effectiveness of GitHub browsability*
 
@@ -476,9 +494,13 @@ AFAIK, to do that in a slick automatic way across an entire repo/site, you need 
 
 ## Store an API key as an environment variable {#store-api-key}
 
+<!--Original content: https://stat545.com/bit003_api-key-env-var.html-->
+
 This can be found [here](https://happygitwithr.com/credential-caching.html).
 
 ## Data Carpentry lesson on tidy data {#data-carp-tidy-data}
+
+<!--Original content: https://stat545.com/bit002_tidying-lotr-data.html-->
 
 *A lesson I contributed to [Data Carpentry](https://software-carpentry.org/blog/2014/05/our-first-data-carpentry-workshop.html) on tidying data.*
 
