@@ -1,3 +1,13 @@
+# Creating the `renv` lockfile
+
+This is the code that GL ran in the Console to create the `renv` lockfile for the STAT 545 bookdown project:
+
+1. `renv::init()` -- creates initial lockfile, adds three files: `renv/`, `renv.lock`, and `.Rprofile`.
+1. Use `renv::modify()` to manually add the `servr` and `miniUI` packages to the lockfile since they will be needed for `bookdown::serve_book()`. These are not caught during step 1 since the default behavior of `renv::init()` / `renv::snapshot()` is to *not* capture dev dependencies. I chose to stick with this default to avoid overfilling the lockfile with unnecessary packages. 
+1. `renv::hydrate(packages = c("servr", "miniUI"))` -- adds `servr` and `miniUI` to the `renv` package cache in the `renv/` folder. 
+1. `renv::deactivate()` -- removes `.Rprofile`; "turns off" `renv` and the private, project-specific library.
+
+
 # Netlify Redirects
 
 When the bookdown reboot of STAT545 takes over the `https://stat545.com` domain, what was previously `https://stat545.com` will continue to exist indefinitely at `https://STAT545-UBC.github.io/STAT545-UBC.github.io`. All content on the previous `https://stat545.com` will be redirected based on the set of rules listed below, where "previous" refers to the old `https://stat545.com`, "bookdown" refers to the new `http://stat545.com`, and "gh pages site" refers to `https://STAT545-UBC.github.io/STAT545-UBC.github.io`. 
