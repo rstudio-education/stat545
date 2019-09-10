@@ -105,4 +105,4 @@ bookdown_urls <- paired_nodes %>%
   filter(bookdown_path != "automation-slides.html")
 
 
-write_csv(bookdown_urls, "admin/bookdown_chp_urls.csv")
+write_csv(bookdown_urls, "admin/prev_stat545_to_bookdown.csv")

@@ -4,22 +4,27 @@ When the bookdown reboot of STAT545 takes over the `https://stat545.com` domain,
 
 Redirect rules:
 
-* Any previous `.html` that does map to a bookdown chapter --> redirects to the bookdown chapter.
-* Any previous `.html` that does *not* map to a bookdown chapter --> redirects to the gh pages site.
+* Any previous `.html` that...
+  + ...maps to a bookdown chapter --> redirects to the bookdown chapter.
+  + ...maps to a happygitwithr page --> redirects to the happygitwithr page
+  + ...does not map to bookdown or happygit --> redirects to gh pages site
 * Any previous static image files (`.png`), data files (`.csv`, `.txt`, `.tsv`), and `.pdf` --> redirects to the gh pages site
 * Everything else (`.md`, `.R`, `.Rmd`, etc.) --> redirects to 404 (done automatically by Netlify).
 
-The redirects will be done by Netlify using the `_redirects` file (see Netlify documentation [here](https://www.netlify.com/docs/redirects/#custom-404)). Three scripts in `admin/` are used to create these redirects:
+The redirects will be done by Netlify using the `_redirects` file (see Netlify documentation [here](https://www.netlify.com/docs/redirects/#custom-404)). Four scripts in `admin/` are used to create these redirects:
 
-* `admin/01_get-old-stat545-urls.R`
-    + Creates `admin/old_stat545_urls.csv`
+* `admin/01_get-prev-stat545-urls.R`
+    + Creates `admin/prev_stat545_urls.csv`
     + Gets all url paths for the previous `https://stat545.com` that we will redirect, i.e. those ending with `.html`, `.csv`, `.txt`, `.tsv`, `.png`, or `.pdf` 
-* `admin/01_get-bookdown-chp-urls.R` 
-    + Creates `admin/bookdown_chp_urls.csv`
-    + Gets the url path for bookdown chapters and maps them to the old url path on the previous stat545.com
+* `admin/01_make-bookdown-mappings.R` 
+    + Creates `admin/prev_stat545_to_bookdown.csv`
+    + Gets the url path for bookdown chapters and maps them to the old url path on the previous `https://stat545.com`
+* `admin/01_make_happygit_mappings.R`
+    + Create `admin/prev_stat545_to_happygit.csv`
+    + Maps the pages covering git on the previous `https://stat545.com` to the corresponding chapters on `https://happygitwithr.com`.
 * `admin/02_make-redirects-mappings.R`
     + Creates `admin/redirects_mappings.csv` and `_redirects`
-    + Combines `admin/old_stat545_urls.csv` and `admin/bookdown_chp_urls.csv` to create the final redirect mappings using the set of rules listed above that will be passed onto Netlify. 
+    + Combines `admin/prev_stat545_urls.csv` and `admin/prev_stat545_to_bookdown.csv` to create the final redirect mappings using the set of rules listed above that will be passed onto Netlify. 
 
 ## Notes & resources that were helpful
 

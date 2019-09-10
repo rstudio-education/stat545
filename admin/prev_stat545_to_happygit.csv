@@ -1,0 +1,11 @@
+stat545_path,happygit_path
+git00_index.html,index.html
+git01_git-install.html,install-intro.html
+git02_git-clients.html,git-client.html
+git03_rstudio-meet-git.html,rstudio-see-git.html
+git04_introduce-self-to-git.html,hello-git.html
+git05_github-connection.html,push-pull-github.html
+git06_credential-caching.html,credential-caching.html
+git07_git-github-rstudio.html,rstudio-git-github.html
+git09_shell.html,shell.html
+git66_rstudio-git-github-hell.html,troubleshooting.html
