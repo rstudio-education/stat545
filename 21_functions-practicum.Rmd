@@ -122,7 +122,7 @@ le_lin_fit(gapminder %>% filter(country == "Zimbabwe"))
 
 Yes.
 
-Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. Let's move on to [the exciting part](#dplyr-do), which is scaling this up to __all__ countries.
+Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. 
 
 
 ```{r links, child="links.md"}
