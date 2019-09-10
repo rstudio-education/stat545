@@ -43,13 +43,13 @@ pak::pkg_install(pkg_list)
 
 ### Use `renv` to recreate our project library
 
-Another option is to use the [`renv` package](https://rstudio.github.io/renv/index.html) to replicate our exact project library. `renv` will create a private, project-specific library that is separate from your personal library of packages. This would be a good option if, for example, you have another project that relies on a specific version of a package and you don't want to mess with it by upgrading, downgrading, etc.
+Another option is to use the [`renv` package](https://rstudio.github.io/renv/index.html) to replicate our exact project library. `renv` is a package that uses a [snapshot and restore](https://environments.rstudio.com/snapshot.html) strategy to create **r**eproducible **env**nvironments for R projects. `renv` will create a private, project-specific library that is separate from your personal library of packages. This would be a good option if, for example, you have another project that relies on a specific version of a package and you don't want to mess with it by upgrading, downgrading, etc.
 
-If you want to know more about what `renv` is doing behind the scenes see [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html) and [Snapshot and Restore](https://environments.rstudio.com/snapshot.html#pre-requisite-steps).
+If you would want to learn more about what `renv` is doing behind the scenes and how you can use `renv` for collaboration see [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html), [Collaborating with renv](https://rstudio.github.io/renv/articles/collaborating.html), and [Snapshot and Restore](https://environments.rstudio.com/snapshot.html#pre-requisite-steps).
 
 *Note: The `renv` package is still in the development stage so these instructions may change over time!*
 
-Once you have a local copy of this project (either via fork/clone or downloading a zip file), follow these steps:
+Once you have a local copy of this project (either via [fork and clone](https://happygitwithr.com/fork-and-clone.html) or by downloading this repository as a ZIP file), follow these steps:
 
 1. Install the development version of the `renv` package -- specifically, the same version we used to take a "snapshot" of our project library:
    
@@ -61,18 +61,9 @@ Once you have a local copy of this project (either via fork/clone or downloading
     ```
     
 1. Run `renv::init(bare = TRUE)` in the Console.
-    + This will create a private, project-specific library. The `bare = TRUE` argument tells `renv` that it should *not* try to add anything to this new library yet. If you take a took at the Packages tab in RStudio there will be two headers: "Packrat Library" and "System Library". The only package listed under "Packrat library" (i.e. the private, project-specific library) will be `renv`.
+    + This will create a private, project-specific library. The `bare = TRUE` argument tells `renv` that it should *not* try to add anything to this new library yet. If you take a took at the Packages tab in RStudio there will be two headers: "Packrat Library" and "System Library". The only package listed under "Packrat Library" (i.e. the private, project-specific library) will be `renv`.
 1. Run `renv::restore()` in the Console.
     + This will print out "The following package(s) will be installed" followed by a long list of packages. Respond yes. `renv` will install the packages by copying them over from the cache in the `renv/` folder.
 1. Restart R (*Session* > *Restart R*)
     + If you take a look at the Packages tab, there should be a lot more packages listed under "Packrat Library" now.
-1. You should now be able to preview the bookdown via either `bookdown::serve_book()` or *Addins* > *Preview Book*.
-  
-<!-- 
-GL: How I created the renv lockfile
-
-1. renv::init() -- creates initial lockfile, adds three files: renv/, renv.lock, and .Rprofile
-2. Use renv::modify() to manually add the servr and miniUI packages to the lockfile since they will be needed for bookdown::serve_book(). These are not caught during step 1 since the default behavior of renv::init() / renv::snapshot() is to not capture dev dependencies
-3. renv::hydrate(packages = c("servr", "miniUI")) -- adds servr and miniUI to the renv package cache in the renv/ folder
-4. renv::deactivate() -- removes .Rprofile; "turns off" renv and the private, project-specific library
--->
+1. You should now be able to render the bookdown locally via either `bookdown::serve_book()` or *Addins* > *Preview Book*.
