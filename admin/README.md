@@ -1,13 +1,13 @@
 # Netlify Redirects
 
-When the bookdown reboot of STAT545 takes over the `https://stat545.com` domain, what was previously `https://stat545.com` will continue to exist indefinitely at `https://STAT545-UBC.github.io/STAT545-UBC.github.io`. All content on the previous `https://stat545.com` will be redirected based on the set of rules listed below, where "previous" refers to the old `https://stat545.com`, "bookdown" refers to the new `http://stat545.com`, and "gh pages site" refers to `https://STAT545-UBC.github.io/STAT545-UBC.github.io`. 
+When the bookdown reboot of STAT545 takes over the `https://stat545.com` domain, what was previously `https://stat545.com` will continue to exist indefinitely at `https://STAT545-UBC.github.io/STAT545-UBC.github.io`. All content on the previous `https://stat545.com` will be redirected based on the set of rules listed below, where "previous" refers to the old `https://stat545.com`, "bookdown" refers to the new `http://stat545.com`, "gh pages site" refers to `https://STAT545-UBC.github.io/STAT545-UBC.github.io`, and "happygitwithr" refers to `https://happygitwithr.com`. 
 
 Redirect rules:
 
 * Any previous `.html` that...
   + ...maps to a bookdown chapter --> redirects to the bookdown chapter.
   + ...maps to a happygitwithr page --> redirects to the happygitwithr page
-  + ...does not map to bookdown or happygit --> redirects to gh pages site
+  + ...does not map to bookdown or happygitwithr --> redirects to gh pages site
 * Any previous static image files (`.png`), data files (`.csv`, `.txt`, `.tsv`), and `.pdf` --> redirects to the gh pages site
 * Everything else (`.md`, `.R`, `.Rmd`, etc.) --> redirects to 404 (done automatically by Netlify).
 
@@ -24,7 +24,7 @@ The redirects will be done by Netlify using the `_redirects` file (see Netlify d
     + Maps the pages covering git on the previous `https://stat545.com` to the corresponding chapters on `https://happygitwithr.com`.
 * `admin/02_make-redirects-mappings.R`
     + Creates `admin/redirects_mappings.csv` and `_redirects`
-    + Combines `admin/prev_stat545_urls.csv` and `admin/prev_stat545_to_bookdown.csv` to create the final redirect mappings using the set of rules listed above that will be passed onto Netlify. 
+    + Combines `admin/prev_stat545_urls.csv`, `admin/prev_stat545_to_bookdown.csv`, and `admin/prev_stat545_to_happygit.csv` to create the final redirect mappings using the set of rules listed above that will be passed onto Netlify. 
 
 ## Notes & resources that were helpful
 
