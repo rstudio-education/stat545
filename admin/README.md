@@ -30,4 +30,6 @@ The redirects will be done by Netlify using the `_redirects` file (see Netlify d
 * Specified HTTP status code 301 for redirects from old stat545 content  to the stat545 github.io placeholder (i.e. pages that were *not* moved over to the bookdown site). 
 * Don't have to explicitly tell Netlify to redirect missing pages to a 404. Tested in a practice bookdown and if you add a 404.html file to the dir that Netlify publishes, Netlify will automatically recognize the 404.html and redirect any pages that don't exist there. 
   
-  
+# Deprecated STAT 545 Content
+
+`admin/make-deprecated-csv.R` creates a tibble with info for the deprecated STAT 545 content listed on the previous `https://stat545.com/topics.html` under "Deprecated material that I no longer use. But last I checked, it’s not actually *wrong*" (-JB). This script creates `admin/deprecated_stat545_urls.csv`, which contains the titles, locations (relative url paths), and year last updated for these pages. This csv is used in the Deprecated section of the Appendix to create a table using the `gt` package.
