@@ -44,8 +44,8 @@ A God-awful and powerful language for expressing patterns to match in text or fo
   - Results come back in a form that is much friendlier for downstream work.
 * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016] is a great resource.
 * Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of `stringr` and uses example data that is easier to support long-term.
-  -  [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
-  - [2015 Regular expressions and character data in R](#regex2) by TA Kieran Samuk.
+  - [2014 Intro to regular expressions](#oldies) by TA Gloria Li (Appendix \@ref(oldies)).
+  - [2015 Regular expressions and character data in R](#oldies) by TA Kieran Samuk (Appendix \@ref(oldies)).
 * RStudio Cheat Sheet on [Regular Expressions in R][rstudio-regex-cheatsheet].
 * Regex testers:
   - [regex101.com][regex101]
@@ -64,7 +64,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 ### Character vectors that live in a data frame
 
 * Certain operations are facilitated by `tidyr`. These are described below.
-* For a general discussion of how to work on variables that live in a data frame, see Appendix \@ref(vectors-tibbles).
+* For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#oldies) (Appendix \@ref(oldies)).
 
 ## Load the `tidyverse`, which includes `stringr`
 
@@ -269,7 +269,7 @@ str_subset(fruit, pattern = "\\Bmelon")
 
 ### Character classes
 
-Characters can be specified via classes. You can make them explicitly "by hand" or use some pre-existing ones.  The [2014 STAT 545 regex lesson](#regex1) has a good list of character classes. Character classes are usually given inside square brackets, `[]` but a few come up so often that we have a metacharacter for them, such as `\d` for a single digit.
+Characters can be specified via classes. You can make them explicitly "by hand" or use some pre-existing ones.  The [2014 STAT 545 regex lesson](#oldies) (Appendix \@ref(oldies)) has a good list of character classes. Character classes are usually given inside square brackets, `[]` but a few come up so often that we have a metacharacter for them, such as `\d` for a single digit.
 
 Here we match `ia` at the end of the country name, preceded by one of the characters in the class. Or, in the negated class, preceded by anything but one of those characters.
 
@@ -390,7 +390,7 @@ You can use parentheses inside regexes to define *groups* and you can refer to t
 
 For now, this lesson will refer you to other place to read up on this:
 
-* STAT 545 [2014 Intro to regular expressions](#regex1) by TA Gloria Li.
+* STAT 545 [2014 Intro to regular expressions](#oldies) by TA Gloria Li (Appendix \@ref(oldies)).
 * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016].
 
 ```{r links, child="links.md"}
