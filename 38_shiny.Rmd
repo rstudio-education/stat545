@@ -2,7 +2,7 @@
 
 # Overview {-#shiny-overview}
 
-<!--Original content: http://stat545.com/shiny00_index.html-->
+<!--Original content: https://stat545.com/shiny00_index.html-->
 
 * Chapter \@ref(shiny-slides) - Slides to accompany Chapter \@ref(shiny-tutorial).
 * Chapter \@ref(shiny-tutorial) - Shiny tutorial with hands-on activity to build [this app](https://daattali.com/shiny/bcl/) using the BC Liquor Store dataset.
@@ -45,7 +45,7 @@ See ["Building Shiny Apps" slides](https://docs.google.com/presentation/d/1dXhqq
 source("common.R")
 ```
 
-<!--Original content: http://stat545.com/shiny01_activity.html-->
+<!--Original content: https://stat545.com/shiny01_activity.html-->
 <!--Original Author: Dean Attali-->
 
 [Shiny][shiny-official-web] is a package from RStudio that can be used to build interactive web pages with R. While that may sound scary because of the words "web pages", Shiny is geared to R users who have zero experience with web development, and you do not need to know any HTML/CSS/JavaScript.

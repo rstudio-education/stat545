@@ -57,7 +57,7 @@ See <https://STAT545-UBC.github.io/STAT545-UBC.github.io/block022_regular-expres
 
 ## Draw the rest of the owl, a pep talk for building off simple examples {#draw-the-owl}
 
-<!--Original content: http://stat545.com/bit007_draw-the-rest-of-the-owl.html-->
+<!--Original content: https://stat545.com/bit007_draw-the-rest-of-the-owl.html-->
 
 ```{r echo = FALSE}
 set.seed(328)
@@ -310,7 +310,7 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## Make browsing your GitHub repos more rewarding {#github-browsability}
 
-<!--Original content: http://stat545.com/bit006_github-browsability-wins.html-->
+<!--Original content: https://stat545.com/bit006_github-browsability-wins.html-->
 
 *The unreasonable effectiveness of GitHub browsability*
 
