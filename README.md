@@ -45,7 +45,7 @@ pak::pkg_install(pkg_list)
 
 Another option is to use the [renv package](https://rstudio.github.io/renv/index.html) to replicate our exact project library. renv is a package that uses a [snapshot and restore](https://environments.rstudio.com/snapshot.html) strategy to create **r**eproducible **env**nvironments for R projects. renv will create a private, project-specific library that is separate from your personal library of packages. This would be a good option if, for example, you have another project that relies on a specific version of a package and you don't want to mess with it by upgrading, downgrading, etc.
 
-If you want to learn more about what renv is doing behind the scenes and how you can use renv for collaboration see [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html), [Collaborating with renv](https://rstudio.github.io/renv/articles/collaborating.html), and [Snapshot and Restore](https://environments.rstudio.com/snapshot.html#pre-requisite-steps).
+If you want to learn more about what renv is doing behind the scenes checkout [renv's main site](https://rstudio.github.io/renv/index.html).
 
 *Note: The renv package is still in the development stage so these instructions may change over time!*
 
