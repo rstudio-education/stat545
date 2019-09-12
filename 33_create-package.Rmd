@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content: http://stat545.com/packages06_foofactors-package.html-->
+<!--Original content: https://stat545.com/packages06_foofactors-package.html-->
 
 This section closely tracks with content from the book [R Packages][r-pkgs2] by Hadley Wickham and Jenny Bryan [-@wickham-unpub], specifically the [The Whole Game][r-pkgs2-whole-game] chapter. The material in this chapter is, however, accurate and up-to-date, although a bit longer than [The Whole Game][r-pkgs2-whole-game]. The [R Packages][r-pkgs2] book is a great place to go next to learn more. 
 

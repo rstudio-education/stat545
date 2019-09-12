@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-<!--Original content: http://stat545.com/block020_multiple-plots-on-a-page.html-->
+<!--Original content: https://stat545.com/block020_multiple-plots-on-a-page.html-->
 
 <!--TODO: add patchwork package here?-->
 

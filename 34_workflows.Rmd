@@ -57,14 +57,14 @@ Although we spend a lot of time working with data interactively, this sort of ha
 
 # Why and how we automate data analyses + examples {#automation-slides}
 
-<!--Original content: http://stat545.com/automation01_slides/index.html-->
+<!--Original content: https://stat545.com/automation01_slides/index.html-->
 <!--TODO: Link currently leads to https://STAT545-UBC.github.io/STAT545-UBC.github.io/, wasn't able to get slides in supporting-docs/automation01_slides to render-->
 
 See ["Automating data analysis pipelines" slides](https://STAT545-UBC.github.io/STAT545-UBC.github.io/index.html) by Shaun Jackman and Jenny Bryan.
 
 # `make`: special considerations for Windows {#make-windows}
 
-<!--Original content: http://stat545.com/automation02_windows.html-->
+<!--Original content: https://stat545.com/automation02_windows.html-->
 <!--Original authors: Shaun Jackman, Dean Attali, Jenny Bryan-->
 
 *2015-11-17 NOTE: This year we made R packages before we used `make` The hope is, therefore, that the `make` that ships with Rtools is all we need. So hopefully we can ignore this?*
@@ -116,7 +116,7 @@ What are the tricky bits?
 
 # Automation: test drive `make` {#make-test-drive}
 
-<!--Original content: http://stat545.com/automation03_make-test-drive.html-->
+<!--Original content: https://stat545.com/automation03_make-test-drive.html-->
 <!--Original authors: Shaun Jackman, Jenny Bryan-->
 
 Before we use `make` for real work, we want to prove beyond a shadow of a doubt that it's installed and findable from RStudio and/or the [shell][hg-shell].
@@ -222,7 +222,7 @@ If you are not, are you getting the error message that's characteristic of a "sp
 
 # Automating data-analysis pipelines {#automating-pipeline}
 
-<!--Original content: http://stat545.com/automation04_make-activity.html-->
+<!--Original content: https://stat545.com/automation04_make-activity.html-->
 <!--Original authors: Shaun Jackman and Jenny Bryan-->
 
 The goal of this activity is to create a pipeline that will...
