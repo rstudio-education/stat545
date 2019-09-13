@@ -2,7 +2,7 @@
 local({
 
   # the requested version of renv
-  version <- "0.7.0-21"
+  version <- "0.7.0-49"
 
   # signal that we're loading renv during R startup
   Sys.setenv("RENV_R_INITIALIZING" = "true")
@@ -48,7 +48,7 @@ local({
 
   })
 
-  # try to load renv from one of these paths
+  # try to load renv from the project library
   if (requireNamespace("renv", lib.loc = libpath, quietly = TRUE))
     return(renv::load())
 
