@@ -1,7 +1,7 @@
-# Get file paths that exist at the old https://stat545.com that was created 
-# by the STAT545-UBC/STAT545-UBC.github.io repo. Only keep file paths that end
-# with .html, .csv, .txt, .tsv, .png, .pdf. Everything else will be 
-# automatically redirected to 404 by Netlify.
+# Get file paths that exist at the previous https://stat545.com that was 
+# created by the STAT545-UBC/STAT545-UBC.github.io repo. Only keep file 
+# paths that end with .html, .csv, .txt, .tsv, .png, .pdf. Everything else
+# will be automatically redirected to 404 by Netlify.
 # -----------------------------------------------------------------------------
 
 library(gh)
@@ -23,10 +23,8 @@ stat545_paths <- response %>%
   vapply("[[", "", "path") # extract the file path
 
 
-# create a tibble with old/new urls & save the file paths as fs path objects
+# create a tibble with the file paths as fs path objects
 stat545_urls <- tibble(
-  old_url = "https://stat545.com", 
-  new_url = "https://STAT545-UBC.github.io/STAT545-UBC.github.io",
   stat545_path = fs_path(stat545_paths)
 )
 
@@ -41,7 +39,8 @@ to_ignore <- c("404.html", "index.html")
 urls_filtered <- stat545_urls %>% 
   mutate(stat545_ext = path_ext(stat545_path)) %>% # separate the ext from the url path
   filter(stat545_ext %in% to_keep) %>%  # only keep the url paths we care about
-  filter(!stat545_path %in% to_ignore) # don't redirect these
+  filter(!stat545_path %in% to_ignore) %>% # don't redirect these
+  select(-stat545_ext)
 
 
-write_csv(urls_filtered, "admin/old_stat545_urls.csv")
+write_csv(urls_filtered, "admin/prev_stat545_urls.csv")
