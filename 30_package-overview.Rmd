@@ -8,7 +8,7 @@ source("common.R")
 
 <!--Original content: https://stat545.com/packages00_index.html-->
 
-* Chapter \@ref(first-package) - Writing your first R package slides
+* Chapter \@ref(package-slides) - Writing your first R package slides
   + What is an R package?
   + What is a library?
   + Why make an R package?
