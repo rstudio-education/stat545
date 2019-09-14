@@ -1,7 +1,6 @@
 language: r
 cran: https://demo.rstudiopm.com/all/__linux__/xenial/latest
 cache:
-  packages: true
   directories:
   - _bookdown_files
   - $HOME/.npm
@@ -20,10 +19,10 @@ before_install:
   # research
   - echo $TRAVIS_BUILD_DIR
   - Rscript -e '.libPaths()'
-#  - Rscript -e 'system.file(package = "remotes")'
-#  - Rscript -e 'system.file(package = "renv")'
-#  - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
-#  - Rscript -e 'remotes::install_github("rstudio/renv")'
+  - Rscript -e 'system.file(package = "remotes")'
+  - Rscript -e 'system.file(package = "renv")'
+  - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
+  - Rscript -e 'remotes::install_github("rstudio/renv")'
   - Rscript -e "renv::restore()"
 
 script:
