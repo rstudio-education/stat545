@@ -24,8 +24,8 @@ before_install:
   # research
   - echo $TRAVIS_BUILD_DIR
   - Rscript -e '.libPaths()'
-  - Rscript -e 'system.file(package = "remotes"))'
-  - Rscript -e 'system.file(package = "renv"))'
+  - Rscript -e 'system.file(package = "remotes")'
+  - Rscript -e 'system.file(package = "renv")'
   - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
   - Rscript -e 'remotes::install_github("rstudio/renv")'
   - Rscript -e "renv::restore()"
