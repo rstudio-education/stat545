@@ -1,13 +1,13 @@
 {
   "renv": {
-    "Version": "0.7.0-49"
+    "Version": "0.7.0-50"
   },
   "R": {
     "Version": "3.6.0",
     "Repositories": [
       {
         "Name": "CRAN",
-        "URL": "https://demo.rstudiopm.com/all/__linux__/xenial/latest"
+        "URL": "https://cran.rstudio.com"
       }
     ]
   },
@@ -687,13 +687,6 @@
       "Repository": "CRAN",
       "Hash": "d3d55a556f7f2e74f449d6a53b8abf8e"
     },
-    "rematch2": {
-      "Package": "rematch2",
-      "Version": "2.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "0f9d491406a99401fdbfd8e8234cf1aa"
-    },
     "remotes": {
       "Package": "remotes",
       "Version": "2.1.0",
@@ -703,15 +696,15 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.7.0-49",
+      "Version": "0.7.0-50",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "renv",
       "RemoteUsername": "rstudio",
+      "RemoteRepo": "renv",
       "RemoteRef": "master",
-      "RemoteSha": "bc576e13ddab905f47338611050f0e6c7c431f7d",
-      "Hash": "0e9509d73146a93f44911152aae51263"
+      "RemoteSha": "00342d901b1753514f7782e69f39be2876555834",
+      "Hash": "30dfbc21e6de996de06e897fb201a060"
     },
     "reprex": {
       "Package": "reprex",
