@@ -5,7 +5,7 @@ cache:
   - _bookdown_files
   - $HOME/.npm
   - $HOME/.local/share/renv
-  - $HOME/build/rstudio-education/stat545/renv/library
+  - $TRAVIS_BUILD_DIR/renv/library
 
 pandoc_version: 2.1.1
 
