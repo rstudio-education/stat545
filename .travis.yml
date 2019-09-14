@@ -10,13 +10,9 @@ cache:
 
 pandoc_version: 2.1.1
 
-script:
-  - Rscript -e 'bookdown::render_book("index.Rmd")'
-  - cp _redirects _book/_redirects # netlify redirects file
-
-before_cache:
-- nvm install stable
-- npm install netlify-cli -g
+env:
+  - NETLIFY_SITE_ID=6b6a38b6-7523-4555-965a-fa5cdc9f7157
+  # NETLIFY_AUTH_TOKEN set in travis settings
 
 before_install:
   - export COMMIT_MSG=$(echo "$TRAVIS_COMMIT_MESSAGE" | head -n1)
@@ -24,15 +20,19 @@ before_install:
   # research
   - echo $TRAVIS_BUILD_DIR
   - Rscript -e '.libPaths()'
-  - Rscript -e 'system.file(package = "remotes")'
-  - Rscript -e 'system.file(package = "renv")'
-  - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
-  - Rscript -e 'remotes::install_github("rstudio/renv")'
+#  - Rscript -e 'system.file(package = "remotes")'
+#  - Rscript -e 'system.file(package = "renv")'
+#  - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
+#  - Rscript -e 'remotes::install_github("rstudio/renv")'
   - Rscript -e "renv::restore()"
 
-env:
-  - NETLIFY_SITE_ID=6b6a38b6-7523-4555-965a-fa5cdc9f7157
-  # NETLIFY_AUTH_TOKEN set in travis settings
+script:
+  - Rscript -e 'bookdown::render_book("index.Rmd")'
+  - cp _redirects _book/_redirects
+
+before_cache:
+- nvm install stable
+- npm install netlify-cli -g
 
 deploy:
   - provider: script
