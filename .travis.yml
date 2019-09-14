@@ -1,6 +1,5 @@
 language: r
-repos:
-  CRAN: https://demo.rstudiopm.com/all/__linux__/xenial/latest
+cran: https://demo.rstudiopm.com/all/__linux__/xenial/latest
 cache:
   packages: true
   directories:
