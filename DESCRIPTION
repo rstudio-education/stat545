@@ -21,7 +21,6 @@ Imports:
     knitr,
     RColorBrewer,
     rebird,
-    renv,
     rmarkdown,
     rplos,
     rvest,
@@ -33,6 +32,5 @@ Imports:
     xml2
 Remotes: 
     ropensci/genderdata,
-    rstudio/gt,
-    rstudio/renv@46f1123
+    rstudio/gt
 Encoding: UTF-8
