@@ -1,4 +1,4 @@
-language: R
+language: r
 repos:
   CRAN: https://demo.rstudiopm.com/all/__linux__/xenial/latest
 cache:
