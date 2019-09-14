@@ -1,9 +1,11 @@
 language: R
+repos: https://demo.rstudiopm.com/all/__linux__/xenial/latest
 cache:
   packages: true
   directories:
   - _bookdown_files
   - $HOME/.npm
+  - $HOME/build/rstudio-education/stat545/renv/library
 
 pandoc_version: 2.1.1
 
