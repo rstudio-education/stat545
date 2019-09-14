@@ -30,7 +30,8 @@ Imports:
     htmltools,
     glue,
     xfun,
-    renv
+    renv,
+    rematch2
 Remotes:  
     rstudio/gt,
     ropensci/genderdata,

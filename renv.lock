@@ -7,7 +7,7 @@
     "Repositories": [
       {
         "Name": "CRAN",
-        "URL": "https://cran.rstudio.com"
+        "URL": "https://demo.rstudiopm.com/all/__linux__/xenial/latest"
       }
     ]
   },
@@ -686,6 +686,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "d3d55a556f7f2e74f449d6a53b8abf8e"
+    },
+    "rematch2": {
+      "Package": "rematch2",
+      "Version": "2.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0f9d491406a99401fdbfd8e8234cf1aa"
     },
     "remotes": {
       "Package": "remotes",
