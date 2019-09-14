@@ -2,7 +2,12 @@
 
 ```{r include = FALSE}
 source("common.R")
-Sys.setenv(OMDB_API_KEY_FAKE = "<your-secret-key>") 
+can_render <- Sys.getenv("OMDB_API_KEY", unset = "") != ""
+knitr::opts_chunk$set(eval = can_render)
+```
+
+```{r eval = !can_render, echo = FALSE, comment = NA}
+message("No OMDb key available. Code chunks will not be evaluated.")
 ```
 
 <!--Original content: https://stat545.com/webdata03_activity.html-->
