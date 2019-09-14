@@ -21,6 +21,11 @@ before_cache:
 before_install:
   - export COMMIT_MSG=$(echo "$TRAVIS_COMMIT_MESSAGE" | head -n1)
   - export DEPLOY_MSG="${TRAVIS_COMMIT:0:7} ${COMMIT_MSG:0:50}"
+  # research
+  - echo $TRAVIS_BUILD_DIR
+  - Rscript -e '.libPaths()'
+  - Rscript -e 'system.file(package = "remotes"))'
+  - Rscript -e 'system.file(package = "renv"))'
   - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
   - Rscript -e 'remotes::install_github("rstudio/renv")'
   - Rscript -e "renv::restore()"
