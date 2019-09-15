@@ -9,20 +9,14 @@ cache:
 pandoc_version: 2.1.1
 
 env:
-  - NETLIFY_SITE_ID=6b6a38b6-7523-4555-965a-fa5cdc9f7157
-  # NETLIFY_AUTH_TOKEN set in travis settings
-  - RENV_CONFIG_REPOS_OVERRIDE=https://demo.rstudiopm.com/all/__linux__/xenial/latest
+  global:
+    - NETLIFY_SITE_ID=6b6a38b6-7523-4555-965a-fa5cdc9f7157
+    # NETLIFY_AUTH_TOKEN set in travis settings
+    - RENV_CONFIG_REPOS_OVERRIDE=https://demo.rstudiopm.com/all/__linux__/xenial/latest
 
 before_install:
   - export COMMIT_MSG=$(echo "$TRAVIS_COMMIT_MESSAGE" | head -n1)
   - export DEPLOY_MSG="${TRAVIS_COMMIT:0:7} ${COMMIT_MSG:0:50}"
-  # research
-  - echo $TRAVIS_BUILD_DIR
-  - Rscript -e '.libPaths()'
-  - Rscript -e 'system.file(package = "remotes")'
-  - Rscript -e 'system.file(package = "renv")'
-  - Rscript -e 'if (system.file(package = "remotes") == "") install.packages("remotes")'
-  - Rscript -e 'remotes::install_github("rstudio/renv")'
   - Rscript -e "renv::restore()"
 
 script:
@@ -35,13 +29,11 @@ before_cache:
 
 deploy:
   - provider: script
-    #script: netlify deploy --dir _book --prod --message "$TRAVIS_COMMIT"
     script: netlify deploy --dir _book --prod --message "$DEPLOY_MSG"    
     skip_cleanup: true
     on:
       branch: master
   - provider: script
-    #script: netlify deploy --dir _book --message "$TRAVIS_BRANCH"
     script: netlify deploy --dir _book --message "$DEPLOY_MSG"    
     skip_cleanup: true
     on:
