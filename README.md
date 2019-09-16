@@ -1,6 +1,6 @@
 [![Travis build status](https://travis-ci.org/rstudio-education/stat545.svg?branch=master)](https://travis-ci.org/rstudio-education/stat545)
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6b6a38b6-7523-4555-965a-fa5cdc9f7157/deploy-status)](https://app.netlify.com/sites/stat545-book/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/22cbd49d-9d4d-462f-9d28-a797fa14a11d/deploy-status)](https://app.netlify.com/sites/stat545-book/deploys)
 
 This bookdown book is a *work in progress*. We'll update this `README` and the repo status when ready! :rocket:
 
