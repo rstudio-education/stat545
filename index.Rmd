@@ -39,7 +39,9 @@ These materials were originally used in the STAT 545 course at the University of
 >  
 > --- [Wikipedia](https://en.wikipedia.org/wiki/Jenny_Bryan)
 
-The main author, Jenny Bryan ([jennybryan.org](https://jennybryan.org)]) has since moved into the role of Software Engineer at [RStudio](https://www.rstudio.com/), on the [tidyverse](https://www.tidyverse.org/)/[r-lib](https://github.com/r-lib/) team and is an adjunct professor at UBC. In September 2019, we (amicably) created separate spaces for this content and the continued offerings of STAT 545 at UBC (<https://stat545.stat.ubc.ca>), which is alive and well.
+## Contributors
+
+The main author, Jenny Bryan ([jennybryan.org](https://jennybryan.org)) has since moved into the role of Software Engineer at [RStudio](https://www.rstudio.com/), on the [tidyverse](https://www.tidyverse.org/)/[r-lib](https://github.com/r-lib/) team and is an adjunct professor at UBC. In September 2019, we (amicably) created separate spaces for this content and the continued offerings of STAT 545 at UBC (<https://stat545.stat.ubc.ca>), which is alive and well.
 
 Several STAT 545 TAs contributed content modules to the course and members of the RStudio Education Team ported the content into the modern and more maintainable framework we enjoy today:
 
