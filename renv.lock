@@ -203,10 +203,10 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "4.0",
+      "Version": "4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "7dc1d02a04a75510424d2c7404fadfa7"
+      "Hash": "cdd60bbfb548290b3a6f02f8f4cd9312"
     },
     "dbplyr": {
       "Package": "dbplyr",
@@ -696,15 +696,15 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.7.0-50",
+      "Version": "0.7.0-65",
       "Source": "GitHub",
       "RemoteType": "github",
-      "RemoteHost": "api.github.com",
       "RemoteUsername": "rstudio",
       "RemoteRepo": "renv",
       "RemoteRef": "master",
-      "RemoteSha": "00342d901b1753514f7782e69f39be2876555834",
-      "Hash": "30dfbc21e6de996de06e897fb201a060"
+      "RemoteSha": "40917a2c88d0089af9f5d58085305c3c96e91048",
+      "RemoteHost": "api.github.com",
+      "Hash": "6ae75e977a11ccbff5e776c520c6229f"
     },
     "reprex": {
       "Package": "reprex",
