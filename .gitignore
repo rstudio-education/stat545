@@ -6,3 +6,4 @@ _book
 _bookdown_files
 .DS_Store
 *.rds
+.netlify

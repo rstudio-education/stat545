@@ -10,7 +10,7 @@ pandoc_version: 2.1.1
 
 env:
   global:
-    - NETLIFY_SITE_ID=6b6a38b6-7523-4555-965a-fa5cdc9f7157
+    - NETLIFY_SITE_ID=22cbd49d-9d4d-462f-9d28-a797fa14a11d
     # NETLIFY_AUTH_TOKEN set in travis settings
     - RENV_CONFIG_REPOS_OVERRIDE=https://demo.rstudiopm.com/all/__linux__/xenial/latest
 
