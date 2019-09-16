@@ -1,6 +1,7 @@
-[![Travis build status](https://travis-ci.org/rstudio-education/stat545.svg?branch=master)](https://travis-ci.org/rstudio-education/stat545)
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/22cbd49d-9d4d-462f-9d28-a797fa14a11d/deploy-status)](https://app.netlify.com/sites/stat545-book/deploys)
+<a alt = "TravisCI Build Status" href="https://travis-ci.org/rstudio-education/stat545"><img src="https://travis-ci.org/rstudio-education/stat545.svg?branch=master" height = 20 /></a>
+<a alt = "Netlify Deployments" href="https://app.netlify.com/sites/stat545-book/deploys"><img src="https://api.netlify.com/api/v1/badges/22cbd49d-9d4d-462f-9d28-a797fa14a11d/deploy-status" height = 20 /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" height = 20 /></a>
+<a alt = "Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." href="http://www.repostatus.org/#wip"><img src="http://www.repostatus.org/badges/latest/wip.svg" height = 20 /></a>
 
 This bookdown book is a *work in progress*. We'll update this `README` and the repo status when ready! :rocket:
 
