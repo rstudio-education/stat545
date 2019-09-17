@@ -28,10 +28,10 @@
     },
     "DT": {
       "Package": "DT",
-      "Version": "0.8",
+      "Version": "0.9",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f3c8ebf07b488feb5045a1ca7cd398b2"
+      "Hash": "3713a75ea5f5bbc25579b20cbb7843f3"
     },
     "MASS": {
       "Package": "MASS",
@@ -897,10 +897,10 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.15",
+      "Version": "0.16",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "11c9260eb54db1f55e7573844c2ae8ed"
+      "Hash": "9349f30ae6ddce61d7fa26f7b6228a73"
     },
     "triebeard": {
       "Package": "triebeard",
