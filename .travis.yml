@@ -19,6 +19,9 @@ before_install:
   - export DEPLOY_MSG="${TRAVIS_COMMIT:0:7} ${COMMIT_MSG:0:50}"
   - Rscript -e "renv::restore()"
 
+install:
+  - Rscript -e "old.packages()"
+
 script:
   - Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
   - cp _redirects _book/_redirects
