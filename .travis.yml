@@ -20,7 +20,7 @@ before_install:
   - Rscript -e "renv::restore()"
 
 install:
-  - Rscript -e "old.packages()"
+  - Rscript -e 'old.packages(repos = Sys.getenv("RENV_CONFIG_REPOS_OVERRIDE"))'
 
 script:
   - Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
