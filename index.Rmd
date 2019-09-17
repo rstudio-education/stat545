@@ -4,17 +4,18 @@ subtitle: "Data wrangling, exploration, and analysis with R"
 author: 
 - Jenny Bryan
 - The STAT 545 TAs
+knit: "bookdown::render_book"
 site: bookdown::bookdown_site
+url: 'https\://stat545.com/'
+github-repo: rstudio-education/stat545
+twitter-handle: jennybryan
+cover-image: assets/stat545-logo.png
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "STAT 545: Data wrangling, exploration, and analysis with R."
-github-repo: rstudio-education/stat545
-twitter-handle: jennybryan
-cover-image: assets/stat545-logo.png
 favicon: assets/favicon.ico
-url: 'https\://stat545-book.netlify.com/'
 ---
 
 # Welcome to STAT 545 {-}
@@ -33,24 +34,32 @@ Learn how to:
 * make all of that reproducible, reusable, and shareable,
 * using R.
 
-These materials were originally used in the STAT 545 course at the University of British Columbia:
+This site is about everything that comes up during data analysis **except for statistical modelling and inference**. This might strike you as strange, given R's statistical roots. First, let me assure you we believe that modelling and inference are important. But the world already offers a lot of great resources for doing statistics with R.
+
+The design of STAT 545 was motivated by the need to provide more balance in applied statistical training. Data analysts spend a considerable amount of time on project organization, data cleaning and preparation, and communication. These activities can have a profound effect on the quality and credibility of an analysis. Yet these skills are rarely taught, despite how important and necessary they are. STAT 545 aims to address this gap.
+
+## History and future {-}
+
+These materials originated in the STAT 545 course at the University of British Columbia:
 
 > "The STAT 545 course became notable as an early example of a data science course taught in a statistics program. It is also notable for its focus on teaching using modern R packages, Git and GitHub, its extensive sharing of teaching materials openly online, and its strong emphasis on practical data cleaning, exploration, and visualization skills, rather than algorithms and theory." 
 >  
 > --- [Wikipedia](https://en.wikipedia.org/wiki/Jenny_Bryan)
 
-## Contributors
+The main author, Jenny Bryan ([jennybryan.org](https://jennybryan.org)), developed this version of STAT 545 as a professor at UBC. She has since joined [RStudio](https://www.rstudio.com/) as a Software Engineer, on the [tidyverse](https://www.tidyverse.org/) and [r-lib](https://github.com/r-lib/) teams and is an adjunct professor at UBC. In September 2019, we (amicably) created separate spaces for the ongoing maintenance of this content and the continued offerings of STAT 545 at UBC (<https://stat545.stat.ubc.ca>), which is alive and well.
 
-The main author, Jenny Bryan ([jennybryan.org](https://jennybryan.org)) has since moved into the role of Software Engineer at [RStudio](https://www.rstudio.com/), on the [tidyverse](https://www.tidyverse.org/)/[r-lib](https://github.com/r-lib/) team and is an adjunct professor at UBC. In September 2019, we (amicably) created separate spaces for this content and the continued offerings of STAT 545 at UBC (<https://stat545.stat.ubc.ca>), which is alive and well.
+We plan to continue maintaining these resources, as they are still used in [STAT 545 at UBC](https://stat545.stat.ubc.ca) and by people teaching themselves R. Some topics have since been developed more fully elsewhere and we may link out to those resources. For example, the Git and GitHub content of STAT 545 eventually grew into its own website: [happygitwithr.com](https://happygitwithr.com). Some material has been retired, but is archived in the [repository of the old website](https://github.com/STAT545-UBC/STAT545-UBC-original-website). Finally, the new website has URLs that are more human-friendly; we believe we created the necessary redirects, so we don't break other people's links. If you think we've missed one, please let us know [in an issue](https://github.com/rstudio-education/stat545/issues).
 
-Several STAT 545 TAs contributed content modules to the course and members of the RStudio Education Team ported the content into the modern and more maintainable framework we enjoy today:
+## Other contributors {-}
 
-  * *TODO: draw from previous site's "People" page and commit history*
-  * RStudio: Alison Hill (<https://alison.rbind.io>) and interns Grace Lawley (<https://grace.rbind.io>) and Desirée De Leon (<https://desiree.rbind.io>)
+Several STAT 545 TAs were instrumental in the development of these materials and members of the RStudio Education Team ported the [original website](https://github.com/STAT545-UBC/STAT545-UBC-original-website) into the modern and more maintainable framework we enjoy today:
+
+  * TAs who contributed content: [Dean Attali](http://deanattali.com/) (web applications with Shiny), [Julia Gustavsen](https://www.juliagustavsen.com) (Shiny), [Shaun Jackman](http://sjackman.ca) (automating workflows), [Bernhard Konrad](https://twitter.com/BernhardKonrad) (system setup, package development, the shell), [Gloria Li](https://twitter.com/LuolanLi) (regular expressions), [Andrew MacDonald](https://twitter.com/polesasunder) (getting data from the web), [Kieran Samuk](https://ksamuk.github.io) (regular expressions)
+  * RStudio: Alison Hill (<https://alison.rbind.io>) and intern Grace Lawley (<https://grace.rbind.io>) lead the heroic effort to port a vintage R Markdown website into bookdown. Intern Desirée De Leon (<https://desiree.rbind.io>) contributed design expertise.
 
 ## Colophon {-}
 
-This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The [website](https://stat545-book.netlify.com) is hosted with [Netlify](https://www.netlify.com), and automatically updated after every commit by [Travis-CI](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545).
+This book was written in [bookdown](http://bookdown.org/) inside [RStudio](http://www.rstudio.com/ide/). The website [stat545.com](https://stat545.com) is hosted with [Netlify](https://www.netlify.com), and automatically updated after every commit by [Travis-CI](https://travis-ci.org). The complete source is available from [GitHub](https://github.com/rstudio-education/stat545).
 
 The [STAT 545 logo](assets/stat545-logo.png) and the book style was designed by [Desirée De Leon](https://desiree.rbind.io/).
 
@@ -82,8 +91,7 @@ session$packages %>%
 
 ## License {-}
 
-This work is
-licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 <center>
 <i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
