@@ -59,7 +59,7 @@ git04_introduce-self-to-git.html,NA,hello-git.html,/git04_introduce-self-to-git.
 git05_github-connection.html,NA,push-pull-github.html,/git05_github-connection.html,https://happygitwithr.com/push-pull-github.html,/git05_github-connection.html    https://happygitwithr.com/push-pull-github.html    301
 git06_credential-caching.html,NA,credential-caching.html,/git06_credential-caching.html,https://happygitwithr.com/credential-caching.html,/git06_credential-caching.html    https://happygitwithr.com/credential-caching.html    301
 git07_git-github-rstudio.html,NA,rstudio-git-github.html,/git07_git-github-rstudio.html,https://happygitwithr.com/rstudio-git-github.html,/git07_git-github-rstudio.html    https://happygitwithr.com/rstudio-git-github.html    301
-git08_claim-stat545-repo.html,version-control.html#claim-stat545-repo,NA,/git08_claim-stat545-repo.html,/version-control.html#claim-stat545-repo,/git08_claim-stat545-repo.html    /version-control.html#claim-stat545-repo    301
+git08_claim-stat545-repo.html,version-control.html,NA,/git08_claim-stat545-repo.html,/version-control.html,/git08_claim-stat545-repo.html    /version-control.html    301
 git09_shell.html,NA,shell.html,/git09_shell.html,https://happygitwithr.com/shell.html,/git09_shell.html    https://happygitwithr.com/shell.html    301
 git66_rstudio-git-github-hell.html,NA,troubleshooting.html,/git66_rstudio-git-github-hell.html,https://happygitwithr.com/troubleshooting.html,/git66_rstudio-git-github-hell.html    https://happygitwithr.com/troubleshooting.html    301
 graph00_index.html,graphics-overview.html,NA,/graph00_index.html,/graphics-overview.html,/graph00_index.html    /graphics-overview.html    301
