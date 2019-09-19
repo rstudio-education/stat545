@@ -12,7 +12,6 @@ Imports:
     gender,
     genderdata,
     geonames,
-    git2r,
     glue,
     gridExtra,
     gt,
