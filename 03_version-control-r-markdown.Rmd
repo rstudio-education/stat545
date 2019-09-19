@@ -4,7 +4,7 @@
 source("common.R")
 ```
 
-# Meta thoughts {-}
+# Overview {-}
 
 Although this part now links out to external resources, if you're working through this material on your own, let this be a nudge to pause around here and think about your workflow. I give you permission to spend some time and energy sorting this out! It can be as or more important than learning a new R function or package. The experts don't talk about this much, because they've already got a workflow and it's something they do almost without thinking.
 
