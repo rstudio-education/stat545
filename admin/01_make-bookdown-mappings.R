@@ -15,6 +15,7 @@
 #     header, i.e. <!--Original content: <stat545-url>-->
 # -----------------------------------------------------------------------------
 
+library(tibble)
 library(readr)
 library(dplyr)
 library(purrr)
@@ -54,7 +55,7 @@ make_node_df <- function(nodeset){
 
 
 # make a list of all the chapter Rmds
-chapters_rmd <- dir_ls(regexp = "[[:digit:]]{2}_.*\\.Rmd") %>% 
+chapters_rmd <- dir_ls(regexp = "[[:digit:]]{2}_.+[.]Rmd") %>% 
   discard(~ .x == "40_references.Rmd")
 
 # convert the chapter Rmds to HTML
@@ -72,7 +73,7 @@ nodes <- chapters_html %>%
 # match up each header(s) with the matching comment  and nest the headers 
 # when necessary, e.g. h1 -> comment, h1#h2 --> comment
 paired_nodes <- nodes %>% 
-  mutate(index = row_number()) %>% # to keep track of the order
+  rowid_to_column(var = "index") %>% # to keep track of the order
   spread(name, text) %>% 
   
   select(index, h1, h2, comment) %>% 
@@ -85,10 +86,10 @@ paired_nodes <- nodes %>%
   filter(!is.na(comment)) %>% 
   select(-index)
 
-
 bookdown_urls <- paired_nodes %>% 
   # make the bookdown chapter url paths
   mutate(h1 = str_extract(h1, "(?<=\\{-?#).+(?=\\})"), # extract the ref labels for h2
+         h1 = str_remove(h1, "\\s*[.]unnumbered$"),
          h1 = glue("{h1}.html")) %>%  # add .html to make the url path
   mutate(h2 = str_extract(h2, "(?<=\\{).+(?=\\})"), # extract the ref labels for h2
          h2 = if_else(is.na(h2), "", h2)) %>% # if it exists, add h2 to to the url path 
