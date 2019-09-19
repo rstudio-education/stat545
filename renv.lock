@@ -1,6 +1,6 @@
 {
   "renv": {
-    "Version": "0.7.0-80"
+    "Version": "0.7.0-82"
   },
   "R": {
     "Version": "3.6.0",
@@ -696,15 +696,15 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.7.0-65",
+      "Version": "0.7.0-82",
       "Source": "GitHub",
       "RemoteType": "github",
+      "RemoteHost": "api.github.com",
       "RemoteUsername": "rstudio",
       "RemoteRepo": "renv",
       "RemoteRef": "master",
-      "RemoteSha": "40917a2c88d0089af9f5d58085305c3c96e91048",
-      "RemoteHost": "api.github.com",
-      "Hash": "6ae75e977a11ccbff5e776c520c6229f"
+      "RemoteSha": "cb7cc27432c0da79406c524c249cb6af4867b5c0",
+      "Hash": "f03d67f588c2ce5f10dad1db387b4a39"
     },
     "reprex": {
       "Package": "reprex",
