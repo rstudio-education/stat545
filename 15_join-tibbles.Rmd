@@ -6,7 +6,7 @@ source("common.R")
 
 <!--Original content: https://stat545.com/bit001_dplyr-cheatsheet.html--> 
 
-Join (a.k.a. merge) two tables: `dplyr` join cheatsheet with comic characters and publishers.
+Join (a.k.a. merge) two tables: dplyr join cheatsheet with comic characters and publishers.
 
 ```{r gt-table-making-functions, include = FALSE}
 library(gt)
@@ -69,7 +69,7 @@ Examples for those of us who don't speak SQL so good. There are lots of [Venn di
 
 Other great places to read about joins:
 
-* The `dplyr` vignette on [Two-table verbs][dplyr-vignette-two-table].
+* The dplyr vignette on [Two-table verbs][dplyr-vignette-two-table].
 * The [Relational data chapter][r4ds-relational-data] in [R for Data Science][r4ds] [@wickham2016]. Excellent diagrams.
   
 ## The data

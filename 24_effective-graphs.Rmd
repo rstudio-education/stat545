@@ -14,7 +14,7 @@ source("common.R")
 
 According to Naomi Robbins, effective graphs "improve understanding of data". They do not confuse or mislead.
 
-To paraphrase: Most of us use a computer to write but we would never characterize a Nobel prize winning writer as being highly skilled with Microsoft Word. Similarly, advanced `ggplot2` skills won't necessarily lead to effective communication of numerical data. You have to master the __principles of effective graphs__ in addition to the mechanics.
+To paraphrase: Most of us use a computer to write but we would never characterize a Nobel prize winning writer as being highly skilled with Microsoft Word. Similarly, advanced ggplot2 skills won't necessarily lead to effective communication of numerical data. You have to master the __principles of effective graphs__ in addition to the mechanics.
 
 > One graph is more effective than another if its quantitative information can be decoded more quickly or more easily by most observers.
 
@@ -126,7 +126,7 @@ Figs 7.7 and 7.8 show a skewed dataset before and after log transformation. We a
 
 How about presenting two scales for the same axis?
 
-* It is OK to present tick marks in different "units," i.e. temperature in Fahrenheit vs. Celsius (Fig 7.16) or GDP per capita in raw dollars versus on the log 10 scale. However, this is not easy to do in `ggplot2`!
+* It is OK to present tick marks in different "units," i.e. temperature in Fahrenheit vs. Celsius (Fig 7.16) or GDP per capita in raw dollars versus on the log 10 scale. However, this is not easy to do in ggplot2!
 * It is NOT OK to present two entirely different scales, just so you can squeeze two different variables onto the same plot.
   - Figs 7.17 and 7.18 explore how deceptive this can be.
 * Even if variables are technically reported in the same units, it might make a better graph to use facets and choose axis limits accordingly.
@@ -134,7 +134,7 @@ How about presenting two scales for the same axis?
 
 ## Do: connect the dots with care
 
-Consider two quantitative variables, where the x-axis is time or something similar. There are many legitimate ways to present such data. In `ggplot2` jargon, there are many relevant geoms.
+Consider two quantitative variables, where the x-axis is time or something similar. There are many legitimate ways to present such data. In ggplot2 jargon, there are many relevant geoms.
 
 * Fig 4.17 shows a single time series presented 4 different ways, each serving a different purpose.
 * Fig 4.21 presents another line graph, showing used car price against mileage of car. Connecting these dots allows buyers and sellers to determine fair value, even if a specific car's mileage is not in the dataset.
@@ -164,18 +164,18 @@ We will look through another section (slides 48 - 62) of Karl Broman's excellent
 
 ["Creating More Effective Graphs"][robbins-effective-graphs] by [Naomi Robbins][naomi-robbins] [-@robbins2012].   
 
-The [R Graph Catalog][r-graph-catalog-github] presents the figures from ["Creating More Effective Graphs"][robbins-effective-graphs] as a visual quilt. Click on a figure to see the `ggplot2` code that makes it.
+The [R Graph Catalog][r-graph-catalog-github] presents the figures from ["Creating More Effective Graphs"][robbins-effective-graphs] as a visual quilt. Click on a figure to see the ggplot2 code that makes it.
 
 Karl Broman's talk "How to display data badly"  
 
 * Home on GitHub: https://github.com/kbroman/Talk_Graphs  
 * The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)     
   
-[`ggplot2`][ggplot2-web] written by [Hadley Wickham][hadley-github-index].  
+[ggplot2][ggplot2-web] written by [Hadley Wickham][hadley-github-index].  
 
 [Winston Chang's][winston-chang-github] book ["R Graphics Cookbook"][r-graphics-cookbook] [-@chang2013] and the [Graphs section][cookbook-for-r-graphs] of his [Cookbook for R website][cookbook-for-r].  
 
-Chapter \@ref(ggplot2-tutorial) - my [`ggplot2` tutorial][ggplot2-tutorial].
+Chapter \@ref(ggplot2-tutorial) - my [ggplot2 tutorial][ggplot2-tutorial].
 
 Gelman et al.'s ["Let's Practice What We Preach"](https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents) in The American Statistician [-@gelman2002].
 

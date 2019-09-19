@@ -38,18 +38,18 @@ If you have a pre-existing installation of R and/or RStudio, we __highly recomme
 
 ## Add-on packages
 
-R is an extensible system and many people share useful code they have developed as a _package_ via CRAN and GitHub. To install a package from CRAN, for example the [`dplyr`][dplyr-cran] package for data manipulation, here is one way to do it in the R console (there are others).
+R is an extensible system and many people share useful code they have developed as a _package_ via CRAN and GitHub. To install a package from CRAN, for example the [dplyr][dplyr-cran] package for data manipulation, here is one way to do it in the R console (there are others).
 
 ```r
 install.packages("dplyr", dependencies = TRUE)
 ```
 
-By including `dependencies = TRUE`, we are being explicit and extra-careful to install any additional packages the target package, `dplyr` in the example above, needs to have around.
+By including `dependencies = TRUE`, we are being explicit and extra-careful to install any additional packages the target package, dplyr in the example above, needs to have around.
 
 You could use the above method to install the following packages, all of which we will use:
 
-* `tidyr`, [package webpage][tidyr-web]
-* `ggplot2`, [package webpage][ggplot2-web]
+* tidyr, [package webpage][tidyr-web]
+* ggplot2, [package webpage][ggplot2-web]
 
 
 ## Further resources

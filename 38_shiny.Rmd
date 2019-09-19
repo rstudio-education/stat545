@@ -11,11 +11,11 @@
 
 Many people have written packages that enhance Shiny in some way or add extra functionality. Here is a list of several popular packages that people often use together with Shiny:
 
-* [`shinythemes`][shinythemes-web] - Easily alter the appearance of your app ([CRAN][shinythemes-cran]).
-* [`shinyjs`][shinyjs-web] - Enhance user experience in Shiny apps using JavaScript functions without knowing JavaScript ([CRAN][shinyjs-cran]; [GitHub][shinyjs-github]).
-* [`leaflet`][leaflet-web] - Add interactive maps to your apps ([CRAN][leaflet-cran]; [GitHub][leaflet-github]).
-* [`ggvis`][ggvis-web] - Similar to `ggplot2`, but the plots are focused on being web-based and are more interactive ([CRAN][ggvis-cran]).
-* [`shinydashboard`][shinydashboard-web] - Gives you tools to create visual “dashboards” ([CRAN][shinydashboard-cran]; [GitHub][shinydashboard-github]).
+* [shinythemes][shinythemes-web] - Easily alter the appearance of your app ([CRAN][shinythemes-cran]).
+* [shinyjs][shinyjs-web] - Enhance user experience in Shiny apps using JavaScript functions without knowing JavaScript ([CRAN][shinyjs-cran]; [GitHub][shinyjs-github]).
+* [leaflet][leaflet-web] - Add interactive maps to your apps ([CRAN][leaflet-cran]; [GitHub][leaflet-github]).
+* [ggvis][ggvis-web] - Similar to ggplot2, but the plots are focused on being web-based and are more interactive ([CRAN][ggvis-cran]).
+* [shinydashboard][shinydashboard-web] - Gives you tools to create visual “dashboards” ([CRAN][shinydashboard-cran]; [GitHub][shinydashboard-github]).
 
 
 ## Resources {-}
@@ -58,7 +58,7 @@ This tutorial should take approximately an hour to complete. If you want even mo
 
 ## Before we begin {#shiny-tutorial-1}
 
-You'll need to have the `shiny` package, so install it.
+You'll need to have the shiny package, so install it.
 
 ```r
 install.packages("shiny")
@@ -481,7 +481,7 @@ Since *coolplot* was defined as a `plotOutput`, we must use the `renderPlot` fun
 
 If you add the code above inside the server function, you should see a plot with 100 random points in the app.
 
-**Exercise:** The code inside `renderPlot()` doesn't have to be only one line, it can be as long as you'd like as long as it returns a plot. Try making a more complex plot using `ggplot2`. The plot doesn't have to use our dataset, it could be anything, just to make sure you can use `renderPlot()`.
+**Exercise:** The code inside `renderPlot()` doesn't have to be only one line, it can be as long as you'd like as long as it returns a plot. Try making a more complex plot using ggplot2. The plot doesn't have to use our dataset, it could be anything, just to make sure you can use `renderPlot()`.
 
 ### Making an output react to an input
 
@@ -509,7 +509,7 @@ Notice that these short three lines of code are using all the three rules for bu
 
 Now we have all the knowledge required to build a plot visualizing some aspect of the data. We'll create a simple histogram of the alcohol content of the products by using the same three rules to create a plot output.
 
-First we need to make sure `ggplot2` is loaded, so add a `library(ggplot2)` at the top.
+First we need to make sure ggplot2 is attached, so add a `library(ggplot2)` at the top.
 
 Next we'll return a histogram of alcohol content from `renderPlot()`. Let's start with just a histogram of the whole data, unfiltered.
 
@@ -523,7 +523,7 @@ output$coolplot <- renderPlot({
 
 If you run the app with this code inside your server, you should see a histogram in the app.  But if you change the input values, nothing happens yet, so the next step is to actually filter the dataset based on the inputs.
 
-Recall that we have 3 inputs: `priceInput`, `typeInput`, and `countryInput`. We can filter the data based on the values of these three inputs. We'll use `dplyr` functions to filter the data, so be sure to include `dplyr` at the top. Then we'll plot the filtered data instead of the original data.
+Recall that we have 3 inputs: `priceInput`, `typeInput`, and `countryInput`. We can filter the data based on the values of these three inputs. We'll use dplyr functions to filter the data, so be sure to include dplyr at the top. Then we'll plot the filtered data instead of the original data.
 
 Place this code in your server function and run the app:
 
@@ -799,7 +799,7 @@ filtered <- reactive({
 })
 ```
 
-Now when the render function tries to access the data, it will get a `NULL` value before the app is fully loaded.  You will still get an error, because the `ggplot` function will not work with a `NULL` dataset, so we also need to make a similar check in the `renderPlot()` function. Only once the data is loaded, we can try to plot.
+Now when the render function tries to access the data, it will get a `NULL` value before the app is fully loaded.  You will still get an error, because the `ggplot()` function will not work with a `NULL` dataset, so we also need to make a similar check in the `renderPlot()` function. Only once the data is loaded, we can try to plot.
 
 
 ```r
@@ -954,9 +954,9 @@ server <- function(input, output) {}
 shinyApp(ui = ui, server = server)
 ```
 
-### Use `DT` for beautiful, interactive tables
+### Use DT for beautiful, interactive tables
 
-Whenever you use `tableOutput()` + `renderTable()`, the table that Shiny creates is a static and boring-looking table. If you download the `DT` package, you can replace the default table with a much sleeker table by just using `DT::dataTableOutput()` + `DT::renderDataTable()`. It's worth trying. Learn more on [`DT`'s website](https://rstudio.github.io/DT/).
+Whenever you use `tableOutput()` + `renderTable()`, the table that Shiny creates is a static and boring-looking table. If you download the DT package, you can replace the default table with a much sleeker table by just using `DT::dataTableOutput()` + `DT::renderDataTable()`. It's worth trying. Learn more on [DT's website](https://rstudio.github.io/DT/).
 
 ### Use `isolate()` function to remove a dependency on a reactive variable
 
@@ -1034,8 +1034,8 @@ The app we developed is functional, but there are plenty of improvements that ca
 1. Share your app with everyone on the internet by deploying to shinyapps.io.
     - **Hint:** Go to [shinyapps.io][shinyapps-web], register for an account, then click the "Publish App" button in RStudio. 
 
-1. Use the `DT` package to turn the current results table into an interactive table.
-    - **Hint:** Install the `DT` package, replace `tableOutput()` with `DT::dataTableOutput()` and replace `renderTable()` with `DT::renderDataTable()`.
+1. Use the DT package to turn the current results table into an interactive table.
+    - **Hint:** Install the DT package, replace `tableOutput()` with `DT::dataTableOutput()` and replace `renderTable()` with `DT::renderDataTable()`.
 
 1. Add parameters to the plot.
     - **Hint:** You will need to add input functions that will be used as parameters for the plot. You could use `shinyjs::colourInput()` to let the user decide on the colours of the bars in the plot.

@@ -25,21 +25,21 @@ Good articles about how the factor fiasco came to be:
 * [stringsAsFactors: An unauthorized biography][bio-strings-as-factors] by Roger Peng
 * [stringsAsFactors = \<sigh\>][blog-strings-as-factors] by Thomas Lumley
 
-## The `forcats` package
+## The forcats package
 
-[`forcats`][forcats-web] is a core package in the tidyverse. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
+[forcats][forcats-web] is a core package in the tidyverse. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
 
 Currently this lesson will be mostly code vs prose. See the previous lesson for more discussion during the transition.
 
-## Load `forcats` and `gapminder`
+## Load forcats and gapminder
 
-I choose to load the `tidyverse`, which will load `forcats`, among other packages we use incidentally below. 
+I choose to load the tidyverse, which will load forcats, among other packages we use incidentally below. 
 
 ```{r start_factors}
 library(tidyverse)
 ```
 
-Also load `gapminder`.
+Also load gapminder.
 
 ```{r message = FALSE, warning = FALSE}
 library(gapminder)

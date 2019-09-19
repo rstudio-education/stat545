@@ -19,7 +19,7 @@ The ultimate goal is to apply this function to the Gapminder data for a specific
 
 ## Load the Gapminder data
 
-As usual, load `gapminder`. Load `ggplot2` because we'll make some plots and load `dplyr` too.
+As usual, load gapminder. Load ggplot2 because we'll make some plots and load dplyr too.
 
 ```{r message = FALSE}
 library(gapminder)

@@ -22,13 +22,13 @@ I start with this because we cannot possibly do this topic justice in a short am
 
 [Dates and times][r4ds-dates-times] chapter from [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund [-@wickham2016]. See also the subsection on dates and times in the [Data import chapter][r4ds-data-import].
 
-The [`lubridate`][lubridate-web] package ([CRAN][lubridate-cran]; [GitHub][lubridate-github]; [main vignette][lubridate-vignette]).
+The [lubridate][lubridate-web] package ([CRAN][lubridate-cran]; [GitHub][lubridate-github]; [main vignette][lubridate-vignette]).
 
-Grolemund and Wickham's paper on `lubridate` in the Journal of Statistical Software [-@grolemund2011].
+Grolemund and Wickham's paper on lubridate in the Journal of Statistical Software [-@grolemund2011].
 
-Exercises to push you to learn `lubridate`: [part 1][lubridate-ex1], [part 2][lubridate-ex2], and [part 3][lubridate-ex3] *posts include links to answers!*
+Exercises to push you to learn lubridate: [part 1][lubridate-ex1], [part 2][lubridate-ex2], and [part 3][lubridate-ex3] *posts include links to answers!*
 
-## Load the `tidyverse` and `lubridate`
+## Load the tidyverse and lubridate
 
 ```{r start_dates, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -38,7 +38,7 @@ library(lubridate)
 
 ## Get your hands on some dates or date-times
 
-Use base `Sys.Date()` or `lubridate`'s `today()` to get today's date, without any time.
+Use base `Sys.Date()` or lubridate's `today()` to get today's date, without any time.
 
 ```{r}
 Sys.Date()
@@ -54,7 +54,7 @@ str(today())
 class(today())
 ```
 
-Use base `Sys.time()` or `lubridate`'s `now()` to get RIGHT NOW, meaning the date and the time.
+Use base `Sys.time()` or lubridate's `now()` to get RIGHT NOW, meaning the date and the time.
 
 ```{r}
 Sys.time()

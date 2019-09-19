@@ -14,7 +14,7 @@ In this part, we generalize this function, learn more technical details about R 
 
 ## Load the Gapminder data
 
-As usual, load `gapminder`.
+As usual, load gapminder.
 
 ```{r start_func2}
 library(gapminder)

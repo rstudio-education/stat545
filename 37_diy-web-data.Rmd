@@ -17,9 +17,9 @@ message("No OMDb key available. Code chunks will not be evaluated.")
 
 In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapped" APIs.  That is, they handled the creation of the request and the formatting of the output. In this chapter we're going to look at (part of) what these functions were doing.
 
-### Load the `tidyverse`
+### Load the tidyverse
 
-We will be using the functions from the [`tidyverse`][tidyverse-main-page] throughout this chapter, so go ahead and load `tidyverse` package now.
+We will be using the functions from the [tidyverse][tidyverse-main-page] throughout this chapter, so go ahead and load tidyverse package now.
 
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -80,11 +80,11 @@ Try pasting these URLs into your browser. You should see this if you tried the f
 
 ### Create an OMDb API Key
 
-This tells us that we need an API key to access the OMDb API. We will store our key for the OMDb API in our `.Renviron` file using the helper function `edit_r_environ()` from the [`usethis`][usethis-web] package. Follow these steps:
+This tells us that we need an API key to access the OMDb API. We will store our key for the OMDb API in our `.Renviron` file using the helper function `edit_r_environ()` from the [usethis][usethis-web] package. Follow these steps:
 
 1. Visit this URL and request your free API key: <https://www.omdbapi.com/apikey.aspx>
 1. Check your email and follow the instructions to activate your key.
-1. Install/load the `usethis` package and run `edit_r_environ()` in the R Console:
+1. Install/load the usethis package and run `edit_r_environ()` in the R Console:
 
     ```{r message = FALSE, warning = FALSE, eval = FALSE}
     # install.packages("usethis")
@@ -182,7 +182,7 @@ glue::glue("http://www.omdbapi.com/?t={title}&y={year}&plot={plot}&r={format}&ap
            api_key = movie_key)
 ```
 
-We could go even further and make this into a function called `omdb` that we can reuse more easily.
+We could go even further and make this into a function called `omdb()` that we can reuse more easily.
 
 ```{r}
 omdb <- function(title, year, plot, format, api_key) {
@@ -190,17 +190,17 @@ omdb <- function(title, year, plot, format, api_key) {
 }
 ```
 
-### Get data using `curl`
+### Get data using the curl package
 
 
-Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [`curl`][curl-cran] package. Install/load the `curl` package first.
+Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [curl][curl-cran] package. Install/load the curl package first.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("curl")
 library(curl)
 ```
 
-Using `curl` to get the data in XML format:
+Using curl to get the data in XML format:
 ```{r fake-xml-req, eval = FALSE} 
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                     format = "xml", api_key = movie_key)
@@ -222,7 +222,7 @@ answer_xml
 ```
 
 
-Using `curl` to get the data in JSON format:
+Using curl to get the data in JSON format:
 ```{r fake-json-req, eval = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                      format = "json", api_key = movie_key)
@@ -284,9 +284,9 @@ And here is XML (also from [this site](https://zapier.com/learn/apis/chapter-3-d
 
 You can see that both of these data structures are quite easy to read. They are "self-describing". In other words, they tell you how they are meant to be read. There are easy means of taking these data types and creating R objects. 
 
-### Parsing the JSON response with `jsonlite`
+### Parsing the JSON response with jsonlite
 
-Our JSON response above can be parsed using `jsonlite::fromJSON()`. First install/load the `jsonlite` package.
+Our JSON response above can be parsed using `jsonlite::fromJSON()`. First install/load the jsonlite package.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("jsonlite")
@@ -308,9 +308,9 @@ answer_json %>%
   glimpse()
 ```
 
-### Parsing the XML response using `xml2`
+### Parsing the XML response using xml2
 
-We can use the [`xml2`][xml2-web] package to wrangle our XML response.
+We can use the [xml2][xml2-web] package to wrangle our XML response.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("xml2")
@@ -328,7 +328,7 @@ Not exactly the result we were hoping for! However, this does tell us about the 
 * It has a `<root>` node, which has a single child node, `<movie>`. 
 * The information we want is all stored as attributes (e.g. title, year, etc.).
 
-The `xml2` package has various functions to assist in navigating through XML. We can use the `xml_children()` function to extract all of the children nodes (i.e. the single child, `<movie>`):
+The xml2 package has various functions to assist in navigating through XML. We can use the `xml_children()` function to extract all of the children nodes (i.e. the single child, `<movie>`):
 
 ```{r}
 (contents <- xml_contents(xml_parsed))
@@ -348,9 +348,9 @@ attrs %>%
   glimpse()
 ```
 
-## Introducing the easy way: `httr`
+## Introducing the easy way: httr
 
-[`httr`][httr-web] is yet another star in the [tidyverse][tidyverse-main-page]. It is a package designed to facilitate all things HTTP from within R. This includes the major HTTP verbs, which are:
+[httr][httr-web] is yet another star in the [tidyverse][tidyverse-main-page]. It is a package designed to facilitate all things HTTP from within R. This includes the major HTTP verbs, which are:
 
 <!--TODO: Find source for these definitions-->
 * __`GET()`__ - Fetch an existing resource. The URL contains all the necessary information the server needs to locate and return the resource.
@@ -366,16 +366,16 @@ attrs %>%
 
 HTTP is the foundation for APIs; understanding how it works is the key to interacting with all the diverse APIs out there. An excellent beginning resource for APIs (including HTTP basics) is [An Introduction to APIs](https://zapier.com/learn/apis/) by Brian Cooksey.
 
-`httr` also facilitates a variety of ___authentication___ protocols.
+httr also facilitates a variety of ___authentication___ protocols.
 
-`httr` contains one function for every HTTP verb. The functions have the same names as the verbs (e.g. `GET()`, `POST()`).  They have more informative outputs than simply using `curl` and come with nice convenience functions for working with the output:
+httr contains one function for every HTTP verb. The functions have the same names as the verbs (e.g. `GET()`, `POST()`).  They have more informative outputs than simply using curl and come with nice convenience functions for working with the output:
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("httr")
 library(httr)
 ```
 
-Using `httr` to get the data in JSON format:
+Using httr to get the data in JSON format:
 ```{r fake-httr-json, eval = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                      format = "json", api_key = movie_key)
@@ -390,7 +390,7 @@ response_json <- GET(request_json)
 content(response_json, as = "parsed", type = "application/json")
 ```
 
-Using `httr` to get the data in XML format:
+Using httr to get the data in XML format:
 ```{r fake-httr-xml, eval = FALSE}
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                     format = "xml", api_key = movie_key)
@@ -407,7 +407,7 @@ response_xml <- GET(request_xml)
 content(response_xml, as = "parsed")
 ```
 
-`httr` also gives us access to lots of useful information about the quality of our response. For example, the header:
+httr also gives us access to lots of useful information about the quality of our response. For example, the header:
 
 ```{r}
 headers(response_xml)
@@ -419,7 +419,7 @@ And also a handy means to extract specifically the HTTP status code:
 status_code(response_xml)
 ```
 
-In fact, we didn't need to create `omdb()` at all. `httr` provides a straightforward means of making an HTTP request with the `query` argument:
+In fact, we didn't need to create `omdb()` at all. httr provides a straightforward means of making an HTTP request with the `query` argument:
 
 ```{r fake-json-get, eval = FALSE}
 the_martian <- GET("http://www.omdbapi.com/?", 
@@ -435,11 +435,11 @@ the_martian <- GET("http://www.omdbapi.com/?",
 content(the_martian)
 ```
 
-With `httr`, we are able to pass in the named arguments to the API call as a named list. We are also able to use spaces in movie names; `httr` encodes these in the URL before making the GET request.
+With httr, we are able to pass in the named arguments to the API call as a named list. We are also able to use spaces in movie names; httr encodes these in the URL before making the GET request.
 
 It is very good to [learn your HTTP status codes](https://www.flickr.com/photos/girliemac/sets/72157628409467125).  
 
-The documentation for `httr` includes a vignette of ["Best practices for writing an API package"](https://httr.r-lib.org/articles/api-packages.html), which is useful for when you want to bring your favourite web resource into the world of R.
+The documentation for httr includes a vignette of ["Best practices for writing an API package"](https://httr.r-lib.org/articles/api-packages.html), which is useful for when you want to bring your favourite web resource into the world of R.
 
 
 ## Scraping
@@ -454,7 +454,7 @@ knitr::include_graphics("https://imgs.xkcd.com/comics/tags.png")
 
 Two pieces of equipment:
 
-1. The [`rvest`][rvest-web] package ([CRAN][rvest-cran]; [GitHub][rvest-github]). Install via `install.packages("rvest)"`.
+1. The [rvest][rvest-web] package ([CRAN][rvest-cran]; [GitHub][rvest-github]). Install via `install.packages("rvest)"`.
 1. SelectorGadget: point and click CSS selectors. [Install in your browser](http://selectorgadget.com/).
 
 Before we go any further, [let's play a game together](http://flukeout.github.io)!
@@ -477,7 +477,7 @@ Knit the document and click "View in Browser". It should look like this:
 ```
 
 
-We have created a simple HTML table with the head of `gapminder` in it! We can get our data back by parsing this table into a data frame again. Extracting data from HTML is called "scraping", and we can do it in R with the `rvest` package:
+We have created a simple HTML table with the head of `gapminder` in it! We can get our data back by parsing this table into a data frame again. Extracting data from HTML is called "scraping", and we can do it in R with the rvest package:
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("rvest")

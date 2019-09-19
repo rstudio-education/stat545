@@ -8,12 +8,12 @@ source("common.R")
 
 <!--TODO: The link below is broken. Found it listed [here](https://www.showmeshiny.com/r-graph-catalog/) which links this [repo](https://github.com/jennybc/r-graph-catalog) as the source code
 
-[R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/), a visual, clickable index of 100+ figures + `ggplot2` code to make them
+[R Graph Catalog](http://shiny.stat.ubc.ca/r-graph-catalog/), a visual, clickable index of 100+ figures + ggplot2 code to make them
 
 Note that I SKIPPED THE R GRAPH CATALOG LINK
 -->
 
-## Load `dplyr` and `gapminder`
+## Load dplyr and gapminder
 
 ```{r message = FALSE}
 library(dplyr)
@@ -38,7 +38,7 @@ When you change a graphical parameter via `par()`, the original values are retur
 
 Big picture, it is best practice to restore the original, default state of hidden things that affect an R session. This is polite if you plan to inflict your code on others. Even if you live on an R desert island, this practice will prevent you from creating maddening little puzzles for yourself to solve in the middle of the night before a deadline.
 
-Because of the way figures are handled by `knitr`, it is more complicated to change the default plotting symbol throughout an R Markdown document. To see how I've done it, check out a hidden chunk around here in the [source of this page](https://github.com/rstudio-education/stat545/blob/master/25_colors.Rmd).
+Because of the way figures are handled by knitr, it is more complicated to change the default plotting symbol throughout an R Markdown document. To see how I've done it, check out a hidden chunk around here in the [source of this page](https://github.com/rstudio-education/stat545/blob/master/25_colors.Rmd).
 
 
 ```{r include = FALSE}
@@ -133,9 +133,9 @@ But it's much more exciting to see the colors displayed! Lots of people have tac
 -->
 
 
-## `RColorBrewer`
+## RColorBrewer
 
-Most of us are pretty lousy at choosing colors and it's easy to spend too much time fiddling with them. [Cynthia Brewer][wiki-brewer], a geographer and color specialist, has created sets of colors for print and the web and they are available in the add-on package [`RColorBrewer`][rcolorbrewer-cran]. You will need to install and load this package to use.
+Most of us are pretty lousy at choosing colors and it's easy to spend too much time fiddling with them. [Cynthia Brewer][wiki-brewer], a geographer and color specialist, has created sets of colors for print and the web and they are available in the add-on package [RColorBrewer][rcolorbrewer-cran]. You will need to install and load this package to use.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("RColorBrewer")
@@ -154,7 +154,7 @@ They fall into three classes. From top to bottom, they are
 * __qualitative__: great for non-ordered categorical things -- such as your typical factor, like country or continent. Note the special case "Paired" palette; example where that's useful: a non-experimental factor (e.g. type of wheat) and a binary experimental factor (e.g. untreated vs. treated).
 * __diverging__: great for things that range from "extreme and negative" to "extreme and positive", going through "non extreme and boring" along the way, such as t-statistics and z-scores and signed correlations
 
-You can view a single `RColorBrewer` palette by specifying its name:
+You can view a single RColorBrewer palette by specifying its name:
 
 ```{r fig.height = 3}
 display.brewer.pal(n = 8, name = 'Dark2')
@@ -162,7 +162,7 @@ display.brewer.pal(n = 8, name = 'Dark2')
 
 The package is, frankly, rather clunky, as evidenced by the requirement to specify `n` above. Sorry folks, you'll just have to cope.
 
-Here we revisit specifying custom colors as we did above, but using a palette from `RColorBrewer` instead of our artisanal "peachpuff3" work of art. As before, I display the colors themselves but you'll see we're not getting the friendly names you've seen before, which brings us to our next topic.
+Here we revisit specifying custom colors as we did above, but using a palette from RColorBrewer instead of our artisanal "peachpuff3" work of art. As before, I display the colors themselves but you'll see we're not getting the friendly names you've seen before, which brings us to our next topic.
 
 ```{r}
 j_brew_colors <- brewer.pal(n = 8, name = "Dark2")
@@ -172,15 +172,15 @@ with(jdat, text(x = gdpPercap, y = lifeExp, labels = j_brew_colors,
                 pos = rep(c(1, 3, 1), c(5, 1, 2)))) 
 ```
 
-## `viridis`
+## viridis
 
-In 2015 Stéfan van der Walt and Nathaniel Smith designed new color maps for matplotlib and [presented them in a talk at SciPy 2015][scipy-2015-matplotlib-colors]. The `viridis` R package provides four new palettes for use in R: on [CRAN][viridis-cran] with development on [GitHub][viridis-github]. From DESCRIPTION:
+In 2015 Stéfan van der Walt and Nathaniel Smith designed new color maps for matplotlib and [presented them in a talk at SciPy 2015][scipy-2015-matplotlib-colors]. The viridis R package provides four new palettes for use in R: on [CRAN][viridis-cran] with development on [GitHub][viridis-github]. From DESCRIPTION:
 
 > These color maps are designed in such a way that they will analytically be perfectly perceptually-uniform, both in regular form and also when converted to black-and-white. They are also designed to be perceived by readers with the most common form of color blindness (all color maps in this package) and color vision deficiency ('cividis' only).
 
-I encourage you to install `viridis` and read [the vignette][viridis-vignette]. It is easy to use these palettes in `ggplot2` via `scale_color_viridis()` and `scale_fill_viridis()`. Taking control of color palettes in `ggplot2` is covered elsewhere (see Chapter \@ref(qualitative-colors).
+I encourage you to install viridis and read [the vignette][viridis-vignette]. It is easy to use these palettes in ggplot2 via `scale_color_viridis()` and `scale_fill_viridis()`. Taking control of color palettes in ggplot2 is covered elsewhere (see Chapter \@ref(qualitative-colors).
 
-Here are two examples that show the `viridis` palettes:
+Here are two examples that show the viridis palettes:
 
 ```{r message = FALSE, warning = FALSE}
 library(ggplot2)
@@ -197,7 +197,7 @@ knitr::include_graphics("img/viridis-sample2.png")
 
 ## Hexadecimal RGB color specification
 
-Instead of small positive integers and Crayola-style names, a more general and machine-readable approach to color specification is as hexadecimal triplets. Here is how the `RColorBrewer` Dark2 palette is actually stored:
+Instead of small positive integers and Crayola-style names, a more general and machine-readable approach to color specification is as hexadecimal triplets. Here is how the RColorBrewer Dark2 palette is actually stored:
 
 ```{r}
 brewer.pal(n = 8, name = "Dark2")
@@ -311,7 +311,7 @@ The RGB color space or model is by no means the only or best one. It's natural f
 
 Color models generally have three dimensions, as RGB does, due to the physiological reality that humans have three different receptors in the retina. ([Here is an informative blog post][favorite-rgb-color] on RGB and the human visual system.) The closer a color model's dimensions correspond to distinct qualities people can perceive, the more useful it is. This correspondence facilitates the deliberate construction of palettes and paths through color space with specific properties. RGB lacks this concordance with human perception. Just because you have photoreceptors that detect red, green, and blue light, it doesn't mean that your *perceptual experience* of color breaks down that way. Do you experience the color yellow as a mix of red and green light? No, of course not, but that's the physiological reality. An RGB alternative you may have encountered is the Hue-Saturation-Value (HSV) model. Unfortunately, it is also quite problematic for color picking, due to its dimensions being confounded with each other.
 
-What are the good perceptually-based color models? CIELUV and CIELAB are two well-known examples. We will focus on a variant of CIELUV, namely the Hue-Chroma-Luminance (HCL) model. It is written up nicely for an R audience in Zeileis et al.'s ["Escaping RGBland: Selecting Colors for Statistical Graphs"][escaping-rgbland-pdf] in [Computational Statistics & Data Analysis][escaping-rgbland-doi] [-@zeileis2009]. There is a companion R package `colorspace`, which will help you to explore and exploit the HCL color model. Finally, this color model is fully embraced in `ggplot2` (as are the `RColorBrewer` palettes).
+What are the good perceptually-based color models? CIELUV and CIELAB are two well-known examples. We will focus on a variant of CIELUV, namely the Hue-Chroma-Luminance (HCL) model. It is written up nicely for an R audience in Zeileis et al.'s ["Escaping RGBland: Selecting Colors for Statistical Graphs"][escaping-rgbland-pdf] in [Computational Statistics & Data Analysis][escaping-rgbland-doi] [-@zeileis2009]. There is a companion R package colorspace, which will help you to explore and exploit the HCL color model. Finally, this color model is fully embraced in ggplot2 (as are the RColorBrewer palettes).
 
 Here's what I can tell you about the HCL model's three dimensions:
 
@@ -330,18 +330,18 @@ knitr::include_graphics("img/ggplot2book-fig6.6.png")
 
 Paraphrasing Wickham: Each facet or panel depicts a slice through HCL space for a specific luminance, going from low to high. The extreme luminance values of 0 and 100 are omitted because they would, respectively, be a single black point and a single white point. Within a slice, the centre has chroma 0, which corresponds to a shade of grey. As you move toward the slice's edge, chroma increases and the color gets more pure and intense. Hue is mapped to angle.
   
-A valuable contribution of the `colorspace` package is that it provides functions to create color palettes traversing color space in a rational way. In contrast, the palettes offered by `RColorBrewer`, though well-crafted, are unfortunately fixed.
+A valuable contribution of the colorspace package is that it provides functions to create color palettes traversing color space in a rational way. In contrast, the palettes offered by RColorBrewer, though well-crafted, are unfortunately fixed.
 
 
 Here is an article that uses compelling examples to advocate for perceptually based color systems and to demonstrate the importance of signalling where zero is in colorspace:
 
 * ["Why Should Engineers and Scientists Be Worried About Color?"][worry-about-color] [@rogowitz1996]
 
-<!--TODO: Insert/recreate some visuals from the Zeileis et al. paper or from the `colorspace` vignette. Show actual usage! -->
+<!--TODO: Insert/recreate some visuals from the Zeileis et al. paper or from the colorspace vignette. Show actual usage! -->
 
 ## Accommodating color blindness
 
-The `dichromat` package ([on CRAN][dichromat-cran]) will help you select a color scheme that will be effective for color blind readers.
+The dichromat package ([on CRAN][dichromat-cran]) will help you select a color scheme that will be effective for color blind readers.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("dichromat")
@@ -384,7 +384,7 @@ ggplot(df, aes(xmin = xmin, xmax = xmax, ymin = ymax - 0.85, ymax = ymax)) +
 ## discrete palette
 ```
 
-What else does the `dichromat` package offer? The `dichromat()` function transforms colors to approximate the effect of different forms of color blindness, allowing you to assess the performance of a candidate scheme. The command `data("dalton")` will make two objects available which represent a 256-color palette as it would appear with normal vision, with two types of red-green color blindness, and with green-blue color blindness. 
+What else does the dichromat package offer? The `dichromat()` function transforms colors to approximate the effect of different forms of color blindness, allowing you to assess the performance of a candidate scheme. The command `data("dalton")` will make two objects available which represent a 256-color palette as it would appear with normal vision, with two types of red-green color blindness, and with green-blue color blindness. 
 
 ```{r eval = FALSE, include = FALSE}
 ## I could add more on dichromat() function and the dalton stuff?
@@ -457,7 +457,7 @@ par(opar)
 ## Resources
 
 * Zeileis et al.'s ["Escaping RGBland: Selecting Colors for Statistical Graphs"][escaping-rgbland-pdf] in [Computational Statistics & Data Analysis][escaping-rgbland-doi] [-@zeileis2009]. 
-* [Vignette][colorspace-vignette] for the [`colorspace`][colorspace-cran] package.
+* [Vignette][colorspace-vignette] for the [colorspace][colorspace-cran] package.
 * Earl F. Glynn (Stowers Institute for Medical Research):
     + [Excellent resources][stowers-color-chart] for named colors, i.e. the ones available via `colors()`.
     + Informative talk ["Using Color in R"][stowers-using-color-in-R], though features some questionable *use* of color itself.
@@ -465,7 +465,7 @@ par(opar)
 * Wickham's [ggplot2: Elegant Graphics for Data Analysis][elegant-graphics-springer] [-@wickham2009].
   + [Online docs (nice!)][ggplot2-reference] 
   + [Package webpage][ggplot2-web]
-  + `ggplot2` on [CRAN][ggplot2-cran] and [GitHub][ggplot2-github]
+  + ggplot2 on [CRAN][ggplot2-cran] and [GitHub][ggplot2-github]
   + Section 6.4.3 Colour
 * ["Why Should Engineers and Scientists Be Worried About Color?"][worry-about-color] by Bernice E. Rogowitz and Lloyd A. Treinish of IBM Research [-@rogowitz1996], h/t [\@EdwardTufte](https://twitter.com/EdwardTufte).
 

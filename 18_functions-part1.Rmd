@@ -10,11 +10,11 @@ source("common.R")
 
 My goal here is to reveal the __process__ a long-time useR employs for writing functions. I also want to illustrate why the process is the way it is. Merely looking at the finished product, e.g. source code for R packages, can be extremely deceiving. Reality is generally much uglier ... but more interesting!
 
-Why are we covering this now, smack in the middle of data aggregation? Powerful machines like `dplyr`, `purrr`, and the built-in `apply` family of functions, are ready and waiting to apply your purpose-built functions to various bits of your data. If you can express your analytical wishes in a function, these tools will give you great power.
+Why are we covering this now, smack in the middle of data aggregation? Powerful machines like dplyr, purrr, and the built-in "apply" family of functions, are ready and waiting to apply your purpose-built functions to various bits of your data. If you can express your analytical wishes in a function, these tools will give you great power.
 
 ## Load the Gapminder data
 
-As usual, load `gapminder`.
+As usual, load gapminder.
 
 ```{r start_func1}
 library(gapminder)
@@ -191,10 +191,10 @@ Where to next? In [part 2](#functions-part2) we generalize this function to take
 
 Packages for runtime assertions (the last 3 seem to be under more active development than `assertthat`):
 
-* `assertthat` on [CRAN][assertthat-cran] and [GitHub][assertthat-github] - *the Hadleyverse option*
-* `ensurer` on [CRAN][ensurer-cran] and [GitHub][ensurer-github] - *general purpose, pipe-friendly*
-* `assertr` on [CRAN][assertr-cran] and [GitHub][assertr-github] - *explicitly data pipeline oriented*
-* `assertive` on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] - *rich set of built-in functions*
+* assertthat on [CRAN][assertthat-cran] and [GitHub][assertthat-github] - *the Hadleyverse option*
+* ensurer on [CRAN][ensurer-cran] and [GitHub][ensurer-github] - *general purpose, pipe-friendly*
+* assertr on [CRAN][assertr-cran] and [GitHub][assertr-github] - *explicitly data pipeline oriented*
+* assertive on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] - *rich set of built-in functions*
 
 Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]:
 

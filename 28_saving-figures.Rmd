@@ -55,7 +55,7 @@ Here are two good posts from the [Revolutions Analytics blog](https://blog.revol
   
 ## Write figures to file with `ggsave()`
 
-If you are using `ggplot2`, write figures to file with [`ggsave()`][rdocs-ggsave].
+If you are using ggplot2, write figures to file with [`ggsave()`][rdocs-ggsave].
 
 If you are staring at a plot you just made on your screen, you can call `ggsave()`, specifying only a filename:
 
@@ -67,7 +67,7 @@ It makes a sensible decision about everything else. In particular, as long as yo
 
 ### Passing a plot object to `ggsave()`
 
-After the filename, the most common argument you will provide is `plot =`, which is the second argument by position. If you've been building up a plot with the typical `ggplot2` workflow, you will pass the resulting object to `ggsave()`. __Example:__
+After the filename, the most common argument you will provide is `plot =`, which is the second argument by position. If you've been building up a plot with the typical ggplot2 workflow, you will pass the resulting object to `ggsave()`. __Example:__
 
 ```{r eval = FALSE}
 p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
@@ -135,9 +135,9 @@ ggsave("img/fig-io-practice-base-size-3.png", p3)
 theme_set(otheme)
 ```
 
-## Write non-`ggplot2` figures to file
+## Write non-ggplot2 figures to file
 
-Recall that `ggsave()` is recommended if you're using `ggplot2`. But if you're using base graphics or `lattice`, here's generic advice for writing figures to file. To be clear, this *also* works for `ggplot2` graphs, but I can't think of any good reasons to NOT use `ggsave()`.
+Recall that `ggsave()` is recommended if you're using ggplot2. But if you're using base graphics or lattice, here's generic advice for writing figures to file. To be clear, this *also* works for ggplot2 graphs, but I can't think of any good reasons to NOT use `ggsave()`.
   
 Edit your source code in the following way: precede the figure-making code by opening a graphics device and follow it with a command that closes the device. Here's an example:
 
@@ -187,7 +187,7 @@ Certain workflows are suited to interactive development and will break when play
 
 __Basic issue__: When working interactively, if you inspect the plot object `p` by entering `p` at the command line, the plot gets printed to screen. You're actually enjoying the result of `print(p)`, but it's easy to not realize this. To get the same result from code run non-interactively, you will need to call `print()` explicitly yourself.
 
-Here I wrap plotting commands inside a function. The function on the left will fail to produce a PNG, whereas the function on the right will produce a good PNG. Both assume the Gapminder data is present as `gapminder` and that `ggplot2` has been loaded.
+Here I wrap plotting commands inside a function. The function on the left will fail to produce a PNG, whereas the function on the right will produce a good PNG. Both assume the Gapminder data is present as `gapminder` and that ggplot2 has been loaded.
 
 <table>
 <tr>
@@ -223,7 +223,7 @@ f_joy()
 
 Other versions of this fiasco result in a figure file that is, frustratingly, empty. If you expect a figure, but it's missing or empty, __remember to print the plot explicitly.__
 
-It is worth noting here that the `ggsave()` workflow is not vulnerable to this gotcha, which is yet another reason to prefer it when using `ggplot2`.
+It is worth noting here that the `ggsave()` workflow is not vulnerable to this gotcha, which is yet another reason to prefer it when using ggplot2.
 
 Some relevant threads on stackoverflow:
 
@@ -233,7 +233,7 @@ Some relevant threads on stackoverflow:
 
 ### Mysterious empty `Rplots.pdf` file
 
-*Note: [This has been fixed as of `ggplot2` v2.0.0](https://github.com/tidyverse/ggplot2/issues/1326). Hallelujah! I will leave this here for a while, since old versions of a package like `ggplot2` linger around for months and years.*
+*Note: [This has been fixed as of ggplot2 v2.0.0](https://github.com/tidyverse/ggplot2/issues/1326). Hallelujah! I will leave this here for a while, since old versions of a package like ggplot2 linger around for months and years.*
 
 When creating and writing figures from R running non-interactively, you can inadvertently trigger a request to query the active graphics device. For example, `ggsave()` might try to ascertain the physical size of the current device. But when running non-interactively there is often no such device available, which can lead to the unexpected creation of `Rplots.pdf` so this request can be fulfilled.
 

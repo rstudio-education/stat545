@@ -8,7 +8,7 @@ source("common.R")
 
 ## File I/O overview
 
-We've been loading the Gapminder data as a data.frame from the `gapminder` data package. We haven't been explicitly writing any data or derived results to file. In real life, you'll bring rectangular data into and out of R all the time. Sometimes you'll need to do same for non-rectangular objects.
+We've been loading the Gapminder data as a data frame from the gapminder data package. We haven't been explicitly writing any data or derived results to file. In real life, you'll bring rectangular data into and out of R all the time. Sometimes you'll need to do same for non-rectangular objects.
 
 How do you do this? What issues should you think about?
 
@@ -32,11 +32,11 @@ First tip: __today's outputs are tomorrow's inputs__. Think back on all the pain
 
 Second tip: don't be too cute or clever. A plain text file that is readable by a human being in a text editor should be your default until you have __actual proof__ that this will not work. Reading and writing to exotic or proprietary formats will be the first thing to break in the future or on a different computer. It also creates barriers for anyone who has a different toolkit than you do. Be software-agnostic. Aim for future-proof and moron-proof.
 
-How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with `knitr` and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make][minimal-make].
+How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with knitr and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make][minimal-make].
 
-## Load the `tidyverse`
+## Load the tidyverse
 
-The main package we will be using is [`readr`][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the [`forcats`][forcats-web] package, which is also included in the `tidyverse` package.
+The main package we will be using is [readr][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the [forcats][forcats-web] package, which is also included in the tidyverse package.
 
 ```{r start_import_export}
 library(tidyverse)
@@ -44,7 +44,7 @@ library(tidyverse)
 
 ## Locate the Gapminder data
 
-We could load the data from the package as usual, but instead we will load it from tab delimited file. The `gapminder` package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [`fs` package][fs-web].
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [`fs` package][fs-web].
 
 ```{r}
 library(fs)
@@ -53,7 +53,7 @@ library(fs)
 
 ## Bring rectangular data in
 
-The workhorse data import function of `readr` is `read_delim()`. Here we'll use a variant, `read_tsv()`, that anticipates tab-delimited data:
+The workhorse data import function of readr is `read_delim()`. Here we'll use a variant, `read_tsv()`, that anticipates tab-delimited data:
 
 ```{r}
 gapminder <- read_tsv(gap_tsv)
@@ -64,7 +64,7 @@ For full flexibility re: specifying the delimiter, you can always use `readr::re
 
 There's a similar convenience wrapper for comma-separated values, `read_csv()`.
 
-The most noticeable difference between the `readr` functions and base is that `readr` does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use `readr`.
+The most noticeable difference between the readr functions and base is that readr does NOT convert strings to factors by default. In the grand scheme of things, this is better default behavior, although we go ahead and convert them to factor here. Do not be deceived -- in general, you will do less post-import fussing if you use readr.
 
 ```{r}
 gapminder <- gapminder %>%
@@ -77,7 +77,7 @@ str(gapminder)
 
 Default to `readr::read_delim()` and friends. Use the arguments!
 
-The Gapminder data is too clean and simple to show off the great features of `readr`, so I encourage you to check out the part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
+The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
 
 ## Compute something worthy of export
 
@@ -95,13 +95,13 @@ The `gap_life_exp` data frame is an example of an intermediate result that we wa
 
 ## Write rectangular data out
 
-The workhorse export function for rectangular data in `readr` is `write_delim()` and friends. Let's use `write_csv()` to get a comma-delimited file.
+The workhorse export function for rectangular data in readr is `write_delim()` and friends. Let's use `write_csv()` to get a comma-delimited file.
 
 ```{r}
 write_csv(gap_life_exp, "gap_life_exp.csv")
 ```
 
-Let's look at the first few lines of `gap_life_exp.csv`. If you're following along, you should be able to open this file or, in a shell, use `head` on it.
+Let's look at the first few lines of `gap_life_exp.csv`. If you're following along, you should be able to open this file or, in a shell, use `head()` on it.
 
 ```{r echo = FALSE, comment = NA}
 "gap_life_exp.csv" %>%
@@ -237,7 +237,7 @@ If a delimited file contains fields where a human being has typed, be crazy para
 
 When the header fields (often, but not always, the variable names) or actual data contain the delimiter, it can lead to parsing and import failures. Two popular delimiters are the comma `,` and the TAB `\t` and humans tend to use these when typing. If you can design this problem away during data capture, such as by using a drop down menu on an input form, by all means do so. Sometimes this is impossible or undesirable and you must deal with fairly free form text. That's a good time to allow/force text to be protected with quotes, because it will make parsing the delimited file go more smoothly.
 
-Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter. That is, in fact, the default for both `read.table()` and `write.table()`. Assuming you will write/read variable names from the first line (a.k.a. the `header` in `write.table()` and `read.table()`), they must be valid R variable names ... or they will be coerced into something valid. So, for these two reasons, it is good practice to use "one word" variable names whenever possible. If you need to evoke multiple words, use `snake_case` or `camelCase` to cope. __Example:__ the header entry for the field holding the subject's last name should be `last_name` or `lastName` NOT `last name`. With the `readr` package, "column names are left as is, not munged into valid R identifiers (i.e. there is no `check.names = TRUE`)". So you can get away with whitespace in variable names and yet I recommend that you do not.
+Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter. That is, in fact, the default for both `read.table()` and `write.table()`. Assuming you will write/read variable names from the first line (a.k.a. the `header` in `write.table()` and `read.table()`), they must be valid R variable names ... or they will be coerced into something valid. So, for these two reasons, it is good practice to use "one word" variable names whenever possible. If you need to evoke multiple words, use `snake_case` or `camelCase` to cope. __Example:__ the header entry for the field holding the subject's last name should be `last_name` or `lastName` NOT `last name`. With the readr package, "column names are left as is, not munged into valid R identifiers (i.e. there is no `check.names = TRUE`)". So you can get away with whitespace in variable names and yet I recommend that you do not.
 
 ## Resources
 

@@ -1,10 +1,10 @@
-# `ggplot2` tutorial {#ggplot2-tutorial}
+# ggplot2 tutorial {#ggplot2-tutorial}
 
 ```{r include = FALSE}
 source("common.R")
 ```
 
-[`ggplot2` tutorial][ggplot2-tutorial], heavy on code and examples.
+[ggplot2 tutorial][ggplot2-tutorial], heavy on code and examples.
 
 
 ```{r links, child="links.md"}

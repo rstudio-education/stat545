@@ -24,26 +24,26 @@ I start with this because we cannot possibly do this topic justice in a short am
 
 ### Manipulating character vectors
 
-* [`stringr` package][stringr-web].
+* [stringr package][stringr-web].
   - A core package in the `tidyverse.` It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
   - Main functions start with `str_`. Auto-complete is your friend.
   - Replacements for base functions re: string manipulation and regular expressions (see below).
   - Main advantages over base functions: greater consistency about inputs and outputs. Outputs are more ready for your next analytical task. 
-* [`tidyr` package][tidyr-web].
+* [tidyr package][tidyr-web].
   - Especially useful for functions that split one character vector into many and *vice versa*: `separate()`, `unite()`, `extract()`.
 * Base functions: `nchar()`, `strsplit()`, `substr()`, `paste()`, `paste0()`.
-* The [`glue` package][glue-web] is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out `glue`.
+* The [glue package][glue-web] is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out the glue package.
 
 ### Regular expressions resources
 
 A God-awful and powerful language for expressing patterns to match in text or for search-and-replace. Frequently described as "write only", because regular expressions are easier to write than to read/understand. And they are not particularly easy to write.
 
-* We again prefer the [`stringr` package][stringr-cran] over base functions. Why?
-  - Wraps [`stringi`][stringi-cran], which is a great place to look if `stringr` isn't powerful enough.
+* We again prefer the [stringr package][stringr-cran] over base functions. Why?
+  - Wraps [stringi][stringi-cran], which is a great place to look if stringr isn't powerful enough.
   - Standardized on [ICU regular expressions][icu-regex], so you can stop toggling `perl = TRUE/FALSE` at random.
   - Results come back in a form that is much friendlier for downstream work.
 * The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016] is a great resource.
-* Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of `stringr` and uses example data that is easier to support long-term.
+* Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of stringr and uses example data that is easier to support long-term.
   - [2014 Intro to regular expressions](#oldies) by TA Gloria Li (Appendix \@ref(oldies)).
   - [2015 Regular expressions and character data in R](#oldies) by TA Kieran Samuk (Appendix \@ref(oldies)).
 * RStudio Cheat Sheet on [Regular Expressions in R][rstudio-regex-cheatsheet].
@@ -63,16 +63,16 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 
 ### Character vectors that live in a data frame
 
-* Certain operations are facilitated by `tidyr`. These are described below.
+* Certain operations are facilitated by tidyr. These are described below.
 * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#oldies) (Appendix \@ref(oldies)).
 
-## Load the `tidyverse`, which includes `stringr`
+## Load the tidyverse, which includes stringr
 
 ```{r start_char_vectors}
 library(tidyverse)
 ```
 
-## Regex-free string manipulation with `stringr` and `tidyr`
+## Regex-free string manipulation with stringr and tidyr
 
 Basic string manipulation tasks:
 
@@ -87,7 +87,7 @@ Basic string manipulation tasks:
 * Operate on two or more character vectors
   - Glue them together element-wise to get a new character vector.
 
-*`fruit`, `words`, and `sentences` are character vectors that ship with `stringr` for practicing.*
+*`fruit`, `words`, and `sentences` are character vectors that ship with stringr for practicing.*
 
 ### Detect or filter on a target string
 
@@ -222,13 +222,13 @@ tibble(melons) %>%
 
 And that concludes our treatment of regex-free manipulations of character data!
 
-## Regular expressions with `stringr`
+## Regular expressions with stringr
 
 ```{r echo = FALSE, fig.cap = "From [\\@ThePracticalDev](https://twitter.com/ThePracticalDev/status/774309983467016193)", out.width = "50%"}
 knitr::include_graphics("img/regexbytrialanderror-big-smaller.png")
 ```
 
-### Load `gapminder`
+### Load gapminder
 
 The country names in the `gapminder` dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
 
