@@ -4,10 +4,9 @@
 source("common.R")
 ```
 
-<!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
-<!--Original content: https://stat545.com/block007_first-use-rmarkdown.html-->
-
 # Git, GitHub, and RStudio {#version-control .unnumbered}
+
+<!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
 
 At this point in STAT 545, all students receive their own STAT 545 GitHub repository that they will use to develop their course work throughout the rest of the course.
 
@@ -23,6 +22,8 @@ Our instructions around installation, setup, and early Git usage eventually grew
 <https://happygitwithr.com>
 
 # R Markdown {#r-markdown .unnumbered}
+
+<!--Original content: https://stat545.com/block007_first-use-rmarkdown.html-->
 
 STAT 545 course work is generally submitted in the form of R Markdown documents. Students submit an `.Rmd` file, which they have executed or rendered to a `.md` markdown file. R Markdown is a very accessible way to create computational documents that combine prose and tables and figures produced by R code.
 
