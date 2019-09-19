@@ -4,13 +4,13 @@
 source("common.R")
 ```
 
-# Meta thoughts {-}
+# Overview {-}
 
 Although this part now links out to external resources, if you're working through this material on your own, let this be a nudge to pause around here and think about your workflow. I give you permission to spend some time and energy sorting this out! It can be as or more important than learning a new R function or package. The experts don't talk about this much, because they've already got a workflow and it's something they do almost without thinking.
 
 Working through subsequent material in R Markdown documents, possibly using Git and GitHub to track and share your progress, is a great idea and will leave you more prepared for your future data analysis projects. Typing individual lines of R code is but a small part of data analysis and it pays off to think holistically about your workflow.
 
-# Git, GitHub, and RStudio {#version-control .unnumbered}
+# Git, GitHub, and RStudio {#version-control}
 
 <!--Original content: https://stat545.com/git08_claim-stat545-repo.html-->
 
@@ -27,7 +27,7 @@ Our instructions around installation, setup, and early Git usage eventually grew
 
 <https://happygitwithr.com>
 
-# R Markdown {#r-markdown .unnumbered}
+# R Markdown {#r-markdown}
 
 <!--Original content: https://stat545.com/block007_first-use-rmarkdown.html-->
 
