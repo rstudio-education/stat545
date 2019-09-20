@@ -18,15 +18,15 @@ its own project-specific library that is separate from your personal library of 
 
 1. Get a local copy of the website source.
    * Users of devtools/usethis can do:
-   ```r
-   usethis::create_from_github("rstudio-education/stat545")
-   ```
-   Note that `usethis::create_from_github()` works best when it can find a
-   GitHub personal access token and usethis (git2r, really) is configured
-   correctly for your preferred transport protocol (SSH vs HTTPS).
-   [Setup advice](https://usethis.r-lib.org/articles/articles/usethis-setup.html).
+     ```r
+     usethis::create_from_github("rstudio-education/stat545")
+     ```
+     Note that `usethis::create_from_github()` works best when it can find a
+     GitHub personal access token and usethis (git2r, really) is configured
+     correctly for your preferred transport protocol (SSH vs HTTPS).
+     [Setup advice](https://usethis.r-lib.org/articles/articles/usethis-setup.html).
    * Otherwise, use your favorite method to fork and clone or download the
-    repo as a ZIP file and unpack.
+     repo as a ZIP file and unpack.
 1. Start R in your new `stat545/` directory. Expect to see some renv startup
    along these lines:
    ```
