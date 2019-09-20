@@ -21,6 +21,10 @@ its own project-specific library that is separate from your personal library of 
    ```r
    usethis::create_from_github("rstudio-education/stat545")
    ```
+   Note that `usethis::create_from_github()` works best when it can find a
+   GitHub personal access token and usethis (git2r, really) is configured
+   correctly for your preferred transport protocol (SSH vs HTTPS).
+   [Setup advice](https://usethis.r-lib.org/articles/articles/usethis-setup.html).
    * Otherwise, use your favorite method to fork and clone or download the
     repo as a ZIP file and unpack.
 1. Start R in your new `stat545/` directory. Expect to see some renv startup
@@ -33,7 +37,7 @@ its own project-specific library that is separate from your personal library of 
    * Project '~/tmp/stat545' loaded. [renv 0.7.0-50]
    ```
 1. Run `renv::restore()`. This will print out "The following package(s) will be
-   installed" followed by a long list of packages. Respond "yes". renv will =
+   installed" followed by a long list of packages. Respond "yes". renv will
    build the project-specific library containing packages at the correct
    versions.
 1. You should now be able to render the site in all the usual ways for bookdown,
