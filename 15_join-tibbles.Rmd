@@ -144,7 +144,7 @@ make_three_gt(super_gt, pub_gt, ijsp_gt)
 (sjsp <- semi_join(superheroes, publishers))
 ```
 
-We get a similar result as with `inner_join()` but the join result contains only the variables originally found in `x = superheroes`. But note the row order has changed.
+We get a similar result as with `inner_join()` but the join result contains only the variables originally found in `x = superheroes`.
 
 ```{r echo = FALSE}
 sjsp_gt <- style_table(sjsp, "semi_join(x = superheroes, y = publishers)") 
