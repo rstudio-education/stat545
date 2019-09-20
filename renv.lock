@@ -28,10 +28,10 @@
     },
     "DT": {
       "Package": "DT",
-      "Version": "0.8",
+      "Version": "0.9",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f3c8ebf07b488feb5045a1ca7cd398b2"
+      "Hash": "3713a75ea5f5bbc25579b20cbb7843f3"
     },
     "MASS": {
       "Package": "MASS",
@@ -451,10 +451,10 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.24",
+      "Version": "1.25",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "4d5213d0ec43d3ef3415177faa434602"
+      "Hash": "33a3a009f5e7c3606d6851692bf703d9"
     },
     "labeling": {
       "Package": "labeling",
@@ -897,10 +897,10 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.15",
+      "Version": "0.16",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "11c9260eb54db1f55e7573844c2ae8ed"
+      "Hash": "9349f30ae6ddce61d7fa26f7b6228a73"
     },
     "triebeard": {
       "Package": "triebeard",
