@@ -8,7 +8,7 @@ source("common.R")
 
 <!--Original content: https://stat545.com/block032_character-encoding.html-->
 
-## Resources
+## Resources {#encoding-resources}
 
 * [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science [@wickham2016].
 * Screeds on the Minimum Everyone Needs to Know about encoding:
@@ -238,7 +238,7 @@ as.integer(charToRaw(string_curly))
 ```
 
 
-## Character encoding case study: useR! 2019 {#encoding-case-study}
+## Case study: useR! 2019 {#encoding-case-study}
 
 <!-- Original content: https://stat545.com/block034_useR-encoding-case-study.html-->
 
@@ -298,8 +298,11 @@ Let's now assume you know the encoding. Or, well ... you think you do.
 
 Use your favorite method of importing a delimited file. I use `readr::read_csv2()`, where the "2" signals that the semicolon `;` is the field delimiter. We also specify the ISO-8859-15 encoding we were advised to use. I load the tidyverse meta-package, because this exposition makes use of readr, dplyr, purrr, and the pipe `%>%` operator.
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
+```
+
+```{r}
 user <- read_csv2(
   "useR-2019-accepted-talks.csv",
   locale = locale(encoding = "ISO-8859-15")
@@ -348,11 +351,12 @@ So, what happened to this file? Its declared encoding is ISO-8859-15 but it's go
 
 The good news is you get to learn a delightful word for an unsavory phenomenon: **mojibake**:
 
-> Mojibake is the garbled text that is the result of text being decoded using an unintended character encoding. The result is a systematic replacement of symbols with completely unrelated ones, often from a different writing system. -- [Wikipedia](https://en.wikipedia.org/wiki/Mojibake)
+> Mojibake is the garbled text that is the result of text being decoded using an unintended character encoding. The result is a systematic replacement of symbols with completely unrelated ones, often from a different writing system. -- [Wikipedia][wiki-mojibake]
+
 Used in a sentence:
 
 > We have an ISO-8859-15 encoded, semicolon-delimited CSV, with a touch of mojibake.
-At this point, I can't tell you how to catch this systematically. I can only say that with experience you get pretty good at knowing mojibake when you see it, forming a hypothesis about what went wrong, and fixing it. Remember the [Encoding in R](block032_character-encoding.html) page links to external resources, such as debugging tables that juxtapose intended and actual characters for the most common encoding fiascos.
+At this point, I can't tell you how to catch this systematically. I can only say that with experience you get pretty good at knowing mojibake when you see it, forming a hypothesis about what went wrong, and fixing it. Remember the [Resources](#encoding-resources) section of this chapter links to external resources, such as debugging tables that juxtapose intended and actual characters for the most common encoding fiascos.
 
 ### Diagnosis
 
@@ -360,7 +364,7 @@ The fact that we've got strings that import correctly when interpreted as UTF-8 
 
 At some point, strings made it into this database that were UTF-8 encoded, although the intended encoding is ISO-8859-15. Then, when `readr::read_csv2()` ingests these allegedly ISO-8859-15 bytes and re-encodes them as UTF-8, we get the dreaded mojibake.
 
-*Remember: I'm assuming you understand this problem space at the level presented in [Encoding in R](block032_character-encoding.html), i.e., you basically understand that characters are represented as bytes and different encodings are different systems for mapping between Unicode code points and 1 or more bytes.*
+*Remember: I'm assuming you understand this problem space at the level presented in the previous [Character encoding](#character-encoding) sections, i.e., you basically understand that characters are represented as bytes and different encodings are different systems for mapping between Unicode code points and 1 or more bytes.*
 
 Let's look at the (correct) bytes that represent our target first names in UTF-8, which is the default for my OS (macOS) and what readr always returns. These are the bytes we *should* be seeing for these names.
 
@@ -386,10 +390,10 @@ knitr::kable(
 
 You'll notice the `utf8_bytes` reported here for "Bénédicte" match those returned by the `iconv()` call above, but the other columns help orient you to what else is going on:
 
-  * `id` basically corresponds to what we perceive as "which character?" within the string
-  * `description` is self-explanatory
-  * `rune` identifies the associated Unicode code point
-  * `utf8_bytes` are the literal bytes used to represent this code point in the UTF-8 encoding
+* `id` basically corresponds to what we perceive as "which character?" within the string
+* `description` is self-explanatory
+* `rune` identifies the associated Unicode code point
+* `utf8_bytes` are the literal bytes used to represent this code point in the UTF-8 encoding
 
 Recall my claim that these specific strings were represented by UTF-8 bytes, in a file that is nominally ISO-8859-15, and were then garbled at ingest. We can reproduce the problem exactly.
 
