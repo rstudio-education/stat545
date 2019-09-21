@@ -32,4 +32,5 @@ Imports:
 Remotes: 
     ropensci/genderdata,
     rstudio/gt
+    ThinkR-open/utf8splain
 Encoding: UTF-8

@@ -122,6 +122,10 @@
       "Version": "3.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "callr",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "3.3.1",
       "Hash": "b9788f81c78e3187d199c4057872fe06"
     },
     "cellranger": {
@@ -608,6 +612,10 @@
       "Version": "1.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "praise",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "1.0.0",
       "Hash": "3940f2f321d5fa9fb72b8887b0454660"
     },
     "prettyunits": {
@@ -622,6 +630,10 @@
       "Version": "3.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "processx",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "3.4.1",
       "Hash": "fec9b1a798e49d0609702929706a1dfc"
     },
     "progress": {
@@ -865,6 +877,10 @@
       "Version": "2.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "testthat",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "2.2.1",
       "Hash": "3e86adb988cb96c5b30b01ec56719ac4"
     },
     "tibble": {
@@ -909,6 +925,18 @@
       "Repository": "CRAN",
       "Hash": "51b180ff55459cac3e8480bf843008ad"
     },
+    "uni": {
+      "Package": "uni",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "uni",
+      "RemoteUsername": "ThinkRstat",
+      "RemoteRef": "master",
+      "RemoteSha": "ef0efd4d960324f0f921102519154a10470ae23b",
+      "Hash": "b6294a3c8dcb5cac60c0df8467ad6948"
+    },
     "urltools": {
       "Package": "urltools",
       "Version": "1.7.3",
@@ -929,6 +957,19 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "3f1a5a5b184f63379f8e6c08d5036c53"
+    },
+    "utf8splain": {
+      "Package": "utf8splain",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "Remotes": "ThinkRstat/uni",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "utf8splain",
+      "RemoteUsername": "ThinkR-open",
+      "RemoteRef": "master",
+      "RemoteSha": "2fb7ed57c773ba5d462b7ab79a340eddb31b113e",
+      "Hash": "668e4dbb4d72c1ac7452e8a650897cc9"
     },
     "vctrs": {
       "Package": "vctrs",
@@ -970,6 +1011,10 @@
       "Version": "0.9",
       "Source": "Repository",
       "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemoteRef": "xfun",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemoteSha": "0.9",
       "Hash": "f577b2b637a64f3b5662430ccc6fa1b7"
     },
     "xml2": {
