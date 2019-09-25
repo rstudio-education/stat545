@@ -167,6 +167,8 @@ In addition to a gratuitous apology, the error raised also contains two more pie
 
 If it is easy to do so, I highly recommend this template: "you gave me THIS, but I need THAT".
 
+The tidyverse style guide has a very useful [chapter on how to construct error messages](https://style.tidyverse.org/error-messages.html).
+
 ### Sidebar: non-programming uses for assertions
 
 Another good use of this pattern is to leave checks behind in data analytical scripts. Consider our repetitive use of Gapminder in this course. Every time we load it, we inspect it, hoping to see the usual stuff. If we were loading from file (vs. a stable data package), we might want to formalize our expectations about the number of rows and columns, the names and flavors of the variables, etc. This would alert us if the data suddenly changed, which can be a useful wake-up call in scripts that you re-run *ad nauseam* on auto-pilot or non-interactively.
