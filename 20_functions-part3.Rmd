@@ -28,7 +28,7 @@ Let's keep our previous function around as a baseline.
 qdiff3 <- function(x, probs = c(0, 1)) {
   stopifnot(is.numeric(x))
   the_quantiles <- quantile(x, probs)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 ```
 
@@ -52,7 +52,7 @@ If we wanted to hardwire `na.rm = TRUE`, we could. Focus on our call to `quantil
 qdiff4 <- function(x, probs = c(0, 1)) {
   stopifnot(is.numeric(x))
   the_quantiles <- quantile(x, probs, na.rm = TRUE)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 qdiff4(gapminder$lifeExp)
 qdiff4(z)
@@ -66,7 +66,7 @@ We could add an `na.rm =` argument to our own function. We might even enforce ou
 qdiff5 <- function(x, probs = c(0, 1), na.rm = TRUE) {
   stopifnot(is.numeric(x))
   the_quantiles <- quantile(x, probs, na.rm = na.rm)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 qdiff5(gapminder$lifeExp)
 qdiff5(z)
@@ -82,7 +82,7 @@ Let's say we want to give the user of our function the ability to specify how th
 ```{r}
 qdiff6 <- function(x, probs = c(0, 1), na.rm = TRUE, ...) {
   the_quantiles <- quantile(x = x, probs = probs, na.rm = na.rm, ...)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 ```
 
@@ -138,7 +138,7 @@ No news is good news! Let's see what test failure would look like. Let's revert 
 ```{r end_func3, eval = FALSE}
 qdiff_no_NA <- function(x, probs = c(0, 1)) {
   the_quantiles <- quantile(x = x, probs = probs)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 
 test_that('NA handling works', {
