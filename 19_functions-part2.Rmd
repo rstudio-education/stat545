@@ -95,7 +95,7 @@ I can name my arguments almost anything I like. Proof:
 qdiff2 <- function(zeus, hera) {
   stopifnot(is.numeric(zeus))
   the_quantiles <- quantile(x = zeus, probs = hera)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 qdiff2(zeus = gapminder$lifeExp, hera = 0:1)
 ```
@@ -138,7 +138,7 @@ We started by focusing on the max and the min, so I think those make reasonable 
 qdiff3 <- function(x, probs = c(0, 1)) {
   stopifnot(is.numeric(x))
   the_quantiles <- quantile(x, probs)
-  return(max(the_quantiles) - min(the_quantiles))
+  max(the_quantiles) - min(the_quantiles)
 }
 ```
 
