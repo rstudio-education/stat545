@@ -56,18 +56,18 @@ Figure \@ref(fig:draw-an-owl) is an image that is often used to illustrate how h
 
 I recently needed to draw a f\*cking owl in R, so I decided to record the process as an experiment.
 
-When I teach [STAT545][stat-545] or [Software Carpentry][software-carpentry], I try to convey as much about *process* as anything else. You can always look up technical details, e.g., syntax, but you don't usually get to see how other people work. This is also how I approach teaching about [writing R functions](#functions-part1). Newcomers often look at finished code and assume it flowed perfectly formed out of someone's fingertips. It probably did not.
+When I teach STAT 545 or [Software Carpentry](https://software-carpentry.org), I try to convey as much about *process* as anything else. You can always look up technical details, e.g., syntax, but you don't usually get to see how other people work. This is also how I approach teaching about [writing R functions](#functions-part1). Newcomers often look at finished code and assume it flowed perfectly formed out of someone's fingertips. It probably did not.
 
 My *modus operandi*: start with something that works and add features in small increments, maniacally checking that everything still works. Other people undoubtedly move faster (and, therefore, travel faster but crash harder), but I'm OK with that.
 
 
 ### Context: writing a function factory
 
-I have an R package [`googlesheets`][googlesheets-github] that gets Google Sheets in and out of R. Lately we've had a lot of trouble with  `Internal Server Error (HTTP 500)`, which, as you might expect, is an error on the Google server side. All you can do as a user is try, try again. But this is a showstopper for unattended scripts or multi-step operations, like building and checking the package. A single error renders lots of other work moot, which is completely infuriating.
+I have an R package, [googlesheets], that gets Google Sheets in and out of R. Lately we've had a lot of trouble with  `Internal Server Error (HTTP 500)`, which, as you might expect, is an error on the Google server side. All you can do as a user is try, try again. But this is a showstopper for unattended scripts or multi-step operations, like building and checking the package. A single error renders lots of other work moot, which is completely infuriating.
 
 I want to catch these errors and automatically retry the request after an appropriate delay.
 
-The brute force approach would be to literally drop little `for` or `while` loops all over the package, to inspect the response and retry if necessary. But I try to follow the [DRY principle][wiki-dry], so would prefer to write a new "retry-capable" version of the function that makes these http requests.
+The brute force approach would be to literally drop little `for` or `while` loops all over the package, to inspect the response and retry if necessary. But I try to follow the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), so would prefer to write a new "retry-capable" version of the function that makes these http requests.
 
 It also turns out there's more than one function for making these requests. I'm talking about the [HTTP verbs you use with REST APIs](https://www.restapitutorial.com/lessons/httpmethods.html): GET, POST, PATCH, etc. I potentially need to give them all the "retry" treatment. So what I really need is a *function factory*: an HTTP verb goes in and out comes a retry-capable version of the verb.
 
@@ -75,7 +75,7 @@ It turns out you can write R (or S) for ~20 years and not be very facile with th
 
 ### Start at the beginning
 
-My reference is the section of Wickham's [Advanced R][adv-r] [-@wickham2015a] that is about [closures][adv-r-closures], "functions written by functions". Here's one of the two main examples: a function that creates an exponentiation function.
+My reference is the section of Wickham's [Advanced R] [-@wickham2015a] that is about [closures](http://adv-r.had.co.nz/Functional-programming.html#closures), "functions written by functions". Here's one of the two main examples: a function that creates an exponentiation function.
 
 ```{r}
 power <- function(exponent) {
@@ -287,7 +287,7 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 ## How to obtain a bunch of GitHub issues or pull requests with R {#gh-package}
 
-[Using dplyr + purrr + tidyr](https://github.com/jennybc/analyze-github-stuff-with-r) to analyze data about GitHub repos via the [gh package][gh-github]
+[Using dplyr + purrr + tidyr](https://github.com/jennybc/analyze-github-stuff-with-r) to analyze data about GitHub repos via the [gh] package
 
 ## How to tame XML with nested data frames and purrr {#tame-google-sheets}
 
@@ -475,7 +475,7 @@ AFAIK, to do that in a slick automatic way across an entire repo/site, you need 
 
 ## How to send a bunch of emails from R {#email-in-r}
 
-[Workflow](https://github.com/jennybc/send-email-with-r) for sending email with R and [`gmailr`](https://CRAN.R-project.org/package=gmailr).
+[Workflow](https://github.com/jennybc/send-email-with-r) for sending email with R and [gmailr](https://cloud.R-project.org/package=gmailr).
 
 ## Store an API key as an environment variable {#store-api-key}
 
@@ -510,7 +510,18 @@ Instructor dependencies:
 * curl if you execute the code to grab the Lord of the Rings data used in examples from GitHub. Note that the files are also included in the `datacarpentry/data/tidy-data/` directory, so data download is avoidable.
 * rmarkdown, knitr, and xtable if you want to compile the `Rmd` to `md` and `html`.
 
+# Contributing Guide {#contributing}
 
+## Link Reference Formatting
+
+If you anticipating the link being used again in another chapter, go ahead and put it in `links.md`. 
+
+If it is a main package that you think will be used in multiple chapters, then include links in `links.md`.
+
+"main link" for a package priority order
+  1. package website
+  2. github home
+  3. cran page
 
 ```{r links, child="links.md"}
 ```

@@ -11,11 +11,11 @@ source("common.R")
 We work on visualization throughout the course. Here are the bits in rough order of presentation.
 
 * Chapter \@ref(graphics-slides) - R graphics landscape slides
-  - Why we prefer ggplot2 over base R graphics or lattice
+  - Why we prefer [ggplot2] over base R graphics or [lattice]
   - The underappreciated importance of data frames, tidy data, and factor management to graphics
   - Basic jargon of ggplot2
 * Chapter \@ref(ggplot2-tutorial) - Learning ggplot2 by using it
-  - My [ggplot2 tutorial][ggplot2-tutorial] gives indicative code and all resulting figures 
+  - My [ggplot2 tutorial] gives indicative code and all resulting figures 
   - Scatterplots, stripplots, distributions, bars, themes, managing a color scheme, bubble and line plots
 * Chapter \@ref(effective-graphs) - Do's and don'ts of making effective graphs
   - Effective = easy for audience to decode numerical info

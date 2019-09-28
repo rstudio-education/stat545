@@ -16,7 +16,7 @@ Although we spend a lot of time working with data interactively, this sort of ha
   + *2015-11-17 NOTE: since we have already set up a build environment for R packages, it is my hope that everyone has `make`. These instructions were from 2014, when we did everything in a different order. Cross your fingers and ignore!*
   + (If you are running macOS or Linux, `make` should already be installed.)
 * Chapter \@ref(make-test-drive) - Test drive `make` and RStudio
-  + Walk before you run! Prove that `make` is actually installed and that it can be found and executed from the [shell][hg-shell] and from RStudio. It is also important to tell RStudio to NOT substitute spaces for tabs when editing a `Makefile` (applies to any text editor).
+  + Walk before you run! Prove that `make` is actually installed and that it can be found and executed from the [shell] and from RStudio. It is also important to tell RStudio to NOT substitute spaces for tabs when editing a `Makefile` (applies to any text editor).
 * Chapter \@ref(automating-pipeline) - Hands-on activity
   + This fully developed example shows you:
     * How to run an R script non-interactively
@@ -29,9 +29,9 @@ Although we spend a lot of time working with data interactively, this sort of ha
       - Run an entire R script
       - Render an R Markdown document (or R script)
     * The interface between RStudio and `make`
-    * How to use `make` from the [shell][hg-shell]
+    * How to use `make` from the [shell]
     * How Git facilitates the process of building a pipeline
-  + *2015-11-19 Andrew MacDonald translated the above into a pipeline for the [`remake` package](https://github.com/richfitz/remake) from Rich Fitzjohn: see [this gist](https://gist.github.com/aammd/72a5b98356893c001001).*
+  + *2015-11-19 Andrew MacDonald translated the above into a pipeline for the [remake] package from Rich Fitzjohn: see [this gist](https://gist.github.com/aammd/72a5b98356893c001001).*
 * Chapter \@ref(example-pipelines) - Three more toy pipelines, using the Lord of the Rings data
 
 ## Resources {-}
@@ -39,20 +39,20 @@ Although we spend a lot of time working with data interactively, this sort of ha
 <!--TODO: Link for Karl Broman's "Tools for Reproducible Research" course goes to a list of his courses instead, need to track down actual course-->
 
 * [xkcd comic on automation](https://xkcd.com/1319/). 'Automating' comes from the roots 'auto-' meaning 'self-', and 'mating', meaning 'screwing'.
-* Karl Broman covers [GNU Make](https://www.gnu.org/software/make/) in his course [Tools for Reproducible Research](https://kbroman.org/Tools4RR/pages/schedule.html).
-* Karl Broman also wrote [minimal make: a minimal tutorial on make](https://kbroman.org/minimal_make/), aimed at stats / data science types.
-* [Using Make for reproducible scientific analyses](https://web.archive.org/web/20160306042959/http://www.bendmorris.com/2013/09/using-make-for-reproducible-scientific.html), blog post by Ben Morris.
+* Karl Broman covers [GNU Make](https://www.gnu.org/software/make/) in his course ["Tools for Reproducible Research"](https://kbroman.org/Tools4RR/pages/schedule.html).
+* Karl Broman also wrote ["minimal make: a minimal tutorial on make"](https://kbroman.org/minimal_make/), aimed at stats / data science types.
+* ["Using Make for reproducible scientific analyses"](https://web.archive.org/web/20160306042959/http://www.bendmorris.com/2013/09/using-make-for-reproducible-scientific.html), blog post by Ben Morris.
 * Software Carpentry's [Slides on `Make`](https://web.archive.org/web/20150110211213/http://software-carpentry.org/v4/make/index.html).
-* Zachary M. Jones wrote [GNU Make for Reproducible Data Analysis](http://zmjones.com/make/).
-* [Keeping tabs on your data analysis workflow](https://adamlaiacano.tumblr.com/post/45356689519/keeping-tabs-on-your-data-analysis-workflow), blog post by Adam Laiacano.
-* Mike Bostock, of D3.js and New York Times fame, explains [Why Use Make](https://bost.ocks.org/mike/make/): "it's about the benefits of capturing workflows via a file-based dependency-tracking build system".
-* [Make for Data Scientists](https://paulbutler.org/2012/make-for-data-scientists/), blog post by Paul Butler, who also made a [beautiful map of Facebook connections](https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919) using R.
+* Zachary M. Jones wrote ["GNU Make for Reproducible Data Analysis"](http://zmjones.com/make/).
+* ["Keeping tabs on your data analysis workflow"](https://adamlaiacano.tumblr.com/post/45356689519/keeping-tabs-on-your-data-analysis-workflow), blog post by Adam Laiacano.
+* Mike Bostock, of D3.js and New York Times fame, explains ["Why Use Make"](https://bost.ocks.org/mike/make/) -- "it's about the benefits of capturing workflows via a file-based dependency-tracking build system".
+* ["Make for Data Scientists"](https://paulbutler.org/2012/make-for-data-scientists/), blog post by Paul Butler, who also made a [beautiful map of Facebook connections](https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919) using R.
 * Other, more modern data-oriented alternatives to `make`:
   + [Drake](https://github.com/Factual/drake), a kind of "make for data"
   + [Nextflow](https://www.nextflow.io) for "data-driven computational pipelines"
-  + [`remake`](https://github.com/richfitz/remake), "Make-like declarative workflows in R"
-* [Managing Projects with GNU Make, 3rd Edition](http://shop.oreilly.com/product/9780596006105.do) by Robert Mecklenburg [-@mecklenburg2009] is a fantastic book but, sadly, is very focused on compiling software.
-* [`littler`](http://dirk.eddelbuettel.com/code/littler.html) is an R package maintained by Dirk Eddelbuettel that "provides the `r` program, a simplified command-line interface for GNU R."
+  + [remake], "Make-like declarative workflows in R"
+* [Managing Projects with GNU Make, 3rd Edition] by Robert Mecklenburg [-@mecklenburg2009] is a fantastic book but, sadly, is very focused on compiling software.
+* [littler] is an R package maintained by Dirk Eddelbuettel that "provides the `r` program, a simplified command-line interface for GNU R."
 
 
 # Why and how we automate data analyses + examples {#automation-slides}
@@ -67,13 +67,13 @@ See ["Automating data analysis pipelines" slides](https://github.com/STAT545-UBC
 <!--Original content: https://stat545.com/automation02_windows.html-->
 <!--Original authors: Shaun Jackman, Dean Attali, Jenny Bryan-->
 
-*2015-11-17 NOTE: This year we made R packages before we used `make` The hope is, therefore, that the `make` that ships with Rtools is all we need. So hopefully we can ignore this?*
+*2015-11-17 NOTE: This year we made R packages before we used `make`. The hope is, therefore, that the `make` that ships with Rtools is all we need. So hopefully we can ignore this?*
 
 ## Install `make` on Microsoft Windows
 
 We are still working out the best way to install `make` on Windows. Our current best recommendation is to install *msysGit*, which includes `make` as well as `git` and `bash`.
 
-Download and [install msysGit](https://github.com/msysgit/msysgit/releases/download/Git-1.9.4-preview20140929/msysGit-netinstall-1.9.4-preview20140929.exe). The two software packages [msysGit](https://github.com/msysgit/msysgit) and [Git for Windows](http://msysgit.github.io/) are related. Both install `git` and `bash`, but only *msysGit* installs `make`. The programs installed by *msysGit* are found by default in `C:\msysGit\bin`. Here is the [complete list](https://github.com/msysgit/msysgit/tree/master/bin) of programs included with *msysGit*. For this activity, RStudio needs to be able to find in your `PATH` environment variable the program `make`, the [shell][hg-shell] `bash`, other utilities like `rm` and `cp`, and `Rscript`.
+Download and [install msysGit](https://github.com/msysgit/msysgit/releases/download/Git-1.9.4-preview20140929/msysGit-netinstall-1.9.4-preview20140929.exe). The two software packages [msysGit](https://github.com/msysgit/msysgit) and [Git for Windows](http://msysgit.github.io/) are related. Both install `git` and `bash`, but only *msysGit* installs `make`. The programs installed by *msysGit* are found by default in `C:\msysGit\bin`. Here is the [complete list](https://github.com/msysgit/msysgit/tree/master/bin) of programs included with *msysGit*. For this activity, RStudio needs to be able to find in your `PATH` environment variable the program `make`, the [shell] `bash`, other utilities like `rm` and `cp`, and `Rscript`.
 
 Here is another alternative for installing `make` alone:
 
@@ -108,9 +108,9 @@ See [issue 58](https://github.com/STAT545-UBC/Discussion/issues/58) for what see
 
 What are the tricky bits?
 
-* Getting the same `Makefile` to "work" via RStudio's Build buttons/menus and in the [shell][hg-shell]. And, for that matter, which [shell][hg-shell]? Git Bash or ???
+* Getting the same `Makefile` to "work" via RStudio's Build buttons/menus and in the [shell]. And, for that matter, which [shell]? Git Bash or ???
 * Ensuring `make`, `Rscript`, `pandoc`, `rm`, etc. can be found = updating `PATH`.
-* Getting `make` to use the correct [shell][hg-shell].
+* Getting `make` to use the correct [shell].
   - See [issue 54](https://github.com/STAT545-UBC/Discussion/issues/54) on the Discussion repo.
 
 
@@ -119,7 +119,7 @@ What are the tricky bits?
 <!--Original content: https://stat545.com/automation03_make-test-drive.html-->
 <!--Original authors: Shaun Jackman, Jenny Bryan-->
 
-Before we use `make` for real work, we want to prove beyond a shadow of a doubt that it's installed and findable from RStudio and/or the [shell][hg-shell].
+Before we use `make` for real work, we want to prove beyond a shadow of a doubt that it's installed and findable from RStudio and/or the [shell].
 
 ## Create a temporary RStudio project
 
@@ -204,7 +204,7 @@ This proves that `make` is installed and working from RStudio.
 
 ## Run `make` from the shell
 
-RStudio only provides access to a very limited bit of `make` -- it's even more limited than the RStudio Git client. In the long run, it's important to be able to run `make` from the [shell][hg-shell].
+RStudio only provides access to a very limited bit of `make` -- it's even more limited than the RStudio Git client. In the long run, it's important to be able to run `make` from the [shell].
 
 * Select *Tools > Shell*
 * Run
@@ -293,14 +293,14 @@ __Suggested workflow:__
 * Submit the above `download.file()` command in the R Console to make sure it works.
 * Inspect the downloaded words file any way you know how; make sure it's not garbage. Size should be about 2.4MB.
 * Delete `words.txt`.
-* Put the above rule into your `Makefile`. From the [shell][hg-shell], enter `make words.txt` to verify rule works. Reinspect the words file.
+* Put the above rule into your `Makefile`. From the [shell], enter `make words.txt` to verify rule works. Reinspect the words file.
 * *Git folks:* commit `Makefile` and `words.txt`.
   
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/c30ecc9c890a2f2261eb94118997f0774012eeb8).
 
 ### Copy the dictionary
 
-On Mac or Linux systems, rather than download the dictionary, we can simply copy the file `/usr/share/dict/words` that comes with the operating system. In this alternative rule, we use the [shell][hg-shell] command `cp` to copy the file.
+On Mac or Linux systems, rather than download the dictionary, we can simply copy the file `/usr/share/dict/words` that comes with the operating system. In this alternative rule, we use the [shell] command `cp` to copy the file.
 
 ```makefile
 words.txt: /usr/share/dict/words
@@ -318,10 +318,10 @@ __Suggested workflow:__
 
 * *Git folks:* commit anything new/modified. Start with a clean working tree.
 * Remove `words.txt` if you succeeded with the download approach.
-* Submit the above `cp` command in the [shell][hg-shell] to make sure it works.
+* Submit the above `cp` command in the [shell] to make sure it works.
 * Inspect the copied words file any way you know how; make sure it's not garbage. Size should be about 2.4MB.
 * Delete `words.txt`.
-* Put the above rule into your `Makefile`. From the [shell][hg-shell], enter `make words.txt` to verify rule works. Reinspect the words file.
+* Put the above rule into your `Makefile`. From the [shell], enter `make words.txt` to verify rule works. Reinspect the words file.
 * *Git folks:* look at the diff. You should see how your `words.txt` rule has changed and you might also see some differences between the local and remote words files. Interesting! Commit `Makefile` and `words.txt`.
 
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/1131791548e0c5bbc5104eebb19710ed435146e3).
@@ -365,7 +365,7 @@ histogram.tsv: histogram.r words.txt
 	Rscript $<
 ```
 
-FYI: `Rscript` allows you to execute R scripts from the [shell][hg-shell]. It is a more modern replacement for `R CMD BATCH` (don't worry if you've never heard of that).
+FYI: `Rscript` allows you to execute R scripts from the [shell]. It is a more modern replacement for `R CMD BATCH` (don't worry if you've never heard of that).
 
 Create the R script `histogram.r` that reads the list of words from `words.txt` and writes the table of word length frequency to `histogram.tsv`. It should be a tab-delimited TSV file with a header and two columns, named `Length` and `Freq`. Hint: you can accomplish this task using four functions: `readLines`, `nchar`, `table` and `write.table`. Here's [one solution](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/histogram.r), but try not to peek until you've attempted this task yourself.
 
@@ -374,7 +374,7 @@ __Suggested workflow:__
 * Develop your `histogram.r` script interactively. Make sure it works when you step through it line-by-line. Debugging only gets harder once you're running entire scripts at arm's length via `make`!
 * Remove `histogram.tsv`. Clean out the workspace and restart R. Run `histogram.r` via `source()` or using RStudio's Source button. Make sure it works!
 * Add the `histogram.tsv` rule to your `Makefile`.
-* Remove `histogram.tsv` and regenerate it via `make histogram.tsv` from the [shell][hg-shell].
+* Remove `histogram.tsv` and regenerate it via `make histogram.tsv` from the [shell].
 * *Git folks:* Commit.
   
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/889e01a3d610e900c7e58ebd32a0506c61543fd9).
@@ -544,6 +544,11 @@ There are three more toy pipelines, using the Lord of the Rings data, that reinf
 * [`01_automation-example_just-r`](https://github.com/STAT545-UBC/STAT545-UBC.github.io/tree/master/automation10_holding-area/01_automation-example_just-r) - use of an R script as a pseudo-`Makefile`.
 * [`02_automation-example_r-and-make`](https://github.com/STAT545-UBC/STAT545-UBC.github.io/tree/master/automation10_holding-area/02_automation-example_r-and-make) - use of a simple `Makefile`.
 * [`03_automation-example_render-without-rstudio`](https://github.com/STAT545-UBC/STAT545-UBC.github.io/tree/master/automation10_holding-area/03_automation-example_render-without-rstudio) - use of `rmarkdown::render()` from a `Makefile`, as the default way of running an R script or an R Markdown document, leading to pretty HTML reports without any mouse clicks.
+
+<!--Links-->
+[remake]: https://github.com/richfitz/remake
+[littler]: http://dirk.eddelbuettel.com/code/littler.html
+[shell]: https://happygitwithr.com/shell.html
 
 
 ```{r links, child="links.md"}

@@ -12,12 +12,12 @@ We've covered many topics on how to manipulate and reshape a single data frame:
 
 * Chapter \@ref(basic-data-care) - Basic care and feeding of data in R
   + Data frames (and tibbles) are awesome.
-* Chapter \@ref(dplyr-intro) - Introduction to dplyr
+* Chapter \@ref(dplyr-intro) - Introduction to [dplyr]
   + Filter, select, the pipe.
 * Chapter \@ref(dplyr-single) - dplyr functions for a single dataset
   + Single table verbs.
 * Chapter \@ref(tidy-data) - Tidy data using Lord of the Rings
-  + Tidy data, tidyr. 
+  + Tidy data, [tidyr]. 
   + *This actually kicks off with a row bind operation, discussed below.*
 
 But what if your data arrives in many pieces? There are many good (and bad) reasons why this might happen. How do you get it into one big beautiful tibble? These tasks break down into 3 main classes:
@@ -55,7 +55,7 @@ library(tidyverse)
 
 ### Row binding
 
-We used word count data from the Lord of the Rings trilogy to explore the concept of tidy data. That kicked off with a quiet, successful row bind. Let's revisit that.
+We used word count data from the Lord of the Rings trilogy to explore the concept of tidy data in Chapter \@ref(tidy-data). That kicked off with a quiet, successful row bind. Let's revisit that.
 
 Here's what a perfect row bind of three (untidy!) data frames looks like.
 
@@ -152,7 +152,6 @@ Bottom line: Row bind when you need to, but inspect the results re: coercion. Co
 ## Joins in dplyr
 
 Visit Chapter \@ref(join-cheatsheet) to see concrete examples of all the joins implemented in dplyr, based on comic characters and publishers.
-
 
 The most recent release of gapminder includes a new data frame, `country_codes`, with country names and ISO codes. Therefore you can also use it to practice joins.
 

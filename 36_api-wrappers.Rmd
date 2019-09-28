@@ -22,10 +22,10 @@ There are many ways to obtain data from the internet; let's consider four catego
 
 In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
 
-* Use `read.csv` or `readr::read_csv` to read the data straight into R.
-* Use the command line program `curl` to do that work, and place it in a `Makefile` or shell script (see the [section on `make`](#automation-overview) for more on this).
+* Use `read.csv()` or `readr::read_csv()` to read the data straight into R.
+* Use the command line program curl to do that work, and place it in a `Makefile` or shell script (see the [section on make](#automation-overview) for more on this).
 
-The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, the World Value Survey makes several datasets available as Excel sheets. The safest option here is to download the `.xls` file, then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [`googlesheets`](https://github.com/jennybc/googlesheets) package.
+The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, the World Value Survey makes several datasets available as Excel sheets. The safest option here is to download the `.xls` file, then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [googlesheets] package.
 
 ### From rOpenSci web services page:
 
@@ -33,7 +33,7 @@ From rOpenSci's [CRAN Task View: Web Technologies and Services](https://github.c
 
 * `downloader::download()` for SSL.
 * `curl::curl()` for SSL.
-* `httr::GET` data read this way needs to be parsed later with `read.table()`.
+* `httr::GET()` data read this way needs to be parsed later with `read.table()`.
 * `rio::import()` can "read a number of common data formats directly from an `https://` URL".  Isn't that very similar to the previous?
 
 
@@ -65,7 +65,7 @@ library(tidyverse)
 
 ### Sightings of birds: rebird
 
-[rebird](https://github.com/ropensci/rebird) is an R interface for the [eBird](http://ebird.org/content/ebird/) database. eBird lets birders upload sightings of birds, and allows everyone access to those data. rebird is on CRAN.
+[rebird] (on [CRAN](https://cloud.r-project.org/web/packages/rebird/index.html); on [GitHub](https://github.com/ropensci/rebird)) is an R interface for the [eBird](http://ebird.org/content/ebird/) database. eBird lets birders upload sightings of birds, and allows everyone access to those data.
 
 ```{r message = FALSE}
 # install.packages("rebird")
@@ -82,7 +82,6 @@ At that link, you will see a page like this:
 ```{r ebird-iona-island, echo = FALSE, fig.cap = "Iona Island", out.width = "80%"}
 knitr::include_graphics("img/Iona_island.png")
 ```
-
 
 The data already looks to be organized in a data frame! rebird allows us to read these data directly into R (the ID code for Iona Island is **"L261851"**).
 
@@ -129,27 +128,28 @@ ebirdgeo(species = 'Buteo lagopus')
 
 ### Searching geographic info: geonames {#geonames}
 
-[rOpenSci](https://ropensci.org) has a package called [geonames](https://docs.ropensci.org/geonames/) for accessing the [GeoNames API](https://www.geonames.org). First, install the geonames package from CRAN and load it. 
+[rOpenSci] has a package called [geonames] (on [CRAN](https://cloud.r-project.org/web/packages/geonames/index.html); on [GitHub](https://github.com/ropensci/geonames)) for accessing the [GeoNames API](https://www.geonames.org). First, install the geonames package from CRAN and load it. 
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("geonames")
 library(geonames)
 ```
 
-The [geonames package website](https://docs.ropensci.org/geonames/) tells us that there are a few things we need to do before we can use geonames to access the GeoNames API:
+The [geonames package website][geonames] tells us that there are a few things we need to do before we can use geonames to access the GeoNames API:
 
 1. Go to [the GeoNames site](https://www.geonames.org/login) and create a new user account. 
 1. Check your email and follow the instructions to activate your account. 
-1. Click [here] to enable the free web services for your account (Note! You must be logged into your GeoNames account already for the link to work).
+1. Click [here](https://www.geonames.org/enablefreewebservice) to enable the free web services for your account (Note! You must be logged into your GeoNames account already for the link to work).
 1. Tell R your GeoNames username. 
 
 To do the last step, we could run this line in R...
+
 ```r 
 options(geonamesUsername="my_user_name")
 ``` 
 ...but this is insecure. We don't want to risk committing this line and pushing it to our public GitHub page! 
 
-Instead, we can add this line to our `.Rprofile` so it will be hidden. One way to edit your `.Rprofile` is with the helper function `edit_r_profile()` from the [usethis][usethis-web] package. Install/load the usethis package and run `edit_r_profile()` in the R Console:
+Instead, we can add this line to our `.Rprofile` so it will be hidden. One way to edit your `.Rprofile` is with the helper function `edit_r_profile()` from the [usethis] package. Install/load the usethis package and run `edit_r_profile()` in the R Console:
 
 ```{r message = FALSE, warning = FALSE, eval = FALSE}
 # install.packages("usethis")
@@ -163,7 +163,7 @@ This will open up your `.Rprofile` file. Add `options(geonamesUsername="my_user_
 
 Save the file, close it, and restart R. Now we're ready to start using geonames to search the GeoNames API. 
 
-(Also see the [Cache credentials for HTTPS](https://happygitwithr.com/credential-caching.html) chapter of [Happy Git and GitHub for the useR](https://happygitwithr.com).)
+(Also see the [Cache credentials for HTTPS](https://happygitwithr.com/credential-caching.html) chapter of [Happy Git and GitHub for the useR].)
 
 #### Using GeoNames
 
@@ -176,7 +176,6 @@ countryInfo <- GNcountryInfo()
 ```{r eval = FALSE}
 glimpse(countryInfo)
 ```
-
 
 This `countryInfo` dataset is very helpful for accessing the rest of the data because it gives us the standardized codes for country and language.  
 
@@ -220,7 +219,7 @@ nrow(rio_portuguese)
 
 ### Searching the Public Library of Science: rplos {#plos-one}
 
-[PLOS ONE](https://journals.plos.org/plosone/) is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. rOpenSci has a package called rplos that we can use to interact with the [PLOS API](http://api.plos.org). They have a nice tutorial on the rOpenSci website that you can see [here](https://ropensci.org/tutorials/rplos_tutorial.html). First, install/load the rplos package from CRAN.
+[PLOS ONE](https://journals.plos.org/plosone/) is an open-access journal. They allow access to an impressive range of search tools, and allow you to obtain the full text of their articles. [rOpenSci] has a package called [rplos] (on [CRAN](https://cloud.r-project.org/package=rplos); on [GitHub](https://github.com/ropensci/rplos)) that we can use to interact with the [PLOS API](http://api.plos.org). First, install/load the rplos package from CRAN.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("rplos")
@@ -229,7 +228,7 @@ library(rplos)
 
 #### Searching PLOS ONE
 
-Let's follow along with the [`rOpenSci` tutorial](https://ropensci.org/tutorials/rplos_tutorial.html) and do some searches:
+Let's follow along with the [rOpenSci tutorial](https://ropensci.org/tutorials/rplos_tutorial.html) and do some searches:
 
 ```{r}
 searchplos(q= "Helianthus", fl= "id", limit = 5)
@@ -268,17 +267,15 @@ knitr::include_graphics("img/rplos-highbrow.png")
 
 We can use the `plot_throughtime()` function to visualize the results of a search over time. 
 
-
 ```{r}
 plot_throughtime(terms = "phylogeny", limit = 200)
 ```
 
-
 ### Is it a boy or a girl? gender-associated names throughout US history
 
-The gender package allows you access to data on the gender of names in the US. Because names change gender over the years, the probability of a name belonging to a man or a woman also depends on the *year*. 
+The [gender] package (on [CRAN](https://cloud.r-project.org/package=gender); on [GitHub](https://github.com/ropensci/gender)) allows you access to data on the gender of names in the US. Because names change gender over the years, the probability of a name belonging to a man or a woman also depends on the *year*. 
 
-First, install/load the gender package from CRAN. You may be prompted to also install the companion package, genderdata. Go ahead and say yes. If you don't see this message no need to worry, it is a one-time install. 
+First, install/load the gender package from CRAN. You may be prompted to also install the companion package, [genderdata]. Go ahead and say yes. If you don't see this message no need to worry, it is a one-time install. 
 
 ```{r}
 # install.packages("gender")

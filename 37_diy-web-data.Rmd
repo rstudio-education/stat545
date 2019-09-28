@@ -19,7 +19,7 @@ In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapp
 
 ### Load the tidyverse
 
-We will be using the functions from the [tidyverse][tidyverse-main-page] throughout this chapter, so go ahead and load tidyverse package now.
+We will be using the functions from the [tidyverse] throughout this chapter, so go ahead and load tidyverse package now.
 
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -80,7 +80,7 @@ Try pasting these URLs into your browser. You should see this if you tried the f
 
 ### Create an OMDb API Key
 
-This tells us that we need an API key to access the OMDb API. We will store our key for the OMDb API in our `.Renviron` file using the helper function `edit_r_environ()` from the [usethis][usethis-web] package. Follow these steps:
+This tells us that we need an API key to access the OMDb API. We will store our key for the OMDb API in our `.Renviron` file using the helper function `edit_r_environ()` from the [usethis] package. Follow these steps:
 
 1. Visit this URL and request your free API key: <https://www.omdbapi.com/apikey.aspx>
 1. Check your email and follow the instructions to activate your key.
@@ -164,14 +164,14 @@ Remember that using `.Rprofile` makes your code un-reproducible.  In this case, 
 
 ### Recreate the request URL in R
 
-How can we recreate the same request URLs in R? We could use the [`glue` package](https://glue.tidyverse.org/) to paste together the base URL, parameter labels, and parameter values:
+How can we recreate the same request URLs in R? We could use the [glue] package to paste together the base URL, parameter labels, and parameter values:
 
 ```{r}
 request <- glue::glue("http://www.omdbapi.com/?t=Interstellar&y=2014&plot=short&r=xml&apikey={movie_key}")
 request
 ```
 
-This works, but it only works for movie titled `Interstellar` from 2014 where we want the short plot and the XML format. Let's try to pull out more variables and paste them in with `glue`:
+This works, but it only works for movie titled `Interstellar` from 2014 where we want the short plot and the XML format. Let's try to pull out more variables and paste them in with `glue()`:
 
 ```{r}
 glue::glue("http://www.omdbapi.com/?t={title}&y={year}&plot={plot}&r={format}&apikey={api_key}",
@@ -192,8 +192,7 @@ omdb <- function(title, year, plot, format, api_key) {
 
 ### Get data using the curl package
 
-
-Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [curl][curl-cran] package. Install/load the curl package first.
+Now we have a handy function that returns the API query. We can paste in the link, but we can also obtain data from within R using the [curl] package. Install/load the curl package first.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("curl")
@@ -201,6 +200,7 @@ library(curl)
 ```
 
 Using curl to get the data in XML format:
+
 ```{r fake-xml-req, eval = FALSE} 
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                     format = "xml", api_key = movie_key)
@@ -221,8 +221,8 @@ close(con)
 answer_xml
 ```
 
-
 Using curl to get the data in JSON format:
+
 ```{r fake-json-req, eval = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                      format = "json", api_key = movie_key)
@@ -286,14 +286,15 @@ You can see that both of these data structures are quite easy to read. They are 
 
 ### Parsing the JSON response with jsonlite
 
-Our JSON response above can be parsed using `jsonlite::fromJSON()`. First install/load the jsonlite package.
+Our JSON response above can be parsed with the [jsonlite] package. First install/load the jsonlite package.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("jsonlite")
 library(jsonlite)
 ```
 
-Parsing our JSON response with `fromJSON()`:
+Parsing our JSON response with `jsonlite::fromJSON()`:
+
 ```{r}
 answer_json %>% 
   fromJSON()
@@ -310,14 +311,14 @@ answer_json %>%
 
 ### Parsing the XML response using xml2
 
-We can use the [xml2][xml2-web] package to wrangle our XML response.
+We can use the [xml2] package to wrangle our XML response.
 
 ```{r message = FALSE, warning = FALSE}
 # install.packages("xml2")
 library(xml2)
 ```
 
-Parsing our XML response with `read_xml()`:
+Parsing our XML response with `xml2::read_xml()`:
 
 ```{r}
 (xml_parsed <- read_xml(answer_xml))
@@ -350,7 +351,7 @@ attrs %>%
 
 ## Introducing the easy way: httr
 
-[httr][httr-web] is yet another star in the [tidyverse][tidyverse-main-page]. It is a package designed to facilitate all things HTTP from within R. This includes the major HTTP verbs, which are:
+The [httr] package is yet another star in the [tidyverse]. It is designed to facilitate all things HTTP from within R. This includes the major HTTP verbs, which are:
 
 <!--TODO: Find source for these definitions-->
 * __`GET()`__ - Fetch an existing resource. The URL contains all the necessary information the server needs to locate and return the resource.
@@ -364,7 +365,7 @@ attrs %>%
 -->
 
 
-HTTP is the foundation for APIs; understanding how it works is the key to interacting with all the diverse APIs out there. An excellent beginning resource for APIs (including HTTP basics) is [An Introduction to APIs](https://zapier.com/learn/apis/) by Brian Cooksey.
+HTTP is the foundation for APIs; understanding how it works is the key to interacting with all the diverse APIs out there. An excellent beginning resource for APIs (including HTTP basics) is ["An Introduction to APIs"](https://zapier.com/learn/apis/) by Brian Cooksey.
 
 httr also facilitates a variety of ___authentication___ protocols.
 
@@ -376,6 +377,7 @@ library(httr)
 ```
 
 Using httr to get the data in JSON format:
+
 ```{r fake-httr-json, eval = FALSE}
 request_json <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                      format = "json", api_key = movie_key)
@@ -391,6 +393,7 @@ content(response_json, as = "parsed", type = "application/json")
 ```
 
 Using httr to get the data in XML format:
+
 ```{r fake-httr-xml, eval = FALSE}
 request_xml <- omdb(title = "Interstellar", year = "2014", plot = "short", 
                     format = "xml", api_key = movie_key)
@@ -454,7 +457,7 @@ knitr::include_graphics("https://imgs.xkcd.com/comics/tags.png")
 
 Two pieces of equipment:
 
-1. The [rvest][rvest-web] package ([CRAN][rvest-cran]; [GitHub][rvest-github]). Install via `install.packages("rvest)"`.
+1. The [rvest] package. Install via `install.packages("rvest)"`.
 1. SelectorGadget: point and click CSS selectors. [Install in your browser](http://selectorgadget.com/).
 
 Before we go any further, [let's play a game together](http://flukeout.github.io)!

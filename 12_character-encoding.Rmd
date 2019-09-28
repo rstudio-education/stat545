@@ -10,10 +10,10 @@ source("common.R")
 
 ## Resources
 
-* [Strings subsection of data import chapter][r4ds-readr-strings] in R for Data Science [@wickham2016].
+* [Strings subsection of data import chapter][r4ds-readr-strings] in [R for Data Science] [@wickham2016].
 * Screeds on the Minimum Everyone Needs to Know about encoding:
-  - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
-  - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
+  - ["The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"]
+  - ["What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text"]
 * Debugging charts:
   - [Windows-1252 Characters to UTF-8 Bytes to Latin-1 Characters][utf8-debug]
 * Character inspection:
@@ -23,8 +23,8 @@ source("common.R")
 
 For now, this page walks through these two mini-tutorials (written for Ruby), but translated to R:
 
-* [Guide to fixing encoding problems in Ruby][encoding-probs-ruby]
-* [How to Get From Theyâ€™re to They’re][theyre-to-theyre]
+* ["Guide to fixing encoding problems in Ruby"]
+* ["How to Get From Theyâ€™re to They’re"](https://www.justinweiss.com/articles/how-to-get-from-theyre-to-theyre/)
   
 Don't expect much creativity from me here. My goal is faithful translation.
 
@@ -141,7 +141,7 @@ stringi::stri_enc_detect(string)
 
 Advice given in post is to sleuth it out based on where the data came from. With larger amounts of text, each language's guessing facilities presumably do better than they do here. In real life, all of this advice can prove to be ... overly optimistic?
 
-I find it helpful to scrutinize debugging charts and look for the weird stuff showing up in my text. Here's [one that shows what UTF-8 bytes look like][utf8-debug] when erroneously interpreted under Windows-1252 encoding. This phenomenon is known as [*mojibake*][wiki-mojibake], which is a delightful word for a super-annoying phenomenon. If it helps, know that the most common encodings are UTF-8, ISO-8859-1 (or Latin1), and Windows-1252, so that really narrows things down.
+I find it helpful to scrutinize debugging charts and look for the weird stuff showing up in my text. Here's [one that shows what UTF-8 bytes look like][utf8-debug] when erroneously interpreted under Windows-1252 encoding. This phenomenon is known as [*mojibake*](https://en.wikipedia.org/wiki/Mojibake), which is a delightful word for a super-annoying phenomenon. If it helps, know that the most common encodings are UTF-8, ISO-8859-1 (or Latin1), and Windows-1252, so that really narrows things down.
 
 ### Decide which encoding you want the string to be
 
@@ -237,6 +237,8 @@ as.integer(charToRaw(backwards_one))
 as.integer(charToRaw(string_curly))
 ```
 
+<!--Links-->
+[utf8-debug]: http://www.i18nqa.com/debug/utf8-debug.html
 
 ```{r links, child="links.md"}
 ```

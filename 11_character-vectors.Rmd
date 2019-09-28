@@ -12,9 +12,9 @@ We've spent a lot of time working with big, beautiful data frames. That are clea
 
 But real life will be much nastier. You will bring data into R from the outside world and discover there are problems. You might think: how hard can it be to deal with character data? And the answer is: it can be very hard!
 
-* [Stack Exchange outage][stackexchange-outage]
-* [Regexes to validate/match email addresses][email-regex]
-* [Fixing an Atom bug][fix-atom-bug]
+* [Stack Exchange outage](https://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016)
+* [Regexes to validate/match email addresses](https://emailregex.com)
+* [Fixing an Atom bug](https://davidvgalbraith.com/how-i-fixed-atom/)
 
 Here we discuss common remedial tasks for cleaning and transforming character data, also known as "strings". A data frame or tibble will consist of one or more *atomic vectors* of a certain class. This lesson deals with things you can do with vectors of class `character`.
 
@@ -24,46 +24,46 @@ I start with this because we cannot possibly do this topic justice in a short am
 
 ### Manipulating character vectors
 
-* [stringr package][stringr-web].
-  - A core package in the `tidyverse.` It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
+* [stringr] package.
+  - A core package in the [tidyverse]. It is installed via `install.packages("tidyverse")` and also loaded via `library(tidyverse)`. Of course, you can also install or load it individually.
   - Main functions start with `str_`. Auto-complete is your friend.
   - Replacements for base functions re: string manipulation and regular expressions (see below).
   - Main advantages over base functions: greater consistency about inputs and outputs. Outputs are more ready for your next analytical task. 
-* [tidyr package][tidyr-web].
+* [tidyr] package.
   - Especially useful for functions that split one character vector into many and *vice versa*: `separate()`, `unite()`, `extract()`.
 * Base functions: `nchar()`, `strsplit()`, `substr()`, `paste()`, `paste0()`.
-* The [glue package][glue-web] is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out the glue package.
+* The [glue] package is fantastic for string interpolation. If `stringr::str_interp()` doesn't get your job done, check out the glue package.
 
 ### Regular expressions resources
 
 A God-awful and powerful language for expressing patterns to match in text or for search-and-replace. Frequently described as "write only", because regular expressions are easier to write than to read/understand. And they are not particularly easy to write.
 
-* We again prefer the [stringr package][stringr-cran] over base functions. Why?
-  - Wraps [stringi][stringi-cran], which is a great place to look if stringr isn't powerful enough.
-  - Standardized on [ICU regular expressions][icu-regex], so you can stop toggling `perl = TRUE/FALSE` at random.
+* We again prefer the [stringr] package over base functions. Why?
+  - Wraps [stringi], which is a great place to look if stringr isn't powerful enough.
+  - Standardized on [ICU regular expressions](https://userguide.icu-project.org/strings/regexp), so you can stop toggling `perl = TRUE/FALSE` at random.
   - Results come back in a form that is much friendlier for downstream work.
-* The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016] is a great resource.
+* The [Strings chapter] of [R for Data Science] [@wickham2016] is a great resource.
 * Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of stringr and uses example data that is easier to support long-term.
   - [2014 Intro to regular expressions](#oldies) by TA Gloria Li (Appendix \@ref(oldies)).
   - [2015 Regular expressions and character data in R](#oldies) by TA Kieran Samuk (Appendix \@ref(oldies)).
-* RStudio Cheat Sheet on [Regular Expressions in R][rstudio-regex-cheatsheet].
+* [Regular Expressions in R Cheat Sheet] by Ian Kopacka.
 * Regex testers:
-  - [regex101.com][regex101]
-  - [regexr.com][regexr]
-* [`rex` R package][rex-github]: make regular expression from human readable expressions.
+  - [regex101.com](https://regex101.com)
+  - [regexr.com](https://regexr.com)
+* [rex] R package: make regular expression from human readable expressions.
 * Base functions: `grep()` and friends.
 
 ### Character encoding resources
 
-* [Strings subsection of data import chapter][r4ds-readr-strings] in [R for Data Science][r4ds] [@wickham2016].
+* [Strings subsection of data import chapter][r4ds-readr-strings] in [R for Data Science] [@wickham2016].
 * Screeds on the Minimum Everyone Needs to Know about encoding:
-  - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)][unicode-no-excuses]
-  - [What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text][programmers-encoding]
-* Chapter \@ref(character-encoding) - I've translated this blog post [Guide to fixing encoding problems in Ruby][encoding-probs-ruby] into R as the first step to developing a lesson.
+  - ["The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"]
+  - ["What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text"]
+* Chapter \@ref(character-encoding) - I've translated this blog post [Guide to fixing encoding problems in Ruby] into R as the first step to developing a lesson.
 
 ### Character vectors that live in a data frame
 
-* Certain operations are facilitated by tidyr. These are described below.
+* Certain operations are facilitated by [tidyr]. These are described below.
 * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#oldies) (Appendix \@ref(oldies)).
 
 ## Load the tidyverse, which includes stringr
@@ -391,7 +391,11 @@ You can use parentheses inside regexes to define *groups* and you can refer to t
 For now, this lesson will refer you to other place to read up on this:
 
 * STAT 545 [2014 Intro to regular expressions](#oldies) by TA Gloria Li (Appendix \@ref(oldies)).
-* The [Strings chapter][r4ds-strings] of [R for Data Science][r4ds] [@wickham2016].
+* The [Strings chapter] of [R for Data Science] [@wickham2016].
+
+<!--Links-->
+[Strings chapter]: https://r4ds.had.co.nz/strings.html
+
 
 ```{r links, child="links.md"}
 ```

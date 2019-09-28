@@ -8,7 +8,7 @@ source("common.R")
 
 ## File I/O overview
 
-We've been loading the Gapminder data as a data frame from the gapminder data package. We haven't been explicitly writing any data or derived results to file. In real life, you'll bring rectangular data into and out of R all the time. Sometimes you'll need to do same for non-rectangular objects.
+We've been loading the Gapminder data as a data frame from the [gapminder] data package. We haven't been explicitly writing any data or derived results to file. In real life, you'll bring rectangular data into and out of R all the time. Sometimes you'll need to do same for non-rectangular objects.
 
 How do you do this? What issues should you think about?
 
@@ -32,11 +32,11 @@ First tip: __today's outputs are tomorrow's inputs__. Think back on all the pain
 
 Second tip: don't be too cute or clever. A plain text file that is readable by a human being in a text editor should be your default until you have __actual proof__ that this will not work. Reading and writing to exotic or proprietary formats will be the first thing to break in the future or on a different computer. It also creates barriers for anyone who has a different toolkit than you do. Be software-agnostic. Aim for future-proof and moron-proof.
 
-How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with knitr and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make][minimal-make].
+How does this fit with our emphasis on dynamic reporting via R Markdown? There is a time and place for everything. There are projects and documents where the scope and personnel will allow you to geek out with knitr and R Markdown. But there are lots of good reasons why (parts of) an analysis should not (only) be embedded in a dynamic report. Maybe you are just doing data cleaning to produce a valid input dataset. Maybe you are making a small but crucial contribution to a giant multi-author paper. Etc. Also remember there are other tools and workflows for making something reproducible. I'm looking at you, [make](https://kbroman.org/minimal_make/).
 
 ## Load the tidyverse
 
-The main package we will be using is [readr][readr-web], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the [forcats][forcats-web] package, which is also included in the tidyverse package.
+The main package we will be using is [readr], which provides drop-in substitute functions for `read.table()` and friends. However, to make some points about data export and import, it is nice to reorder factor levels. For that, we will use the [forcats] package, which is also included in the [tidyverse] package.
 
 ```{r start_import_export}
 library(tidyverse)
@@ -44,7 +44,7 @@ library(tidyverse)
 
 ## Locate the Gapminder data
 
-We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [`fs` package][fs-web].
+We could load the data from the package as usual, but instead we will load it from tab delimited file. The gapminder package includes the data normally found in the `gapminder` data frame as a `.tsv`. So let's get the path to that file on *your* system using the [fs] package.
 
 ```{r}
 library(fs)
@@ -77,7 +77,7 @@ str(gapminder)
 
 Default to `readr::read_delim()` and friends. Use the arguments!
 
-The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the part of the introduction vignette on [column types][readr-vignette-intro]. There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
+The Gapminder data is too clean and simple to show off the great features of readr, so I encourage you to check out the part of the introduction vignette on [column types](https://cloud.r-project.org/web/packages/readr/vignettes/readr.html). There are many variable types that you will be able to parse correctly upon import, thereby eliminating a great deal of post-import fussing.
 
 ## Compute something worthy of export
 
@@ -111,7 +111,7 @@ Let's look at the first few lines of `gap_life_exp.csv`. If you're following alo
 
 This is pretty decent looking, though there is no visible alignment or separation into columns. Had we used the base function `read.csv()`, we would be seeing rownames and lots of quotes, unless we had explicitly shut that down. Nicer default behavior is the main reason we are using `readr::write_csv()` over `write.csv()`.
 
-* It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"][write-data-tweet]. If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
+* It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"]. If you really want to browse around the file, use `View()` in RStudio or open it in Microsoft Excel (!) but don't succumb to the temptation to start doing artisanal data manipulations there ... get back to R and construct commands that you can re-run the next 15 times you import/clean/aggregate/export the same dataset. Trust me, it will happen.
 
 ## Invertibility
 
@@ -124,9 +124,9 @@ It turns out these self-imposed rules are often in conflict with one another:
 
 __Example:__ after performing the country-level summarization, we reorder the levels of the country factor, based on life expectancy. This reordering operation is conceptually important and must be embodied in R commands stored in a script. However, as soon as we write `gap_life_exp` to a plain text file, that meta-information about the countries is lost. Upon re-import with `read_delim()` and friends, we are back to alphabetically ordered factor levels. Any measure we take to avoid this loss immediately breaks another one of our rules.
 
-So what do I do? I must admit I save (and re-load) R-specific binary files. Right after I save the plain text file. [Belt and suspenders][belt-and-suspenders].
+So what do I do? I must admit I save (and re-load) R-specific binary files. Right after I save the plain text file. [Belt and suspenders](https://www.wisegeek.com/what-does-it-mean-to-wear-belt-and-suspenders.htm).
 
-I have toyed with the idea of writing import helper functions for a specific project, that would re-order factor levels in principled ways. They could be defined in one file and called from many. This would also have a very natural implementation within [a workflow where each analytical project is an R package][research-workflow]. But so far it has seemed too much like [yak shaving][yak-shaving]. I'm intrigued by a recent discussion of putting such information in YAML frontmatter (see Martin Fenner blog post [Using YAML frontmatter with CSV][yaml-with-csv]).
+I have toyed with the idea of writing import helper functions for a specific project, that would re-order factor levels in principled ways. They could be defined in one file and called from many. This would also have a very natural implementation within [a workflow where each analytical project is an R package](https://www.carlboettiger.info/2012/05/06/research-workflow.html). But so far it has seemed too much like [yak shaving](https://seths.blog/2005/03/dont_shave_that/). I'm intrigued by a recent discussion of putting such information in YAML frontmatter (see Martin Fenner blog post [Using YAML frontmatter with CSV](https://blog.datacite.org/using-yaml-frontmatter-with-csv/)).
 
 ## Reordering the levels of the country factor
 
@@ -204,7 +204,7 @@ Now let's look at the first few lines of the file `gap_life_exp-dput.txt`.
   cat(sep = "\n")
 ```
 
-Huh? Don't worry about it. Remember we are ["writing data for computers"][write-data-tweet]. The partner function `dget()` reads this representation back in.
+Huh? Don't worry about it. Remember we are ["writing data for computers"]. The partner function `dget()` reads this representation back in.
 
 ```{r}
 gap_life_exp_dget <- dget("gap_life_exp-dput.txt")
@@ -217,7 +217,7 @@ Note how the original, post-reordering country factor levels are restored using 
 
 But why on earth would you ever do this?
 
-The main application of this is [the creation of highly portable, self-contained minimal examples][reproducible-examples]. For example, if you want to pose a question on a forum or directly to an expert, it might be required or just plain courteous to NOT attach any data files. You will need a monolithic, plain text blob that defines any necessary objects and has the necessary code. `dput()` can be helpful for producing the piece of code that defines the object. If you `dput()` without specifying a file, you can copy the return value from Console and paste into a script. Or you can write to file and copy from there or add R commands below.
+The main application of this is [the creation of highly portable, self-contained minimal examples](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example). For example, if you want to pose a question on a forum or directly to an expert, it might be required or just plain courteous to NOT attach any data files. You will need a monolithic, plain text blob that defines any necessary objects and has the necessary code. `dput()` can be helpful for producing the piece of code that defines the object. If you `dput()` without specifying a file, you can copy the return value from Console and paste into a script. Or you can write to file and copy from there or add R commands below.
 
 ## Other types of objects to use `dput()` or `saveRDS()` on
 
@@ -241,7 +241,7 @@ Sometimes, instead of rigid tab-delimiting, whitespace is used as the delimiter.
 
 ## Resources
 
-[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund [-@wickham2016].
+[Data import](http://r4ds.had.co.nz/data-import.html) chapter of [R for Data Science] by Hadley Wickham and Garrett Grolemund [-@wickham2016].
 
 White et al.'s "Nine simple ways to make it easier to (re)use your data" [-@white2013]. 
 
@@ -259,6 +259,10 @@ Data Manipulation in R by Phil Spector [-@spector2008].
 * [Author's webpage](https://www.stat.berkeley.edu/%7Espector/)
 * [GoogleBooks search](https://books.google.com/books?id=grfuq1twFe4C&lpg=PP1&dq=data%2520manipulation%2520spector&pg=PP1#v=onepage&q&f=false)
 * See Chapter 2 ("Reading and Writing Data")
+
+
+<!--Links-->
+["writing data for computers"]: https://twitter.com/vsbuffalo/statuses/358699162679787521
 
 
 ```{r links, child="links.md"}

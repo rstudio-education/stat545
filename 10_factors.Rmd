@@ -14,7 +14,7 @@ We've spent a lot of time working with big, beautiful data frames, like the Gapm
 
 Factors are the variable type that useRs love to hate. It is how we store truly categorical information in R. The values a factor can take on are called the **levels**. For example, the levels of the factor `continent` in Gapminder are are "Africa", "Americas", etc. and this is what's usually presented to your eyeballs by R. In general, the levels are friendly human-readable character strings, like "male/female" and "control/treated". But *never ever ever* forget that, under the hood, R is really storing integer codes 1, 2, 3, etc.
 
-This [Janus][wiki-janus]-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you learn how to be the boss of your factors. The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
+This [Janus]-like nature of factors means they are rich with booby traps for the unsuspecting but they are a necessary evil. I recommend you learn how to be the boss of your factors. The pros far outweigh the cons. Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit.
 
 **The worst kind of factor is the stealth factor.** The variable that you think of as character, but that is actually a factor (numeric!!). This is a classic R gotcha. Check your variable types explicitly when things seem weird. It happens to the best of us.
 
@@ -22,12 +22,12 @@ Where do stealth factors come from? Base R has a burning desire to turn characte
 
 Good articles about how the factor fiasco came to be:
 
-* [stringsAsFactors: An unauthorized biography][bio-strings-as-factors] by Roger Peng
-* [stringsAsFactors = \<sigh\>][blog-strings-as-factors] by Thomas Lumley
+* [stringsAsFactors: An unauthorized biography](https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography) by Roger Peng
+* [stringsAsFactors = \<sigh\>](https://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh) by Thomas Lumley
 
 ## The forcats package
 
-[forcats][forcats-web] is a core package in the tidyverse. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
+[forcats] is a core package in the [tidyverse]. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
 
 Currently this lesson will be mostly code vs prose. See the previous lesson for more discussion during the transition.
 

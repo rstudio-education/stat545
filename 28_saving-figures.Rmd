@@ -20,13 +20,13 @@ _Do not_ succumb to the temptation of a mouse-based process. If might feel handy
 
 If you save figure-making code in a source file and you give figure files machine-readable, self-documenting names, your future self will be able to find its way back to this code.
 
-Hypothetical: a [zombie project][zombie-project] comes back to life and your collaborator presents you with [a figure you made 18 months ago][tweet-project-resurfacing]. Can you remake `fig08_scatterplot-lifeExp-vs-year.pdf` as a TIFF and with smooth regression? Fun times!
+Hypothetical: a [zombie project](https://imgur.com/ewmBeQG) comes back to life and your collaborator presents you with [a figure you made 18 months ago](https://twitter.com/JohnDCook/status/522377493417033728). Can you remake `fig08_scatterplot-lifeExp-vs-year.pdf` as a TIFF and with smooth regression? Fun times!
 
 This filename offers several properties to help you find the code that produced it:
 
-  * __Human-readability__: It's helpful to know you're searching for a scatterplot and maybe which variables are important. It gives important context for your personal archaeological dig.
+* __Human-readability__: It's helpful to know you're searching for a scatterplot and maybe which variables are important. It gives important context for your personal archaeological dig.
   
-  * __Specificity__: Note how specific and descriptive the name of this figure file is; we didn't settle for the generic `fig08.pdf` or `scatterplot.pdf`. This makes the name at least somewhat unique, which will help you search your home directory for files containing part or all of this filename.
+* __Specificity__: Note how specific and descriptive the name of this figure file is; we didn't settle for the generic `fig08.pdf` or `scatterplot.pdf`. This makes the name at least somewhat unique, which will help you search your home directory for files containing part or all of this filename.
 
 * __Machine-readability__: Every modern OS provides a way to search your hard drive for a file with a specific name or containing a specific string. This will be easier if the name contains no spaces, punctuation, or other funny stuff. If you use conventional extensions, you can even narrow the search to files ending in `.R` or `.Rmd`.
 
@@ -36,13 +36,13 @@ All of these human practices will help you zero in on the R code you need, so yo
 
 Read the [R help for `Devices`][rdocs-devices] to learn about graphics devices in general and which are available on your system (*obviously requires that you read your local help*).
 
-It is very important to understand the difference between [vector graphics][wiki-vector-graphics] and [raster graphics][wiki-raster-graphics]. Vector graphics are represented in terms of shapes and lines, whereas raster graphics are pixel-based.
+It is very important to understand the difference between [vector graphics](https://en.wikipedia.org/wiki/Vector_graphics) and [raster graphics](https://en.wikipedia.org/wiki/Raster_graphics). Vector graphics are represented in terms of shapes and lines, whereas raster graphics are pixel-based.
 
-  * __Vector__ examples: PDF, postscript, SVG
-    - Pros: re-size gracefully, good for print. SVG is where the web is heading, though we are not necessarily quite there yet. 
-  * __Raster__ examples: PNG, JPEG, BMP, GIF 
-    - Cons: look awful "blown up" ... in fact, look awful quite frequently
-    - Pros: play very nicely with Microsoft Office products and the web. Files can be blessedly small!
+* __Vector__ examples: PDF, postscript, SVG
+  - Pros: re-size gracefully, good for print. SVG is where the web is heading, though we are not necessarily quite there yet. 
+* __Raster__ examples: PNG, JPEG, BMP, GIF 
+  - Cons: look awful "blown up" ... in fact, look awful quite frequently
+  - Pros: play very nicely with Microsoft Office products and the web. Files can be blessedly small!
   
 Tough love: you will not be able to pick vector or raster or a single device and use it all the time. You must think about your downstream use cases and plan accordingly. It is entirely possible that you should save key figures __in more than one format__ for maximum flexibility in the future. Worst case, if you obey the rules given here, you can always remake the figure to save in a new format.
 
@@ -50,8 +50,8 @@ FWIW most of my figures exist as `pdf()`, `png()`, or both. Although it is not t
 
 Here are two good posts from the [Revolutions Analytics blog](https://blog.revolutionanalytics.com) with tips for saving figures to file:
 
-  * [10 tips for making your R graphics look their best][rgraphics-looks-tips]
-  * [High-quality R graphics on the Web with SVG][rgraphics-svg-tips]
+* [10 tips for making your R graphics look their best](https://blog.revolutionanalytics.com/2009/01/10-tips-for-making-your-r-graphics-look-their-best.html)
+* [High-quality R graphics on the Web with SVG](https://blog.revolutionanalytics.com/2011/07/r-svg-graphics.html)
   
 ## Write figures to file with `ggsave()`
 
@@ -107,7 +107,7 @@ include_graphics(c("img/figures-io-p1.png",
 ```
 
 
-__Via the `base_size` of the active theme__: The `base_size` of the [theme][ggplot2-theme-args] refers to the base font size. This is NOT a theme element that can be modified via `ggplot(...) + theme(...)`. Rather, it's an argument to various functions that set theme elements. Therefore, to get the desired effect you need to create a complete theme, specifying the desired `base_size`. By setting `base size < 12`, the default value, you shrink text elements and by setting `base_size > 12`, you make them larger. Figure \@ref(fig:exaggerated-base-size) shows two versions of a figure, with exaggerated values of `base_size`, to illustrate its effect. 
+__Via the `base_size` of the active theme__: The `base_size` of the [theme](https://ggplot2.tidyverse.org/reference/ggtheme.html#arguments) refers to the base font size. This is NOT a theme element that can be modified via `ggplot(...) + theme(...)`. Rather, it's an argument to various functions that set theme elements. Therefore, to get the desired effect you need to create a complete theme, specifying the desired `base_size`. By setting `base size < 12`, the default value, you shrink text elements and by setting `base_size > 12`, you make them larger. Figure \@ref(fig:exaggerated-base-size) shows two versions of a figure, with exaggerated values of `base_size`, to illustrate its effect. 
 
 ```r
 p3 <- p + ggtitle("base_size = 20") + theme_grey(base_size = 20)
@@ -124,7 +124,7 @@ knitr::include_graphics(c("img/figures-io-p3.png",
                           "img/figures-io-p4.png"))
 ```
 
-*Thanks to [Casey Shannon](https://twitter.com/cashoes_) for tips about `scale =` and this [cheatsheet from Zev Ross][zev-ross-cheatsheet] for tips about `base_size`.*
+*Thanks to [Casey Shannon](https://twitter.com/cashoes_) for tips about `scale =` and this [cheatsheet from Zev Ross](http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/) for tips about `base_size`.*
 
 ```{r eval = FALSE, include = FALSE}
 ## here's how you to change base_size for an entire session (or at least until
@@ -137,7 +137,7 @@ theme_set(otheme)
 
 ## Write non-ggplot2 figures to file
 
-Recall that `ggsave()` is recommended if you're using ggplot2. But if you're using base graphics or lattice, here's generic advice for writing figures to file. To be clear, this *also* works for ggplot2 graphs, but I can't think of any good reasons to NOT use `ggsave()`.
+Recall that `ggsave()` is recommended if you're using ggplot2. But if you're using base graphics or [lattice], here's generic advice for writing figures to file. To be clear, this *also* works for ggplot2 graphs, but I can't think of any good reasons to NOT use `ggsave()`.
   
 Edit your source code in the following way: precede the figure-making code by opening a graphics device and follow it with a command that closes the device. Here's an example:
 
@@ -174,7 +174,7 @@ The appeal of this method is that you will literally copy the figure in front of
 
 Why is this method improper? Various aspects of a figure -- such as font size -- are determined by the target graphics device and its physical size. Therefore, it is best practice to open your desired graphics device explicitly, using any necessary arguments to control height, width, fonts, etc. Make your plot. And close the device. But for lots of everyday plots the `dev.print()` method works just fine.
 
-If you call up the help file for [`dev.off()`, `dev.print()`, and friends][rdocs-dev], you can learn about many other functions for controlling graphics devices.
+If you call up the help file for [`dev.off()`, `dev.print()`, and friends](https://rdrr.io/r/grDevices/dev.html), you can learn about many other functions for controlling graphics devices.
 
 ## Preemptive answers to some FAQs
 
@@ -281,6 +281,9 @@ file_delete(dir_ls(path("img"), regexp = "fig-io-practice"))
 file_delete(dir_ls(".", regexp = "test-fig"))
 ```
 
+<!--Links-->
+[rdocs-ggsave]: https://rdrr.io/cran/ggplot2/man/ggsave.html
+[rdocs-devices]: https://rdrr.io/r/grDevices/Devices.html
 
 ```{r links, child="links.md"}
 ```

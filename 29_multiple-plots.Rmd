@@ -14,7 +14,7 @@ Faceting is useful for constructing an array of similar plots where each panel c
 
 ## Meet the gridExtra package
 
-Under the hood, ggplot2 uses the grid package to create figures. The gridExtra packages provides some extra goodies and we will draw on them to place multiple ggplot2 plots on a single virtual page.
+Under the hood, ggplot2 uses the grid package to create figures. The [gridExtra] package provides some extra goodies and we will draw on them to place multiple ggplot2 plots on a single virtual page.
 
 You may need to install gridExtra and you will certainly need to load it.
 
@@ -46,11 +46,11 @@ p_scatter <- ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 grid.arrange(p_dens, p_scatter, nrow = 2, heights = c(0.35, 0.65))
 ```
 
-You can find other examples of this workflow in the [R Graph Catalog][r-graph-catalog-github].
+You can find other examples of this workflow in the [R Graph Catalog].
 
 ## Use the `multiplot()` function
 
-In the [Graphs](http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/) chapter of his [Cookbook for R][cookbook-for-r], Winston Chang uses the grid package to define the `multiplot()` function:
+In the [Graphs][cookbook-for-r-multigraphs] chapter of his [Cookbook for R], Winston Chang uses the grid package to define the `multiplot()` function:
 
 ```{r chang-cookbook, eval = FALSE}
 # Multiple plot function
@@ -110,12 +110,15 @@ Visit [Multiple graphs on one page (ggplot2)][cookbook-for-r-multigraphs] to see
 
 ## Use the cowplot package
 
-The cowplot package ([CRAN][cowplot-cran]; [GitHub][cowplot-github]) does (at least) two things:
+The cowplot package (on [CRAN](https://cloud.R-project.org/package=cowplot); on [GitHub](https://github.com/wilkelab/cowplot)) does (at least) two things:
 
-  * Provides a publication-ready theme for ggplot2.
-  * Helps combine multiple plots into one figure.
+* Provides a publication-ready theme for ggplot2.
+* Helps combine multiple plots into one figure.
 
-Check out [the vignette][cowplot-vignette] to see it in action.
+Check out [the vignette](https://cloud.r-project.org/web/packages/cowplot/vignettes/introduction.html) to see it in action.
+
+<!--Links-->
+[cookbook-for-r-multigraphs]: http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 
 
 ```{r links, child="links.md"}

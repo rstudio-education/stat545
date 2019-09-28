@@ -14,7 +14,7 @@ In this part, we generalize this function, learn more technical details about R 
 
 ## Load the Gapminder data
 
-As usual, load gapminder.
+As usual, load [gapminder].
 
 ```{r start_func2}
 library(gapminder)
@@ -35,11 +35,11 @@ mmm <- function(x) {
 
 The max and the min are special cases of a __quantile__. Here are other special cases you may have heard of:
 
-* median = 0.5 quantile
+* Median = 0.5 quantile
 * 1st quartile = 0.25 quantile
 * 3rd quartile = 0.75 quantile
   
-If you're familiar with [box plots][wiki-boxplot], the rectangle typically runs from the 1st quartile to the 3rd quartile, with a line at the median.
+If you're familiar with [box plots](https://en.wikipedia.org/wiki/Box_plot), the rectangle typically runs from the 1st quartile to the 3rd quartile, with a line at the median.
 
 If $q$ is the $p$-th quantile of a set of $n$ observations, what does that mean? Approximately $pn$ of the observations are less than $q$ and $(1 - p)n$ are greater than $q$. Yeah, you need to worry about rounding to an integer and less/greater than or equal to, but these details aren't critical here.
 
@@ -178,12 +178,10 @@ Where to next? In [part 3](#functions-part3) we tackle `NA`s, the special `...` 
 
 ## Resources
 
-Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]:
-
-* Section on [function arguments][adv-r-fxn-args]
-* Section on [return values][adv-r-return-values]
+* Hadley Wickham's book, [Advanced R] [-@wickham2015a]:
+  + Section on [function arguments][adv-r-fxn-args]
+  + Section on [return values](http://adv-r.had.co.nz/Functions.html#return-values)
   
-
 
 ```{r links, child="links.md"}
 ```

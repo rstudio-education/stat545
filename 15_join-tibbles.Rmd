@@ -64,13 +64,13 @@ make_three_gt <- function(gt_left, gt_mid, gt_right, ...) {
 
 ## Why the cheatsheet
 
-Examples for those of us who don't speak SQL so good. There are lots of [Venn diagrams re: SQL joins on the internet][google-sql-join], but I wanted R examples. Those diagrams also utterly fail to show what's really going on vis-a-vis rows AND columns.
+Examples for those of us who don't speak SQL so good. There are lots of [Venn diagrams re: SQL joins on the internet](https://www.google.com/search?q=sql+join&tbm=isch), but I wanted R examples. Those diagrams also utterly fail to show what's really going on vis-a-vis rows AND columns.
 
 
 Other great places to read about joins:
 
-* The dplyr vignette on [Two-table verbs][dplyr-vignette-two-table].
-* The [Relational data chapter][r4ds-relational-data] in [R for Data Science][r4ds] [@wickham2016]. Excellent diagrams.
+* The dplyr vignette on [Two-table verbs](https://dplyr.tidyverse.org/articles/two-table.html).
+* The [Relational data chapter](https://r4ds.had.co.nz/relational-data.html) in [R for Data Science] [@wickham2016]. Excellent diagrams.
   
 ## The data
 

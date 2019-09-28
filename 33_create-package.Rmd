@@ -6,4 +6,4 @@ source("common.R")
 
 <!--Original content: https://stat545.com/packages06_foofactors-package.html-->
 
-*The content that originally lived here now appears as the [The Whole Game][r-pkgs2-whole-game] in the under-development 2nd edition of the [R Packages][r-pkgs2] book.*
+*The content that originally lived here now appears as the [The Whole Game](https://r-pkgs.org/whole-game.html) chapter in the under-development 2nd edition of the [R Packages] book [@wickham-unpub].*
