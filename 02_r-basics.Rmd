@@ -13,10 +13,10 @@ Launch RStudio/R.
 Notice the default panes:
 
 * Console (entire left)
-* Environment/History (tabbed in upper right)
-* Files/Plots/Packages/Help (tabbed in lower right)
+* Environment / History (tabbed in upper right)
+* Files / Plots / Packages / Help (tabbed in lower right)
 
-FYI: you can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
+__FYI:__ you can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
 
 Go into the Console, where we interact with the live R process.
 

@@ -22,14 +22,14 @@ Where do stealth factors come from? Base R has a burning desire to turn characte
 
 Good articles about how the factor fiasco came to be:
 
-* [stringsAsFactors: An unauthorized biography](https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography) by Roger Peng
-* [stringsAsFactors = \<sigh\>](https://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh) by Thomas Lumley
+* ["stringsAsFactors: An unauthorized biography"](https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography) by Roger Peng
+* ["stringsAsFactors = \<sigh\>"](https://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh) by Thomas Lumley
 
 ## The forcats package
 
 [forcats] is a core package in the [tidyverse]. It is installed via `install.packages("tidyverse")`, and loaded with `library(tidyverse)`. You can also install via `install.packages("forcats")`and load it yourself separately as needed via `library(forcats)`. Main functions start with `fct_`. There really is no coherent family of base functions that forcats replaces -- that's why it's such a welcome addition.
 
-Currently this lesson will be mostly code vs prose. See the previous lesson for more discussion during the transition.
+Currently this lesson will be mostly code vs. prose. See the previous lesson for more discussion during the transition.
 
 ## Load forcats and gapminder
 
@@ -39,7 +39,7 @@ I choose to load the tidyverse, which will load forcats, among other packages we
 library(tidyverse)
 ```
 
-Also load gapminder.
+Also load [gapminder].
 
 ```{r message = FALSE, warning = FALSE}
 library(gapminder)
@@ -120,9 +120,9 @@ low_pop %>%
 By default, factor levels are ordered alphabetically. Which might as well be random, when you think about it! It is preferable to order the levels according to some principle:
 
 * Frequency. Make the most common level the first and so on.
-* Another variable. Order factor levels according to a summary statistic for another variable. __Example:__ order Gapminder countries by life expectancy.
+* Another variable. Order factor levels according to a summary statistic for another variable. Example: order Gapminder countries by life expectancy.
 
-First, let's order continent by frequency, forwards and backwards. This is often a great idea for tables and figures, esp. frequency barplots.
+First, let's order continent by frequency, forwards and backwards. This is often a great idea for tables and figures, especially frequency barplots.
 
 ```{r}
 ## default order is alphabetical

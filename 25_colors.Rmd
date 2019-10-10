@@ -38,7 +38,7 @@ When you change a graphical parameter via `par()`, the original values are retur
 
 Big picture, it is best practice to restore the original, default state of hidden things that affect an R session. This is polite if you plan to inflict your code on others. Even if you live on an R desert island, this practice will prevent you from creating maddening little puzzles for yourself to solve in the middle of the night before a deadline.
 
-Because of the way figures are handled by knitr, it is more complicated to change the default plotting symbol throughout an R Markdown document. To see how I've done it, check out a hidden chunk around here in the [source of this page](https://github.com/rstudio-education/stat545/blob/master/25_colors.Rmd).
+Because of the way figures are handled by knitr, it is more complicated to change the default plotting symbol throughout an R Markdown document. To see how I've done it, check out a hidden chunk around here in the [source of this page].
 
 
 ```{r include = FALSE}
@@ -179,7 +179,7 @@ In 2015 Stéfan van der Walt and Nathaniel Smith designed new color maps for mat
 
 > These color maps are designed in such a way that they will analytically be perfectly perceptually-uniform, both in regular form and also when converted to black-and-white. They are also designed to be perceived by readers with the most common form of color blindness (all color maps in this package) and color vision deficiency ('cividis' only).
 
-I encourage you to install viridis and read [the vignette](https://cloud.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). It is easy to use these palettes in ggplot2 via `scale_color_viridis()` and `scale_fill_viridis()`. Taking control of color palettes in ggplot2 is covered elsewhere (see Chapter \@ref(qualitative-colors).
+I encourage you to install viridis and read [the vignette](https://cloud.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). It is easy to use these palettes in ggplot2 via `scale_color_viridis()` and `scale_fill_viridis()`. Taking control of color palettes in ggplot2 is covered elsewhere (see Chapter \@ref(qualitative-colors)).
 
 Here are two examples that show the viridis palettes:
 
@@ -222,7 +222,8 @@ foo %>%
   tab_options(column_labels.font.weight = "bold")
 ```
 
-__Example:__ the first color in the palette is specified as "#1B9E77", so the intensity in the green channel is 9E. What does that mean?
+Example: the first color in the palette is specified as "#1B9E77", so the intensity in the green channel is 9E. What does that mean?
+
 $$
 9E = 9 * 16^1 + 14 * 16^0 = 9 * 16 + 14 = 158
 $$
@@ -473,7 +474,7 @@ par(opar)
 <!--Links-->
 [colorspace]: https://cloud.r-project.org/web/packages/colorspace/index.html
 [dichromat]: https://cloud.R-project.org/package=dichromat
-
+[source of this page]: https://github.com/rstudio-education/stat545/blob/master/25_colors.Rmd
 
 ```{r links, child="links.md"}
 ```

@@ -14,7 +14,7 @@ source("common.R")
 
 According to [Naomi Robbins](http://www.nbr-graphs.com), effective graphs "improve understanding of data". They do not confuse or mislead.
 
-To paraphrase: Most of us use a computer to write but we would never characterize a Nobel prize winning writer as being highly skilled with Microsoft Word. Similarly, advanced ggplot2 skills won't necessarily lead to effective communication of numerical data. You have to master the __principles of effective graphs__ in addition to the mechanics.
+To paraphrase: Most of us use a computer to write but we would never characterize a Nobel prize winning writer as being highly skilled with Microsoft Word. Similarly, advanced [ggplot2] skills won't necessarily lead to effective communication of numerical data. You have to master the __principles of effective graphs__ in addition to the mechanics.
 
 > One graph is more effective than another if its quantitative information can be decoded more quickly or more easily by most observers.
 
@@ -44,7 +44,7 @@ We are best able to make comparisons via position of objects along a common scal
 
 Tufte, as quoted by Robbins: "the only worse design than a pie chart is several of them."
 
-* "Problem 2: pie charts are worse at showing trends" from [Three reasons that pie charts suck](https://www.richardhollins.com/blog/why-pie-charts-suck/) shows a series of 3 pie charts versus a line chart.
+* "Problem 2: pie charts are worse at showing trends" from ["Three reasons that pie charts suck"](https://www.richardhollins.com/blog/why-pie-charts-suck/) shows a series of 3 pie charts versus a line chart.
 * Rob Hyndman nominated a 3 pie chart series as [the worst figure](https://robjhyndman.com/hyndsight/worst-figure/), which has the added horror of cross-hatching. Sorry, no before and after here.
 
 ### Stacked and group bar charts
@@ -77,11 +77,11 @@ We will look through this section (slides 1 - 36) of Karl Broman's excellent tal
 
 This animation created by Darkhorse Analytics illustrates how communication can be greatly enhanced by eliminating clutter and de-emphasizing supporting elements. Every aspect of a figure should be there on a "need to have it" basis.
 
-```{r echo = FALSE, fig.cap = "From  [Data Looks Better Naked](https://www.darkhorseanalytics.com/blog/data-looks-better-naked) by Darkhorse Analytics"}
+```{r echo = FALSE, fig.cap = 'From ["Data Looks Better Naked"](https://www.darkhorseanalytics.com/blog/data-looks-better-naked) by Darkhorse Analytics'}
 knitr::include_graphics("img/less-is-more-darkhorse-analytics.gif")
 ```
 
-In CMEG, Figs 6.2 vs 6.3 make much the same point, i.e. stripping the figure way down is a huge improvement. Figs 5.4 and 5.5 are both decent graphs but using dots (Fig 5.5) instead of bars (Fig 5.4) improves the data\:ink ratio.
+In CMEG, Figs 6.2 vs. 6.3 make much the same point, i.e. stripping the figure way down is a huge improvement. Figs 5.4 and 5.5 are both decent graphs but using dots (Fig 5.5) instead of bars (Fig 5.4) improves the data\:ink ratio.
 
 ## Do: spare your reader from mental gymnastics
 
@@ -165,7 +165,7 @@ We will look through another section (slides 48 - 62) of Karl Broman's excellent
 * [Creating More Effective Graphs] by Naomi Robbins [-@robbins2012].   
 * The [R Graph Catalog] presents the figures from [Creating More Effective Graphs] as a visual quilt. Click on a figure to see the ggplot2 code that makes it.
 * Karl Broman's talk, "How to display data badly"
-  + Home on GitHub: https://github.com/kbroman/Talk_Graphs  
+  + Home on [GitHub](https://github.com/kbroman/Talk_Graphs)
   + The version I showed is the [combined PDF from the iowastate2013 branch](https://www.biostat.wisc.edu/~kbroman/presentations/IowaState2013/graphs_combined.pdf)     
 * The [ggplot2] package, written by Hadley Wickham.
 * [R Graphics Cookbook] [-@chang2013] by Winston Chang and the [Graphs section](http://www.cookbook-r.com/Graphs/) of his [Cookbook for R].  

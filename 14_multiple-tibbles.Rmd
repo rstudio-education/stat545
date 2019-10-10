@@ -12,7 +12,7 @@ We've covered many topics on how to manipulate and reshape a single data frame:
 
 * Chapter \@ref(basic-data-care) - Basic care and feeding of data in R
   + Data frames (and tibbles) are awesome.
-* Chapter \@ref(dplyr-intro) - Introduction to [dplyr]
+* Chapter \@ref(dplyr-intro) - Introduction to dplyr
   + Filter, select, the pipe.
 * Chapter \@ref(dplyr-single) - dplyr functions for a single dataset
   + Single table verbs.
@@ -30,7 +30,7 @@ But what if your data arrives in many pieces? There are many good (and bad) reas
 
 __Bind__ - This is basically smashing ~~rocks~~ tibbles together. You can smash things together row-wise ("row binding") or column-wise ("column binding"). Why do I characterize this as rock-smashing? They're often fairly crude operations, with lots of responsibility falling on the analyst for making sure that the whole enterprise even makes sense.
 
-When row binding, you need to consider the variables in the two tibbles. Do the same variables exist in each? Are they of the same type? Different approaches for row binding have different combinations of flexibility vs rigidity around these matters.
+When row binding, you need to consider the variables in the two tibbles. Do the same variables exist in each? Are they of the same type? Different approaches for row binding have different combinations of flexibility vs. rigidity around these matters.
 
 When column binding, the onus is entirely on the analyst to make sure that the rows are aligned. I would avoid column binding whenever possible. If you can introduce new variables through any other, safer means, do so! By safer, I mean: use a mechanism where the row alignment is correct **by definition**. A proper join is the gold standard. In addition to joins, functions like `dplyr::mutate()` and `tidyr::separate()` can be very useful for forcing yourself to work inside the constraint of a tibble.
 

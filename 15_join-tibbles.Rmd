@@ -6,7 +6,7 @@ source("common.R")
 
 <!--Original content: https://stat545.com/bit001_dplyr-cheatsheet.html--> 
 
-Join (a.k.a. merge) two tables: dplyr join cheatsheet with comic characters and publishers.
+Join (a.k.a. merge) two tables: [dplyr] join cheatsheet with comic characters and publishers.
 
 ```{r gt-table-making-functions, include = FALSE}
 library(gt)

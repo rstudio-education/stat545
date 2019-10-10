@@ -167,7 +167,7 @@ names(a)
 
 Indexing a list is similar to indexing a vector but it is necessarily more complex. The fundamental issue is this: if you request a single element from the list, do you want a list of length 1 containing only that element or do you want the element itself? For the former (desired return value is a list), we use single square brackets, `[` and `]`, just like indexing a vector. For the latter (desired return value is a single element), we use a dollar sign `$`, which you've already used to get one variable from a data.frame, or double square brackets, `[[` and `]]`.
 
-The ["pepper shaker photos" in R for Data Science](https://r4ds.had.co.nz/vectors.html#lists-of-condiments) are a splendid visual explanation of the different ways to get stuff out of a list. Highly recommended.
+The ["pepper shaker photos"](https://r4ds.had.co.nz/vectors.html#lists-of-condiments) in [R for Data Science] [@wickham2016] are a splendid visual explanation of the different ways to get stuff out of a list. Highly recommended.
 
 > Warning: the rest of this section might make your eyes glaze over. Skip to the next section if you need to; come back later when some list is ruining your day.
 
@@ -228,7 +228,7 @@ mode(jDat)
 class(jDat)
 ```
 
-> Sidebar: What is `I()`, used when creating the variable $y$ in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the $v$ variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors-boss).
+> Sidebar: What is `I()`, used when creating the variable `y` in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the `v` variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors-boss).
 
 
 data.frames really are lists! Double square brackets can be used to get individual variables. Single square brackets can be used to get one or more variables, returned as a data.frame (though `subset(..., select = ...))` is how I would more likely do in a data analysis).

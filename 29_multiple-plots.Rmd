@@ -14,7 +14,7 @@ Faceting is useful for constructing an array of similar plots where each panel c
 
 ## Meet the gridExtra package
 
-Under the hood, ggplot2 uses the grid package to create figures. The [gridExtra] package provides some extra goodies and we will draw on them to place multiple ggplot2 plots on a single virtual page.
+Under the hood, [ggplot2] uses the grid package to create figures. The [gridExtra] package provides some extra goodies and we will draw on them to place multiple ggplot2 plots on a single virtual page.
 
 You may need to install gridExtra and you will certainly need to load it.
 

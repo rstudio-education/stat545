@@ -4,7 +4,7 @@
 [ggplot2 tutorial]: https://github.com/jennybc/ggplot2-tutorial
 [R Graph Catalog]: https://github.com/jennybc/r-graph-catalog
 
-<!--Packages (main web page)-->
+<!--Packages: main link-->
 [dplyr]: https://dplyr.tidyverse.org
 [tidyr]: https://tidyr.tidyverse.org
 [ggplot2]: https://ggplot2.tidyverse.org
@@ -27,20 +27,15 @@
 [rvest]: https://rvest.tidyverse.org
 [Shiny]: https://shiny.rstudio.com
 [gh]: https://github.com/r-lib/gh
-
 [plyr]: http://plyr.had.co.nz
 [magrittr]: https://magrittr.tidyverse.org
 [googlesheets]: https://github.com/jennybc/googlesheets
 [gapminder]: https://github.com/jennybc/gapminder
-
-
 [stringi]: http://www.gagolewski.com/software/stringi/
-
 [rex]: https://github.com/kevinushey/rex
 [lattice]: http://lattice.r-forge.r-project.org
 [RColorBrewer]: https://cloud.r-project.org/package=RColorBrewer
 [gridExtra]: https://cloud.r-project.org/package=gridExtra
-
 [rebird]: https://docs.ropensci.org/rebird/
 [geonames]: https://docs.ropensci.org/geonames/
 [rplos]: https://docs.ropensci.org/rplos/
@@ -48,27 +43,21 @@
 [genderdata]: https://docs.ropensci.org/genderdata/
 [curl]: https://jeroen.cran.dev/curl
 [jsonlite]: https://github.com/jeroen/jsonlite
-
 [shinythemes]: https://rstudio.github.io/shinythemes/
 [shinyjs]: https://deanattali.com/shinyjs/
 [leaflet]: https://rstudio.github.io/leaflet/
 [ggvis-web]: https://ggvis.rstudio.com
 [shinydashboard]: https://rstudio.github.io/shinydashboard/
 
-
-<!-- Packages: CRAN/GitHub-->
-[dplyr-cran]: https://cloud.r-project.org/package=dplyr
-[dplyr-github]: https://github.com/hadley/dplyr
-
-
-<!--Packages: vignettes-->
+<!--Packages: vignettes & CRAN/GitHub links-->
 [Introduction to dplyr]: https://dplyr.tidyverse.org/articles/dplyr.html
 [Window functions]: https://dplyr.tidyverse.org/articles/window-functions.html
 [Two-table verbs]: https://dplyr.tidyverse.org/articles/two-table.html
 [Do more with dates and times in R]: https://lubridate.tidyverse.org/articles/lubridate.html
+[dplyr-cran]: https://cloud.r-project.org/package=dplyr
+[dplyr-github]: https://github.com/hadley/dplyr
 
-
-<!--Bookdowns-->
+<!--Bookdowns: main link-->
 [Happy Git and GitHub for the useR]: https://happygitwithr.com
 [R for Data Science]: https://r4ds.had.co.nz
 [The tidyverse style guide]: https://style.tidyverse.org
@@ -79,7 +68,7 @@
 [Cookbook for R]: http://www.cookbook-r.com 
 [ggplot2: Elegant Graphics for Data Analysis]: https://ggplot2-book.org/index.html
 
-
+<!--Bookdowns: specific chapters-->
 [adv-r-fxn-args]: http://adv-r.had.co.nz/Functions.html#function-arguments
 [r4ds-transform]: https://r4ds.had.co.nz/transform.html
 [r4ds-readr-strings]: https://r4ds.had.co.nz/data-import.html#readr-strings
@@ -88,7 +77,6 @@
 [rOpenSci]: https://ropensci.org
 [wiki-snake-case]: https://en.wikipedia.org/wiki/Snake_case
 [Janus]: https://en.wikipedia.org/wiki/Janus
-
 
 <!--RStudio Cheat Sheets--> 
 [RStudio Data Transformation Cheat Sheet]: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
@@ -105,18 +93,13 @@
 ["A layered grammar of graphics"]: https://vita.had.co.nz/papers/layered-grammar.html
 [Managing Projects with GNU Make, 3rd Edition]: http://shop.oreilly.com/product/9780596006105.do
 
-
 <!--Blog posts, slides, & papers-->
+["minimal make: a minimal tutorial on make"]: https://kbroman.org/minimal_make/
 ["Let the Data Flow: Pipelines in R with dplyr and magrittr"]: https://github.com/tjmahr/MadR_Pipelines
 ["Hands-on dplyr tutorial for faster data manipulation in R"]: https://www.dataschool.io/dplyr-tutorial-for-faster-data-manipulation-in-r/
 ["Writing R Extensions"]: https://cloud.r-project.org/doc/manuals/r-release/R-exts.html
 ["The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"]: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
 ["What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text"]: http://kunststube.net/encoding/
-["Guide to fixing encoding problems in Ruby"]: https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/
+["3 Steps to Fix Encoding Problems in Ruby"]: https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/
 ["My favorite RGB color"]: https://manyworldstheory.com/2013/01/15/my-favorite-rgb-color/
 ["Why Should Engineers and Scientists Be Worried About Color?"]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwi0xYqJ8JbjAhWNvp4KHViYDxsQFjABegQIABAC&url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FAhmed_Elhattab2%2Fpost%2FPlease_suggest_some_good_3D_plot_tool_Software_for_surface_plot%2Fattachment%2F5c05ba35cfe4a7645506948e%2FAS%253A699894335557644%25401543879221725%2Fdownload%2FWhy%2BShould%2BEngineers%2Band%2BScientists%2BBe%2BWorried%2BAbout%2BColor_.pdf&usg=AOvVaw1qwjjGMd7h_z6TLUjzu7Nb
-
-
-
-
-

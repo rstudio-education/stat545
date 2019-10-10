@@ -21,7 +21,7 @@ source("common.R")
 ## Resources {-}
 
 * [R Packages] book: the second edition is under development by Hadley Wickham and Jennifer Bryan [-@wickham-unpub].
-* ["Writing R Extensions"], the One True Official Document on creating R packages.
+* ["Writing R Extensions"] - the One True Official Document on creating R packages.
 
 ```{r links, child="links.md"}
 ```

@@ -12,8 +12,8 @@ We recently learned how to write our own R functions ([part 1](#functions-part1)
 
 Now we use that knowledge to write another useful function, within the context of the Gapminder data:
 
-* Input: a data.frame that contains (at least) a life expectancy variable `lifeExp` and a variable for year `year`
-* Output: a vector of estimated intercept and slope, from a linear regression of `lifeExp` on `year`
+* __Input:__ a data.frame that contains (at least) a life expectancy variable `lifeExp` and a variable for year `year`
+* __Output:__ a vector of estimated intercept and slope, from a linear regression of `lifeExp` on `year`
   
 The ultimate goal is to apply this function to the Gapminder data for a specific country. We will eventually scale up to *all* countries using external machinery, e.g., the `dplyr::group_by()` + `dplyr::do()`.
 

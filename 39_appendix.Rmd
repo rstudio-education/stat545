@@ -514,6 +514,47 @@ Instructor dependencies:
 
 ## Link Reference Formatting
 
+We have *a lot* of links in this bookdown. In an effort to keep things tidy, we have developed a method of organizing them. If you would like to contribute to this bookdown we ask that you please format any new links the same way. 
+
+
+### Added to `links.md`
+
+Any links that are used 2+ chapters (a.k.. `.Rmd` files) or any links that we *think* might be used in other chapters in the future are saved in `links.md` in the format `[ref-label]: link`. We try to have `ref-label` to be some text that we can usually live with as link text when possible.  
+
+For example,
+
+> [Happy Git and GitHub for the useR]: https://happygitwithr.com
+
+
+CHECK THIS 
+The reference label is not case-sensitive, 
+
+### Added as a reference-style link
+
+BOOKDOWN DOCS LINK?
+
+If a link appears in only one chapter (a.k.a. `.Rmd`) & is used more than once, format it as a reference-style link. Again, trying to use a reference label that is some text that we can usually live with as link text. 
+
+For example,
+
+> It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"].
+> ...
+> Huh? Don't worry about it. Remember we are ["writing data for computers"].
+> ...
+> <!--Links-->
+> ["writing data for computers"]: https://twitter.com/vsbuffalo/statuses/358699162679787521
+
+
+
+
+generally, if first time package is being mentioned in a chapter, include main link. e.g. [gapminder]
+### Added as an inline-style link
+
+
+
+
+
+
 If you anticipating the link being used again in another chapter, go ahead and put it in `links.md`. 
 
 If it is a main package that you think will be used in multiple chapters, then include links in `links.md`.

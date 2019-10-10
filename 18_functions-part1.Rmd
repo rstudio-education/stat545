@@ -51,7 +51,7 @@ Internalize this "answer" because our informal testing relies on you noticing de
 
 This image [widely attributed to the Spotify development team](https://blog.fastmonkeys.com/?utm_content=bufferc2d6e&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) conveys an important point.
 
-```{r spotify-howtobuildmvp, echo = FALSE, out.width = "60%", fig.cap = "From [Your ultimate guide to Minimum Viable Product (+great examples)](https://blog.fastmonkeys.com/2014/06/18/minimum-viable-product-your-ultimate-guide-to-mvp-great-examples/)"}
+```{r spotify-howtobuildmvp, echo = FALSE, out.width = "60%", fig.cap = 'From ["Your ultimate guide to Minimum Viable Product (+great examples)"](https://blog.fastmonkeys.com/2014/06/18/minimum-viable-product-your-ultimate-guide-to-mvp-great-examples/)'}
 knitr::include_graphics("img/spotify-howtobuildmvp.jpg")
 ```
 
@@ -100,7 +100,7 @@ Either check these results "by hand" or apply the "does that even make sense?" t
 
 ### Test on weird stuff
 
-Now we try to break our function. Don't get truly diabolical (yet). Just make the kind of mistakes you can imagine making at 2am when, 3 years from now, you rediscover this useful function you wrote. Give your function inputs it's not expecting.
+Now we try to break our function. Don't get truly diabolical (yet). Just make the kind of mistakes you can imagine making at 2 a.m. when, 3 years from now, you rediscover this useful function you wrote. Give your function inputs it's not expecting.
 
 ```{r error = TRUE}
 max_minus_min(gapminder) ## hey sometimes things "just work" on data.frames!
@@ -112,7 +112,7 @@ How happy are you with those error messages? You must imagine that some entire _
 
 ### I will scare you now
 
-Here are some great examples STAT545 students devised during class where the function __should break but it does not.__
+Here are some great examples STAT 545 students devised during class where the function __should break but it does not.__
 
 ```{r}
 max_minus_min(gapminder[c('lifeExp', 'gdpPercap', 'pop')])
@@ -163,7 +163,7 @@ mmm2(gapminder)
 In addition to a gratuitous apology, the error raised also contains two more pieces of helpful info:
   
 * *Which* function threw the error.
-* Hints on how to fix things: expected class of input vs actual class.
+* Hints on how to fix things: expected class of input vs. actual class.
 
 If it is easy to do so, I highly recommend this template: "you gave me THIS, but I need THAT".
 
@@ -191,7 +191,7 @@ Where to next? In [part 2](#functions-part2) we generalize this function to take
 
 ## Resources
 
-* Packages for runtime assertions (the last 3 seem to be under more active development than assertthat):
+* Packages for runtime assertions:
   + assertthat on [CRAN](https://cloud.R-project.org/package=assertthat) and [GitHub](https://github.com/hadley/assertthat) - *the Hadleyverse option*
   + ensurer on [CRAN](https://cloud.R-project.org/package=ensurer) and [GitHub](https://github.com/smbache/ensurer) - *general purpose, pipe-friendly*
   + assertr on [CRAN](https://cloud.R-project.org/package=assertr) and [GitHub](https://github.com/ropensci/assertr) - *explicitly data pipeline oriented*

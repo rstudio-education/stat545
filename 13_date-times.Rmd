@@ -25,7 +25,7 @@ I start with this because we cannot possibly do this topic justice in a short am
 * The [lubridate] package.
   + On [CRAN](https://cloud.R-project.org/package=lubridate).
   + On [GitHub](https://github.com/tidyverse/lubridate).
-  + Main vignette: [Do more with dates and times in R]).
+  + Main vignette: [Do more with dates and times in R].
 * Grolemund and Wickham's paper on lubridate in the Journal of Statistical Software: ["Dates and Times Made Easy with lubridate"] [-@grolemund2011].
 * Exercises to push you to learn lubridate (*posts include links to answers!*)
   + [Part 1](https://www.r-exercises.com/2016/08/15/dates-and-times-simple-and-easy-with-lubridate-part-1/)

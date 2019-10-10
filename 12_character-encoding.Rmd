@@ -23,7 +23,7 @@ source("common.R")
 
 For now, this page walks through these two mini-tutorials (written for Ruby), but translated to R:
 
-* ["Guide to fixing encoding problems in Ruby"]
+* ["3 Steps to Fix Encoding Problems in Ruby"]
 * ["How to Get From Theyâ€™re to They’re"](https://www.justinweiss.com/articles/how-to-get-from-theyre-to-theyre/)
   
 Don't expect much creativity from me here. My goal is faithful translation.
@@ -130,7 +130,7 @@ irb(main):078:0> "hi\x99!".encoding
 => #<Encoding:UTF-8>
 ```
 
-Ruby's guess is bad. This is not encoded as UTF-8. R admits it doesn't know and `stringi`'s guess is not good.
+Ruby's guess is bad. This is not encoded as UTF-8. R admits it doesn't know and stringi's guess is not good.
 
 ```{r}
 string <- "hi\x99!"

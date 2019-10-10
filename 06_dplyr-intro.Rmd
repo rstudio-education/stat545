@@ -22,7 +22,7 @@ I choose to load the tidyverse, which will load dplyr, among other packages we u
 library(tidyverse)
 ```
 
-Also load gapminder.
+Also load [gapminder].
 
 ```{r message = FALSE, warning = FALSE}
 library(gapminder)
@@ -64,7 +64,7 @@ Stop and ask yourself ...
 
 > Do I want to create mini datasets for each level of some factor (or unique combination of several factors) ... in order to compute or graph something?  
 
-If YES, __use proper data aggregation techniques__ or faceting in ggplot2 -- __don’t subset the data__. Or, more realistic, only subset the data as a temporary measure while you develop your elegant code for computing on or visualizing these data subsets.
+If YES, __use proper data aggregation techniques__ or faceting in [ggplot2] -- __don’t subset the data__. Or, more realistic, only subset the data as a temporary measure while you develop your elegant code for computing on or visualizing these data subsets.
 
 If NO, then maybe you really do need to store a copy of a subset of the data. But seriously consider whether you can achieve your goals by simply using the `subset =` argument of, e.g., the `lm()` function, to limit computation to your excerpt of choice. Lots of functions offer a `subset =` argument!
 
@@ -146,7 +146,7 @@ gapminder %>%
   head(4)
 ```
 
-Think: "Take `gapminder`, then select the variables year and lifeExp, then show the first 4 rows."
+Think: "Take `gapminder`, then select the variables `year` and `lifeExp`, then show the first 4 rows."
 
 ## Revel in the convenience
 
@@ -200,7 +200,7 @@ Go to the next Chapter, [dplyr functions for a single dataset](#dplyr-single), f
 <!--TODO: This should probably be updated with something more recent-->
 Blog post ["Hands-on dplyr tutorial for faster data manipulation in R"] by Data School, that includes a link to an R Markdown document and links to videos.
 
-Chapter \@ref(join-cheatsheet): cheatsheet I made for dplyr join functions (not relevant yet but soon).
+Chapter \@ref(join-cheatsheet) - cheatsheet I made for dplyr join functions (not relevant yet but soon).
 
 
 ```{r links, child="links.md"}

@@ -40,7 +40,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 
 * We again prefer the [stringr] package over base functions. Why?
   - Wraps [stringi], which is a great place to look if stringr isn't powerful enough.
-  - Standardized on [ICU regular expressions](https://userguide.icu-project.org/strings/regexp), so you can stop toggling `perl = TRUE/FALSE` at random.
+  - Standardized on [ICU regular expressions](http://userguide.icu-project.org/strings/regexp), so you can stop toggling `perl = TRUE/FALSE` at random.
   - Results come back in a form that is much friendlier for downstream work.
 * The [Strings chapter] of [R for Data Science] [@wickham2016] is a great resource.
 * Older STAT 545 lessons on regular expressions have some excellent content. This lesson draws on them, but makes more rigorous use of stringr and uses example data that is easier to support long-term.
@@ -59,11 +59,11 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 * Screeds on the Minimum Everyone Needs to Know about encoding:
   - ["The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"]
   - ["What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text"]
-* Chapter \@ref(character-encoding) - I've translated this blog post [Guide to fixing encoding problems in Ruby] into R as the first step to developing a lesson.
+* Chapter \@ref(character-encoding) - I've translated this blog post, ["3 Steps to Fix Encoding Problems in Ruby"], into R as the first step to developing a lesson.
 
 ### Character vectors that live in a data frame
 
-* Certain operations are facilitated by [tidyr]. These are described below.
+* Certain operations are facilitated by tidyr. These are described below.
 * For a general discussion of how to work on variables that live in a data frame, see [Vectors versus tibbles](#oldies) (Appendix \@ref(oldies)).
 
 ## Load the tidyverse, which includes stringr
@@ -145,7 +145,7 @@ head(fruit) %>%
   str_sub(1, 3)
 ```
 
-The `start` and `end` arguments are vectorised. __Example:__ a sliding 3-character window.
+The `start` and `end` arguments are vectorised. Example: a sliding 3-character window.
 
 ```{r}
 tibble(fruit) %>% 
@@ -163,7 +163,7 @@ x
 
 ### Collapse a vector
 
-You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see the [next section](#catenate-vectors)).
+You can collapse a character vector of length `n > 1` to a single string with `str_c()`, which also has other uses (see the [following section](#catenate-vectors)).
 
 
 ```{r}
@@ -230,7 +230,7 @@ knitr::include_graphics("img/regexbytrialanderror-big-smaller.png")
 
 ### Load gapminder
 
-The country names in the `gapminder` dataset are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
+The country names in the `gapminder` data frame are convenient for examples. Load it now and store the `r nlevels(gapminder::gapminder$country)` unique country names to the object `countries`.
 
 ```{r}
 library(gapminder)
@@ -239,7 +239,7 @@ countries <- levels(gapminder$country)
 
 ### Characters with special meaning
 
-Frequently your string tasks cannot be expressed in terms of a fixed string, but can be described in terms of a **pattern**. Regular expressions, aka "regexes", are the standard way to specify these patterns. In regexes, specific characters and constructs take on special meaning in order to match multiple strings.
+Frequently your string tasks cannot be expressed in terms of a fixed string, but can be described in terms of a **pattern**. Regular expressions, a.k.a "regexes", are the standard way to specify these patterns. In regexes, specific characters and constructs take on special meaning in order to match multiple strings.
 
 The first metacharacter is the period `.`, which stands for any single character, except a newline (which by the way, is represented by `\n`). The regex `a.b` will match all countries that have an `a`, followed by any single character, followed by `b`. Yes, regexes are case sensitive, i.e. "Italy" does not match.
 
@@ -364,7 +364,7 @@ Here is routine, non-regex use of backslash `\` escapes in plain vanilla R strin
 
 Examples of using escapes in regexes to match characters that would otherwise have a special interpretation.
 
-We know several `gapminder` country names contain a period. How do we isolate them? Although it's tempting, this command `str_subset(countries, pattern = ".")` won't work!
+We know several `gapminder` country names contain a period. How do we isolate them? Although it's tempting, the command `str_subset(countries, pattern = ".")` won't work!
 
 ```{r}
 ## cheating using a POSIX class ;)

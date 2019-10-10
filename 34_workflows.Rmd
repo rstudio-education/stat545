@@ -21,7 +21,7 @@ Although we spend a lot of time working with data interactively, this sort of ha
   + This fully developed example shows you:
     * How to run an R script non-interactively
     * How to use `make`...
-      - To record which files are inputs vs intermediates vs outputs
+      - To record which files are inputs vs. intermediates vs. outputs
       - To capture how scripts and commands convert inputs to outputs
       - To re-run parts of an analysis that are out-of-date
     * The intersection of R and `make`, i.e. how to...
@@ -40,9 +40,9 @@ Although we spend a lot of time working with data interactively, this sort of ha
 
 * [xkcd comic on automation](https://xkcd.com/1319/). 'Automating' comes from the roots 'auto-' meaning 'self-', and 'mating', meaning 'screwing'.
 * Karl Broman covers [GNU Make](https://www.gnu.org/software/make/) in his course ["Tools for Reproducible Research"](https://kbroman.org/Tools4RR/pages/schedule.html).
-* Karl Broman also wrote ["minimal make: a minimal tutorial on make"](https://kbroman.org/minimal_make/), aimed at stats / data science types.
+* Karl Broman also wrote ["minimal make: a minimal tutorial on make"], aimed at stats / data science types.
 * ["Using Make for reproducible scientific analyses"](https://web.archive.org/web/20160306042959/http://www.bendmorris.com/2013/09/using-make-for-reproducible-scientific.html), blog post by Ben Morris.
-* Software Carpentry's [Slides on `Make`](https://web.archive.org/web/20150110211213/http://software-carpentry.org/v4/make/index.html).
+* Software Carpentry's [slides on `Make`](https://web.archive.org/web/20150110211213/http://software-carpentry.org/v4/make/index.html).
 * Zachary M. Jones wrote ["GNU Make for Reproducible Data Analysis"](http://zmjones.com/make/).
 * ["Keeping tabs on your data analysis workflow"](https://adamlaiacano.tumblr.com/post/45356689519/keeping-tabs-on-your-data-analysis-workflow), blog post by Adam Laiacano.
 * Mike Bostock, of D3.js and New York Times fame, explains ["Why Use Make"](https://bost.ocks.org/mike/make/) -- "it's about the benefits of capturing workflows via a file-based dependency-tracking build system".
@@ -77,11 +77,11 @@ Download and [install msysGit](https://github.com/msysgit/msysgit/releases/downl
 
 Here is another alternative for installing `make` alone:
 
-* Go to the [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) web site.
-* Download the [Setup program](http://gnuwin32.sourceforge.net/downlinks/make.php).
-* Install the file you just downloaded and copy to your clipboard the directory in which it is being installed.
-  - FYI: The default directory is `C:\Program Files (x86)\GnuWin32\`
-* You now have `make` installed, but you need to tell Windows where to find the program. This is called [updating your `PATH`](https://www.google.ca/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=windows%20update%20path%20variable). You will want to update the `PATH` to include the `bin` directory of the newly installed program.
+1. Go to the [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) web site.
+1. Download the [Setup program](http://gnuwin32.sourceforge.net/downlinks/make.php).
+1. Install the file you just downloaded and copy to your clipboard the directory in which it is being installed.
+    - FYI: The default directory is `C:\Program Files (x86)\GnuWin32\`
+1. You now have `make` installed, but you need to tell Windows where to find the program. This is called [updating your `PATH`](https://www.google.ca/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=windows%20update%20path%20variable). You will want to update the `PATH` to include the `bin` directory of the newly installed program.
 
 ## Update your `PATH`
 
@@ -89,29 +89,29 @@ If you installed Make for Windows (as opposed to the `make` that comes with Git 
 
 These are the steps on Windows 7 (we don't have such a write-up yet for Windows 8 -- feel free to send one!):
 
-* Click on the Windows logo.
-* Right click on *Computer*.
-* Select *Properties*.
-* Select *Advanced System Settings*.
-* Select *Environment variables*.
-* Select the line that has the `PATH` variable. You may have to scroll down to find it.
-* Select *Edit*.
-* Go to the end of the line and add a semicolon `;`, followed by the path where the program was installed, followed by `\bin`.
-  - Typical example of what one might add: `;C:\Program Files (x86)\GnuWin32\bin`
-* Click Okay and close all the windows that you opened.
-* Quit RStudio and open it again.
-* You should now be able to use `make` from RStudio and the command line.
+1. Click on the Windows logo.
+1. Right click on *Computer*.
+1. Select *Properties*.
+1. Select *Advanced System Settings*.
+1. Select *Environment variables*.
+1. Select the line that has the `PATH` variable. You may have to scroll down to find it.
+1. Select *Edit*.
+1. Go to the end of the line and add a semicolon `;`, followed by the path where the program was installed, followed by `\bin`.
+    - Typical example of what one might add: `;C:\Program Files (x86)\GnuWin32\bin`
+1. Click Okay and close all the windows that you opened.
+1. Quit RStudio and open it again.
+1. You should now be able to use `make` from RStudio and the command line.
 
 ## Issues we are still clarifying
 
-See [issue 58](https://github.com/STAT545-UBC/Discussion/issues/58) for what seems to be the most comprehensive statement of the Windows situation.
+See [issue #58](https://github.com/STAT545-UBC/Discussion/issues/58) for what seems to be the most comprehensive statement of the Windows situation.
 
 What are the tricky bits?
 
 * Getting the same `Makefile` to "work" via RStudio's Build buttons/menus and in the [shell]. And, for that matter, which [shell]? Git Bash or ???
 * Ensuring `make`, `Rscript`, `pandoc`, `rm`, etc. can be found = updating `PATH`.
 * Getting `make` to use the correct [shell].
-  - See [issue 54](https://github.com/STAT545-UBC/Discussion/issues/54) on the Discussion repo.
+  - See [issue #54](https://github.com/STAT545-UBC/Discussion/issues/54) on the Discussion repo.
 
 
 # Automation: test drive `make` {#make-test-drive}
@@ -125,9 +125,9 @@ Before we use `make` for real work, we want to prove beyond a shadow of a doubt 
 
 You can delete this project after this test drive, so don't sweat too much about what you name it or where you put it.
 
-* Create an RStudio project: *File > New Project*
-* Create a new text file: *File > New File > Text File*
-* We are about to write our first `Makefile`!
+1. Create an RStudio project: *File > New Project*
+1. Create a new text file: *File > New File > Text File*
+1. We are about to write our first `Makefile`!
   
 But first ...
 
@@ -177,7 +177,8 @@ If you see something like this:
 ```sh
 Makefile:2: *** missing separator.  Stop.
 ```
-you probably have spaces instead of tabs as indentation. Fix that and try again.
+
+You probably have spaces instead of tabs as indentation. Fix that and try again.
 
 RStudio offers these buttons or menu items to run things from your `Makefile`:
 
@@ -206,8 +207,8 @@ This proves that `make` is installed and working from RStudio.
 
 RStudio only provides access to a very limited bit of `make` -- it's even more limited than the RStudio Git client. In the long run, it's important to be able to run `make` from the [shell].
 
-* Select *Tools > Shell*
-* Run
+1. Select *Tools > Shell*
+1. Run
 
 	```sh
 	make clean
@@ -289,12 +290,12 @@ words.txt:
 
 __Suggested workflow:__
 
-* *Git folks:* commit anything new/modified. Start with a clean working tree.
-* Submit the above `download.file()` command in the R Console to make sure it works.
-* Inspect the downloaded words file any way you know how; make sure it's not garbage. Size should be about 2.4MB.
-* Delete `words.txt`.
-* Put the above rule into your `Makefile`. From the [shell], enter `make words.txt` to verify rule works. Reinspect the words file.
-* *Git folks:* commit `Makefile` and `words.txt`.
+1. *Git folks:* commit anything new/modified. Start with a clean working tree.
+1. Submit the above `download.file()` command in the R Console to make sure it works.
+1. Inspect the downloaded words file any way you know how; make sure it's not garbage. Size should be about 2.4MB.
+1. Delete `words.txt`.
+1. Put the above rule into your `Makefile`. From the [shell], enter `make words.txt` to verify rule works. Reinspect the words file.
+1. *Git folks:* commit `Makefile` and `words.txt`.
   
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/c30ecc9c890a2f2261eb94118997f0774012eeb8).
 
@@ -316,13 +317,13 @@ words.txt: /usr/share/dict/words
 
 __Suggested workflow:__
 
-* *Git folks:* commit anything new/modified. Start with a clean working tree.
-* Remove `words.txt` if you succeeded with the download approach.
-* Submit the above `cp` command in the [shell] to make sure it works.
-* Inspect the copied words file any way you know how; make sure it's not garbage. Size should be about 2.4MB.
-* Delete `words.txt`.
-* Put the above rule into your `Makefile`. From the [shell], enter `make words.txt` to verify rule works. Reinspect the words file.
-* *Git folks:* look at the diff. You should see how your `words.txt` rule has changed and you might also see some differences between the local and remote words files. Interesting! Commit `Makefile` and `words.txt`.
+1. *Git folks:* commit anything new/modified. Start with a clean working tree.
+1. Remove `words.txt` if you succeeded with the download approach.
+1. Submit the above `cp` command in the [shell] to make sure it works.
+1. Inspect the copied words file any way you know how; make sure it's not garbage. Size should be about 2.4MB.
+1. Delete `words.txt`.
+1. Put the above rule into your `Makefile`. From the [shell], enter `make words.txt` to verify rule works. Reinspect the words file.
+1. *Git folks:* look at the diff. You should see how your `words.txt` rule has changed and you might also see some differences between the local and remote words files. Interesting! Commit `Makefile` and `words.txt`.
 
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/1131791548e0c5bbc5104eebb19710ed435146e3).
 
@@ -346,13 +347,13 @@ Since our only output so far is `words.txt`, that's what we associate with the `
 
 __Suggested workflow:__
 
-* Use `make clean` from the shell and/or *RStudio > Build > More > Clean All* to delete `words.txt`.
-  - Does it go away?
-  - *Git folks:* does the deletion of this file show up in your Git tab?
-* Use `make all` from the shell and/or *RStudio > Build > Build All* to get `words.txt` back.
-  - Does it come back?
-  - *Git folks:* does the restoration of `words.txt` cause it to drop off your radar as a changed/deleted file? See how this stuff all works together?
-* *Git folks:* Commit.
+1. Use `make clean` from the shell and/or *RStudio > Build > More > Clean All* to delete `words.txt`.
+    - Does it go away?
+    - *Git folks:* does the deletion of this file show up in your Git tab?
+1. Use `make all` from the shell and/or *RStudio > Build > Build All* to get `words.txt` back.
+    - Does it come back?
+    - *Git folks:* does the restoration of `words.txt` cause it to drop off your radar as a changed/deleted file? See how this stuff all works together?
+1. *Git folks:* Commit.
 
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/9e1a556adc602ffce91b5c8edccd223237080c54).
 

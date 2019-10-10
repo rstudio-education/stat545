@@ -162,7 +162,7 @@ defaulting to NULL then checking is.null() and take it from there
 
 ## Resources
 
-* Hadley Wickham's book, [Advanced R] [-@wickham2015a]
+* Hadley Wickham's book, [Advanced R] [-@wickham2015a]:
   + Section on [function arguments][adv-r-fxn-args]
 * Unit testing with the [testthat] package
   + On [CRAN](https://cloud.R-project.org/package=testthat); development on [GitHub](https://github.com/r-lib/testthat)

@@ -8,7 +8,7 @@ source("common.R")
 
 ## Load packages and prepare the Gapminder data
 
-Load the ggplot2 and dplyr packages and bring in the usual Gapminder data but drop Oceania, which only has two countries. 
+Load the [ggplot2] and [dplyr] packages and bring in the usual Gapminder data but drop Oceania, which only has two countries. 
 
 We also sort the country factor based on population and then sort the data as well. Why? In the bubble plots below, we don't want large countries to hide small countries. This is a case where, sadly, the row order of the data truly affects the visual output.
 
@@ -84,7 +84,7 @@ head(country_colors)
 
 `country_colors` is a named character vector, with one element per country, holding the RGB hex strings encoding the color scheme.
 
-__Note:__ The order of `country_colors` is not alphabetical. The countries are actually sorted by size (in which particular year, I don't recall) within continent, reflecting the logic by which the scheme was created. No problem. Ideally, nothing in your analysis should depend on row order, although that's not always possible in reality.
+Note: The order of `country_colors` is not alphabetical. The countries are actually sorted by size (in which particular year, I don't recall) within continent, reflecting the logic by which the scheme was created. No problem. Ideally, nothing in your analysis should depend on row order, although that's not always possible in reality.
 
 ## Prepare the color scheme for use with ggplot2
 

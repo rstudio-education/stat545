@@ -50,12 +50,12 @@ FWIW most of my figures exist as `pdf()`, `png()`, or both. Although it is not t
 
 Here are two good posts from the [Revolutions Analytics blog](https://blog.revolutionanalytics.com) with tips for saving figures to file:
 
-* [10 tips for making your R graphics look their best](https://blog.revolutionanalytics.com/2009/01/10-tips-for-making-your-r-graphics-look-their-best.html)
-* [High-quality R graphics on the Web with SVG](https://blog.revolutionanalytics.com/2011/07/r-svg-graphics.html)
+* ["10 tips for making your R graphics look their best"](https://blog.revolutionanalytics.com/2009/01/10-tips-for-making-your-r-graphics-look-their-best.html)
+* ["High-quality R graphics on the Web with SVG"](https://blog.revolutionanalytics.com/2011/07/r-svg-graphics.html)
   
 ## Write figures to file with `ggsave()`
 
-If you are using ggplot2, write figures to file with [`ggsave()`][rdocs-ggsave].
+If you are using [ggplot2], write figures to file with [`ggsave()`][rdocs-ggsave].
 
 If you are staring at a plot you just made on your screen, you can call `ggsave()`, specifying only a filename:
 
@@ -67,7 +67,7 @@ It makes a sensible decision about everything else. In particular, as long as yo
 
 ### Passing a plot object to `ggsave()`
 
-After the filename, the most common argument you will provide is `plot =`, which is the second argument by position. If you've been building up a plot with the typical ggplot2 workflow, you will pass the resulting object to `ggsave()`. __Example:__
+After the filename, the most common argument you will provide is `plot =`, which is the second argument by position. If you've been building up a plot with the typical ggplot2 workflow, you will pass the resulting object to `ggsave()`. Example:
 
 ```{r eval = FALSE}
 p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
@@ -227,9 +227,9 @@ It is worth noting here that the `ggsave()` workflow is not vulnerable to this g
 
 Some relevant threads on stackoverflow:
 
-* [Using png not working when called within a function](https://stackoverflow.com/questions/9206110/using-png-function-not-working-when-called-within-a-function)
-* [ggplot's qplot does not execute on sourcing](https://stackoverflow.com/questions/6675066/ggplots-qplot-does-not-execute-on-sourcing)
-* [Save ggplot within a function](https://stackoverflow.com/questions/7034647/save-ggplot-within-a-function)
+* ["Using png not working when called within a function"](https://stackoverflow.com/questions/9206110/using-png-function-not-working-when-called-within-a-function)
+* ["ggplot's qplot does not execute on sourcing"](https://stackoverflow.com/questions/6675066/ggplots-qplot-does-not-execute-on-sourcing)
+* ["Save ggplot within a function"](https://stackoverflow.com/questions/7034647/save-ggplot-within-a-function)
 
 ### Mysterious empty `Rplots.pdf` file
 
@@ -241,7 +241,7 @@ I don't know of a reliable way to suppress this behavior uniformly and I just pe
 
 Some relevant threads on stackoverflow:
 
-* [How to stop R from creating empty Rplots.pdf file when using ggsave and Rscript](https://stackoverflow.com/questions/17348359/how-to-stop-r-from-creating-empty-rplots-pdf-file-when-using-ggsave-and-rscript)
+* ["How to stop R from creating empty Rplots.pdf file when using ggsave and Rscript"](https://stackoverflow.com/questions/17348359/how-to-stop-r-from-creating-empty-rplots-pdf-file-when-using-ggsave-and-rscript)
 
 ## Chunk name determines figure file name
 
@@ -253,7 +253,7 @@ p <- ggplot(gapminder, aes(x = year, y = lifeExp)) + geom_jitter()
 p
 ```
 
-__Example:__ here's an R chunk called `scatterplot-lifeExp-vs-year`:
+Example: here's an R chunk called `scatterplot-lifeExp-vs-year`:
  
 ````
 `r ''````{r scatterplot-lifeExp-vs-year}
