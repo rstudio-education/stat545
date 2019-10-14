@@ -60,7 +60,7 @@ Although we spend a lot of time working with data interactively, this sort of ha
 <!--Original content: https://stat545.com/automation01_slides/index.html-->
 <!--TODO: Link currently leads to https://STAT545-UBC.github.io/STAT545-UBC.github.io/, wasn't able to get slides in supporting-docs/automation01_slides to render-->
 
-See ["Automating data analysis pipelines" slides](https://STAT545-UBC.github.io/STAT545-UBC.github.io/index.html) by Shaun Jackman and Jenny Bryan.
+See ["Automating data analysis pipelines" slides](https://github.com/STAT545-UBC/STAT545-UBC-original-website/blob/master/automation01_slides/slides.md) by Shaun Jackman and Jenny Bryan.
 
 # `make`: special considerations for Windows {#make-windows}
 
