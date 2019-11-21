@@ -14,9 +14,9 @@ Embarking on your career as an R package developer is an important milestone. Wh
 
 *2016-11 FYI: Jenny is running R version 3.3.1 (2016-06-21) Bug in Your Hair and RStudio 1.0.44 at the time of writing.*
 
-## Install `devtools` from CRAN
+## Install devtools from CRAN
 
-We use the `devtools` package to help us develop our R package. Do this:
+We use the [devtools] package to help us develop our R package. Do this:
 
 ``` r
 install.packages("devtools")
@@ -31,15 +31,15 @@ You *can ignore* this and successfully develop an R package that consists solely
 
 However, we recommend you install Rtools, so you can take full advantage of devtools. Soon, you will want to use `devtools::install_github()` to install R packages from GitHub, instead of CRAN. You will inevitably need to build a package that includes C/C++ code, which *will require* Rtools.
 
-Rtools is __NOT an R package__ but is rather ["a collection of resources for building packages for R under Microsoft Windows, or for building R itself"](https://cran.r-project.org/bin/windows/Rtools/).
+Rtools is __NOT an R package__ but is rather ["a collection of resources for building packages for R under Microsoft Windows, or for building R itself"](https://cloud.r-project.org/bin/windows/Rtools/).
 
 Go here and do what it says:
 
-<https://cran.r-project.org/bin/windows/Rtools/>
+<https://cloud.r-project.org/bin/windows/Rtools/>
 
 During the installation of Rtools you will get to a window asking you to "Select Additional Tasks". **It is important that you make sure to select the box for "Edit the system PATH"**.
 
-*Are we going to recommend making sure Git Bash is NOT on `PATH`? See [#230](https://github.com/STAT545-UBC/Discussion/issues/230#issuecomment-155236031).*
+*Are we going to recommend making sure Git Bash is NOT on `PATH`? See [issue #230](https://github.com/STAT545-UBC/Discussion/issues/230#issuecomment-155236031).*
 
 ```{r echo = FALSE, fig.cap = "Rtools installation", out.width = "65%"}
 knitr::include_graphics("img/rtools-install.png")
@@ -56,7 +56,7 @@ Hopefully you will simply see a message saying `TRUE`, indicating that Rtools is
 
 ## macOS: system prep
 
-You will not get an *immediate* warning from `devtools` that you need to install anything. But before you can build R package with compiled code, you will also need to install more software. Pick one of the following:
+You will not get an *immediate* warning from devtools that you need to install anything. But before you can build R package with compiled code, you will also need to install more software. Pick one of the following:
 
 * Minimalist approach (what I do): Install Xcode Command Line Tools.
   - In the shell: `xcode-select --install`
@@ -65,11 +65,11 @@ You will not get an *immediate* warning from `devtools` that you need to install
   
 ## Linux: system prep
 
-*We've never had this section but [RStudio's `devtools` guide][rstudio-devtools] and [R Packages](https://r-pkgs.org/intro.html#linux) both say the `r-devel` or `r-base-dev` package is required. What gives?*
+*We've never had this section but [RStudio's devtools guide](https://www.rstudio.com/products/rpackages/devtools/) and [R Packages](https://r-pkgs.org/intro.html#linux) [@wickham-unpub] both say the r-devel or r-base-dev package is required. What gives?*
 
 ## Check system prep
 
-`devtools` offers a diagnostic function to check if your system is ready.
+devtools offers a diagnostic function to check if your system is ready.
 
 ``` r
 library(devtools)
@@ -82,9 +82,9 @@ Hopefully you see `TRUE`!
 
 Install more packages. If you already have them, update them.
 
-* knitr
-* roxygen2
-* testthat
+* [knitr]
+* [roxygen2]
+* [testthat]
 
 *2016-11 FYI: Jenny is running these versions of these packages at the time of writing.*
 
@@ -128,9 +128,9 @@ update.packages(ask = FALSE)
         
 __CAVEAT:__ The above examples will only consult your default library and default CRAN mirror. If you want to target a non-default library, use function arguments to say so. Packages that you have installed from GitHub? You'll need to check the current-ness of your version and perform upgrades yourself.
 
-## Optional: install `devtools` from GitHub
+## Optional: install devtools from GitHub
 
-We aren't using bleeding edge features of `devtools`, but you could upgrade to the development version of `devtools` at this point.
+We aren't using bleeding edge features of devtools, but you could upgrade to the development version of devtools at this point.
 
 macOS and Linux users have it easy. Do this:
 
@@ -138,7 +138,7 @@ macOS and Linux users have it easy. Do this:
 devtools::install_github("r-lib/devtools")
 ```
 
-For Windows instructions, see the [`devtools` README][devtools-github].
+For Windows instructions, see the [devtools README](https://github.com/r-lib/devtools).
 
 
 ```{r links, child="links.md"}

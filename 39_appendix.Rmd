@@ -48,7 +48,7 @@ oldies_formatted %>%
 set.seed(328)
 ```
 
-```{r draw-an-owl, echo = FALSE, fig.cap = '"How to draw an owl" from [imgur](http://imgur.com/gallery/RadSf)"', out.width = "50%"}
+```{r draw-an-owl, echo = FALSE, fig.cap = '"How to draw an owl" from [imgur](http://imgur.com/gallery/RadSf)', out.width = "50%"}
 knitr::include_graphics("img/how-to-draw-an-own-imgur.jpg")
 ```
 
@@ -56,18 +56,18 @@ Figure \@ref(fig:draw-an-owl) is an image that is often used to illustrate how h
 
 I recently needed to draw a f\*cking owl in R, so I decided to record the process as an experiment.
 
-When I teach [STAT545][stat-545] or [Software Carpentry][software-carpentry], I try to convey as much about *process* as anything else. You can always look up technical details, e.g., syntax, but you don't usually get to see how other people work. This is also how I approach teaching about [writing R functions](#functions-part1). Newcomers often look at finished code and assume it flowed perfectly formed out of someone's fingertips. It probably did not.
+When I teach STAT 545 or [Software Carpentry](https://software-carpentry.org), I try to convey as much about *process* as anything else. You can always look up technical details, e.g., syntax, but you don't usually get to see how other people work. This is also how I approach teaching about [writing R functions](#functions-part1). Newcomers often look at finished code and assume it flowed perfectly formed out of someone's fingertips. It probably did not.
 
 My *modus operandi*: start with something that works and add features in small increments, maniacally checking that everything still works. Other people undoubtedly move faster (and, therefore, travel faster but crash harder), but I'm OK with that.
 
 
 ### Context: writing a function factory
 
-I have an R package [`googlesheets`][googlesheets-github] that gets Google Sheets in and out of R. Lately we've had a lot of trouble with  `Internal Server Error (HTTP 500)`, which, as you might expect, is an error on the Google server side. All you can do as a user is try, try again. But this is a showstopper for unattended scripts or multi-step operations, like building and checking the package. A single error renders lots of other work moot, which is completely infuriating.
+I have an R package, [googlesheets], that gets Google Sheets in and out of R. Lately we've had a lot of trouble with  `Internal Server Error (HTTP 500)`, which, as you might expect, is an error on the Google server side. All you can do as a user is try, try again. But this is a showstopper for unattended scripts or multi-step operations, like building and checking the package. A single error renders lots of other work moot, which is completely infuriating.
 
 I want to catch these errors and automatically retry the request after an appropriate delay.
 
-The brute force approach would be to literally drop little `for` or `while` loops all over the package, to inspect the response and retry if necessary. But I try to follow the [DRY principle][wiki-dry], so would prefer to write a new "retry-capable" version of the function that makes these http requests.
+The brute force approach would be to literally drop little `for` or `while` loops all over the package, to inspect the response and retry if necessary. But I try to follow the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), so would prefer to write a new "retry-capable" version of the function that makes these http requests.
 
 It also turns out there's more than one function for making these requests. I'm talking about the [HTTP verbs you use with REST APIs](https://www.restapitutorial.com/lessons/httpmethods.html): GET, POST, PATCH, etc. I potentially need to give them all the "retry" treatment. So what I really need is a *function factory*: an HTTP verb goes in and out comes a retry-capable version of the verb.
 
@@ -75,7 +75,7 @@ It turns out you can write R (or S) for ~20 years and not be very facile with th
 
 ### Start at the beginning
 
-My reference is the section of Wickham's [Advanced R][adv-r] [-@wickham2015a] that is about [closures][adv-r-closures], "functions written by functions". Here's one of the two main examples: a function that creates an exponentiation function.
+My reference is the section of Wickham's [Advanced R] [-@wickham2015a] book that is about [closures](http://adv-r.had.co.nz/Functional-programming.html#closures), "functions written by functions". Here's one of the two main examples: a function that creates an exponentiation function.
 
 ```{r}
 power <- function(exponent) {
@@ -285,13 +285,6 @@ The final version of the function factory is about a dozen lines of fairly pedes
 
 *The __results__ of this effort are, however, pretty gratifying. I have had zero build/check failures locally and on Travis, since I implemented retries on `httr::GET()`. Or, to be honest, I've had failures, but for other reasons. So it was totally worth it! I also thank Konrad Rudolph and Kevin Ushey for [straightening me out](https://gist.github.com/jennybc/65c577f98c2bad7e2b3d0ccb773dfaf8) on the need to use `force()` inside the function factory.*
 
-## How to obtain a bunch of GitHub issues or pull requests with R {#gh-package}
-
-[Using dplyr + purrr + tidyr](https://github.com/jennybc/analyze-github-stuff-with-r) to analyze data about GitHub repos via the [gh package][gh-github]
-
-## How to tame XML with nested data frames and purrr {#tame-google-sheets}
-
-[Using dplyr + purrr + tidyr + xml2](https://github.com/jennybc/manipulate-xml-with-purrr-dplyr-tidyr) to tame the annoying XML from Google Sheets
 
 ## Make browsing your GitHub repos more rewarding {#github-browsability}
 
@@ -364,7 +357,7 @@ or like [this](https://gist.github.com/jennybc/402761e30b9be8023af9#file-yaml_fr
 In RStudio, when editing `.Rmd`, click on the gear next to "Knit HTML" for YAML authoring help
 For a quick, stand-alone document that doesn't fit neatly into a repository or project (yet), make it a [Gist](https://gist.github.com). 
 
-__Example:__ Hadley Wickham's [advice on what you need to do to become a data scientist](https://gist.github.com/hadley/820f09ded347c62c2864). Gists can contain multiple files, so you can still provide the R script or R Markdown source __and__ the resulting Markdown, as I've done in this write-up of [Twitter-sourced tips for cross-tabulation](https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb).
+Example: Hadley Wickham's [advice on what you need to do to become a data scientist](https://gist.github.com/hadley/820f09ded347c62c2864). Gists can contain multiple files, so you can still provide the R script or R Markdown source __and__ the resulting Markdown, as I've done in this write-up of [Twitter-sourced tips for cross-tabulation](https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb).
 
 ### `README.md`
 
@@ -372,7 +365,7 @@ You probably already know that GitHub renders `README.md` at the top-level of yo
 
 Implication: for any logical group of files or mini project-within-your-project, create a sub-directory in your repository. And then create a `README.md` file to annotate these files, collect relevant links, etc. Now when you navigate to the sub-directory on GitHub the nicely rendered `README.md` will simply appear.
 
-Some repositories consist solely of `README.md`. __Examples:__ Jeff Leek's write-ups on [How to share data with a statistician](https://github.com/jtleek/datasharing) or [Developing R packages](https://github.com/jtleek/rpackages). I am becoming a bigger fan of `README`-only repos than gists because repo issues trigger notifications, whereas comments on gists do not.
+Some repositories consist solely of `README.md`. Examples: Jeff Leek's write-ups on [How to share data with a statistician](https://github.com/jtleek/datasharing) or [Developing R packages](https://github.com/jtleek/rpackages). I am becoming a bigger fan of `README`-only repos than gists because repo issues trigger notifications, whereas comments on gists do not.
 
 If you've got a directory full of web-friendly figures, such as PNGs, you can use [code like this](https://gist.github.com/jennybc/0239f65633e09df7e5f4) to generate a `README.md` for a quick DIY gallery, as Karl Broman has done with [his FruitSnacks](https://github.com/kbroman/FruitSnacks/blob/master/PhotoGallery.md). I have also used this device to share Keynote slides on GitHub (*mea culpa!*). Export them as PNGs images and throw 'em into a README gallery: slides on [file organization](https://github.com/Reproducible-Science-Curriculum/rr-organization1/tree/27883c8fc4cdd4dcc6a8232f1fe5c726e96708a0/slides/organization-slides) and some on [file naming](https://github.com/Reproducible-Science-Curriculum/rr-organization1/tree/27883c8fc4cdd4dcc6a8232f1fe5c726e96708a0/slides/naming-slides).
 
@@ -473,16 +466,6 @@ and here it is with placeholders:
 
 AFAIK, to do that in a slick automatic way across an entire repo/site, you need to be using Jekyll or some other automated system. But you could easily handcode such links on a small scale.
 
-## How to send a bunch of emails from R {#email-in-r}
-
-[Workflow](https://github.com/jennybc/send-email-with-r) for sending email with R and [`gmailr`](https://CRAN.R-project.org/package=gmailr).
-
-## Store an API key as an environment variable {#store-api-key}
-
-<!--Original content: https://stat545.com/bit003_api-key-env-var.html-->
-
-This can be found [here](https://happygitwithr.com/credential-caching.html).
-
 ## Data Carpentry lesson on tidy data {#data-carp-tidy-data}
 
 <!--Original content: https://stat545.com/bit002_tidying-lotr-data.html-->
@@ -510,6 +493,154 @@ Instructor dependencies:
 * curl if you execute the code to grab the Lord of the Rings data used in examples from GitHub. Note that the files are also included in the `datacarpentry/data/tidy-data/` directory, so data download is avoidable.
 * rmarkdown, knitr, and xtable if you want to compile the `Rmd` to `md` and `html`.
 
+## How to obtain a bunch of GitHub issues or pull requests with R {#gh-package}
+
+[Using dplyr + purrr + tidyr](https://github.com/jennybc/analyze-github-stuff-with-r) to analyze data about GitHub repos via the [gh] package
+
+## How to tame XML with nested data frames and purrr {#tame-google-sheets}
+
+[Using dplyr + purrr + tidyr + xml2](https://github.com/jennybc/manipulate-xml-with-purrr-dplyr-tidyr) to tame the annoying XML from Google Sheets
+
+## How to send a bunch of emails from R {#email-in-r}
+
+[Workflow](https://github.com/jennybc/send-email-with-r) for sending email with R and [gmailr](https://cloud.R-project.org/package=gmailr).
+
+## Store an API key as an environment variable {#store-api-key}
+
+<!--Original content: https://stat545.com/bit003_api-key-env-var.html-->
+
+This can be found [here](https://happygitwithr.com/credential-caching.html).
+
+
+# Contributing {#contributing}
+
+## Link Reference Formatting
+
+There are *a lot* of links in this bookdown. In an effort to keep things organized, we have come up with a formatting system (see issue [#31](https://github.com/rstudio-education/stat545/issues/31) for some of the thoughts that went into this).
+
+Some sections in the bookdown documentation on formatting links:
+
+* https://bookdown.org/yihui/bookdown/markdown-syntax.html#inline-formatting
+* https://bookdown.org/yihui/bookdown/cross-references.html
+
+### Popular links: `links.md`
+
+The same links are frequently referenced in multiple chapters in this bookdown. To cut down on repetition, we've added a file called [`links.md`](https://raw.githubusercontent.com/rstudio-education/stat545/master/links.md), which contains a list of label-link pairs formatted as `[label]: link`. 
+
+This file serves as a kind of "global" directory of link references for all of the chapters (i.e. Rmd files) in this bookdown. Each chapter has this code chunk at the end,
+
+````markdown
+`r ''````{r links, child="links.md"}
+```
+````
+
+which tells it to treat `links.md` as a child document, giving it access to the label-link pairs in `links.md`. 
+
+#### What types of links are already in `links.md`?
+
+* STAT 545 external resources/content
+  + Related materials that are not in this bookdown (e.g. [Tidy data using Lord of the Rings])
+* Packages: main link 
+  + Where `[package-name]` should send us; what we consider to be the "homepage" for a package
+* Packages: vignettes & CRAN/GitHub links
+  + Package vignettes that are mentioned in multiple chapters (e.g. the dplyr [Window functions] vignette)
+  + CRAN and GitHub links that are mentioned in multiple chapters (e.g. the dplyr [CRAN][dplyr-cran] page)
+* Bookdowns: main link
+  + Where `[Bookdown Title]` should send us
+* Bookdowns: specific chapters
+  + Specific bookdown chapters that are mentioned in multiple chapters (e.g. the [Data transformation][r4ds-transform] chapter from R for Data Science)
+* Cheat sheets
+* Blog posts & slides
+* Papers/books cited
+* Misc. - anything else
+
+#### When should a link be added to `links.md`?
+
+If a link is used in multiple chapters (i.e. Rmd files) - or you think it will be in the future - go ahead and add it to `links.md`. Format it as `[label]: link`, where `label` is some text that we can usually live with as the link text. 
+
+For example, the link to the [Happy Git and GitHub for the useR] book is in `links.md` as
+
+```
+[Happy Git and GitHub for the useR]: https://happygitwithr.com
+```
+
+Before we had to write out...
+
+`[Happy Git and GitHub for the useR](https://happygitwithr/com)` 
+
+...every time to get [Happy Git and GitHub for the useR]. Now just writing `[Happy Git and GitHub for the useR]` will get us the same thing.
+
+
+#### What if there isn't a useful `label`?
+
+Occasionally there won't be a `label` that also makes for a convenient link text. For those cases, try to choose a `label` that is both descriptive and unique. 
+
+For example, the Data Transformation chapter of R for Data Science is mentioned in multiple chapters and is in `links.md` as
+
+```
+[r4ds-transform]: https://r4ds.had.co.nz/transform.html
+```
+
+Writing `[Data transformation][r4ds-transform]` will appear as [Data transformation][r4ds-transform].
+
+### One-off links
+
+For links that only appear in one chapter (i.e. a single Rmd file), there are two options.
+
+1. Inline-style links
+1. Reference-style links
+
+#### Inline-style
+
+If the link is a one-hit-wonder and will likely not be used again, include it as a regular inline-style link.
+
+This....
+
+```
+Hypothetical: a [zombie project](https://imgur.com/ewmBeQG) comes back to life...
+```
+
+will appear as....
+
+> Hypothetical: a [zombie project](https://imgur.com/ewmBeQG) comes back to life...
+
+*However*, if you think that it makes more sense to include it as a reference-style link or in `links.md`, that is okay too.
+
+
+#### Reference-style
+
+If the link is used more than once within the chapter, format it as a reference-style link. Add it at the end of the Rmd file formated as `[label]: link`, where `label` is some text we can usually live with as the actual link text. 
+
+This...
+
+```
+It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"].
+
+...
+
+Huh? Don't worry about it. Remember we are ["writing data for computers"].
+
+...
+
+<!--Links-->
+["writing data for computers"]: https://twitter.com/vsbuffalo/statuses/358699162679787521
+```
+
+
+will appear as...
+
+> It's not really fair to complain about the lack of visible alignment. Remember we are ["writing data for computers"].
+>
+> ...
+>
+> Huh? Don't worry about it. Remember we are ["writing data for computers"].
+>
+> ...
+>
+> <!--Links-->
+> ["writing data for computers"]: https://twitter.com/vsbuffalo/statuses/358699162679787521
+
+*However*, if you think that it makes more sense to include it as a reference-style link or in `links.md`, that is okay too.
 
 
 ```{r links, child="links.md"}

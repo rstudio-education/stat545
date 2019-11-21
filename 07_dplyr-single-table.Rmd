@@ -8,7 +8,7 @@ source("common.R")
 
 ## Where were we?
 
-In Chapter \@ref(dplyr-intro), [Introduction to dplyr](#dplyr-intro), we used two very important verbs and an operator:
+In Chapter \@ref(dplyr-intro), Introduction to dplyr, we used two very important verbs and an operator:
 
 * `filter()` for subsetting data with row logic
 * `select()` for subsetting data variable- or column-wise
@@ -16,7 +16,7 @@ In Chapter \@ref(dplyr-intro), [Introduction to dplyr](#dplyr-intro), we used tw
   
 We also discussed dplyr's role inside the tidyverse and tibbles:
 
-* dplyr is a core package in the [tidyverse][tidyverse-github] meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via `library(tidyverse)`.
+* [dplyr] is a core package in the [tidyverse] meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via `library(tidyverse)`.
 * The tidyverse embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
 
 ## Load dplyr and gapminder
@@ -27,7 +27,8 @@ I choose to load the tidyverse, which will load dplyr, among other packages we u
 library(tidyverse)
 ```
 
-Also load `gapminder.`
+Also load [gapminder].
+
 ```{r message = FALSE, warning = FALSE}
 library(gapminder)
 ```
@@ -66,9 +67,9 @@ my_gap %>%
   mutate(gdp = pop * gdpPercap)
 ```
 
-Hmmmm ... those GDP numbers are almost uselessly large and abstract. Consider the [advice of Randall Munroe of xkcd][xckd-randall-munroe]:
+Hmmmm ... those GDP numbers are almost uselessly large and abstract. Consider the [advice of Randall Munroe of xkcd](https://fivethirtyeight.com/features/xkcd-randall-munroe-qanda-what-if/):
 
->One thing that bothers me is large numbers presented without context... 'If I added a zero to this number, would the sentence containing it mean something different to me?' If the answer is 'no,' maybe the number has no business being in the sentence in the first place."
+>One thing that bothers me is large numbers presented without context... "If I added a zero to this number, would the sentence containing it mean something different to me?" If the answer is "no", maybe the number has no business being in the sentence in the first place.
 
 Maybe it would be more meaningful to consumers of my tables and figures to stick with GDP per capita. But what if I reported GDP per capita, *relative to some benchmark country*. Since Canada is my adopted home, I'll go with that. 
 
@@ -143,7 +144,7 @@ I advise that your analyses NEVER rely on rows or variables being in a specific 
 
 ## Use `rename()` to rename variables
 
-When I first cleaned this Gapminder excerpt, I was a [`camelCase`][wiki-camel-case] person, but now I'm all about [`snake_case`][wiki-snake-case]. So I am vexed by the variable names I chose when I cleaned this data years ago. Let's rename some variables!
+When I first cleaned this Gapminder excerpt, I was a [`camelCase`](https://en.wikipedia.org/wiki/Camel_case) person, but now I'm all about [`snake_case`][wiki-snake-case]. So I am vexed by the variable names I chose when I cleaned this data years ago. Let's rename some variables!
 
 ```{r}
 my_gap %>%
@@ -172,16 +173,20 @@ my_gap %>%
 
 ## `group_by()` is a mighty weapon
 
-I have found ~~friends and family~~ collaborators love to ask seemingly innocuous questions like, "which country experienced the sharpest 5-year drop in life expectancy?". In fact, that is a totally natural question to ask. But if you are using a language that doesn't know about data, it's an incredibly annoying question to answer.
+I have found that ~~friends and family~~ collaborators love to ask seemingly innocuous questions like, "which country experienced the sharpest 5-year drop in life expectancy?". In fact, that is a totally natural question to ask. But if you are using a language that doesn't know about data, it's an incredibly annoying question to answer.
 
 
 dplyr offers powerful tools to solve this class of problem:
 
 * `group_by()` adds extra structure to your dataset -- grouping information -- which lays the groundwork for computations within the groups.
+
 * `summarize()` takes a dataset with $n$ observations, computes requested summaries, and returns a dataset with 1 observation.
+
 * Window functions take a dataset with $n$ observations and return a dataset with $n$ observations.
+
 * `mutate()` and `summarize()` will honor groups.
-* You can also do very general computations on your groups with `do()`, though elsewhere in this course, I advocate for other approaches that I find more intuitive, using the [purrr package][purrr-web].
+
+* You can also do very general computations on your groups with `do()`, though elsewhere in this course, I advocate for other approaches that I find more intuitive, using the [purrr] package.
   
 Combined with the verbs you already know, these new tools allow you to solve an extremely diverse set of problems with relative ease.
 
@@ -362,31 +367,31 @@ my_gap %>%
 
 Ponder that for a while. The subject matter and the code. Mostly you're seeing what genocide looks like in dry statistics on average life expectancy.
 
-Break the code into pieces, starting at the top, and inspect the intermediate results. That's certainly how I was able to *write* such a thing. These commands do not [leap fully formed out of anyone's forehead][athena-zeus-forehead] -- they are built up gradually, with lots of errors and refinements along the way. I'm not even sure it's a great idea to do so much manipulation in one fell swoop. Is the statement above really hard for you to read? If yes, then by all means break it into pieces and make some intermediate objects. Your code should be easy to write and read when you're done.
+Break the code into pieces, starting at the top, and inspect the intermediate results. That's certainly how I was able to *write* such a thing. These commands do not [leap fully formed out of anyone's forehead](https://tinyurl.com/athenaforehead) -- they are built up gradually, with lots of errors and refinements along the way. I'm not even sure it's a great idea to do so much manipulation in one fell swoop. Is the statement above really hard for you to read? If yes, then by all means break it into pieces and make some intermediate objects. Your code should be easy to write and read when you're done.
 
 In later tutorials, we'll explore more of dplyr, such as operations based on two datasets.
 
 ## Resources
 
-dplyr official stuff:
+[dplyr] official stuff:
 
 * Package home [on CRAN][dplyr-cran].
-  - Note there are several vignettes, with the [introduction][dplyr-vignette-intro] being the most relevant right now.
-  - The [one on window functions][dplyr-vignette-window-fxns] will also be interesting to you now.
+  - Note there are several vignettes, with the [Introduction to dplyr] being the most relevant right now.
+  - The [Window functions] one will also be interesting to you now.
 * Development home [on GitHub][dplyr-github].
 * [Tutorial HW delivered][useR-2014-dropbox] (note this links to a DropBox folder) at useR! 2014 conference.     
     
-[RStudio Data Transformation Cheat Sheet][rstudio-dplyr-cheatsheet-download], covering dplyr. Remember you can get to these via *Help > Cheatsheets.* 
+[RStudio Data Transformation Cheat Sheet], covering dplyr. Remember you can get to these via *Help > Cheatsheets.* 
 
-[Data transformation][r4ds-transform] chapter of [R for Data Science][r4ds] [@wickham2016].
-
-<!--TODO: This should probably be updated with something more recent-->
-[Excellent slides][tj-mahr-slides] on pipelines and dplyr by TJ Mahr, talk given to the Madison R Users Group.
+[Data transformation][r4ds-transform] chapter of [R for Data Science] [@wickham2016].
 
 <!--TODO: This should probably be updated with something more recent-->
-Blog post [Hands-on dplyr tutorial for faster data manipulation in R][dataschool-dplyr] by Data School, that includes a link to an R Markdown document and links to videos.
+["Let the Data Flow: Pipelines in R with dplyr and magrittr"] - Excellent slides on pipelines and dplyr by TJ Mahr, talk given to the Madison R Users Group.
 
-Chapter \@ref(join-cheatsheet): cheatsheet I made for dplyr join functions (not relevant yet but soon).
+<!--TODO: This should probably be updated with something more recent-->
+Blog post ["Hands-on dplyr tutorial for faster data manipulation in R"] by Data School, that includes a link to an R Markdown document and links to videos.
+
+Chapter \@ref(join-cheatsheet) - cheatsheet I made for dplyr join functions (not relevant yet but soon).
 
 ```{r links, child="links.md"}
 ```

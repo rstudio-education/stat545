@@ -10,11 +10,11 @@ source("common.R")
 
 My goal here is to reveal the __process__ a long-time useR employs for writing functions. I also want to illustrate why the process is the way it is. Merely looking at the finished product, e.g. source code for R packages, can be extremely deceiving. Reality is generally much uglier ... but more interesting!
 
-Why are we covering this now, smack in the middle of data aggregation? Powerful machines like dplyr, purrr, and the built-in "apply" family of functions, are ready and waiting to apply your purpose-built functions to various bits of your data. If you can express your analytical wishes in a function, these tools will give you great power.
+Why are we covering this now, smack in the middle of data aggregation? Powerful machines like [dplyr], [purrr], and the built-in "apply" family of functions, are ready and waiting to apply your purpose-built functions to various bits of your data. If you can express your analytical wishes in a function, these tools will give you great power.
 
 ## Load the Gapminder data
 
-As usual, load gapminder.
+As usual, load [gapminder].
 
 ```{r start_func1}
 library(gapminder)
@@ -29,7 +29,7 @@ Say you've got a numeric vector, and you want to compute the difference between 
 
 First, develop some working code for interactive use, using a representative input. I'll use Gapminder's life expectancy variable.
 
-R functions that will be useful: `min()`, `max()`, `range()`. (__Read their documentation:__ [here][rdocs-extremes] and [here][rdocs-range])
+R functions that will be useful: `min()`, `max()`, `range()`. (__Read their documentation:__ [here](https://rdrr.io/r/base/Extremes.html) and [here](https://rdrr.io/r/base/range.html))
 
 ```{r}
 ## get to know the functions mentioned above
@@ -49,15 +49,15 @@ Internalize this "answer" because our informal testing relies on you noticing de
 
 ### Skateboard >> perfectly formed rear-view mirror
 
-This image [widely attributed to the Spotify development team][min-viable-product] conveys an important point.
+This image [widely attributed to the Spotify development team](https://blog.fastmonkeys.com/?utm_content=bufferc2d6e&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) conveys an important point.
 
-```{r spotify-howtobuildmvp, echo = FALSE, out.width = "60%", fig.cap = "From [Your ultimate guide to Minimum Viable Product (+great examples)](https://blog.fastmonkeys.com/2014/06/18/minimum-viable-product-your-ultimate-guide-to-mvp-great-examples/)"}
+```{r spotify-howtobuildmvp, echo = FALSE, out.width = "60%", fig.cap = 'From ["Your ultimate guide to Minimum Viable Product (+great examples)"](https://blog.fastmonkeys.com/2014/06/18/minimum-viable-product-your-ultimate-guide-to-mvp-great-examples/)'}
 knitr::include_graphics("img/spotify-howtobuildmvp.jpg")
 ```
 
 Build that skateboard before you build the car or some fancy car part. A limited-but-functioning thing is very useful. It also keeps the spirits high.
 
-This is related to the valuable [Telescope Rule][telescope-rule]:
+This is related to the valuable [Telescope Rule](http://c2.com/cgi/wiki?TelescopeRule):
 
 > It is faster to make a four-inch mirror then a six-inch mirror than to make a six-inch mirror.
 
@@ -100,7 +100,7 @@ Either check these results "by hand" or apply the "does that even make sense?" t
 
 ### Test on weird stuff
 
-Now we try to break our function. Don't get truly diabolical (yet). Just make the kind of mistakes you can imagine making at 2am when, 3 years from now, you rediscover this useful function you wrote. Give your function inputs it's not expecting.
+Now we try to break our function. Don't get truly diabolical (yet). Just make the kind of mistakes you can imagine making at 2 a.m. when, 3 years from now, you rediscover this useful function you wrote. Give your function inputs it's not expecting.
 
 ```{r error = TRUE}
 max_minus_min(gapminder) ## hey sometimes things "just work" on data.frames!
@@ -112,7 +112,7 @@ How happy are you with those error messages? You must imagine that some entire _
 
 ### I will scare you now
 
-Here are some great examples STAT545 students devised during class where the function __should break but it does not.__
+Here are some great examples STAT 545 students devised during class where the function __should break but it does not.__
 
 ```{r}
 max_minus_min(gapminder[c('lifeExp', 'gdpPercap', 'pop')])
@@ -123,7 +123,7 @@ In both cases, R's eagerness to make sense of our requests is unfortunately succ
 
 ## Check the validity of arguments
 
-For functions that will be used again -- which is not all of them! -- it is good to check the validity of arguments. This implements a rule from [the Unix philosophy][unix-philosophy]:
+For functions that will be used again -- which is not all of them! -- it is good to check the validity of arguments. This implements a rule from [the Unix philosophy](http://www.faqs.org/docs/artu/ch01s06.html):
 
 > Rule of Repair: When you must fail, fail noisily and as soon as possible.
 
@@ -163,11 +163,11 @@ mmm2(gapminder)
 In addition to a gratuitous apology, the error raised also contains two more pieces of helpful info:
   
 * *Which* function threw the error.
-* Hints on how to fix things: expected class of input vs actual class.
+* Hints on how to fix things: expected class of input vs. actual class.
 
 If it is easy to do so, I highly recommend this template: "you gave me THIS, but I need THAT".
 
-The tidyverse style guide has a very useful [chapter on how to construct error messages](https://style.tidyverse.org/error-messages.html).
+[The tidyverse style guide] has a very useful [chapter on how to construct error messages](https://style.tidyverse.org/error-messages.html).
 
 ### Sidebar: non-programming uses for assertions
 
@@ -191,16 +191,13 @@ Where to next? In [part 2](#functions-part2) we generalize this function to take
 
 ## Resources
 
-Packages for runtime assertions (the last 3 seem to be under more active development than `assertthat`):
-
-* assertthat on [CRAN][assertthat-cran] and [GitHub][assertthat-github] - *the Hadleyverse option*
-* ensurer on [CRAN][ensurer-cran] and [GitHub][ensurer-github] - *general purpose, pipe-friendly*
-* assertr on [CRAN][assertr-cran] and [GitHub][assertr-github] - *explicitly data pipeline oriented*
-* assertive on [CRAN][assertive-cran] and [Bitbucket][assertive-bitbucket] - *rich set of built-in functions*
-
-Hadley Wickham's book [Advanced R][adv-r] [-@wickham2015a]:
-
-* Section on [defensive programming][adv-r-defensive-programming]
+* Packages for runtime assertions:
+  + assertthat on [CRAN](https://cloud.R-project.org/package=assertthat) and [GitHub](https://github.com/hadley/assertthat) - *the Hadleyverse option*
+  + ensurer on [CRAN](https://cloud.R-project.org/package=ensurer) and [GitHub](https://github.com/smbache/ensurer) - *general purpose, pipe-friendly*
+  + assertr on [CRAN](https://cloud.R-project.org/package=assertr) and [GitHub](https://github.com/ropensci/assertr) - *explicitly data pipeline oriented*
+  + assertive on [CRAN](https://cloud.R-project.org/package=assertive) and [Bitbucket](https://bitbucket.org/richierocks/assertive/src/master/) - *rich set of built-in functions*
+* Hadley Wickham's book, [Advanced R] [-@wickham2015a]:
+  + Section on [defensive programming](http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming)
 
 
 ```{r links, child="links.md"}

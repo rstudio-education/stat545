@@ -17,7 +17,7 @@ We've covered many topics on how to manipulate and reshape a single data frame:
 * Chapter \@ref(dplyr-single) - dplyr functions for a single dataset
   + Single table verbs.
 * Chapter \@ref(tidy-data) - Tidy data using Lord of the Rings
-  + Tidy data, tidyr. 
+  + Tidy data, [tidyr]. 
   + *This actually kicks off with a row bind operation, discussed below.*
 
 But what if your data arrives in many pieces? There are many good (and bad) reasons why this might happen. How do you get it into one big beautiful tibble? These tasks break down into 3 main classes:
@@ -30,7 +30,7 @@ But what if your data arrives in many pieces? There are many good (and bad) reas
 
 __Bind__ - This is basically smashing ~~rocks~~ tibbles together. You can smash things together row-wise ("row binding") or column-wise ("column binding"). Why do I characterize this as rock-smashing? They're often fairly crude operations, with lots of responsibility falling on the analyst for making sure that the whole enterprise even makes sense.
 
-When row binding, you need to consider the variables in the two tibbles. Do the same variables exist in each? Are they of the same type? Different approaches for row binding have different combinations of flexibility vs rigidity around these matters.
+When row binding, you need to consider the variables in the two tibbles. Do the same variables exist in each? Are they of the same type? Different approaches for row binding have different combinations of flexibility vs. rigidity around these matters.
 
 When column binding, the onus is entirely on the analyst to make sure that the rows are aligned. I would avoid column binding whenever possible. If you can introduce new variables through any other, safer means, do so! By safer, I mean: use a mechanism where the row alignment is correct **by definition**. A proper join is the gold standard. In addition to joins, functions like `dplyr::mutate()` and `tidyr::separate()` can be very useful for forcing yourself to work inside the constraint of a tibble.
 
@@ -55,7 +55,7 @@ library(tidyverse)
 
 ### Row binding
 
-We used word count data from the Lord of the Rings trilogy to explore the concept of tidy data. That kicked off with a quiet, successful row bind. Let's revisit that.
+We used word count data from the Lord of the Rings trilogy to explore the concept of tidy data in Chapter \@ref(tidy-data). That kicked off with a quiet, successful row bind. Let's revisit that.
 
 Here's what a perfect row bind of three (untidy!) data frames looks like.
 
@@ -152,7 +152,6 @@ Bottom line: Row bind when you need to, but inspect the results re: coercion. Co
 ## Joins in dplyr
 
 Visit Chapter \@ref(join-cheatsheet) to see concrete examples of all the joins implemented in dplyr, based on comic characters and publishers.
-
 
 The most recent release of gapminder includes a new data frame, `country_codes`, with country names and ISO codes. Therefore you can also use it to practice joins.
 

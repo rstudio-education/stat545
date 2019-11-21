@@ -20,13 +20,18 @@ Here we discuss common remedial tasks for dealing with date-times.
 
 I start with this because we cannot possibly do this topic justice in a short amount of time. Our goal is to make you aware of specific problems and solutions. Once you have a character problem in real life, these resources will be extremely helpful as you delve deeper.
 
-[Dates and times][r4ds-dates-times] chapter from [R for Data Science][r4ds] by Hadley Wickham and Garrett Grolemund [-@wickham2016]. See also the subsection on dates and times in the [Data import chapter][r4ds-data-import].
+* [Dates and times](https://r4ds.had.co.nz/dates-and-times.html) chapter from [R for Data Science] by Hadley Wickham and Garrett Grolemund [-@wickham2016]. 
+  + See also the subsection on dates and times in the [Data import chapter](http://r4ds.had.co.nz/data-import.html).
+* The [lubridate] package.
+  + On [CRAN](https://cloud.R-project.org/package=lubridate).
+  + On [GitHub](https://github.com/tidyverse/lubridate).
+  + Main vignette: [Do more with dates and times in R].
+* Grolemund and Wickham's paper on lubridate in the Journal of Statistical Software: ["Dates and Times Made Easy with lubridate"] [-@grolemund2011].
+* Exercises to push you to learn lubridate (*posts include links to answers!*)
+  + [Part 1](https://www.r-exercises.com/2016/08/15/dates-and-times-simple-and-easy-with-lubridate-part-1/)
+  + [Part 2](https://www.r-exercises.com/2016/08/29/dates-and-times-simple-and-easy-with-lubridate-exercises-part-2/)
+  + [Part 3](https://www.r-exercises.com/2016/10/04/dates-and-times-simple-and-easy-with-lubridate-exercises-part-3/) 
 
-The [lubridate][lubridate-web] package ([CRAN][lubridate-cran]; [GitHub][lubridate-github]; [main vignette][lubridate-vignette]).
-
-Grolemund and Wickham's paper on lubridate in the Journal of Statistical Software [-@grolemund2011].
-
-Exercises to push you to learn lubridate: [part 1][lubridate-ex1], [part 2][lubridate-ex2], and [part 3][lubridate-ex3] *posts include links to answers!*
 
 ## Load the tidyverse and lubridate
 

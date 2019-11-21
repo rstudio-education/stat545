@@ -32,6 +32,7 @@ x[0]
 ```
 
 R is built to work with vectors. Many operations are *vectorized*, i.e. by default they will happen component-wise when given a vector as input. Novices often don't internalize or exploit this and they write lots of unnecessary `for` loops.
+
 ```{r}
 x <- 1:4
 ## which would you rather write and read?
@@ -46,11 +47,13 @@ identical(y, z)
 ```
 
 When reading function documentation, keep your eyes peeled for arguments that can be vectors. You'll be surprised how common they are. For example, the mean and standard deviation of random normal variates can be provided as vectors.
+
 ```{r}
 set.seed(1999)
 rnorm(5, mean = 10^(1:5))
 round(rnorm(5, sd = 10^(0:4)), 2)
 ```
+
 This could be awesome in some settings, but dangerous in others, i.e. if you exploit this by mistake and get no warning. This is one of the reasons it's so important to keep close tabs on your R objects: are they what you expect in terms of their flavor and length or dimensions? Check early and check often.
 
 Notice that R also recycles vectors, if they are not the necessary length. You will get a warning if R suspects recycling is unintended, i.e. when one length is not an integer multiple of another, but recycling is silent if it seems like you know what you're doing. Can be a beautiful thing when you're doing this deliberately, but devastating when you don't.
@@ -116,10 +119,10 @@ We've said, and even seen, that square brackets are used to index a vector. Ther
 
 Most common, useful ways to index a vector:
 
-* __logical vector__: keep elements associated with TRUE's, ditch the FALSE's
-* __vector of positive integers__: specifying the keepers
-* __vector of negative integers__: specifying the losers
-* __character vector__: naming the keepers
+* __Logical vector__: keep elements associated with TRUE's, ditch the FALSE's
+* __Vector of positive integers__: specifying the keepers
+* __Vector of negative integers__: specifying the losers
+* __Character vector__: naming the keepers
 
 ```{r}
 w
@@ -134,14 +137,15 @@ w[-c(2, 5)]
 w[c('c', 'a', 'f')]
 ```
 
-## lists hold just about anything
+## Lists hold just about anything
 
 Lists are basically über-vectors in R. It's like a vector, but with no requirement that the elements be of the same flavor. In data analysis, you won't make lists very often, at least not consciously, but you should still know about them. Why?
 
 * data.frames are lists! They are a special case where each element is an atomic vector, all having the same length.
-* many functions will return lists to you and you will want to extract goodies from them, such as the p-value for a hypothesis test or the estimated error variance in a regression model
+* Many functions will return lists to you and you will want to extract goodies from them, such as the p-value for a hypothesis test or the estimated error variance in a regression model
 
 Here we repeat an assignment from above, using `list()` instead of `c()` to combine things and you'll notice that the different flavors of the constituent parts are retained this time.
+
 ```{r}
 ## earlier: a <- c("cabbage", pi, TRUE, 4.3)
 (a <- list("cabbage", pi, TRUE, 4.3))
@@ -152,6 +156,7 @@ class(a)
 ```
 
 List components can also have names. You can create or change names after a list already exists or this can be integrated into the initial assignment.
+
 ```{r}
 names(a)
 names(a) <- c("veg", "dessert", "myAim", "number")
@@ -162,7 +167,7 @@ names(a)
 
 Indexing a list is similar to indexing a vector but it is necessarily more complex. The fundamental issue is this: if you request a single element from the list, do you want a list of length 1 containing only that element or do you want the element itself? For the former (desired return value is a list), we use single square brackets, `[` and `]`, just like indexing a vector. For the latter (desired return value is a single element), we use a dollar sign `$`, which you've already used to get one variable from a data.frame, or double square brackets, `[[` and `]]`.
 
-The ["pepper shaker photos" in R for Data Science][r4ds-pepper-shaker] are a splendid visual explanation of the different ways to get stuff out of a list. Highly recommended.
+The ["pepper shaker photos"](https://r4ds.had.co.nz/vectors.html#lists-of-condiments) in [R for Data Science] [@wickham2016] are a splendid visual explanation of the different ways to get stuff out of a list. Highly recommended.
 
 > Warning: the rest of this section might make your eyes glaze over. Skip to the next section if you need to; come back later when some list is ruining your day.
 
@@ -180,6 +185,7 @@ mode(a)
 ```
 
 Here's are ways to get a single list element:
+
 ```{r error = TRUE}
 a[[2]] # index with a positive integer
 a$myAim # use dollar sign and element name
@@ -190,6 +196,7 @@ iWantThis <- "joeNum" # indexing with length 1 character object
 a[[iWantThis]] # we get joeNum itself, a length 5 integer vector
 a[[c("joeNum", "veg")]] # does not work! can't get > 1 elements! see below
 ```
+
 A case when one must use the double bracket approach, as opposed to the dollar sign, is when the indexing object itself is an R object; we show that above.
 
 What if you want more than one element? You must index vector-style with single square brackets. Note that the return value will always be a list, unlike the return value from double square brackets, even if you only request 1 element.
@@ -221,7 +228,7 @@ mode(jDat)
 class(jDat)
 ```
 
-> Sidebar: What is `I()`, used when creating the variable $y$ in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the $v$ variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors-boss).
+> Sidebar: What is `I()`, used when creating the variable `y` in the above data.frame? Short version: it tells R to do something _quite literally_. Here we are protecting the letters from being coerced to factor. We are ensuring we get a character vector. Note we let character-to-factor conversion happen in creating the `v` variable above. More about (foiling) R's determination to convert character data to factor can be found [here](#factors-boss).
 
 
 data.frames really are lists! Double square brackets can be used to get individual variables. Single square brackets can be used to get one or more variables, returned as a data.frame (though `subset(..., select = ...))` is how I would more likely do in a data analysis).
@@ -288,19 +295,23 @@ jMat[c("row1", "row4"), c("col2", "col3")]
 jMat[-c(2, 3), c(TRUE, TRUE, FALSE, FALSE)] # wacky but possible
 ```
 
-Under the hood, of course, matrices are just vectors with some extra facilities for indexing. R is a [column-major order][wiki-row-col-major-order] language, in contrast to C and Python which use row-major order. What this means is that in the underlying vector storage of a matrix, the columns are stacked up one after the other. Matrices can be indexed *exactly* like a vector, i.e. with no comma $i,j$ business, like so:
+Under the hood, of course, matrices are just vectors with some extra facilities for indexing. R is a [column-major order](https://en.wikipedia.org/wiki/Row-_and_column-major_order) language, in contrast to C and Python which use row-major order. What this means is that in the underlying vector storage of a matrix, the columns are stacked up one after the other. Matrices can be indexed *exactly* like a vector, i.e. with no comma $i,j$ business, like so:
+
 ```{r}
 jMat[7]
 jMat
 ```
+
 How to understand this: start counting in the upper left corner, move down the column, continue  from the top of column 2 and you'll land on the element "x32" when you get to 7.
 
 If you have meaningful, systematic row or column names, there are many possibilities for indexing via regular expressions. Maybe we will talk about `grep` later....
+
 ```{r}
 jMat[1, grepl("[24]", colnames(jMat))]
 ```
 
 Note also that one can put an indexed matrix on the receiving end of an assignment operation and, as long as your replacement values have valid shape or extent, you can change the matrix.
+
 ```{r}
 jMat["row1", 2:3] <- c("HEY!", "THIS IS NUTS!")
 jMat
@@ -361,13 +372,14 @@ str(multiMat)
 
 This behind the scenes tour is still aimed at making you a better data analyst. Hopefully the slog through vectors, matrices, and lists will be redeemed by greater prowess at manipulating data.frames. Why should this be true?
 
-* a data.frame is a *list*
-* the list elements are the variables and they are *atomic vectors*
+* A data.frame is a *list*
+* The list elements are the variables and they are *atomic vectors*
 * data.frames are rectangular, like their matrix friends, so your intuition -- and even some syntax -- can be borrowed from the matrix world
 
 A data.frame is a list that quacks like a matrix.
 
 Reviewing list-style indexing of a data.frame:
+
 ```{r}
 jDat
 jDat$z
@@ -377,6 +389,7 @@ str(jDat[[iWantThis]]) # we get an atomic vector
 ```
 
 Reviewing vector-style indexing of a data.frame:
+
 ```{r}
 jDat["y"]
 str(jDat["y"]) # we get a data.frame with one variable, y
@@ -387,6 +400,7 @@ str(subset(jDat, select = c(w, v))) # using subset() function
 ```
 
 Demonstrating matrix-style indexing of a data.frame:
+
 ```{r end_indexing, tidy = FALSE}
 jDat[ , "v"]
 str(jDat[ , "v"])
@@ -433,7 +447,7 @@ subset(jDat, subset = z)
 +-----------+---------------+-----------+-----------+
 ```
 
-Thinking about objects according to the flavors above will work fairly well for most purposes most of the time, at least when you're first getting started. Notice that most rows in the table are quite homogeneous, i.e. a logical vector is a logical vector is a logical vector. But the row pertaining to factors is an exception, which highlights the special nature of factors. (for more, go [here](#factors-boss)).
+Thinking about objects according to the flavors above will work fairly well for most purposes most of the time, at least when you're first getting started. Notice that most rows in the table are quite homogeneous, i.e. a logical vector is a logical vector is a logical vector. But the row pertaining to factors is an exception, which highlights the special nature of factors. (For more, go [here](#factors-boss)).
 
 <!--JB:
 > JB note to self. Possible TO ADD but probably belongs in separate tutorial on changing and adding to data.frames: cbind and rbind with data.frames, transform(). do.call() tricks for data.frames. adding/removing variables to/from data.frames. Does this belong in earlier tutorial on the care and feeding of a data.frame? Fits in well with subset(), after all.

@@ -12,14 +12,14 @@ We recently learned how to write our own R functions ([part 1](#functions-part1)
 
 Now we use that knowledge to write another useful function, within the context of the Gapminder data:
 
-* Input: a data.frame that contains (at least) a life expectancy variable `lifeExp` and a variable for year `year`
-* Output: a vector of estimated intercept and slope, from a linear regression of `lifeExp` on `year`
+* __Input:__ a data.frame that contains (at least) a life expectancy variable `lifeExp` and a variable for year `year`
+* __Output:__ a vector of estimated intercept and slope, from a linear regression of `lifeExp` on `year`
   
 The ultimate goal is to apply this function to the Gapminder data for a specific country. We will eventually scale up to *all* countries using external machinery, e.g., the `dplyr::group_by()` + `dplyr::do()`.
 
 ## Load the Gapminder data
 
-As usual, load gapminder. Load ggplot2 because we'll make some plots and load dplyr too.
+As usual, load [gapminder]. Load [ggplot2] because we'll make some plots and load [dplyr] too.
 
 ```{r message = FALSE}
 library(gapminder)
@@ -47,6 +47,7 @@ p + geom_point() + geom_smooth(method = "lm", se = FALSE)
 ## Get some code that works
 
 Fit the regression:
+
 ```{r}
 j_fit <- lm(lifeExp ~ year, j_dat)
 coef(j_fit)
@@ -63,7 +64,7 @@ coef(j_fit)
 
 There are two things above that might prompt questions.
 
-First, how did I know to get the estimated coefficients from a fitted model via `coef()`? Years of experience. But how might a novice learn such things? Read [the documentation for `lm()`][rdocs-lm], in this case. The "See also" section advises us about many functions that can operate on fitted linear model objects, including, but by no means limited to, `coef()`. Read [the documentation on `coef()`][rdocs-coef] too.
+First, how did I know to get the estimated coefficients from a fitted model via `coef()`? Years of experience. But how might a novice learn such things? Read [the documentation for `lm()`](https://rdrr.io/r/stats/lm.html), in this case. The "See also" section advises us about many functions that can operate on fitted linear model objects, including, but by no means limited to, `coef()`. Read [the documentation on `coef()`](https://rdrr.io/r/stats/coef.html) too.
 
 Second, what am I doing here: `lm(lifeExp ~ I(year - 1952))`? I want the intercept to correspond to 1952 and an easy way to accomplish that is to create a new predictor on the fly: year minus 1952. The way I achieve that in the model formula, `I(year - 1952)`, uses the `I()` function which "inhibits interpretation/conversion of objects". By protecting the expression `year - 1952`, I ensure it is interpreted in the obvious arithmetical way.
 
@@ -123,7 +124,6 @@ le_lin_fit(gapminder %>% filter(country == "Zimbabwe"))
 Yes.
 
 Given how I plan to use this function, I don't feel the need to put it under formal unit tests or put in argument validity checks. 
-
 
 ```{r links, child="links.md"}
 ```
