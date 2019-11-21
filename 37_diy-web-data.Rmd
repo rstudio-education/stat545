@@ -19,7 +19,7 @@ In Chapter \@ref(api-wrappers) we experimented with several packages that "wrapp
 
 ### Load the tidyverse
 
-We will be using the functions from the [tidyverse] throughout this chapter, so go ahead and load tidyverse package now.
+We will be using the functions from the [tidyverse] throughout this chapter, so go ahead and load the tidyverse package now.
 
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -27,7 +27,7 @@ library(tidyverse)
 
 ### Examine the structure of API requests using the Open Movie Database
 
-First we're going to examine the structure of API requests via the [Open Movie Database](http://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDb, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
+First, we're going to examine the structure of API requests via the [Open Movie Database](http://www.omdbapi.com/) (OMDb). OMDb is very similar to IMDb, except it has a nice, simple API. We can go to the website, input some search parameters, and obtain both the XML query and the response from it. 
 
 <!--TODO: Will frequently get an "Error: Daily request limit reached" message when using the demo. Seems to be an issue on their end: https://github.com/omdbapi/OMDb-API/issues/124 Maybe remove this exercise from the chapter to avoid problems?-->
 
@@ -123,27 +123,27 @@ This tells us that we need an API key to access the OMDb API. We will store our 
 
 Now we follow the rOpenSci [tutorial on API keys](https://github.com/ropensci/rOpenSci/wiki/Installation-and-use-of-API-keys):
 
-* ___Add `.Rprofile` to your `.gitignore` !!___
-* Make a `.Rprofile` file ([windows tips](http://cran.r-project.org/bin/windows/rw-FAQ.html#What-are-HOME-and-working-directories_003f); [mac tips](http://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#The-R-Console)).
-* Write the following in it:
+1. __Add `.Rprofile` to your `.gitignore` !!__
+1. Make a `.Rprofile` file ([windows tips](http://cran.r-project.org/bin/windows/rw-FAQ.html#What-are-HOME-and-working-directories_003f); [mac tips](http://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#The-R-Console)).
+1. Write the following in it:
 
-```{r eval = FALSE}
-options(OMBD_API_KEY = "YOUR_KEY")
-```
+    ```{r eval = FALSE}
+    options(OMBD_API_KEY = "YOUR_KEY")
+    ```
 
-* Restart R (i.e. reopen your RStudio project).
+1. Restart R (i.e. reopen your RStudio project).
 
 This code adds another element to the list of options, which you can see by calling `options()`. Part of the work done by `rplos::searchplos()` and friends is to go and obtain the value of this option with the function `getOption("OMBD_API_KEY")`.  This indicates two things: 
 
 1. Spelling is important when you set the option in your `.Rprofile`
 2. You can do a similar process for an arbitrary package or key. For example:
 
-```{r eval = FALSE}
-## in .Rprofile
-options("this_is_my_key" = XXXX)
-## later, in the R script:
-key <- getOption("this_is_my_key")
-```
+    ```{r eval = FALSE}
+    ## in .Rprofile
+    options("this_is_my_key" = XXXX)
+    ## later, in the R script:
+    key <- getOption("this_is_my_key")
+    ```
 
 This is a simple means to keep your keys private, especially if you are sharing the same authentication across several projects.
 
@@ -329,19 +329,19 @@ Not exactly the result we were hoping for! However, this does tell us about the 
 * It has a `<root>` node, which has a single child node, `<movie>`. 
 * The information we want is all stored as attributes (e.g. title, year, etc.).
 
-The xml2 package has various functions to assist in navigating through XML. We can use the `xml_children()` function to extract all of the children nodes (i.e. the single child, `<movie>`):
+The xml2 package has various functions to assist in navigating through XML. We can use the `xml_children()` function to extract all of the children nodes (i.e. the single child, `<movie>`).
 
 ```{r}
 (contents <- xml_contents(xml_parsed))
 ```
 
-The `xml_attrs()` function "retrieves all attribute values as a named character vector". Let's use this to extract the information that we want from the `<movie>` node:
+The `xml_attrs()` function "retrieves all attribute values as a named character vector". Let's use this to extract the information that we want from the `<movie>` node.
 
 ```{r}
 (attrs <- xml_attrs(contents)[[1]])
 ```
 
-We can transform this named character vector into a data frame with the help of `dplyr::bind_rows()`:
+We can transform this named character vector into a data frame with the help of `dplyr::bind_rows()`.
 
 ```{r}
 attrs %>% 
@@ -351,7 +351,7 @@ attrs %>%
 
 ## Introducing the easy way: httr
 
-The [httr] package is yet another star in the [tidyverse]. It is designed to facilitate all things HTTP from within R. This includes the major HTTP verbs, which are:
+The [httr] package is yet another star in the tidyverse. It is designed to facilitate all things HTTP from within R. This includes the major HTTP verbs, which are:
 
 <!--TODO: Find source for these definitions-->
 * __`GET()`__ - Fetch an existing resource. The URL contains all the necessary information the server needs to locate and return the resource.
@@ -536,7 +536,7 @@ glimpse(research)
 
 ### Airports
 
-First, go to this website about [Airports](https://www.developer.aero/Airport-API). Follow the link to get your API key (you will need to click a confirmation email).
+First, go to this website about [airports](https://www.developer.aero/Airport-API). Follow the link to get your API key (you will need to click a confirmation email).
 
 List of all the airports on the planet:
 

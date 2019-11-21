@@ -228,11 +228,11 @@ If you are not, are you getting the error message that's characteristic of a "sp
 
 The goal of this activity is to create a pipeline that will...
 
-* Obtain a large file of English words.
-* Calculate a histogram of word lengths.
-* Determine the most common word length.
-* Generate a figure of this histogram.
-* Render a R Markdown report in HTML and PDF.
+1. Obtain a large file of English words.
+1. Calculate a histogram of word lengths.
+1. Determine the most common word length.
+1. Generate a figure of this histogram.
+1. Render a R Markdown report in HTML and PDF.
 
 You will automate this pipeline using `make`!
 
@@ -372,11 +372,11 @@ Create the R script `histogram.r` that reads the list of words from `words.txt` 
 
 __Suggested workflow:__
 
-* Develop your `histogram.r` script interactively. Make sure it works when you step through it line-by-line. Debugging only gets harder once you're running entire scripts at arm's length via `make`!
-* Remove `histogram.tsv`. Clean out the workspace and restart R. Run `histogram.r` via `source()` or using RStudio's Source button. Make sure it works!
-* Add the `histogram.tsv` rule to your `Makefile`.
-* Remove `histogram.tsv` and regenerate it via `make histogram.tsv` from the [shell].
-* *Git folks:* Commit.
+1. Develop your `histogram.r` script interactively. Make sure it works when you step through it line-by-line. Debugging only gets harder once you're running entire scripts at arm's length via `make`!
+1. Remove `histogram.tsv`. Clean out the workspace and restart R. Run `histogram.r` via `source()` or using RStudio's Source button. Make sure it works!
+1. Add the `histogram.tsv` rule to your `Makefile`.
+1. Remove `histogram.tsv` and regenerate it via `make histogram.tsv` from the [shell].
+1. *Git folks:* Commit.
   
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/889e01a3d610e900c7e58ebd32a0506c61543fd9).
 
@@ -393,13 +393,13 @@ clean:
 
 __Suggested workflow:__
 
-* Use `make clean` from the shell and/or *RStudio > Build > More > Clean All*.
-  - Do `words.txt` and `histogram.tsv` go away?
-  - *Git folks:* does the deletion of these files show up in your Git tab?
-* Use `make all` from the shell and/or *RStudio > Build > Build All* to get `words.txt` back.
-  - Does it come back?
-  - *Git folks:* does the restoration of the files cause them to drop off your radar as changed/deleted files?
-* *Git folks:* Commit.
+1. Use `make clean` from the shell and/or *RStudio > Build > More > Clean All*.
+    - Do `words.txt` and `histogram.tsv` go away?
+    - *Git folks:* does the deletion of these files show up in your Git tab?
+1. Use `make all` from the shell and/or *RStudio > Build > Build All* to get `words.txt` back.
+    - Does it come back?
+    - *Git folks:* does the restoration of the files cause them to drop off your radar as changed/deleted files?
+1. *Git folks:* Commit.
 
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/4f392d0e20bb7e4bfcdc00a812190e40e27ae3d4).
 
@@ -414,15 +414,15 @@ histogram.png: histogram.tsv
 
 __Suggested workflow:__
 
-* Test the histogram-drawing code in the R Console to make sure it works.
-* Inspect the resulting PNG to make sure it's good.
-* Clean up after yourself.
-* Add the above rule to your `Makefile`.
-* Test that new rule works.
-* If you get an unexpected empty plot `Rplots.pdf`, don't worry about it yet.
-* Update the `all` and `clean` targets in light of this addition to the pipeline.
-* Test the new definitions of `all` and `clean`.
-* *Git folks:* commit.
+1. Test the histogram-drawing code in the R Console to make sure it works.
+1. Inspect the resulting PNG to make sure it's good.
+1. Clean up after yourself.
+1. Add the above rule to your `Makefile`.
+1. Test that new rule works.
+1. If you get an unexpected empty plot `Rplots.pdf`, don't worry about it yet.
+1. Update the `all` and `clean` targets in light of this addition to the pipeline.
+1. Test the new definitions of `all` and `clean`.
+1. *Git folks:* commit.
 
 *NOTE: Why are we writing this PNG to file when, by the end of the activity, we are writing an R Markdown report? We could include this figure-making code in an R chunk there. We're doing it this way to demonstrate more about R and `make` workflows. Plus sometimes we do work this way in real life, if a figure has a life outside one specific R Markdown report.*
 
@@ -444,11 +444,11 @@ histogram.png: histogram.tsv
 
 __Suggested workflow:__
 
-* Remove `Rplots.pdf` manually
-* Add the `rm Rplots.pdf` command to the `histogram.png` rule.
-* Test that new rule works.
-* Test that behavior of `all` and `clean` still good.
-* *Git folks:* commit.
+1. Remove `Rplots.pdf` manually
+1. Add the `rm Rplots.pdf` command to the `histogram.png` rule.
+1. Test that new rule works.
+1. Test that behavior of `all` and `clean` still good.
+1. *Git folks:* commit.
 
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/3b75dac0d0cd8dd7e7cd3c2e66799a65d90b9fff).
 
@@ -472,14 +472,14 @@ Create the R Markdown file `report.rmd` that reads the table of word lengths `hi
 
 __Suggested workflow:__
 
-* Develop `report.rmd`, running the R chunks often, from a clean workspace and fresh R session. Debugging only gets harder once you're rendering entire reports at arm's length via `make`!
-* Render the report using `rmarkdown::render()` in the Console or RStudio's Preview HTML button.
-* Clean up after yourself.
-* Add the above rule for `report.html` to your `Makefile`.
-* Test that new rule works.
-* Update the `all` and `clean` targets in light of this addition to the pipeline.
-* Test the new definitions of `all` and `clean`.
-* *Git folks:* commit.
+1. Develop `report.rmd`, running the R chunks often, from a clean workspace and fresh R session. Debugging only gets harder once you're rendering entire reports at arm's length via `make`!
+1. Render the report using `rmarkdown::render()` in the Console or RStudio's Preview HTML button.
+1. Clean up after yourself.
+1. Add the above rule for `report.html` to your `Makefile`.
+1. Test that new rule works.
+1. Update the `all` and `clean` targets in light of this addition to the pipeline.
+1. Test the new definitions of `all` and `clean`.
+1. *Git folks:* commit.
   
 See the sample project at this point in [this commit](https://github.com/STAT545-UBC/make-activity/tree/91ebcfc7d25743ebd8d6c9684ed7923ad4758585).
 

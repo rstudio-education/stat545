@@ -23,7 +23,7 @@ There are many ways to obtain data from the internet; let's consider four catego
 In the simplest case, the data you need is already on the internet in a tabular format. There are a couple of strategies here:
 
 * Use `read.csv()` or `readr::read_csv()` to read the data straight into R.
-* Use the command line program curl to do that work, and place it in a `Makefile` or shell script (see the [section on make](#automation-overview) for more on this).
+* Use the command line program curl to do that work, and place it in a `Makefile` or shell script (see the [chapters on make](#automation-overview) for more on this).
 
 The second case is most useful when the data you want has been provided in a format that needs cleanup. For example, the World Value Survey makes several datasets available as Excel sheets. The safest option here is to download the `.xls` file, then read it into R with `readxl::read_excel()` or something similar. An exception to this is data provided as Google Spreadsheets, which can be read straight into R using the [googlesheets] package.
 
@@ -58,6 +58,8 @@ Why would we want this?
 * Scaling
 
 ### Load the tidyverse
+
+We will be using the functions from the [tidyverse] throughout this chapter, so go ahead and load the tidyverse package now.
 
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -157,7 +159,7 @@ library(usethis)
 edit_r_profile()
 ```
 
-This will open up your `.Rprofile` file. Add `options(geonamesUsername="my_user_name")` on a new line (replace "my_user_name" with your GeoNames username). 
+This will open up your `.Rprofile` file. Add `options(geonamesUsername="my_user_name")` on a new line, replacing `"my_user_name"` with your GeoNames username. 
 
 **Important**: Make sure your `.Rprofile` ends with a blank line! 
 
@@ -246,8 +248,7 @@ searchplos("materials_and_methods:study site", fl = "title, materials_and_method
 searchplos("*:*", fl = "id")
 ```
 
-Here is a list of [options for the search](http://api.plos.org/solr/search-fields/) or you can run `data(plosfields)` followed by `plosfields` in the R Console.
-
+You can see a list of the available search fields [here](http://api.plos.org/solr/search-fields/), or you can run `data(plosfields)` followed by `plosfields` in the R Console.
 
 #### Take a highbrow look!
 
@@ -271,7 +272,7 @@ We can use the `plot_throughtime()` function to visualize the results of a searc
 plot_throughtime(terms = "phylogeny", limit = 200)
 ```
 
-### Is it a boy or a girl? gender-associated names throughout US history
+### Gender-associated names throughout US history: gender
 
 The [gender] package (on [CRAN](https://cloud.r-project.org/package=gender); on [GitHub](https://github.com/ropensci/gender)) allows you access to data on the gender of names in the US. Because names change gender over the years, the probability of a name belonging to a man or a woman also depends on the *year*. 
 

@@ -15,7 +15,7 @@ Many people have written packages that enhance Shiny in some way or add extra fu
 
 * [shinyjs] - Enhance user experience in Shiny apps using JavaScript functions without knowing JavaScript (on [CRAN](https://cloud.r-project.org/package=shinyjs); on [GitHub](https://github.com/daattali/shinyjs)).
 
-* [leaflet][leaflet-web] - Add interactive maps to your apps (on [CRAN](https://cloud.r-project.org/package=leaflet); on [GitHub](https://github.com/rstudio/leaflet)).
+* [leaflet][leaflet] - Add interactive maps to your apps (on [CRAN](https://cloud.r-project.org/package=leaflet); on [GitHub](https://github.com/rstudio/leaflet)).
 
 * [ggvis] - Similar to [ggplot2], but the plots are focused on being web-based and are more interactive (on [CRAN](https://cloud.r-project.org/package=ggvis); on [GitHub](https://github.com/rstudio/ggvis)). *Currently dormant*
 
@@ -29,7 +29,7 @@ Shiny is a very popular package and has lots of resources on the web. Here's a c
 - Official [Shiny] website
 - Official [Shiny tutorial]
 - RStudio [Shiny Cheat Sheet]
-- [Lots of short useful articles about different topics in Shiny - **highly recommended**](https://shiny.rstudio.com/articles/)
+- [Lots of short useful articles about different topics in Shiny](https://shiny.rstudio.com/articles/) - **highly recommended**
 - [Shiny in R Markdown](http://rmarkdown.rstudio.com/authoring_shiny.html)
 - Get help from the [Shiny Google group](https://groups.google.com/forum/#!forum/shiny-discuss) or [StackOverflow](https://stackoverflow.com/questions/tagged/shiny)
 - Publish your apps for free with [shinyapps.io]

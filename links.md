@@ -46,7 +46,7 @@
 [shinythemes]: https://rstudio.github.io/shinythemes/
 [shinyjs]: https://deanattali.com/shinyjs/
 [leaflet]: https://rstudio.github.io/leaflet/
-[ggvis-web]: https://ggvis.rstudio.com
+[ggvis]: https://ggvis.rstudio.com
 [shinydashboard]: https://rstudio.github.io/shinydashboard/
 
 <!--Packages: vignettes & CRAN/GitHub links-->
@@ -73,25 +73,10 @@
 [r4ds-transform]: https://r4ds.had.co.nz/transform.html
 [r4ds-readr-strings]: https://r4ds.had.co.nz/data-import.html#readr-strings
 
-<!--Misc.-->
-[rOpenSci]: https://ropensci.org
-[wiki-snake-case]: https://en.wikipedia.org/wiki/Snake_case
-[Janus]: https://en.wikipedia.org/wiki/Janus
-
 <!--RStudio Cheat Sheets--> 
 [RStudio Data Transformation Cheat Sheet]: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
 [Regular Expressions in R Cheat Sheet]: https://github.com/rstudio/cheatsheets/raw/master/regex.pdf
 [Shiny Cheat Sheet]: https://shiny.rstudio.com/articles/cheatsheet.html
-
-
-<!--Papers/Books Cited-->
-["Dates and Times Made Easy with lubridate"]: https://www.jstatsoft.org/article/view/v040i03
-["testthat: Get Started with Testing"]: https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
-["Let's Practice What We Preach"]: https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents
-[Creating More Effective Graphs]: https://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123
-["Escaping RGBland: Selecting Colors for Statistical Graphs"]: https://eeecon.uibk.ac.at/~zeileis/papers/Zeileis+Hornik+Murrell-2009.pdf
-["A layered grammar of graphics"]: https://vita.had.co.nz/papers/layered-grammar.html
-[Managing Projects with GNU Make, 3rd Edition]: http://shop.oreilly.com/product/9780596006105.do
 
 <!--Blog posts, slides, & papers-->
 ["minimal make: a minimal tutorial on make"]: https://kbroman.org/minimal_make/
@@ -102,4 +87,18 @@
 ["What Every Programmer Absolutely, Positively Needs To Know About Encodings And Character Sets To Work With Text"]: http://kunststube.net/encoding/
 ["3 Steps to Fix Encoding Problems in Ruby"]: https://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/
 ["My favorite RGB color"]: https://manyworldstheory.com/2013/01/15/my-favorite-rgb-color/
+
+<!--Papers/Books Cited-->
+["Dates and Times Made Easy with lubridate"]: https://www.jstatsoft.org/article/view/v040i03
+["testthat: Get Started with Testing"]: https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+["Let's Practice What We Preach"]: https://www.jstor.org/stable/3087382?seq=1#page_scan_tab_contents
+[Creating More Effective Graphs]: https://www.amazon.com/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123
+["Escaping RGBland: Selecting Colors for Statistical Graphs"]: https://eeecon.uibk.ac.at/~zeileis/papers/Zeileis+Hornik+Murrell-2009.pdf
+["A layered grammar of graphics"]: https://vita.had.co.nz/papers/layered-grammar.html
+[Managing Projects with GNU Make, 3rd Edition]: http://shop.oreilly.com/product/9780596006105.do
 ["Why Should Engineers and Scientists Be Worried About Color?"]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwi0xYqJ8JbjAhWNvp4KHViYDxsQFjABegQIABAC&url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FAhmed_Elhattab2%2Fpost%2FPlease_suggest_some_good_3D_plot_tool_Software_for_surface_plot%2Fattachment%2F5c05ba35cfe4a7645506948e%2FAS%253A699894335557644%25401543879221725%2Fdownload%2FWhy%2BShould%2BEngineers%2Band%2BScientists%2BBe%2BWorried%2BAbout%2BColor_.pdf&usg=AOvVaw1qwjjGMd7h_z6TLUjzu7Nb
+
+<!--Misc.-->
+[rOpenSci]: https://ropensci.org
+[wiki-snake-case]: https://en.wikipedia.org/wiki/Snake_case
+[Janus]: https://en.wikipedia.org/wiki/Janus
