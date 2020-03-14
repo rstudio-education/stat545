@@ -259,7 +259,7 @@ str_subset(my_fruit, pattern = "d")
 str_subset(my_fruit, pattern = "^d")
 ```
 
-The metacharacter `\b` indicates a **word boundary** and `\B` indicates NOT a word boundary. This is our first encounter with something called "escaping" and right now I just want you at accept that we need to prepend a second backslash to use these sequences in regexes in R. We'll come back to this tedious point later.
+The metacharacter `\b` indicates a **word boundary** and `\B` indicates NOT a word boundary. This is our first encounter with something called "escaping" and right now I just want you to accept that we need to prepend a second backslash to use these sequences in regexes in R. We'll come back to this tedious point later.
 
 ```{r}
 str_subset(fruit, pattern = "melon")
