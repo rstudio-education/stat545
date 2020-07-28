@@ -308,7 +308,7 @@
 [stackexchange-outage]: https://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016
 [email-regex]: https://emailregex.com
 [fix-atom-bug]: https://davidvgalbraith.com/how-i-fixed-atom/
-[icu-regex]: https://userguide.icu-project.org/strings/regexp
+[icu-regex]: http://userguide.icu-project.org/strings/regexp
 [regex101]: https://regex101.com
 [regexr]: https://regexr.com
 [utf8-debug]: http://www.i18nqa.com/debug/utf8-debug.html
