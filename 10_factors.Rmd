@@ -97,7 +97,7 @@ __Exercise:__ Filter the gapminder data down to rows where population is less th
 
 * `droplevels()`
 * `fct_drop()` inside `mutate()`
-* `fct_dopr()` with `mutate_at()` or `mutate_if()`
+* `fct_drop()` with `mutate_at()` or `mutate_if()`
 
 ```{r, eval = FALSE, include = FALSE}
 low_pop <- gapminder %>% 
