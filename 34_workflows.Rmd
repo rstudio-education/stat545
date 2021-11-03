@@ -51,6 +51,7 @@ Although we spend a lot of time working with data interactively, this sort of ha
   + [Drake](https://github.com/Factual/drake), a kind of "make for data"
   + [Nextflow](https://www.nextflow.io) for "data-driven computational pipelines"
   + [`remake`](https://github.com/richfitz/remake), "Make-like declarative workflows in R"
+  + [{makepipe} 0.0.4](https://cran.r-project.org/package=makepipe), Pipeline Tools Inspired by 'GNU Make'
 * [Managing Projects with GNU Make, 3rd Edition](http://shop.oreilly.com/product/9780596006105.do) by Robert Mecklenburg [-@mecklenburg2009] is a fantastic book but, sadly, is very focused on compiling software.
 * [`littler`](http://dirk.eddelbuettel.com/code/littler.html) is an R package maintained by Dirk Eddelbuettel that "provides the `r` program, a simplified command-line interface for GNU R."
 
