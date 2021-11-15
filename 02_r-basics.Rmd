@@ -231,7 +231,7 @@ abline(a, b, col = "purple")
 dev.print(pdf, "toy_line_plot.pdf")
 ```
 
-Let's say this is a good start of an analysis and your ready to start preserving the logic and code. Visit the History tab of the upper right pane. Select these commands. Click "To Source". Now you have a new pane containing a nascent R script. Click on the floppy disk to save. Give it a name ending in `.R` or `.r`, I used `toy-line.r` and note that, by default, it will go in the directory associated with your project.
+Let's say this is a good start of an analysis and you are ready to start preserving the logic and code. Visit the History tab of the upper right pane. Select these commands. Click "To Source". Now you have a new pane containing a nascent R script. Click on the floppy disk to save. Give it a name ending in `.R` or `.r`, I used `toy-line.r` and note that, by default, it will go in the directory associated with your project.
 
 Quit RStudio. Inspect the folder associated with your project if you wish. Maybe view the PDF in an external viewer.
 
