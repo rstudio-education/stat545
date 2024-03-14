@@ -50,6 +50,7 @@ A God-awful and powerful language for expressing patterns to match in text or fo
 * Regex testers:
   - [regex101.com][regex101]
   - [regexr.com][regexr]
+  - [extendsclass.com/regex-tester.html][cyrilex]
 * [`rex` R package][rex-github]: make regular expression from human readable expressions.
 * Base functions: `grep()` and friends.
 
